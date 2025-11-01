@@ -1,0 +1,499 @@
+/* ==========================================================================
+   SERVICE • Italian Plaster (Venedik/Stucco)
+   Scope: .service.italian-plaster  (diğer sayfalara çarpmaz)
+   Theme: marble + platinum + indigo accent, cam/ışık yansımalı detaylar
+   ========================================================================== */
+
+.service.italian-plaster{
+  /* Design tokens */
+  --accent: #8D96FF;         /* venedik indigo (premium) */
+  --accent-ink: #3f46a9;     /* koyu tonu */
+  --ink: #0F172A;            /* ana metin */
+  --muted: #4B5563;
+  --muted-2:#6B7280;
+
+  --bg: #FAFAFB;
+  --surface:#FFFFFF;
+
+  --ring: rgba(15,23,42,.08);
+  --ring-strong: rgba(15,23,42,.14);
+
+  --radius-s: 12px;
+  --radius-m: 16px;
+  --radius-l: 22px;
+
+  --shadow-sm: 0 1px 2px rgba(10,10,20,.06);
+  --shadow-md: 0 6px 18px rgba(10,10,20,.12);
+  --shadow-lg: 0 16px 38px rgba(10,10,20,.16);
+
+  --max: 1200px;
+  --pad: clamp(16px,3vw,40px);
+}
+
+.service.italian-plaster .container{ max-width:min(var(--max),96vw); margin-inline:auto; padding-inline:var(--pad); }
+.service.italian-plaster section{ padding: clamp(34px,6vw,70px) 0; position:relative; }
+.service.italian-plaster h1,.service.italian-plaster h2,.service.italian-plaster h3{ font-weight:900; letter-spacing:-.01em; color:var(--ink); }
+.service.italian-plaster .sec-title{ margin:.2rem 0 .55rem; }
+.service.italian-plaster .hero__lead,.service.italian-plaster .sec-desc{ color:var(--muted); max-width:68ch; }
+
+/* Utilities --------------------------------------------------------------- */
+.service.italian-plaster .grid{ display:grid; gap: clamp(12px,2vw,18px); }
+.service.italian-plaster .grid--cols-2{ grid-template-columns:1fr; }
+@media (min-width:960px){ .service.italian-plaster .grid--cols-2{ grid-template-columns:repeat(2,1fr);} }
+.service.italian-plaster .grid--cards-3{ grid-template-columns:1fr; }
+@media (min-width:720px){ .service.italian-plaster .grid--cards-3{ grid-template-columns:repeat(2,1fr);} }
+@media (min-width:1024px){ .service.italian-plaster .grid--cards-3{ grid-template-columns:repeat(3,1fr);} }
+.service.italian-plaster .grid--cards-4{ grid-template-columns:1fr; }
+@media (min-width:900px){ .service.italian-plaster .grid--cards-4{ grid-template-columns:repeat(4,1fr);} }
+
+.service.italian-plaster .muted{ color:var(--muted); }
+.service.italian-plaster .sr-only{ position:absolute !important; width:1px; height:1px; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); }
+
+/* Buttons (scoped) ------------------------------------------------------- */
+.service.italian-plaster .btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.55rem;
+  padding:.9rem 1.15rem; border-radius:var(--radius-m);
+  font-weight:900; font-size:.98rem; border:1px solid transparent; cursor:pointer;
+  transition: transform .06s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+}
+.service.italian-plaster .btn:active{ transform: translateY(1px); }
+.service.italian-plaster .btn--primary{
+  background: var(--accent); color:#fff; border-color: var(--accent);
+  box-shadow: 0 18px 42px color-mix(in oklab,var(--accent) 45%, rgba(0,0,0,.0));
+}
+.service.italian-plaster .btn--primary:hover{ filter:brightness(1.06); box-shadow:0 26px 56px color-mix(in oklab,var(--accent) 55%, rgba(0,0,0,.0)); }
+.service.italian-plaster .btn--ghost{ background:#fff; color:var(--ink); border-color:var(--ring); }
+.service.italian-plaster .btn--ghost:hover{ background:#f9f9fb; border-color:var(--ring-strong); }
+
+/* Chips (areas/filter) --------------------------------------------------- */
+.service.italian-plaster .chips{ display:flex; flex-wrap:wrap; gap:.5rem; padding:0; list-style:none; }
+.service.italian-plaster .chip{
+  display:inline-flex; align-items:center; gap:.4rem; padding:.42rem .75rem;
+  border-radius:999px; font-weight:800; font-size:.92rem; background:#fff; border:1px solid var(--ring);
+  transition: background .2s ease, border-color .2s ease, box-shadow .2s ease, transform .06s ease;
+}
+.service.italian-plaster .chip:hover{ background:#f5f7ff; border-color: color-mix(in oklab,var(--accent) 35%, var(--ring-strong)); box-shadow:var(--shadow-sm); transform:translateY(-1px); }
+
+/* ==========================================================================
+   HERO + Breadcrumb (marble & gloss)
+   ========================================================================== */
+.service.italian-plaster .svc-hero{
+  background:
+    radial-gradient(1100px 420px at 10% -6%, color-mix(in oklab, var(--accent) 14%, transparent) 0%, transparent 62%),
+    conic-gradient(from 200deg at 75% -10%, rgba(255,255,255,.7), rgba(255,255,255,0) 40%),
+    linear-gradient(180deg, #fff 0%, #F6F7FB 100%);
+  border-bottom:1px solid var(--ring);
+  padding: clamp(70px,9vw,110px) 0 clamp(28px,6vw,44px);
+}
+.service.italian-plaster .hero__title{ font-size: clamp(28px,4.2vw,46px); line-height:1.06; margin:.2rem 0 .35rem; color:var(--ink); }
+
+/* breadcrumbs (glass) */
+.service.italian-plaster .crumbs ol{
+  margin:0 0 .6rem; padding:.48rem .72rem; display:flex; flex-wrap:wrap; gap:.45rem .7rem; align-items:center;
+  border-radius:12px; background:rgba(255,255,255,.78); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  border:1px solid var(--ring); box-shadow:var(--shadow-sm);
+}
+.service.italian-plaster .crumbs li{ list-style:none; display:flex; align-items:center; gap:.6rem; color:var(--muted-2); font-weight:700; }
+.service.italian-plaster .crumbs li+li::before{ content:"›"; color:#9CA3AF; }
+.service.italian-plaster .crumbs a{ color:inherit; text-decoration:none; }
+.service.italian-plaster .crumbs a:hover{ text-decoration:underline; text-underline-offset:3px; }
+
+/* hero media */
+.service.italian-plaster .svc-hero .hero__media{
+  margin-top: clamp(12px,3vw,18px);
+  border-radius: var(--radius-l); overflow:hidden; box-shadow: var(--shadow-lg);
+}
+.service.italian-plaster .svc-hero .hero__media img{ width:100%; height:100%; object-fit:cover; aspect-ratio:16/8; display:block; }
+.service.italian-plaster .svc-hero::after{
+  content:""; position:absolute; inset:auto 0 0 0; height:2px; opacity:.8;
+  background: linear-gradient(90deg,transparent,color-mix(in oklab,var(--accent) 65%,transparent),transparent);
+}
+
+/* ==========================================================================
+   FEATURES (icon cards)
+   ========================================================================== */
+.service.italian-plaster .svc-features{
+  background:
+    radial-gradient(900px 360px at 90% 0%, color-mix(in oklab, var(--accent) 10%, transparent) 0%, transparent 60%),
+    linear-gradient(180deg, #fff 0%, #fafafa 100%);
+  border-top:1px solid var(--ring); border-bottom:1px solid var(--ring);
+}
+.service.italian-plaster .features{ list-style:none; margin:0; padding:0; display:grid; gap:clamp(12px,2vw,16px); grid-template-columns:1fr; }
+@media (min-width:900px){ .service.italian-plaster .features{ grid-template-columns:repeat(4,1fr);} }
+
+.service.italian-plaster .feature{
+  position:relative; display:grid; grid-template-columns:56px 1fr; gap:12px; align-items:flex-start;
+  background:linear-gradient(180deg,#fff 0%,#f8f9fc 100%);
+  border:1px solid var(--ring); border-radius:18px; padding:14px; box-shadow:var(--shadow-sm);
+  transition:border-color .2s ease, box-shadow .25s ease, transform .06s ease;
+  overflow:hidden;
+}
+.service.italian-plaster .feature:hover{ transform:translateY(-1px); border-color:var(--ring-strong); box-shadow:var(--shadow-lg); }
+.service.italian-plaster .feature::before{
+  content:""; position:absolute; left:0; top:0; bottom:0; width:4px; opacity:.55;
+  background: linear-gradient(180deg, color-mix(in oklab, var(--accent) 55%, #fff), color-mix(in oklab, var(--accent) 25%, #fff));
+}
+.service.italian-plaster .feature__icon{
+  width:56px; height:56px; border-radius:14px; display:grid; place-items:center; font-size:24px;
+  background: color-mix(in oklab, var(--accent) 16%, #fff);
+  border: 1px solid color-mix(in oklab, var(--accent) 35%, #fff);
+  box-shadow: inset 0 -8px 14px rgba(0,0,0,.05);
+}
+.service.italian-plaster .feature h3{ margin:.1rem 0 .15rem; font-size:1.02rem; font-weight:900; letter-spacing:-.01em; }
+.service.italian-plaster .feature p{ grid-column:2/-1; margin:0; color:var(--muted); line-height:1.6; }
+
+/* ==========================================================================
+   FINISH CARDS
+   ========================================================================== */
+.service.italian-plaster .card--finish{
+  background:#fff; border:1px solid var(--ring); border-radius:18px; box-shadow:var(--shadow-sm);
+  padding:14px; display:grid; gap:.6rem; transition:border-color .2s ease, box-shadow .25s ease, transform .06s ease;
+}
+.service.italian-plaster .card--finish:hover{ transform:translateY(-1px); border-color:var(--ring-strong); box-shadow:var(--shadow-md); }
+.service.italian-plaster .card--finish .card__head{ padding-bottom:.35rem; border-bottom:1px dashed var(--ring); }
+.service.italian-plaster .card--finish .card__title{ margin:.1rem 0 .1rem; font-size:1.05rem; }
+.service.italian-plaster .card--finish .card__kicker{ margin:0; color:var(--muted-2); font-weight:700; }
+.service.italian-plaster .list{ margin:.1rem 0 0; padding:0; list-style:none; display:grid; gap:.4rem; color:#374151; }
+.service.italian-plaster .list li{ display:grid; grid-template-columns:18px 1fr; gap:.55rem; align-items:start; }
+.service.italian-plaster .list--tick li::before{
+  content:""; width:12px; height:12px; margin-top:.35rem; border-radius:3px;
+  border:2px solid color-mix(in oklab,var(--accent) 70%, #111);
+}
+
+/* ==========================================================================
+   SURFACES (two columns + note)
+   ========================================================================== */
+.service.italian-plaster .svc-surfaces{ background: linear-gradient(180deg,#fff 0%,#fafafa 100%); }
+.service.italian-plaster .svc-surfaces h3{ margin:.1rem 0 .35rem; font-size:1.02rem; }
+
+/* ==========================================================================
+   TECH (Definition lists)
+   ========================================================================== */
+.service.italian-plaster .svc-tech{ background: linear-gradient(180deg,#fff 0%,#fafafa 100%); }
+.service.italian-plaster .deflist{
+  display:grid; gap:10px; margin:0; padding:0; background:#fff; border:1px solid var(--ring);
+  border-radius:16px; padding:12px; box-shadow:var(--shadow-sm);
+}
+.service.italian-plaster .deflist > div{ display:grid; grid-template-columns: minmax(160px, 1fr) 2fr; gap:.5rem; align-items:start; }
+.service.italian-plaster .deflist dt{ font-weight:900; }
+.service.italian-plaster .deflist dd{ margin:0; color:var(--muted); }
+
+/* ==========================================================================
+   PROCESS (5-step timeline, marble coin numbers)
+   ========================================================================== */
+.service.italian-plaster .svc-process{
+  background:
+    radial-gradient(860px 340px at 90% 0%, color-mix(in oklab,var(--accent) 10%, transparent) 0%, transparent 62%),
+    linear-gradient(180deg,#fff 0%,#fafafa 100%);
+  border-top:1px solid var(--ring); border-bottom:1px solid var(--ring);
+}
+.service.italian-plaster .steps{ list-style:none; margin:0; padding-left:0; display:grid; gap:14px; max-width:900px; margin-inline:auto; }
+.service.italian-plaster .step{
+  position:relative; background:#fff; border:1px solid var(--ring); border-radius:16px;
+  padding:14px 14px 14px 70px; box-shadow:var(--shadow-sm);
+  transition:border-color .2s ease, box-shadow .25s ease, transform .06s ease;
+}
+.service.italian-plaster .step:hover{ transform:translateY(-1px); border-color:var(--ring-strong); box-shadow:var(--shadow-md); }
+.service.italian-plaster .step::before{
+  content:attr(data-step); position:absolute; left:14px; top:14px; width:40px; height:40px; border-radius:12px;
+  display:grid; place-items:center; font-weight:900; color:#111;
+  background:
+    conic-gradient(from 210deg at 30% -10%, rgba(255,255,255,.6), rgba(255,255,255,0) 40%),
+    radial-gradient(120% 80% at 10% 110%, rgba(0,0,0,.08), transparent 60%),
+    color-mix(in oklab, var(--accent) 18%, #fff);
+  border:2px solid color-mix(in oklab,var(--accent) 55%, #fff);
+  box-shadow:0 8px 18px rgba(0,0,0,.10), inset 0 -8px 14px rgba(0,0,0,.03);
+}
+.service.italian-plaster .step__title{ margin:.1rem 0 .1rem; font-weight:900; }
+.service.italian-plaster .step__text{ color:var(--muted); }
+
+/* ==========================================================================
+   PROJECTS + LIGHTBOX
+   ========================================================================== */
+.service.italian-plaster .svc-projects{ background: linear-gradient(180deg,#fff 0%,#fafafa 100%); }
+.service.italian-plaster .project{
+  margin:0; background:#fff; border:1px solid var(--ring); border-radius:16px; overflow:hidden;
+  box-shadow:var(--shadow-sm); display:grid; grid-template-rows:auto minmax(50px,auto);
+  transition:border-color .2s ease, box-shadow .2s ease, transform .06s ease;
+}
+.service.italian-plaster .project:hover{ transform:translateY(-1px); border-color:var(--ring-strong); box-shadow:var(--shadow-md); }
+.service.italian-plaster .project a{ display:block; position:relative; overflow:hidden; }
+.service.italian-plaster .project img{ width:100%; height:auto; display:block; transition:transform .55s ease; }
+.service.italian-plaster .project a:hover img{ transform:scale(1.045); }
+.service.italian-plaster .project a::after{
+  content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent,rgba(0,0,0,.18));
+  opacity:0; transition:opacity .3s ease;
+}
+.service.italian-plaster .project a:hover::after{ opacity:1; }
+.service.italian-plaster .project figcaption{ padding:10px 12px 14px; color:#374151; background:#fff; border-top:1px solid var(--ring); }
+
+/* lightbox */
+.service.italian-plaster .lightbox{ width:min(96vw,1060px); border:none; padding:0; border-radius:16px; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,.35); background:#000; }
+.service.italian-plaster .lightbox::backdrop{ background:rgba(0,0,0,.55); }
+.service.italian-plaster .lightbox__img{ display:block; width:100%; height:auto; }
+.service.italian-plaster .lightbox__close{
+  position:absolute; top:8px; right:8px; width:38px; height:38px; border:none; border-radius:999px;
+  background:rgba(255,255,255,.96); color:#111; font-size:20px; line-height:1; display:grid; place-items:center; cursor:pointer;
+}
+.service.italian-plaster .lightbox__caption{ color:#f3f4f6; padding:10px 12px 14px; }
+
+/* ==========================================================================
+   PRICING NOTES (callout)
+   ========================================================================== */
+.service.italian-plaster .svc-surfaces,
+.service.italian-plaster .svc-pricing-notes{
+  --accent: #8D96FF;
+  --ink: #0F172A;
+  --muted: #4B5563;
+  --ring: rgba(15,23,42,.10);
+  --ring-strong: rgba(15,23,42,.16);
+  --surface: #FFFFFF;
+  --shadow-sm: 0 1px 2px rgba(10,10,20,.06);
+  --shadow-md: 0 8px 24px rgba(10,10,20,.12);
+  --radius: 16px;
+}
+
+/* ========== KULLANIM ALANLARI (svc-surfaces) ========== */
+.service.italian-plaster .svc-surfaces{
+  background:
+    radial-gradient(1000px 380px at 92% -6%,
+      color-mix(in oklab, var(--accent) 10%, transparent) 0%,
+      transparent 60%),
+    linear-gradient(180deg,#fff 0%,#fafafa 100%);
+  border-top:1px solid var(--ring);
+  border-bottom:1px solid var(--ring);
+}
+
+.service.italian-plaster .svc-surfaces .grid{
+  display:grid; gap:clamp(14px,2.2vw,18px);
+  grid-template-columns:1fr;
+}
+@media (min-width: 900px){
+  .service.italian-plaster .svc-surfaces .grid{ grid-template-columns:repeat(2,1fr); }
+}
+
+.service.italian-plaster .svc-surfaces article{
+  background: var(--surface);
+  border:1px solid var(--ring);
+  border-radius: var(--radius);
+  padding: clamp(12px,2.2vw,18px);
+  box-shadow: var(--shadow-sm);
+  transition: border-color .2s ease, box-shadow .25s ease, transform .06s ease;
+}
+.service.italian-plaster .svc-surfaces article:hover{
+  transform: translateY(-1px);
+  border-color: var(--ring-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.service.italian-plaster .svc-surfaces h3{
+  margin:.1rem 0 .4rem;
+  font-size:1.04rem;
+  font-weight:900;
+  letter-spacing:-.01em;
+  color:var(--ink);
+}
+
+/* local list style (tick) */
+.service.italian-plaster .svc-surfaces .list{
+  list-style:none; margin:0; padding:0;
+  display:grid; gap:.55rem; color:#374151;
+}
+.service.italian-plaster .svc-surfaces .list li{
+  display:grid; grid-template-columns:18px 1fr; gap:.55rem; align-items:start;
+}
+.service.italian-plaster .svc-surfaces .list li::before{
+  content:""; width:12px; height:12px; margin-top:.38rem; border-radius:3px;
+  border:2px solid color-mix(in oklab,var(--accent) 70%, #111);
+}
+
+.service.italian-plaster .svc-surfaces .muted{
+  color: var(--muted);
+}
+.service.italian-plaster .svc-surfaces em{
+  font-style:normal; font-weight:800; color:color-mix(in oklab,var(--accent) 65%, #334155);
+}
+
+/* ========== FİYAT NOTLARI (svc-pricing-notes) ========== */
+.service.italian-plaster .svc-pricing-notes{
+  background:
+    radial-gradient(900px 340px at 8% -8%,
+      color-mix(in oklab,var(--accent) 10%, transparent) 0%,
+      transparent 60%),
+    linear-gradient(180deg,#fff 0%,#fafafa 100%);
+  border-top:1px solid var(--ring);
+}
+
+.service.italian-plaster .svc-pricing-notes .grid{
+  display:grid; gap:clamp(14px,2.2vw,18px);
+  grid-template-columns:1fr;
+  align-items:start;
+}
+@media (min-width: 900px){
+  .service.italian-plaster .svc-pricing-notes .grid{ grid-template-columns:1fr 1fr; }
+}
+
+/* left list */
+.service.italian-plaster .svc-pricing-notes .list{
+  list-style:none; margin:0; padding: clamp(12px,2.2vw,16px);
+  background:#fff; border:1px solid var(--ring); border-radius: var(--radius);
+  box-shadow: var(--shadow-sm); display:grid; gap:.55rem;
+}
+.service.italian-plaster .svc-pricing-notes .list li{
+  display:grid; grid-template-columns:20px 1fr; gap:.6rem; align-items:start;
+}
+.service.italian-plaster .svc-pricing-notes .list li::before{
+  content:""; width:12px; height:12px; margin-top:.38rem; border-radius:3px;
+  background: color-mix(in oklab, var(--accent) 18%, #fff);
+  border: 2px solid color-mix(in oklab, var(--accent) 60%, #111);
+}
+
+/* right callout */
+.service.italian-plaster .svc-pricing-notes .note{
+  background:
+    linear-gradient(180deg,#fff 0%,#f8faff 100%),
+    radial-gradient(600px 220px at 10% -25%,
+      color-mix(in oklab,var(--accent) 12%, transparent) 0%,
+      transparent 70%);
+  border:1px solid var(--ring);
+  border-radius: var(--radius);
+  padding: clamp(12px,2.2vw,18px);
+  box-shadow: var(--shadow-sm);
+}
+.service.italian-plaster .svc-pricing-notes .note .muted{ color: var(--muted); }
+
+.service.italian-plaster .svc-pricing-notes .note strong{
+  color: color-mix(in oklab, var(--accent) 70%, #1f2937);
+}
+
+/* focus styles */
+.service.italian-plaster .svc-surfaces article:focus-within,
+.service.italian-plaster .svc-pricing-notes .list:focus-within,
+.service.italian-plaster .svc-pricing-notes .note:focus-within{
+  outline:none;
+  box-shadow: 0 0 0 3px color-mix(in oklab,var(--accent) 22%, transparent), var(--shadow-md);
+  border-color: color-mix(in oklab,var(--accent) 50%, var(--ring-strong));
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .service.italian-plaster .svc-surfaces *,
+  .service.italian-plaster .svc-pricing-notes *{ transition:none !important; }
+}
+
+/* ==========================================================================
+   FAQ (accordion)
+   ========================================================================== */
+.service.italian-plaster .svc-faq{ background: linear-gradient(180deg,#fff 0%,#fafafa 100%); }
+.service.italian-plaster .accordion{ display:grid; gap:.75rem; }
+.service.italian-plaster .accordion__item{
+  background:#fff; border:1px solid var(--ring); border-radius:16px; padding:.6rem .8rem; box-shadow:var(--shadow-sm);
+  transition:border-color .2s ease, box-shadow .2s ease, transform .06s ease;
+}
+.service.italian-plaster .accordion__item:hover{ border-color:var(--ring-strong); box-shadow:var(--shadow-md); transform: translateY(-1px); }
+.service.italian-plaster .accordion__item > summary{
+  list-style:none; cursor:pointer; font-weight:900; position:relative; padding-right:40px;
+}
+.service.italian-plaster .accordion__item > summary::-webkit-details-marker{ display:none; }
+.service.italian-plaster .accordion__item > summary::after{
+  content:""; position:absolute; right:8px; top:50%; width:12px; height:12px; transform:translateY(-50%) rotate(45deg);
+  border-right:2px solid var(--ink); border-bottom:2px solid var(--ink); opacity:.75; transition: transform .2s ease;
+}
+.service.italian-plaster .accordion__item[open] > summary::after{ transform: translateY(-50%) rotate(225deg); }
+.service.italian-plaster .accordion__panel{ color:var(--muted); padding-top:.45rem; border-top:1px dashed var(--ring); }
+
+/* ==========================================================================
+   RELATED (simple cards) & AREAS
+   ========================================================================== */
+.service.italian-plaster .svc-related .card,
+.service.italian-plaster .svc-related .card *{ box-sizing:border-box; }
+.service.italian-plaster .svc-related .card{
+  background:#fff; border:1px solid var(--ring); border-radius:16px; overflow:hidden; box-shadow:var(--shadow-sm);
+  transition:border-color .2s ease, box-shadow .2s ease, transform .06s ease;
+}
+.service.italian-plaster .svc-related .card:hover{ transform:translateY(-1px); border-color:var(--ring-strong); box-shadow:var(--shadow-md); }
+.service.italian-plaster .svc-related .card__media{ display:block; overflow:hidden; }
+.service.italian-plaster .svc-related .card__media img{ width:100%; height:auto; display:block; transition:transform .55s ease; }
+.service.italian-plaster .svc-related .card:hover .card__media img{ transform:scale(1.045); }
+.service.italian-plaster .svc-related .card__title{ margin:10px 12px 14px; font-size:1.02rem; }
+
+.service.italian-plaster .svc-areas{ background: linear-gradient(180deg,#fff 0%,#fafafa 100%); border-top:1px solid var(--ring); }
+
+/* ==========================================================================
+   CTA
+   ========================================================================== */
+.service.italian-plaster .svc-cta{
+  padding: clamp(28px,6vw,56px) 0 clamp(40px,7vw,70px);
+  background:
+    radial-gradient(900px 360px at 85% 0%, color-mix(in oklab,var(--accent) 12%, transparent) 0%, transparent 60%),
+    linear-gradient(180deg,#fff 0%,#f6f7fb 100%);
+  border-top:1px solid var(--ring);
+}
+.service.italian-plaster .svc-cta .cta__inner{
+  display:grid; gap: clamp(12px,2.6vw,18px);
+  background: linear-gradient(180deg,#fff 0%,#f9faff 100%);
+  border:1px solid var(--ring); border-radius:20px; padding: clamp(14px,3vw,22px); box-shadow:var(--shadow-md);
+}
+@media (min-width:900px){ .service.italian-plaster .svc-cta .cta__inner{ grid-template-columns:1fr auto; align-items:center; } }
+.service.italian-plaster .svc-cta .cta__text{ color:var(--muted); max-width:68ch; }
+
+/* ==========================================================================
+   Focus & Motion
+   ========================================================================== */
+.service.italian-plaster .feature:focus-within,
+.service.italian-plaster .card--finish:focus-within,
+.service.italian-plaster .project:focus-within,
+.service.italian-plaster .accordion__item:focus-within,
+.service.italian-plaster .svc-related .card:focus-within{
+  border-color: color-mix(in oklab,var(--accent) 60%, #fff);
+  box-shadow: 0 0 0 3px color-mix(in oklab,var(--accent) 22%, transparent);
+}
+@media (prefers-reduced-motion: reduce){
+  .service.italian-plaster *{ transition:none !important; animation:none !important; }
+}
+
+/* ==========================================================================
+   Print
+   ========================================================================== */
+@media print{
+  .service.italian-plaster section{ padding:18px 0 !important; }
+  .service.italian-plaster .svc-hero,.service.italian-plaster .svc-features,.service.italian-plaster .svc-process{ background:#fff !important; border:0; }
+  .service.italian-plaster .lightbox,.service.italian-plaster .lightbox::backdrop{ display:none !important; }
+}
+/* İtalyan (Venedik) Sıva — Hizmet teması (main.service.italian-plaster) */
+
+:root {
+  --svc-it-hue: 15; /* sıcak mermer tonları */
+  --svc-it-bg: hsl(var(--svc-it-hue) 25% 98%);
+  --svc-it-ink: hsl(20 15% 14%);
+  --svc-it-accent: hsl(8 80% 47%); /* parlak vurgular */
+  --svc-card: #fff;
+  --svc-radius: 14px;
+  --svc-gap: clamp(14px, 2vw, 22px);
+}
+
+main.service.italian-plaster { background: var(--svc-it-bg); color: var(--svc-it-ink); }
+
+/* Hero görsel çevresi */
+main.service.italian-plaster .svc-hero .hero__media picture { display:block; border-radius: 12px; overflow:hidden; }
+
+/* USP */
+main.service.italian-plaster .features.grid { display:grid; gap: var(--svc-gap); grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); }
+main.service.italian-plaster .feature { background: var(--svc-card); border-radius: var(--svc-radius); padding:16px; }
+
+/* Bitiş kartları */
+main.service.italian-plaster .card--finish { background:#fff; border:1px solid hsl(15 25% 90%); border-radius: 12px; }
+main.service.italian-plaster .card__head { padding:14px 16px; border-bottom:1px solid hsl(15 25% 92%); }
+main.service.italian-plaster .card__title { letter-spacing:.2px; }
+
+/* Teknik listeler */
+main.service.italian-plaster .deflist { display:grid; grid-template-columns: 1fr; gap:8px; }
+main.service.italian-plaster .deflist dt { font-weight:600; }
+main.service.italian-plaster .deflist dd { color: hsl(20 8% 38%); }
+
+/* Projeler */
+main.service.italian-plaster .svc-projects .project img { border-radius: 10px; }
+
+/* CTA butonları */
+main.service.italian-plaster .btn--primary { background: var(--svc-it-accent); border:none; }
+main.service.italian-plaster .btn--ghost { border-color: var(--svc-it-accent); color: var(--svc-it-accent); }

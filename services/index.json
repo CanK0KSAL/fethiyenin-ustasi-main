@@ -1,0 +1,214 @@
+{
+  "updated": "2025-10-20",
+  "categories": [
+    {
+      "code": "altyapi-tesisat",
+      "paths": {
+        "tr": "/hizmetler/altyapi-tesisat/",
+        "en": "/en/services/infrastructure/",
+        "ru": "/ru/uslugi/inzhenernye-seti/"
+      },
+      "locales": {
+        "tr": { "name": "Altyapı & Tesisat", "intro": "Elektrik, su-kanalizasyon ve ısıtma çözümleri; keşif, proje ve uygulama." },
+        "en": { "name": "Infrastructure & Utilities", "intro": "Electrical, plumbing & heating systems with survey, planning and installation." },
+        "ru": { "name": "Инженерные сети", "intro": "Электрика, водоотведение и отопление — обследование, проект и монтаж." }
+      }
+    },
+    {
+      "code": "yuzeyler-kaplamalar",
+      "paths": {
+        "tr": "/hizmetler/yuzeyler-kaplamalar/",
+        "en": "/en/services/surfaces-coatings/",
+        "ru": "/ru/uslugi/pokrytiya-i-otdelka/"
+      },
+      "locales": {
+        "tr": { "name": "Yüzeyler & Kaplamalar", "intro": "İpek/İtalyan/taş görünümlü sıvalar, duvar kumaşı ve boya." },
+        "en": { "name": "Surfaces & Coatings", "intro": "Silk/Italian/stone-effect plasters, textile wallcoverings and paint." },
+        "ru": { "name": "Покрытия и отделка", "intro": "Шелковая/итальянская/«каменная» штукатурка, текстильные обои и покраска." }
+      }
+    }
+  ],
+  "services": [
+    {
+      "code": "elektrik",
+      "category": "altyapi-tesisat",
+      "weight": 90,
+      "status": "active",
+      "paths": {
+        "tr": "/hizmetler/altyapi-tesisat/#elektrik",
+        "en": "/en/services/infrastructure/#electrical",
+        "ru": "/ru/uslugi/inzhenernye-seti/#elektrika"
+      },
+      "locales": {
+        "tr": { "name": "Elektrik", "short": "Tesisat, pano, aydınlatma, arıza–onarım." },
+        "en": { "name": "Electrical", "short": "Wiring, panels, lighting, repairs." },
+        "ru": { "name": "Электрика", "short": "Проводка, щиты, освещение, ремонт." }
+      },
+      "keywords": ["elektrik", "pano", "aydınlatma", "sigorta", "topraklama"],
+      "tags": ["altyapi", "guvenlik", "ariza"],
+      "areas": ["fethiye", "calis", "ovacik", "gocek"],
+      "related": ["su-kanalizasyon", "isitma"]
+    },
+    {
+      "code": "su-kanalizasyon",
+      "category": "altyapi-tesisat",
+      "weight": 85,
+      "status": "active",
+      "paths": {
+        "tr": "/hizmetler/altyapi-tesisat/#su-kanalizasyon",
+        "en": "/en/services/infrastructure/#plumbing",
+        "ru": "/ru/uslugi/inzhenernye-seti/#vodosnabzhenie"
+      },
+      "locales": {
+        "tr": { "name": "Su & Kanalizasyon", "short": "Temiz/atıksu tesisatı, kaçak tespiti, onarım." },
+        "en": { "name": "Water & Drainage", "short": "Plumbing, leak detection, repair." },
+        "ru": { "name": "Вода и канализация", "short": "Сантехника, поиск утечек, ремонт." }
+      },
+      "keywords": ["tesisat", "su", "kanal", "tesisat kaçak", "pimaş"],
+      "tags": ["altyapi", "tesisat"],
+      "areas": ["fethiye", "calis", "ovacik", "gocek"],
+      "related": ["elektrik", "isitma"]
+    },
+    {
+      "code": "isitma",
+      "category": "altyapi-tesisat",
+      "weight": 80,
+      "status": "active",
+      "paths": {
+        "tr": "/hizmetler/altyapi-tesisat/#isitma",
+        "en": "/en/services/infrastructure/#heating",
+        "ru": "/ru/uslugi/inzhenernye-seti/#otoplenie"
+      },
+      "locales": {
+        "tr": { "name": "Isıtma", "short": "Radyatör, yerden ısıtma, kazan–kombİ bakım/onarım." },
+        "en": { "name": "Heating", "short": "Radiators, underfloor heating, boiler service." },
+        "ru": { "name": "Отопление", "short": "Радиаторы, теплый пол, котлы." }
+      },
+      "keywords": ["ısıtma", "radyatör", "yerden ısıtma", "kombİ", "kazan"],
+      "tags": ["altyapi", "konfor"],
+      "areas": ["fethiye", "calis", "ovacik", "gocek"],
+      "related": ["su-kanalizasyon", "elektrik"]
+    },
+
+    {
+      "code": "ipek-siva",
+      "category": "yuzeyler-kaplamalar",
+      "weight": 100,
+      "status": "active",
+      "paths": {
+        "tr": "/hizmetler/yuzeyler-kaplamalar/ipek-siva/",
+        "en": "/en/services/surfaces-coatings/silk-plaster/",
+        "ru": "/ru/uslugi/pokrytiya-i-otdelka/shelkovaya-shtukaturka/"
+      },
+      "media": {
+        "hero": "/hero/yuzeyler-kaplamalar/ipek-siva/",
+        "gallery": "/gallery/ipek-siva/"
+      },
+      "locales": {
+        "tr": { "name": "İpek Sıva", "short": "Nefes alan, dikişsiz dekoratif kaplama; geniş doku/renk." },
+        "en": { "name": "Silk Plaster", "short": "Seamless, breathable decorative finish with rich textures." },
+        "ru": { "name": "Шелковая штукатурка", "short": "Бесшовная «дышащая» отделка с богатой фактурой." }
+      },
+      "keywords": ["ipek sıva", "dekoratif", "nefes alan", "doku", "numune"],
+      "tags": ["iç-mekan", "dekoratif"],
+      "areas": ["fethiye", "calis", "ovacik", "gocek"],
+      "related": ["italyan-siva", "duvar-kumasi", "boya"]
+    },
+    {
+      "code": "italyan-siva",
+      "category": "yuzeyler-kaplamalar",
+      "weight": 95,
+      "status": "active",
+      "paths": {
+        "tr": "/hizmetler/yuzeyler-kaplamalar/italyan-siva/",
+        "en": "/en/services/surfaces-coatings/italian-plaster/",
+        "ru": "/ru/uslugi/pokrytiya-i-otdelka/italyanskaya-shtukaturka/"
+      },
+      "media": {
+        "hero": "/hero/yuzeyler-kaplamalar/italyan-siva/",
+        "gallery": "/gallery/italyan-siva/"
+      },
+      "locales": {
+        "tr": { "name": "İtalyan Sıva (Venedik/Stucco)", "short": "Mermerimsi derinlik, parlak cilalı premium bitişler." },
+        "en": { "name": "Italian Plaster (Venetian/Stucco)", "short": "Marble-like depth and glossy premium finishes." },
+        "ru": { "name": "Итальянская (венецианская) штукатурка", "short": "Мраморная глубина и глянец премиум-класса." }
+      },
+      "keywords": ["venedik", "stucco", "marmorino", "parlak", "cilalı"],
+      "tags": ["iç-mekan", "premium"],
+      "areas": ["fethiye", "calis", "ovacik", "gocek"],
+      "related": ["ipek-siva", "tas-siva", "boya"]
+    },
+    {
+      "code": "tas-siva",
+      "category": "yuzeyler-kaplamalar",
+      "weight": 92,
+      "status": "active",
+      "paths": {
+        "tr": "/hizmetler/yuzeyler-kaplamalar/tas-siva/",
+        "en": "/en/services/surfaces-coatings/stone-plaster/",
+        "ru": "/ru/uslugi/pokrytiya-i-otdelka/kamennaya-shtukaturka/"
+      },
+      "media": {
+        "hero": "/hero/yuzeyler-kaplamalar/tas-siva/",
+        "gallery": "/gallery/tas-siva/"
+      },
+      "locales": {
+        "tr": { "name": "Taş Sıva (Traverten Efekt)", "short": "İç/dış yüzeylerde doğal taş görünümü ve yüksek dayanım." },
+        "en": { "name": "Stone-Effect Plaster", "short": "Natural stone look with durability for interior/exterior." },
+        "ru": { "name": "Штукатурка под камень", "short": "Натуральный каменный эффект для интерьера/фасада." }
+      },
+      "keywords": ["traverten", "taş doku", "dış cephe", "sealer"],
+      "tags": ["dis-cephe", "dayanim"],
+      "areas": ["fethiye", "calis", "ovacik", "gocek"],
+      "related": ["italyan-siva", "boya"]
+    },
+    {
+      "code": "duvar-kumasi",
+      "category": "yuzeyler-kaplamalar",
+      "weight": 88,
+      "status": "active",
+      "paths": {
+        "tr": "/hizmetler/yuzeyler-kaplamalar/duvar-kumasi/",
+        "en": "/en/services/surfaces-coatings/textile-wallcovering/",
+        "ru": "/ru/uslugi/pokrytiya-i-otdelka/tekstile/"
+      },
+      "media": {
+        "hero": "/hero/yuzeyler-kaplamalar/duvar-kumasi/",
+        "gallery": "/gallery/duvar-kumasi/"
+      },
+      "locales": {
+        "tr": { "name": "Duvar Kumaşı", "short": "Akustik konfor ve sıcak doku; premium duvar kaplamaları." },
+        "en": { "name": "Textile Wallcovering", "short": "Acoustic comfort and warm texture for premium interiors." },
+        "ru": { "name": "Текстильные обои", "short": "Акустический комфорт и тёплая фактура." }
+      },
+      "keywords": ["duvar kumaşı", "textile", "akustik", "seam"],
+      "tags": ["iç-mekan", "akustik"],
+      "areas": ["fethiye", "calis", "ovacik", "gocek"],
+      "related": ["ipek-siva", "boya"]
+    },
+    {
+      "code": "boya",
+      "category": "yuzeyler-kaplamalar",
+      "weight": 86,
+      "status": "active",
+      "paths": {
+        "tr": "/hizmetler/yuzeyler-kaplamalar/boya/",
+        "en": "/en/services/surfaces-coatings/paint/",
+        "ru": "/ru/uslugi/pokrytiya-i-otdelka/pokraska/"
+      },
+      "media": {
+        "hero": "/hero/yuzeyler-kaplamalar/boya/",
+        "gallery": "/gallery/boya/"
+      },
+      "locales": {
+        "tr": { "name": "Boya (İç/Dış Cephe)", "short": "Yüzey hazırlığı, astar ve kat dağılımına uygun temiz uygulama." },
+        "en": { "name": "Paint (Interior/Exterior)", "short": "Proper prep, priming and coats for flawless results." },
+        "ru": { "name": "Покраска (интерьер/фасад)", "short": "Подготовка, грунт и слои для безупречной отделки." }
+      },
+      "keywords": ["boya", "astar", "iç cephe", "dış cephe", "renk"],
+      "tags": ["iç-mekan", "dis-cephe"],
+      "areas": ["fethiye", "calis", "ovacik", "gocek"],
+      "related": ["ipek-siva", "tas-siva", "italyan-siva"]
+    }
+  ]
+}

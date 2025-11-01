@@ -1,0 +1,368 @@
+/* =======================================================================
+   SERVICE — Electrical (premium light + gold)
+   Scope: .service
+   ======================================================================= */
+
+/* ---------- Tokens & base-in-scope (fallback) --------------------------- */
+.service{
+  --brand-gold: #D4AF37;
+  --text: #171717;
+  --muted: #4B5563;
+  --muted-2:#6B7280;
+  --bg: #FAFAFA;
+  --surface: #FFFFFF;
+
+  --ring: rgba(0,0,0,.08);
+  --ring-strong: rgba(0,0,0,.12);
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.06);
+  --shadow-md: 0 2px 8px rgba(0,0,0,.10);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,.12);
+
+  --radius-s: 12px;
+  --radius-m: 14px;
+  --radius-l: 20px;
+
+  --lead: 1.6;
+  --max: 1200px;
+  --pad: clamp(16px,3vw,40px);
+}
+
+
+/* breadcrumbs */
+.service .crumbs ol{
+  margin:0 0 .5rem; padding:.45rem .7rem; display:flex; flex-wrap:wrap; gap:.4rem .6rem; align-items:center;
+  border-radius:12px; background:rgba(255,255,255,.75); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  border:1px solid var(--ring); box-shadow:var(--shadow-sm);
+}
+.service .crumbs li{ list-style:none; display:flex; align-items:center; gap:.6rem; color:var(--muted-2); font-weight:700; }
+.service .crumbs li+li::before{ content:"›"; color:#9CA3AF; }
+.service .crumbs a{ color:inherit; text-decoration:none; }
+.service .crumbs a:hover{ text-decoration:underline; text-underline-offset:3px; }
+
+/* type */
+.service h1,.service h2,.service h3{ letter-spacing:-.01em; font-weight:900; }
+.service .section-desc{ color:var(--muted); max-width:68ch; }
+.service .muted{ color:var(--muted-2); }
+.service .inline-link{ color:#0f172a; text-decoration:underline; text-underline-offset: 3px; }
+
+/* grid utils */
+.service .grid{ display:grid; gap: clamp(12px,2vw,18px); }
+.service .grid--cards-3{ grid-template-columns:1fr; }
+@media (min-width:720px){ .service .grid--cards-3{ grid-template-columns:repeat(2,1fr);} }
+@media (min-width:1024px){ .service .grid--cards-3{ grid-template-columns:repeat(3,1fr);} }
+
+/* ratio */
+.service .ratio-16x9{ position:relative; }
+.service .ratio-16x9::before{ content:""; display:block; padding-top:56.25%; }
+.service .ratio-16x9 > *{ position:absolute; inset:0; }
+
+/* buttons (fallback) */
+.service .btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+  padding:.9rem 1.15rem; border-radius:var(--radius-m);
+  font-weight:900; font-size:.98rem; border:1px solid transparent; cursor:pointer;
+  transition: transform .06s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+}
+.service .btn:active{ transform: translateY(1px); }
+.service .btn--primary{ background:var(--brand-gold); color:#fff; border-color:var(--brand-gold); box-shadow:0 14px 30px rgba(0,0,0,.14); }
+.service .btn--primary:hover{ filter:brightness(1.05); box-shadow:0 20px 46px rgba(0,0,0,.16); }
+.service .btn--ghost{ background:#fff; color:#111827; border-color:var(--ring); }
+.service .btn--ghost:hover{ background:#f9fafb; border-color:var(--ring-strong); }
+
+/* chips (fallback) */
+.service .chips{ display:flex; flex-wrap:wrap; gap:.5rem; padding:0; list-style:none; }
+.service .chip{
+  display:inline-flex; align-items:center; gap:.4rem;
+  padding:.42rem .75rem; border-radius:999px; font-weight:800; font-size:.92rem;
+  background:#fff; border:1px solid var(--ring); transition: background .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.service .chip:hover{ background:#f9fafb; border-color:var(--ring-strong); box-shadow:var(--shadow-sm); }
+
+/* =======================================================================
+   1) HERO
+   ======================================================================= */
+.service .svc-hero{
+  background:
+    radial-gradient(1100px 420px at 12% -6%, color-mix(in oklab, var(--brand-gold) 12%, transparent) 0%, transparent 62%),
+    linear-gradient(180deg, #fff 0%, #fafafa 100%);
+  border-bottom:1px solid var(--ring);
+  padding: clamp(64px, 9vw, 104px) 0 clamp(24px, 6vw, 40px);
+}
+
+.service .svc-hero h1{
+  font-size: clamp(28px, 4.2vw, 46px);
+  line-height:1.06; margin:.2rem 0 .5rem;
+}
+.service .svc-hero .section-desc{
+  font-size: clamp(1rem,1.2vw,1.12rem);
+}
+.service .svc-hero__media{
+  margin-top: clamp(12px, 3vw, 18px);
+  border-radius: 22px; overflow:hidden; box-shadow: var(--shadow-lg);
+}
+.service .svc-hero__media picture, .service .svc-hero__media img{ display:block; width:100%; height:100%; object-fit:cover; }
+.service .svc-hero__media img{ aspect-ratio: 16/8; }
+.service .svc-hero::after{
+  content:""; position:absolute; inset:auto 0 0 0; height:2px; opacity:.8;
+  background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--brand-gold) 65%, transparent), transparent);
+}
+
+/* =======================================================================
+   2) FEATURES (3 ikon kart)
+   ======================================================================= */
+/* ==========================================================================
+   SERVICE • Neden Biz?  (svc-features)
+   Scope: .service .svc-features
+   ========================================================================== */
+
+.service .svc-features{
+  --gold: var(--brand-gold, #D4AF37);
+  --ring: var(--ring, rgba(0,0,0,.08));
+  --ring-strong: var(--ring-strong, rgba(0,0,0,.12));
+  --muted: var(--muted, #4B5563);
+  --card-radius: 18px;
+  --icon: 56px;
+
+  background:
+    radial-gradient(860px 340px at 10% 0%, color-mix(in oklab, var(--gold) 10%, transparent) 0%, transparent 62%),
+    linear-gradient(180deg, #fff 0%, #fafafa 100%);
+  border-top: 1px solid var(--ring);
+  border-bottom: 1px solid var(--ring);
+  padding: clamp(32px, 6vw, 68px) 0;
+}
+
+/* Başlık/alt başlık */
+.service .svc-features #features-title{
+  font-weight: 900; letter-spacing: -.01em;
+  margin: 0 0 .25rem;
+}
+.service .svc-features .section-desc{ color: var(--muted); margin: 0 0 .8rem; }
+
+/* Grid (ul.features) */
+.service .svc-features .features{
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: clamp(12px, 2.4vw, 18px);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 780px){ .service .svc-features .features{ grid-template-columns: repeat(3, minmax(0,1fr)); } }
+
+/* Kart */
+.service .svc-features .feature{
+  position: relative;
+  display: grid; grid-template-columns: var(--icon) 1fr; gap: 12px; align-items: flex-start;
+  background: linear-gradient(180deg, #fff 0%, #f9fafb 100%);
+  border: 1px solid var(--ring); border-radius: var(--card-radius);
+  padding: 14px; box-shadow: 0 1px 2px rgba(0,0,0,.06);
+  transition: border-color .2s ease, box-shadow .25s ease, transform .06s ease, background .25s ease;
+  overflow: hidden;
+}
+
+/* Sol tarafta zarif altın şerit */
+.service .svc-features .feature::before{
+  content:""; position:absolute; left:0; top:0; bottom:0; width:4px; opacity:.5;
+  background: linear-gradient(180deg, color-mix(in oklab, var(--gold) 55%, #fff), color-mix(in oklab, var(--gold) 25%, #fff));
+  transition: opacity .2s ease, width .2s ease;
+}
+
+/* Alt altın saçak */
+.service .svc-features .feature::after{
+  content:""; position:absolute; inset:auto 0 0 0; height:2px; opacity:.7;
+  background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--gold) 60%, transparent), transparent);
+  pointer-events:none;
+}
+
+/* Hover/Focus */
+.service .svc-features .feature:hover{
+  transform: translateY(-1px);
+  border-color: var(--ring-strong);
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+}
+.service .svc-features .feature:hover::before{ width:6px; opacity:.9; }
+.service .svc-features .feature:focus-within{
+  border-color: color-mix(in oklab, var(--gold) 55%, #fff);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--gold) 22%, transparent), 0 12px 28px rgba(0,0,0,.12);
+}
+
+/* İkon rozet */
+.service .svc-features .feature__icon{
+  width: var(--icon); height: var(--icon);
+  border-radius: 14px; display: grid; place-items: center; font-size: 24px;
+  background: color-mix(in oklab, var(--gold) 18%, #fff);
+  border: 1px solid color-mix(in oklab, var(--gold) 40%, #fff);
+  box-shadow: inset 0 -6px 12px rgba(0,0,0,.04);
+}
+
+/* Başlık + metin */
+.service .svc-features .feature h3{
+  margin: .1rem 0 .15rem; font-size: 1.02rem; font-weight: 900; letter-spacing: -.01em;
+  align-self: center;
+}
+.service .svc-features .feature p{
+  grid-column: 2 / -1; margin: 0; color: var(--muted); line-height: 1.6;
+}
+
+/* Vurgu varyantı (opsiyonel: <li class="feature" data-variant="accent">) */
+.service .svc-features .feature[data-variant="accent"]{
+  background:
+    radial-gradient(600px 220px at 30% -15%, color-mix(in oklab, var(--gold) 18%, transparent) 0%, transparent 60%),
+    linear-gradient(180deg, #fff 0%, #f9fafb 100%);
+}
+
+/* Küçük ekran ayarları */
+@media (max-width: 560px){
+  .service .svc-features{ --icon: 48px; --card-radius: 16px; }
+  .service .svc-features .feature{ grid-template-columns: var(--icon) 1fr; }
+  .service .svc-features .feature__icon{ border-radius: 12px; font-size: 22px; }
+}
+
+/* Hareket azalt tercihi */
+@media (prefers-reduced-motion: reduce){
+  .service .svc-features .feature,
+  .service .svc-features .feature::before{ transition: none !important; }
+}
+
+/* =======================================================================
+   3) PROCESS — timeline steps
+   ======================================================================= */
+.service .svc-process{
+  background:
+    radial-gradient(860px 340px at 90% 0%, color-mix(in oklab, var(--brand-gold) 10%, transparent) 0%, transparent 62%),
+    linear-gradient(180deg, #fff 0%, #fafafa 100%);
+  border-top:1px solid var(--ring); border-bottom:1px solid var(--ring);
+}
+.service .steps{ counter-reset: step; display:grid; gap:14px; max-width:900px; margin-inline:auto; }
+.service .step{
+  position:relative; background:#fff; border:1px solid var(--ring); border-radius:16px;
+  padding: 14px 14px 14px 64px; box-shadow: var(--shadow-sm);
+  transition: border-color .2s ease, box-shadow .2s ease, transform .06s ease;
+}
+.service .step:hover{ transform: translateY(-1px); border-color:var(--ring-strong); box-shadow:var(--shadow-md); }
+.service .step::before{
+  content: attr(data-step);
+  position:absolute; left:14px; top:14px; width:36px; height:36px; border-radius:12px;
+  display:grid; place-items:center; font-weight:900; color:#111;
+  background:#fff; border:2px solid color-mix(in oklab, var(--brand-gold) 60%, #fff);
+  box-shadow: 0 6px 16px rgba(0,0,0,.08), inset 0 -6px 12px rgba(0,0,0,.03);
+}
+.service .step + .step::after{
+  content:""; position:absolute; left:31px; top:-14px; width:2px; height:14px;
+  background: color-mix(in oklab, var(--brand-gold) 26%, #e5e7eb);
+}
+.service .step__title{ margin:.1rem 0 .1rem; font-weight:900; }
+.service .step__text{ color:var(--muted); }
+/* SERVICE • Nasıl Çalışır? — default ol numbering'i gizle */
+.service .svc-process .steps{
+  list-style: none;     /* numarayı kapat */
+  margin: 0; 
+  padding-left: 0;      /* sola olan varsayılan girintiyi de kaldır */
+}
+
+/* Ek güvence: bazı tarayıcılarda ::marker gösterebilir */
+.service .svc-process .steps > .step{
+  list-style: none;
+}
+.service .svc-process .steps > .step::marker{
+  content: "";          /* marker'ı tamamen gizle */
+}
+
+/* =======================================================================
+   4) PROJECTS — teaser + lightbox
+   ======================================================================= */
+.service .svc-projects{ background: linear-gradient(180deg, #fff 0%, #fafafa 100%); }
+
+.service .project{
+  margin:0; background:#fff; border:1px solid var(--ring); border-radius:16px; overflow:hidden;
+  box-shadow: var(--shadow-sm); display:grid; grid-template-rows: auto minmax(50px, auto);
+  transition: border-color .2s ease, box-shadow .2s ease, transform .06s ease;
+}
+.service .project:hover{ transform: translateY(-1px); border-color: var(--ring-strong); box-shadow: var(--shadow-md); }
+.service .project a{ display:block; position:relative; overflow:hidden; }
+.service .project img{ width:100%; height:auto; display:block; transition: transform .5s ease; }
+.service .project a:hover img{ transform: scale(1.04); }
+.service .project a::after{
+  content:""; position:absolute; inset:0; background: linear-gradient(180deg, transparent, rgba(0,0,0,.18));
+  opacity:0; transition: opacity .3s ease;
+}
+.service .project a:hover::after{ opacity:1; }
+.service .project figcaption{ padding:10px 12px 14px; color:#374151; background:#fff; border-top:1px solid var(--ring); }
+
+/* Lightbox (base yoksa) */
+.service .lightbox{ width:min(96vw,1060px); border:none; padding:0; border-radius:16px; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,.35); background:#000; }
+.service .lightbox::backdrop{ background:rgba(0,0,0,.5); }
+.service .lightbox__img{ display:block; width:100%; height:auto; }
+.service .lightbox__close{
+  position:absolute; top:8px; right:8px; width:38px; height:38px; border:none; border-radius:999px;
+  background: rgba(255,255,255,.96); color:#111; font-size:20px; line-height:1; display:grid; place-items:center; cursor:pointer;
+}
+.service .lightbox__caption{ color:#f3f4f6; padding:10px 12px 14px; }
+
+/* =======================================================================
+   5) RELATED — chips
+   ======================================================================= */
+.service .svc-related{ background: linear-gradient(180deg, #fff 0%, #fafafa 100%); border-top:1px solid var(--ring); }
+.service .svc-related .chips{ margin:.35rem 0 0; }
+
+/* =======================================================================
+   6) FAQ — accordion
+   ======================================================================= */
+.service .svc-faq{ background: linear-gradient(180deg, #fff 0%, #fafafa 100%); }
+.service .accordion{ display:grid; gap:.75rem; }
+.service .accordion__item{
+  background:#fff; border:1px solid var(--ring); border-radius:16px; padding:.6rem .8rem; box-shadow: var(--shadow-sm);
+  transition: border-color .2s ease, box-shadow .2s ease, transform .06s ease;
+}
+.service .accordion__item:hover{ border-color: var(--ring-strong); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+.service .accordion__item > summary{
+  list-style:none; cursor:pointer; font-weight:900; position:relative; padding-right:40px;
+}
+.service .accordion__item > summary::-webkit-details-marker{ display:none; }
+.service .accordion__item > summary::after{
+  content:""; position:absolute; right:8px; top:50%; width:12px; height:12px;
+  transform: translateY(-50%) rotate(45deg);
+  border-right:2px solid #111; border-bottom:2px solid #111; opacity:.8; transition: transform .2s ease;
+}
+.service .accordion__item[open] > summary::after{ transform: translateY(-50%) rotate(225deg); }
+.service .accordion__panel{ color:var(--muted); padding-top:.45rem; border-top:1px dashed var(--ring); }
+
+/* =======================================================================
+   7) CTA — strong call
+   ======================================================================= */
+.service .svc-cta{
+  padding: clamp(28px,6vw,56px) 0 clamp(40px,7vw,70px);
+  background:
+    radial-gradient(900px 360px at 90% 0%, color-mix(in oklab, var(--brand-gold) 12%, transparent) 0%, transparent 60%),
+    linear-gradient(180deg, #fff 0%, #fafafa 100%);
+  border-top:1px solid var(--ring);
+}
+.service .svc-cta .cta__inner{
+  display:grid; gap: clamp(12px, 2.6vw, 18px);
+  background: linear-gradient(180deg, #fff 0%, #f9fafb 100%);
+  border:1px solid var(--ring); border-radius: 20px;
+  padding: clamp(14px, 3vw, 22px);
+  box-shadow: var(--shadow-md);
+}
+@media (min-width:900px){ .service .svc-cta .cta__inner{ grid-template-columns: 1fr auto; align-items:center; } }
+.service .svc-cta .cta__text{ color:var(--muted); max-width:68ch; }
+
+/* =======================================================================
+   A11y & motion
+   ======================================================================= */
+.service .feature:focus-within,
+.service .project:focus-within,
+.service .accordion__item:focus-within{
+  border-color: color-mix(in oklab, var(--brand-gold) 60%, #fff);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand-gold) 20%, transparent);
+}
+@media (prefers-reduced-motion: reduce){
+  .service *{ transition:none !important; animation:none !important; }
+}
+
+/* =======================================================================
+   Print polish
+   ======================================================================= */
+@media print{
+  .service section{ padding:18px 0 !important; }
+  .service .svc-hero, .service .svc-process{ border:0; background:#fff !important; }
+  .service .lightbox, .service .lightbox::backdrop{ display:none !important; }
+}

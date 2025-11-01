@@ -1,0 +1,429 @@
+/* ============================
+   FethiyeninUstası — Contact Page
+   Scope: main.contact
+   Stil dili: Şık & Elit (gold accents, soft shadows, calm whites)
+   ============================ */
+
+.contact {
+  /* Palet */
+  --bg: #ffffff;
+  --bg-soft: #faf9f6;
+  --surface: #ffffff;
+  --surface-2: #f7f6f3;
+  --border: #ebe8e1;
+  --border-2: #e4dfd5;
+  --text: #1e1e1e;
+  --muted: #6f6a60;
+  --gold: #D4AF37;
+  --gold-ink: #866e17;       /* altın üstüne yazı/ikon */
+  --accent: #1d1f24;         /* ince başlık koyusu */
+  --focus: #9c7b12;          /* focus ring için altın tonu */
+  --shadow: 0 6px 18px rgba(30, 20, 0, 0.07);
+  --radius: 16px;
+
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ----------------------------
+   Layout helpers
+----------------------------- */
+.contact .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-inline: clamp(16px, 4vw, 32px);
+}
+
+.contact .sec-title {
+  font-size: clamp(24px, 2.2vw + 10px, 34px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+  margin: 8px 0 18px;
+}
+
+.contact .sec-desc {
+  color: var(--muted);
+  font-size: 0.98rem;
+  margin: -4px 0 28px;
+}
+
+.contact .muted { color: var(--muted); }
+
+/* ----------------------------
+   HERO
+----------------------------- */
+.contact .hero--contact {
+  position: relative;
+  isolation: isolate;
+  padding: clamp(40px, 6vw, 80px) 0 clamp(24px, 4vw, 40px);
+  background:
+    radial-gradient(1200px 400px at 85% -50%, rgba(212,175,55,0.08), transparent 60%),
+    linear-gradient(180deg, #fff, #fff);
+  border-bottom: 1px solid var(--border);
+}
+
+.contact .hero--contact .hero__title {
+  font-size: clamp(32px, 3.2vw + 10px, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+}
+
+.contact .hero--contact .hero__lead {
+  max-width: 800px;
+  color: var(--muted);
+  font-size: clamp(16px, 0.7vw + 14px, 18px);
+}
+
+.contact .hero--contact .hero__lead strong {
+  color: var(--accent);
+}
+
+/* ----------------------------
+   INFO CARDS (Telefon / Mail / Bölgeler)
+----------------------------- */
+.contact .contact-info {
+  padding: clamp(28px, 5vw, 56px) 0;
+  background: linear-gradient(180deg, var(--bg), var(--bg-soft));
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.contact .grid--cards-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 2.6vw, 24px);
+}
+
+@media (max-width: 900px) {
+  .contact .grid--cards-3 { grid-template-columns: 1fr; }
+}
+
+.contact .card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: clamp(18px, 2.6vw, 26px);
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.contact .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(30, 20, 0, 0.10);
+  border-color: var(--border-2);
+}
+
+.contact .card__title {
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 4px 0 10px;
+}
+
+.contact .card__text {
+  font-size: 1.02rem;
+  margin: 0 0 6px;
+}
+
+.contact .inline-link {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(30,31,36,.25);
+  transition: border-color .2s ease, color .2s ease;
+}
+.contact .inline-link:hover { color: var(--gold-ink); border-color: var(--gold); }
+
+/* Chips (Bölgeler) */
+.contact .chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin: 6px 0 0;
+  list-style: none;
+}
+
+.contact .chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-size: .92rem;
+  text-decoration: none;
+  transition: transform .18s ease, border-color .18s ease, background-color .18s ease, color .18s ease;
+}
+.contact .chip:hover {
+  background: #fff7e0;
+  border-color: var(--gold);
+  transform: translateY(-1px);
+  color: var(--gold-ink);
+}
+
+/* ----------------------------
+   FORM
+----------------------------- */
+.contact .contact-form {
+  padding: clamp(32px, 6vw, 72px) 0 clamp(40px, 7vw, 90px);
+  background: var(--bg);
+}
+
+.contact .form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 2px);
+  box-shadow: var(--shadow);
+  padding: clamp(18px, 3.2vw, 28px);
+}
+
+.contact .form__grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 18px 18px;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.contact .form-group {
+  grid-column: span 6;
+  display: grid;
+  gap: 8px;
+}
+
+.contact .form-group--full { grid-column: 1 / -1; }
+
+@media (max-width: 900px) {
+  .contact .form-group { grid-column: 1 / -1; }
+}
+
+/* Etiketler */
+.contact .label {
+  font-size: .92rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* Girdi tabanı */
+.contact .input,
+.contact .select,
+.contact .textarea {
+  width: 100%;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border-2);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 1rem;
+  line-height: 1.4;
+  outline: none;
+  transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+  box-shadow: inset 0 1px 0 rgba(0,0,0,0.02);
+}
+
+/* Hover / Focus */
+.contact .input:hover,
+.contact .select:hover,
+.contact .textarea:hover {
+  border-color: #ddd6c5;
+}
+
+.contact .input:focus,
+.contact .select:focus,
+.contact .textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px rgba(212,175,55,.18);
+  background: #fffef9;
+}
+
+/* Placeholder rengi */
+.contact .input::placeholder,
+.contact .textarea::placeholder { color: #a9a39a; }
+
+/* Hata & İpucu */
+.contact .field-hint {
+  font-size: .82rem;
+  color: var(--muted);
+  margin-top: -2px;
+}
+
+.contact .field-error {
+  min-height: 18px;
+  font-size: .86rem;
+  color: #9c2b2b;
+  font-weight: 600;
+}
+
+/* Checkbox (KVKK) */
+.contact .checkbox {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+  font-size: .95rem;
+  color: var(--text);
+}
+
+.contact .checkbox input {
+  appearance: none;
+  width: 18px; height: 18px;
+  border: 1.5px solid var(--border-2);
+  border-radius: 6px;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  transition: border-color .18s ease, background-color .18s ease, box-shadow .18s ease;
+}
+
+.contact .checkbox input:focus {
+  box-shadow: 0 0 0 3px rgba(212,175,55,.25);
+  border-color: var(--gold);
+}
+
+.contact .checkbox input:checked {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+.contact .checkbox input:checked::after{
+  content: "";
+  width: 10px; height: 10px;
+  clip-path: polygon(14% 44%, 0 60%, 40% 100%, 100% 16%, 84% 0, 40% 66%);
+  background: #fff;
+}
+
+/* Honeypot gizli */
+.contact .hp { display: none !important; }
+
+/* Butonlar */
+.contact .btn {
+  appearance: none;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-weight: 700;
+  font-size: 0.98rem;
+  letter-spacing: .02em;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, color .18s ease, border-color .18s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  min-width: 120px;
+}
+
+.contact .btn--primary {
+  background: var(--gold);
+  color: #1f1500;
+  border-color: #c19d2f;
+  box-shadow: 0 8px 18px rgba(212,175,55,.26);
+}
+.contact .btn--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(212,175,55,.3);
+  background: #cfa32f;
+}
+.contact .btn--primary:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.contact .btn--ghost {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--border-2);
+}
+.contact .btn--ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold-ink);
+}
+
+/* Form actions */
+.contact .form-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Form durum mesajları */
+.contact .form-status {
+  margin-top: 18px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  border: 1px dashed var(--border-2);
+  color: var(--muted);
+  min-height: 24px;
+}
+.contact .form-status.is-loading {
+  background: linear-gradient(90deg, #fff, #fff7e6 50%, #fff 100%);
+  background-size: 180% 100%;
+  animation: contactShimmer 1.2s ease-in-out infinite;
+}
+@keyframes contactShimmer {
+  0% { background-position: 0% 0; }
+  100% { background-position: 180% 0; }
+}
+.contact .form-status.is-success {
+  background: #f0fbf3;
+  border-color: #bfe7cb;
+  color: #126b2b;
+}
+.contact .form-status.is-error {
+  background: #fff5f5;
+  border-color: #f1c3c3;
+  color: #8f2a2a;
+}
+
+/* Invalid alan vurgusu (native) */
+.contact .input:invalid[required]:not(:placeholder-shown),
+.contact .textarea:invalid[required]:not(:placeholder-shown),
+.contact .select:invalid[required] {
+  border-color: #d79a9a;
+  background: #fffafa;
+}
+
+/* ----------------------------
+   Micro details
+----------------------------- */
+.contact .form .label + .input:focus,
+.contact .form .label + .textarea:focus,
+.contact .form .label + .select:focus {
+  /* küçük başlık-parıltı uyumu */
+  box-shadow: 0 0 0 4px rgba(212,175,55,.18), inset 0 1px 0 rgba(255,255,255,.25);
+}
+
+/* Kart & Form kenar boşlukları */
+.contact .contact-info .sec-title { margin-bottom: 16px; }
+.contact .contact-form .sec-title { margin-bottom: 8px; }
+
+/* Daha ferah satır içi spacing */
+.contact .card p,
+.contact .form p,
+.contact .form .field-hint { line-height: 1.55; }
+
+/* Küçük ekran butonları tam genişlik */
+@media (max-width: 560px){
+  .contact .btn { width: 100%; }
+  .contact .form-actions { flex-direction: column; align-items: stretch; }
+}
+
+/* ----------------------------
+   Print (teklif çıktısı vs.)
+----------------------------- */
+@media print {
+  .contact .hero--contact,
+  .contact .contact-info,
+  .contact .contact-form { box-shadow: none !important; background: #fff !important; }
+  .contact .btn { display: none !important; }
+}

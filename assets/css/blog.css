@@ -1,0 +1,443 @@
+/* =========================================================
+   Fethiye’nin Ustası — Blog Index (light / prestige)
+   Bağımlılıklar: layout.css (tokens), services.css (iskelet)
+   Amaç: Açık ton, cam gibi net yüzeyler, altın vurgular
+   Not: Header/footer’a dokunmaz; sadece .blog alanını iyileştirir
+   ========================================================= */
+
+/* ---------- Blog genel değişkenleri ---------- */
+.blog{
+  --blog-bg: #ffffff;
+  --blog-fg: #171717;
+  --blog-muted:#6B7280;
+  --blog-ring: rgba(0,0,0,.08);
+  --blog-ring-strong: rgba(0,0,0,.12);
+  --blog-shadow-sm: 0 1px 2px rgba(0,0,0,.06);
+  --blog-shadow-md: 0 6px 24px rgba(0,0,0,.10);
+  --blog-shadow-lg: 0 14px 40px rgba(0,0,0,.12);
+  --blog-radius: 14px;
+  --blog-radius-lg: var(--radius-2xl, 16px);
+  --blog-gold: var(--brand-gold, #D4AF37);
+  margin-top: 3%;
+}
+
+/* Bölüm aralık standardı (.sec zaten HTML’de kullanılıyor) */
+.blog .sec{ padding-block: clamp(18px, 4vw, 36px); }
+
+/* Container’larda container queries kullanabilelim */
+.blog .container{ container-type:inline-size; }
+
+/* Erişilebilir odak: altın halka */
+.blog :focus-visible{
+  outline: 2px solid color-mix(in oklab, var(--blog-gold) 72%, white);
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+/* =========================================================
+   1) TOP BAR / BREADCRUMB
+   ========================================================= */
+.blog .topbar{
+  background: linear-gradient(180deg,#fff 0%, #fafafa 100%);
+  border-block: 1px solid var(--blog-ring);
+}
+.blog .crumbs ol{ gap:8px; }
+.blog .crumbs li{
+  opacity:.9;
+  background: #fff;
+  border:1px solid var(--blog-ring);
+  border-radius: 999px;
+  padding: 6px 10px;
+  box-shadow: var(--blog-shadow-sm);
+}
+.blog .crumbs li a:hover{ text-decoration: underline; text-underline-offset:2px; }
+
+/* =========================================================
+   2) HERO
+   ========================================================= */
+.blog-hero{
+  position:relative;
+  color: var(--blog-fg);
+  background:
+    radial-gradient(900px 260px at 12% -4%,
+      color-mix(in oklab, var(--blog-gold) 12%, transparent) 0%, transparent 70%)
+    ,linear-gradient(180deg, #fff 0%, #f8f8f9 100%);
+  padding-block: clamp(24px, 6vw, 56px);
+  border-bottom: 1px solid var(--blog-ring);
+}
+.blog-hero .container:not(.hero__media){
+  display:grid;
+  gap: 16px;
+}
+.blog-hero .hero__title{
+  font-weight: 900;
+  letter-spacing: -0.012em;
+  line-height: 1.06;
+  font-size: clamp(1.9rem, 3.4vw, 3rem);
+  margin: 8px 0 6px;
+}
+.blog-hero .hero__title b,
+.blog-hero .hero__title strong{
+  color: var(--blog-gold);
+}
+.blog-hero .hero__lead{
+  color: var(--blog-muted);
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
+  max-width: 72ch;
+}
+
+.blog-hero .hero__media{
+  margin-top: clamp(12px,2.8vw,18px);
+  border-radius: var(--blog-radius-lg);
+  overflow:hidden;
+  box-shadow: var(--blog-shadow-lg);
+  isolation:isolate;
+}
+.blog-hero .hero__media picture{ display:block; }
+.blog-hero .hero__media img{
+  display:block; width:100%; height:auto; aspect-ratio: 2.2/1; object-fit: cover;
+}
+.blog-hero .hero__media::after{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    linear-gradient(to top, rgba(0,0,0,.08), transparent 35%),
+    radial-gradient(60% 60% at 10% 10%, color-mix(in oklab, var(--blog-gold) 10%, transparent) 0%, transparent 60%);
+  pointer-events:none;
+  mix-blend-mode:multiply;
+}
+
+/* =========================================================
+   3) FİLTRE & ARAMA ÇUBUĞU
+   ========================================================= */
+.blog-filters{
+  position:relative;
+  background:#fff;
+  border-block: 1px solid var(--blog-ring);
+}
+.blog .filters__bar{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  padding: 10px 0;
+}
+@container (min-width: 860px){
+  .blog .filters__bar{ grid-template-columns: 1fr auto; align-items: start; }
+}
+
+.blog #q{
+  appearance:none;
+  width:100%;
+  height:46px;
+  border-radius: 999px;
+  border:1px solid var(--blog-ring);
+  background:#fff;
+  box-shadow: 0 1px 0 rgba(0,0,0,.03), inset 0 1px 0 rgba(255,255,255,.9);
+  padding: 0 46px 0 44px;
+  font: inherit;
+}
+.blog #q::placeholder{ color:#9CA3AF; }
+.blog #q:hover{ border-color: var(--blog-ring-strong); }
+.blog #q:focus{ border-color: color-mix(in oklab, var(--blog-gold) 48%, #ddd); box-shadow: 0 0 0 3px color-mix(in oklab, var(--blog-gold) 18%, #fff); }
+
+/* Arama ikonu */
+.blog #q{
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-3.5-3.5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position: 12px center;
+  background-size: 22px;
+}
+
+.blog .filters__controls{
+  display:grid; gap:10px;
+}
+@container (min-width: 1020px){
+  .blog .filters__controls{ grid-auto-flow:column; align-items:center; justify-content: end; gap: 16px; }
+}
+
+.blog .filters__group{
+  display:grid; gap:6px;
+}
+.blog .filters__label{
+  font-size:.85rem; letter-spacing:.08em; text-transform: uppercase; color:#6b7280;
+}
+
+/* chips (services.css temelini yükselt) */
+.blog .chips .chip{
+  background:#fff;
+  border:1px solid var(--blog-ring);
+  box-shadow: var(--blog-shadow-sm);
+  font-weight:700;
+  transition: transform .06s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+}
+.blog .chips .chip:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+}
+.blog .chips .chip[aria-pressed="true"],
+.blog .chips .chip:is(.chip--active){
+  background: var(--blog-gold);
+  color:#fff;
+  border-color: var(--blog-gold);
+  box-shadow: inset 0 0 0 2px #fff, 0 8px 24px rgba(0,0,0,.12);
+}
+.blog .chip--cat{
+  background: color-mix(in oklab, var(--blog-gold) 12%, #fff);
+  color: #6b4d0d;
+  border-color: color-mix(in oklab, var(--blog-gold) 40%, #eee);
+}
+
+/* Sıralama select */
+.blog #sort{
+  height: 42px; padding: 0 12px; border-radius: 12px; border:1px solid var(--blog-ring);
+  background:#fff; box-shadow: var(--blog-shadow-sm); font:inherit;
+}
+.blog #sort:hover{ border-color: var(--blog-ring-strong); }
+
+/* =========================================================
+   4) ÖNE ÇIKAN REHBERLER — Carousel (scroll-snap)
+   ========================================================= */
+.blog-featured{
+  background: linear-gradient(180deg,#fff 0%, #fbfbfc 100%);
+  border-block: 1px solid var(--blog-ring);
+}
+.blog-featured .sec-title{ margin-bottom: 10px; }
+
+.blog .carousel{
+  display:grid; grid-auto-flow: column; grid-auto-columns: min(88%, 420px);
+  gap:16px; overflow-x:auto; padding: 8px 2px 6px;
+  scroll-snap-type:x mandatory; scroll-padding-inline: 12px;
+  -webkit-overflow-scrolling: touch;
+}
+.blog .carousel > .card{ scroll-snap-align: start; }
+
+.blog .card{
+  border:1px solid var(--blog-ring);
+  border-radius: var(--blog-radius-lg);
+  overflow: hidden;
+  background:#fff;
+  box-shadow: var(--blog-shadow-md);
+  transition: transform .1s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.blog .card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 38px rgba(0,0,0,.14);
+  border-color: var(--blog-ring-strong);
+}
+
+.blog .card__media{ display:block; overflow:hidden; }
+.blog .card__media img{ display:block; width:100%; height:auto; aspect-ratio: 16/9; object-fit: cover; }
+.blog .card__body{ padding: 14px 14px 16px; }
+.blog .card__title{ font-size: 1.05rem; margin: 2px 0 6px 0; }
+.blog .card__excerpt{ color: var(--blog-muted); margin:0 0 10px 0; }
+.blog .card__meta{ font-size:.93rem; color:#52525b; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+
+/* Carousel butonları */
+.blog .carousel__controls{
+  margin-top:10px; display:flex; gap:8px; justify-content:flex-end;
+}
+.blog .btn.btn--ghost{
+  height:40px; padding: 0 12px; border-radius: 10px; border:1px solid var(--blog-ring);
+  background:#fff; box-shadow: var(--blog-shadow-sm);
+}
+@media (hover:hover){
+  .blog .carousel__controls .btn:hover{ transform: translateY(-1px); box-shadow: 0 8px 16px rgba(0,0,0,.10); }
+}
+
+/* =========================================================
+   5) ANA LİSTE — Posts Grid
+   ========================================================= */
+.blog-list{ background:#fff; }
+.blog-list .grid--cards-3{ align-items:start; }
+
+.blog .post{
+  display:grid; grid-template-rows: auto 1fr; gap:0;
+  border:1px solid var(--blog-ring);
+  border-radius: var(--blog-radius);
+  background:#fff;
+  box-shadow: var(--blog-shadow-sm);
+  overflow:hidden;
+  transition: transform .1s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.blog .post:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(0,0,0,.12);
+  border-color: var(--blog-ring-strong);
+}
+.blog .post__media img{ display:block; width:100%; height:auto; aspect-ratio: 16/9; object-fit: cover; }
+.blog .post__body{ padding: 12px 12px 14px; }
+.blog .post__title{ margin: 4px 0 6px 0; font-size: 1.02rem; }
+.blog .post__excerpt{ margin:0 0 10px 0; color: var(--blog-muted); }
+.blog .post__meta{
+  display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+  font-size:.93rem; color:#52525b;
+}
+.blog .post .chip--cat{ pointer-events:auto; }
+
+/* =========================================================
+   6) PAGINATION
+   ========================================================= */
+.blog .pagination{
+  display:flex; align-items:center; justify-content:center; gap: 10px; margin-top: 16px;
+}
+.blog .pagination .page-state{
+  background:#fff; border:1px solid var(--blog-ring);
+  padding:8px 12px; border-radius: 10px; color:#4b5563; box-shadow: var(--blog-shadow-sm);
+}
+
+/* =========================================================
+   7) KONU MERKEZLERİ (Hubs)
+   ========================================================= */
+.blog-hubs{
+  background: linear-gradient(180deg,#fff 0%, #fbfbfb 100%);
+  border-block: 1px solid var(--blog-ring);
+}
+.blog .hub{
+  display:block; padding: 14px 14px 16px;
+  border:1px solid var(--blog-ring);
+  border-radius: var(--blog-radius);
+  background: #fff;
+  text-decoration:none; color: inherit;
+  box-shadow: var(--blog-shadow-sm);
+  position:relative; isolation:isolate;
+  transition: transform .1s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.blog .hub::after{
+  content:""; position:absolute; inset: -1px;
+  border-radius: inherit;
+  pointer-events:none;
+  background: linear-gradient(135deg,
+    color-mix(in oklab, var(--blog-gold) 24%, transparent),
+    transparent 40% 60%,
+    color-mix(in oklab, var(--blog-gold) 14%, transparent));
+  opacity:.12;
+}
+.blog .hub h3{ margin:0 0 6px 0; font-size:1.05rem; }
+.blog .hub p{ margin:0; color: var(--blog-muted); }
+.blog .hub:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(0,0,0,.12);
+  border-color: var(--blog-ring-strong);
+}
+
+/* =========================================================
+   8) POPÜLER ETİKETLER
+   ========================================================= */
+.blog-tags{
+  background:#fff;
+  border-block: 1px solid var(--blog-ring);
+}
+.blog-tags .chips .chip{
+  background:#fff; border:1px solid var(--blog-ring);
+  box-shadow: var(--blog-shadow-sm);
+  font-weight:700;
+}
+.blog-tags .chips .chip:hover{ transform: translateY(-1px); box-shadow: 0 8px 16px rgba(0,0,0,.10); }
+
+/* =========================================================
+   9) CTA BLOĞU
+   ========================================================= */
+.blog-cta{
+  background:
+    radial-gradient(700px 220px at 10% -10%,
+      color-mix(in oklab, var(--blog-gold) 14%, transparent) 0%, transparent 70%),
+    linear-gradient(180deg,#fff 0%, #f7f7f8 100%);
+  border-top: 1px solid var(--blog-ring);
+}
+.blog-cta .cta__inner{
+  border:1px solid var(--blog-ring);
+  border-radius: var(--blog-radius-lg);
+  padding: clamp(14px,2.6vw,22px);
+  background:#fff;
+  box-shadow: var(--blog-shadow-md);
+}
+.blog-cta .sec-title{ margin: 0 0 6px 0; }
+.blog-cta .muted{ color: var(--blog-muted); }
+.blog-cta .btn.btn--primary{
+  background: var(--blog-gold);
+  border-color: var(--blog-gold);
+  color:#fff;
+  box-shadow: 0 14px 34px rgba(0,0,0,.14);
+}
+.blog-cta .btn.btn--primary:hover{ filter: brightness(1.03); transform: translateY(-1px); }
+.blog-cta .btn.btn--ghost{
+  background:#fff; border-color: var(--blog-ring); color:#111827;
+  box-shadow: var(--blog-shadow-sm);
+}
+.blog-cta .btn.btn--ghost:hover{ transform: translateY(-1px); box-shadow: 0 12px 24px rgba(0,0,0,.10); }
+
+/* =========================================================
+   10) DURUMLAR / A11y / Perf
+   ========================================================= */
+/* Kart, post ve hub’larda görsel yüklenirken yumuşak reveal */
+@keyframes blogFadeIn{ from{ opacity:.0; transform: translateY(4px);} to{ opacity:1; transform: translateY(0);} }
+.blog img[loading="lazy"]{ view-transition-name: none; }
+.blog .card, .blog .post, .blog .hub{ animation: blogFadeIn .28s ease-out both; }
+
+/* Daha az hareket tercih edenler için */
+@media (prefers-reduced-motion: reduce){
+  .blog .card, .blog .post, .blog .hub{ animation:none; }
+  .blog .chips .chip, .blog .btn{ transition:none; }
+}
+
+/* Yüksek DPI’daki ince kenarlar için 1px optiği */
+@supports (background: color-mix(in oklab, #000 0%, #fff 100%)){
+  .blog .card, .blog .post, .blog .hub{
+    border-color: color-mix(in oklab, #000 12%, #fff);
+  }
+}
+
+/* =========================================================
+   11) Ufak UX dokunuşları
+   ========================================================= */
+/* chips grubunda container dar ise tag satırını taşma yerine kır */
+.blog .chips{ row-gap: 8px; }
+
+/* meta satırında ~7 dk vb. noktaları görünür ayır */
+.blog .post__meta, .blog .card__meta{
+  --dot: "·";
+}
+.blog .post__meta time + *::before,
+.blog .card__meta time + *::before{
+  content: var(--dot);
+  opacity:.55; margin: 0 6px 0 2px;
+}
+
+/* filtre barı: form odaklıyken bölüm zemini hafif parlatsın */
+.blog-filters:has(:focus-within){
+  box-shadow: inset 0 0 0 9999px rgba(212,175,55,.02);
+}
+
+/* Carousel’in sonundaki boş alanda fade mask */
+.blog .carousel{
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
+}
+
+/* =========================================================
+   12) Küçük ekran optimizasyonları
+   ========================================================= */
+@media (max-width: 480px){
+  .blog-hero .hero__title{ font-size: clamp(1.7rem, 7vw, 2.1rem); }
+  .blog #q{ height:44px; padding-left: 42px; }
+  .blog .card__body, .blog .post__body{ padding: 12px; }
+}
+
+/* =========================================================
+   13) Yazıcı uyumu (sadece içerik)
+   ========================================================= */
+@media print{
+  .site-header, .topbar, .blog-filters, .carousel__controls, .blog-cta, .site-footer{ display:none !important; }
+  .blog .post, .blog .card{ box-shadow:none; border:0; }
+}
+/* breadcrumbs */
+.blog .crumbs ol{
+  margin:0 0 .5rem; padding:.45rem .7rem; display:flex; flex-wrap:wrap; gap:.4rem .6rem; align-items:center;
+  border-radius:12px; background:rgba(255,255,255,.75); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  border:1px solid var(--ring); box-shadow:var(--shadow-sm);
+}
+.blog .crumbs li{ list-style:none; display:flex; align-items:center; gap:.6rem; color:var(--muted-2); font-weight:700; }
+.blog .crumbs li+li::before{ content:"›"; color:#9CA3AF; }
+.blog .crumbs a{ color:inherit; text-decoration:none; }
+.blog .crumbs a:hover{ text-decoration:underline; text-underline-offset:3px; }

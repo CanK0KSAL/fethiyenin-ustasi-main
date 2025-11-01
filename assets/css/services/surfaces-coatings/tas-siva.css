@@ -1,0 +1,506 @@
+/* ==========================================================================
+   TAŞ SIVA (Traverten/Doğal Taş Efekt) • Şık + Elegant CSS
+   Scope: .service.stone-plaster  (sadece bu sayfayı etkiler)
+   Tasarım dili: doğal taş paleti, yumuşak rölyef, premium tipografi
+   ========================================================================== */
+
+/* ---------- Design Tokens ---------- */
+
+.service.stone-plaster{
+  /* palette */
+  --ink: #0f172a;                /* koyu metin */
+  --muted: #475569;              /* gövde metin */
+  --ring: rgba(15,23,42,.10);    /* sınır/ring */
+  --ring-strong: rgba(15,23,42,.18);
+  /* taş esintili accent (sıcak nötr) */
+  --accent: #A98C69;             /* kum/keten tonu */
+  --accent-2: #8A7357;           /* koyu accent */
+  --accent-weak: #E9E1D8;        /* açık taş yüzey */
+  --surface: #ffffff;            /* kart zemini */
+  --page: 1200px;                /* container genişliği */
+  /* fx */
+  --radius: 16px;
+  --radius-lg: 22px;
+  --shadow-sm: 0 1px 2px rgba(10,10,20,.06);
+  --shadow-md: 0 10px 28px rgba(10,10,20,.12);
+  --shadow-lg: 0 24px 60px rgba(10,10,20,.16);
+
+  margin-top: 2%
+}
+
+/* Container genişliği (site genelinden bağımsız, bu sayfada) */
+.service.stone-plaster .container{ max-width: var(--page); margin-inline:auto; padding-inline:clamp(16px,3vw,24px); }
+
+/* Bölüm başlıkları */
+.service.stone-plaster .sec-title,
+.service.stone-plaster .hero__title{
+  color:var(--ink);
+  letter-spacing:-.02em;
+  line-height:1.12;
+  text-wrap:balance;
+}
+.service.stone-plaster .sec-title{ font-size:clamp(1.35rem, 1rem + 1.4vw, 2rem); }
+.service.stone-plaster .hero__title{ font-size:clamp(1.6rem, 1.1rem + 2.2vw, 2.4rem); }
+
+.service.stone-plaster .hero__lead,
+.service.stone-plaster .sec-desc,
+.service.stone-plaster .muted{ color:var(--muted); }
+
+/* --------------------------------------------------------------------------
+   HERO
+--------------------------------------------------------------------------- */
+.service .crumbs ol{
+  margin:0 0 .5rem; padding:.45rem .7rem; display:flex; flex-wrap:wrap; gap:.4rem .6rem; align-items:center;
+  border-radius:12px; background:rgba(255,255,255,.75); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  border:1px solid var(--ring); box-shadow:var(--shadow-sm);
+}
+.service .crumbs li{ list-style:none; display:flex; align-items:center; gap:.6rem; color:var(--muted-2); font-weight:700; }
+.service .crumbs li+li::before{ content:"›"; color:#9CA3AF; }
+.service .crumbs a{ color:inherit; text-decoration:none; }
+.service .crumbs a:hover{ text-decoration:underline; text-underline-offset:3px; }
+
+
+.service.stone-plaster .svc-hero{
+  position:relative; isolation:isolate;
+  padding: clamp(28px, 5vw, 56px) 0;
+  background:
+    radial-gradient(1100px 480px at 10% -15%,
+      color-mix(in oklab, var(--accent) 14%, transparent) 0%,
+      transparent 60%),
+    radial-gradient(800px 400px at 110% -10%,
+      color-mix(in oklab, var(--accent) 10%, transparent) 0%,
+      transparent 60%),
+    linear-gradient(180deg,#fff 0%, #fafafa 100%);
+  border-bottom:1px solid var(--ring);
+}
+.service.stone-plaster .svc-hero .crumbs{
+  margin-bottom: clamp(10px,1.5vw,16px);
+  font-size:.92rem; color:#6b7280;
+}
+.service.stone-plaster .svc-hero .crumbs a{
+  color:inherit; text-decoration:none; border-bottom:1px dashed rgba(107,114,128,.35);
+}
+.service.stone-plaster .svc-hero .crumbs a:hover{ color:var(--accent-2); border-bottom-color: currentColor; }
+
+.service.stone-plaster .hero__media{
+  margin-top: clamp(16px,3vw,28px);
+}
+.service.stone-plaster .hero__media picture,
+.service.stone-plaster .hero__media img{
+  display:block; width:100%; height: 70%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+.service.stone-plaster .hero__media img{
+  /* taş dokusuna uygun yumuşak maske */
+  mask-image: radial-gradient(120% 120% at 50% 10%, #000 60%, transparent 100%);
+}
+
+/* --------------------------------------------------------------------------
+   USP / FEATURES
+--------------------------------------------------------------------------- */
+.service.stone-plaster .svc-features{
+  padding: clamp(28px, 4.8vw, 72px) 0;
+  background:
+    linear-gradient(180deg,#fff 0%, #fff 30%, #faf8f5 100%);
+  border-bottom:1px solid var(--ring);
+}
+.service.stone-plaster .features{
+  display:grid; gap: clamp(12px,2vw,18px);
+  grid-template-columns: repeat(1, minmax(0,1fr));
+}
+@media (min-width: 720px){
+  .service.stone-plaster .features{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (min-width: 1024px){
+  .service.stone-plaster .features{ grid-template-columns: repeat(4, minmax(0,1fr)); }
+}
+.service.stone-plaster .feature{
+  background: var(--surface);
+  border:1px solid var(--ring);
+  border-radius: var(--radius);
+  padding: clamp(14px,2.2vw,18px);
+  box-shadow: var(--shadow-sm);
+  transition: transform .06s ease, box-shadow .25s ease, border-color .2s ease;
+}
+.service.stone-plaster .feature:hover{
+  transform: translateY(-1px);
+  border-color: var(--ring-strong);
+  box-shadow: var(--shadow-md);
+}
+.service.stone-plaster .feature__icon{
+  width:42px; height:42px; display:grid; place-items:center;
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, color-mix(in oklab,var(--accent) 14%, #fff) 0%, #fff 100%);
+  box-shadow: inset 0 1px 0 #fff9, 0 6px 20px rgba(169,140,105,.18);
+  margin-bottom:.6rem; font-size:1.15rem;
+}
+.service.stone-plaster .feature h3{
+  margin:.25rem 0 .35rem; font-size:1.03rem; font-weight:800; letter-spacing:-.01em; color:var(--ink);
+}
+.service.stone-plaster .feature p{ color:var(--muted); }
+
+/* --------------------------------------------------------------------------
+   KARTLAR: Uygulama Tipleri (Finishes)
+--------------------------------------------------------------------------- */
+.service.stone-plaster .svc-finishes{
+  padding: clamp(28px, 4.8vw, 72px) 0;
+  background:
+    radial-gradient(900px 380px at 95% -8%, color-mix(in oklab, var(--accent) 10%, transparent) 0%, transparent 60%),
+    linear-gradient(180deg,#fff 0%, #fafafa 100%);
+  border-top:1px solid var(--ring);
+  border-bottom:1px solid var(--ring);
+}
+.service.stone-plaster .grid.grid--cards-3{
+  display:grid; gap: clamp(12px,2vw,18px);
+  grid-template-columns: repeat(1, minmax(0,1fr));
+}
+@media (min-width: 900px){
+  .service.stone-plaster .grid.grid--cards-3{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+.service.stone-plaster .card--finish{
+  border:1px solid var(--ring); border-radius:var(--radius); background:#fff;
+  box-shadow: var(--shadow-sm);
+  padding: clamp(14px,2.2vw,18px);
+  transition: box-shadow .25s ease, border-color .2s ease, transform .06s ease;
+  position:relative; isolation:isolate;
+}
+.service.stone-plaster .card--finish::after{
+  content:""; position:absolute; inset:auto 12px 12px 12px; height:42%;
+  background: conic-gradient(from 30deg at 30% 10%, #f4f0ea 0 25%, #fff0 25% 100%);
+  filter: blur(20px); opacity:.45; pointer-events:none; border-radius: 18px; z-index:-1;
+}
+.service.stone-plaster .card--finish:hover{
+  transform: translateY(-1px);
+  border-color: var(--ring-strong);
+  box-shadow: var(--shadow-md);
+}
+.service.stone-plaster .card__head .card__title{
+  font-size:1.02rem; font-weight:900; letter-spacing:-.01em; margin:0 0 .15rem; color:var(--ink);
+}
+.service.stone-plaster .card__head .card__kicker{
+  margin:0 0 .5rem; font-size:.92rem; color: color-mix(in oklab,var(--accent) 50%, #475569);
+}
+
+/* Tick list */
+.service.stone-plaster .list{ list-style:none; padding:0; margin:0; display:grid; gap:.55rem; }
+.service.stone-plaster .list li{
+  display:grid; grid-template-columns:18px 1fr; gap:.55rem; align-items:start; color:#374151;
+}
+.service.stone-plaster .list li::before{
+  content:""; width:12px; height:12px; margin-top:.38rem; border-radius:3px;
+  background: color-mix(in oklab, var(--accent) 18%, #fff);
+  border:2px solid color-mix(in oklab, var(--accent) 65%, #111);
+}
+
+/* --------------------------------------------------------------------------
+   Nerelerde Kullanılır? (Surfaces)
+--------------------------------------------------------------------------- */
+.service.stone-plaster .svc-surfaces{
+  padding: clamp(28px, 4.8vw, 72px) 0;
+  background:
+    linear-gradient(180deg,#fff 0%, #fff 55%, #f7f5f2 100%);
+  border-bottom:1px solid var(--ring);
+}
+.service.stone-plaster .svc-surfaces .grid{
+  display:grid; gap: clamp(12px,2vw,18px);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 900px){
+  .service.stone-plaster .svc-surfaces .grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+.service.stone-plaster .svc-surfaces article{
+  background:#fff; border:1px solid var(--ring); border-radius: var(--radius);
+  padding: clamp(14px,2.2vw,18px); box-shadow: var(--shadow-sm);
+}
+.service.stone-plaster .svc-surfaces h3{
+  margin:.1rem 0 .4rem; font-size:1.04rem; font-weight:900; color:var(--ink); letter-spacing:-.01em;
+}
+.service.stone-plaster .svc-surfaces .muted{ color:var(--muted); }
+.service.stone-plaster .svc-surfaces em{ font-style:normal; font-weight:800; color: color-mix(in oklab,var(--accent) 65%, #334155); }
+
+/* --------------------------------------------------------------------------
+   Teknik Özellikler (Definition Lists)
+--------------------------------------------------------------------------- */
+.service.stone-plaster .svc-tech{
+  padding: clamp(28px, 4.8vw, 72px) 0;
+  background:
+    radial-gradient(1000px 420px at 8% -10%, color-mix(in oklab,var(--accent) 10%, transparent) 0%, transparent 60%),
+    linear-gradient(180deg,#fff 0%, #fafafa 100%);
+  border-top:1px solid var(--ring);
+  border-bottom:1px solid var(--ring);
+}
+.service.stone-plaster .svc-tech .grid{
+  display:grid; gap: clamp(12px,2vw,18px);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 900px){
+  .service.stone-plaster .svc-tech .grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+.service.stone-plaster .deflist{
+  display:grid; gap:.65rem;
+  background:#fff; border:1px solid var(--ring); border-radius: var(--radius);
+  padding: clamp(14px,2.2vw,18px); box-shadow: var(--shadow-sm);
+}
+.service.stone-plaster .deflist > div{
+  display:grid; grid-template-columns: 1fr auto; gap:.6rem; align-items:center;
+  border-bottom:1px dashed rgba(15,23,42,.08); padding-bottom:.55rem;
+}
+.service.stone-plaster .deflist > div:last-child{ border-bottom:none; padding-bottom:0; }
+.service.stone-plaster dt{ font-weight:800; color:#111827; letter-spacing:-.01em; }
+.service.stone-plaster dd{ margin:0; color:#374151; }
+
+/* --------------------------------------------------------------------------
+   Süreç (Steps / HowTo timeline)
+--------------------------------------------------------------------------- */
+.service.stone-plaster .svc-process{ padding: clamp(28px, 4.8vw, 72px) 0; background:#fff; }
+.service.stone-plaster .steps{
+  list-style:none; margin:0; padding:0;
+  display:grid; gap: clamp(12px,2vw,16px);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 900px){
+  .service.stone-plaster .steps{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+@media (min-width: 1200px){
+  .service.stone-plaster .steps{ grid-template-columns: repeat(5, minmax(0,1fr)); }
+}
+.service.stone-plaster .step{
+  position:relative; background:#fff; border:1px solid var(--ring); border-radius: var(--radius);
+  padding: clamp(14px,2.2vw,18px); box-shadow: var(--shadow-sm);
+  transition: box-shadow .25s ease, transform .06s ease, border-color .2s ease;
+}
+.service.stone-plaster .step:hover{ transform: translateY(-1px); border-color:var(--ring-strong); box-shadow: var(--shadow-md); }
+.service.stone-plaster .step::before{
+  content: attr(data-step);
+  position:absolute; top:-12px; left:14px;
+  width:28px; height:28px; display:grid; place-items:center;
+  font-weight:900; font-size:.9rem; color:#111827;
+  background: linear-gradient(180deg, color-mix(in oklab,var(--accent) 26%, #fff) 0%, #fff 100%);
+  border:1px solid var(--ring-strong); border-radius:10px; box-shadow: 0 6px 18px rgba(169,140,105,.2);
+}
+.service.stone-plaster .step__title{
+  margin:.35rem 0 .35rem; font-size:1rem; font-weight:900; letter-spacing:-.01em; color:var(--ink);
+}
+.service.stone-plaster .step__text{ color:#374151; }
+
+/* --------------------------------------------------------------------------
+   Projeler (Gallery) + Lightbox
+--------------------------------------------------------------------------- */
+.service.stone-plaster .svc-projects{
+  padding: clamp(28px, 4.8vw, 72px) 0;
+  background:
+    linear-gradient(180deg,#fff 0%, #fff 40%, #faf7f3 100%);
+  border-top:1px solid var(--ring);
+  border-bottom:1px solid var(--ring);
+}
+.service.stone-plaster .svc-projects .grid{
+  display:grid; gap: clamp(12px,2vw,18px);
+  grid-template-columns: repeat(1, minmax(0,1fr));
+}
+@media (min-width: 900px){
+  .service.stone-plaster .svc-projects .grid{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+.service.stone-plaster .project{
+  background:#fff; border:1px solid var(--ring); border-radius: var(--radius);
+  overflow:hidden; box-shadow: var(--shadow-sm); transition: box-shadow .25s ease, transform .08s ease, border-color .2s ease;
+}
+.service.stone-plaster .project:hover{ transform: translateY(-1px); border-color:var(--ring-strong); box-shadow: var(--shadow-md); }
+.service.stone-plaster .project img{ display:block; width:100%; aspect-ratio: 16/9; object-fit:cover; height: 70%;}
+.service.stone-plaster .project a{ display:block; position:relative; }
+.service.stone-plaster .project a::after{
+  content:""; position:absolute; inset:0;
+  background: linear-gradient(180deg, #0000 0%, rgba(0,0,0,.06) 100%);
+  opacity:0; transition:opacity .25s ease;
+}
+.service.stone-plaster .project:hover a::after{ opacity:1; }
+.service.stone-plaster .project figcaption{
+  padding:.7rem .9rem; font-size:.95rem; color:#374151;
+  border-top:1px solid var(--ring); background:#fff;
+}
+
+/* Lightbox (genel bileşen, scope içinde) */
+.service.stone-plaster .lightbox{
+  border:none; padding:0; width:min(92vw, 980px);
+  border-radius: 18px; box-shadow: 0 40px 120px rgba(0,0,0,.35);
+  background:#0b0f19; color:#e5e7eb;
+}
+.service.stone-plaster .lightbox__img{ display:block; width:100%; height:auto; border-radius: 18px 18px 0 0; }
+.service.stone-plaster .lightbox__close{
+  position:absolute; top:10px; right:10px; width:36px; height:36px; border-radius:10px;
+  background:#ffffff12; color:#fff; border:1px solid #ffffff26; cursor:pointer;
+}
+.service.stone-plaster .lightbox__close:hover{ background:#ffffff22; }
+
+/* --------------------------------------------------------------------------
+   Fiyatı Ne Belirler? (Notes)
+--------------------------------------------------------------------------- */
+.service.stone-plaster .svc-pricing-notes{
+  padding: clamp(28px, 4.8vw, 72px) 0; background:#fff;
+}
+.service.stone-plaster .svc-pricing-notes .grid{
+  display:grid; gap: clamp(12px,2vw,18px); grid-template-columns:1fr;
+}
+@media (min-width: 900px){
+  .service.stone-plaster .svc-pricing-notes .grid{ grid-template-columns: 1fr 1fr; align-items:start; }
+}
+.service.stone-plaster .svc-pricing-notes .list{
+  background:#fff; border:1px solid var(--ring); border-radius: var(--radius);
+  padding: clamp(14px,2.2vw,18px); box-shadow: var(--shadow-sm);
+}
+.service.stone-plaster .svc-pricing-notes .note{
+  background:
+    linear-gradient(180deg,#fff 0%, #faf8f5 100%),
+    radial-gradient(600px 240px at 8% -25%, color-mix(in oklab,var(--accent) 12%, transparent) 0%, transparent 70%);
+  border:1px solid var(--ring); border-radius: var(--radius);
+  padding: clamp(14px,2.2vw,18px); box-shadow: var(--shadow-sm);
+}
+.service.stone-plaster .svc-pricing-notes .muted{ color:var(--muted); }
+.service.stone-plaster .svc-pricing-notes strong{
+  color: color-mix(in oklab,var(--accent) 70%, #1f2937);
+}
+
+/* --------------------------------------------------------------------------
+   SSS (Accordion)
+--------------------------------------------------------------------------- */
+.service.stone-plaster .svc-faq{
+  padding: clamp(28px, 4.8vw, 72px) 0;
+  background: linear-gradient(180deg,#fff 0%, #f7f5f2 100%);
+  border-top:1px solid var(--ring);
+  border-bottom:1px solid var(--ring);
+}
+.service.stone-plaster .accordion{ display:grid; gap:.65rem; }
+.service.stone-plaster .accordion__item{
+  border:1px solid var(--ring); border-radius: var(--radius); background:#fff; overflow:hidden;
+  box-shadow: var(--shadow-sm);
+}
+.service.stone-plaster .accordion__item > summary{
+  cursor:pointer; list-style:none; padding: .9rem 1rem; font-weight:800; color:#111827; letter-spacing:-.01em;
+}
+.service.stone-plaster .accordion__item > summary::-webkit-details-marker{ display:none; }
+.service.stone-plaster .accordion__item > summary::after{
+  content:"+"; float:right; color:#6b7280; transition: transform .25s ease;
+}
+.service.stone-plaster .accordion__item[open] > summary::after{ content:"–"; transform: rotate(180deg); }
+.service.stone-plaster .accordion__panel{ padding: 0 1rem 1rem; color:#374151; border-top:1px dashed rgba(15,23,42,.08); }
+
+/* --------------------------------------------------------------------------
+   İlgili Hizmetler / Bölgeler / CTA
+--------------------------------------------------------------------------- */
+.service.stone-plaster .svc-related,
+.service.stone-plaster .svc-areas,
+.service.stone-plaster .svc-cta{
+  padding: clamp(28px, 4.8vw, 72px) 0; background:#fff;
+}
+
+.service.stone-plaster .grid.grid--cards-4{
+  display:grid; gap: clamp(12px,2vw,18px);
+  grid-template-columns: repeat(2, minmax(0,1fr));
+}
+@media (min-width: 980px){
+  .service.stone-plaster .grid.grid--cards-4{ grid-template-columns: repeat(4, minmax(0,1fr)); }
+}
+.service.stone-plaster .svc-related .card{
+  border:1px solid var(--ring); border-radius: var(--radius); background:#fff;
+  overflow:hidden; box-shadow: var(--shadow-sm); transition: transform .06s ease, box-shadow .25s ease, border-color .2s ease;
+}
+.service.stone-plaster .svc-related .card:hover{ transform: translateY(-1px); border-color:var(--ring-strong); box-shadow: var(--shadow-md); }
+.service.stone-plaster .svc-related .card__media img{ display:block; width:100%; aspect-ratio:16/9; object-fit:cover; }
+.service.stone-plaster .svc-related .card__title{ padding:.75rem .9rem; font-size:1rem; }
+.service.stone-plaster .svc-related .card__title a{ color:#111827; text-decoration:none; border-bottom:1px solid transparent; }
+.service.stone-plaster .svc-related .card__title a:hover{ border-bottom-color: var(--accent-2); color:var(--accent-2); }
+
+.service.stone-plaster .chips{ display:flex; flex-wrap:wrap; gap:.5rem; padding:0; list-style:none; }
+.service.stone-plaster .chip{
+  display:inline-flex; align-items:center; gap:.4rem;
+  padding:.4rem .7rem; border-radius:999px; font-size:.92rem;
+  background: color-mix(in oklab, var(--accent) 10%, #fff);
+  border:1px solid var(--ring); color:#374151; text-decoration:none;
+}
+.service.stone-plaster .chip:hover{ border-color: var(--ring-strong); color:#111827; }
+
+.service.stone-plaster .svc-cta{
+  background:
+    radial-gradient(1000px 380px at 85% -10%, color-mix(in oklab,var(--accent) 16%, transparent) 0%, transparent 60%),
+    linear-gradient(180deg,#fff 0%, #faf8f5 100%);
+  border-top:1px solid var(--ring);
+}
+.service.stone-plaster .cta__inner{
+  display:grid; gap: clamp(12px,2vw,18px);
+  grid-template-columns: 1fr;
+  align-items:center;
+  padding: clamp(14px,2.2vw,18px);
+  border:1px solid var(--ring); border-radius: var(--radius-lg); background:#fff; box-shadow: var(--shadow-sm);
+}
+@media (min-width: 920px){
+  .service.stone-plaster .cta__inner{ grid-template-columns: 1fr auto; }
+}
+.service.stone-plaster .cta__actions{ display:flex; gap:.6rem; flex-wrap:wrap; }
+
+/* Butonlar (bu sayfaya özel accent) */
+.service.stone-plaster .btn{ border-radius: 12px; font-weight:800; letter-spacing:-.01em; }
+.service.stone-plaster .btn.btn--primary{
+  background: linear-gradient(180deg, color-mix(in oklab,var(--accent) 72%, #fff) 0%, color-mix(in oklab,var(--accent) 86%, #ddd) 100%);
+  color:#fff; border:1px solid color-mix(in oklab,var(--accent) 80%, #000);
+  box-shadow: 0 10px 26px rgba(169,140,105,.28);
+}
+.service.stone-plaster .btn.btn--primary:hover{ filter: brightness(1.02); transform: translateY(-1px); }
+.service.stone-plaster .btn.btn--ghost{
+  background:#fff; color:#111827; border:1px solid var(--ring);
+}
+.service.stone-plaster .btn.btn--ghost:hover{ border-color:var(--ring-strong); }
+
+/* --------------------------------------------------------------------------
+   Erişilebilirlik & Durumlar
+--------------------------------------------------------------------------- */
+.service.stone-plaster a:focus-visible,
+.service.stone-plaster button:focus-visible,
+.service.stone-plaster .chip:focus-visible{
+  outline:none;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 28%, transparent);
+  border-color: color-mix(in oklab, var(--accent) 55%, var(--ring-strong));
+  transition: box-shadow .05s ease;
+}
+
+/* Ordered list numara gizleme (timeline için) */
+.service.stone-plaster ol{ list-style:none; padding-left:0; }
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .service.stone-plaster *{ transition:none !important; }
+}
+/* Taş Sıva — Hizmet teması (main.service.stone-plaster) */
+
+:root {
+  --svc-st-hue: 210; /* soğuk taş */
+  --svc-st-bg: hsl(var(--svc-st-hue) 16% 98%);
+  --svc-st-ink: hsl(var(--svc-st-hue) 20% 18%);
+  --svc-st-accent: hsl(210 70% 42%);
+  --svc-card: #fff;
+  --svc-radius: 14px;
+  --svc-gap: clamp(14px, 2vw, 22px);
+}
+
+main.service.stone-plaster { background: var(--svc-st-bg); color: var(--svc-st-ink); }
+
+main.service.stone-plaster .features.grid,
+main.service.stone-plaster .grid--cards-3 { display:grid; gap: var(--svc-gap); grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); }
+
+main.service.stone-plaster .feature,
+main.service.stone-plaster .card--finish {
+  background: var(--svc-card);
+  border-radius: var(--svc-radius);
+  border:1px solid hsl(210 25% 90%);
+}
+
+/* Projelerde görseller */
+main.service.stone-plaster .project img { border-radius: 10px; }
+
+/* Teknik tablolar */
+main.service.stone-plaster .deflist dd { color:hsl(210 10% 40%); }
+
+/* CTA */
+main.service.stone-plaster .btn--primary { background: var(--svc-st-accent); border:none; }
+main.service.stone-plaster .btn--ghost { border-color: var(--svc-st-accent); color: var(--svc-st-accent); }
+

@@ -1,0 +1,370 @@
+/* ==========================================================================
+   BOYA (Paint) • Deep / Elegant / Chic
+   Scope: .service.paint (yalnız bu sayfa)
+   ========================================================================== */
+
+/* ---------- Design Tokens ---------- */
+.service.paint{
+  --page: 1200px;
+
+  /* Palette (sofistike nötr + derin mavi aksan) */
+  --ink: #0c111b;                   /* başlık metin */
+  --text: #2b3340;                  /* gövde metin */
+  --muted: #5b6678;                 /* ikincil metin */
+  --surface: #ffffff;               /* kartlar */
+  --veil: #f7f8fc;                  /* yumuşak arkaplan */
+  --line: rgba(10,14,20,.12);       /* sınır çizgisi */
+  --line-strong: rgba(10,14,20,.22);
+
+  --accent: #3651ff;                /* kraliyet mavisi */
+  --accent-2: #2a3fdd;              /* koyu */
+  --accent-weak: #eaf0ff;           /* çok açık */
+
+  --radius: 16px;
+  --radius-lg: 22px;
+  --shadow-sm: 0 2px 10px rgba(0,0,30,.06);
+  --shadow-md: 0 12px 32px rgba(0,0,30,.12);
+  --shadow-lg: 0 28px 80px rgba(0,0,30,.18);
+
+  --fluid-1: clamp(14px, .8vw + 12px, 16px);
+  --fluid-2: clamp(18px, 1.4vw + 14px, 22px);
+  --fluid-3: clamp(22px, 2vw + 16px, 28px);
+  --fluid-4: clamp(28px, 3vw + 18px, 40px);
+  margin-top: 2%;
+}
+
+.service.paint .container{ max-width:var(--page); margin-inline:auto; padding-inline:clamp(16px,3.5vw,28px); }
+.service.paint .sec-title,
+.service.paint .hero__title{
+  color:var(--ink); letter-spacing:-.02em; line-height:1.12; text-wrap:balance;
+}
+.service.paint .sec-title{ font-size:var(--fluid-3); margin:0 0 .65rem; }
+.service.paint .hero__title{ font-size:var(--fluid-4); margin:.35rem 0 .5rem; }
+.service.paint .hero__lead,
+.service.paint .sec-desc,
+.service.paint .muted{ color:var(--muted); }
+
+/* Basit tipografi ayarları */
+.service.paint p{ font-size:var(--fluid-1); line-height:1.6; color:var(--text); }
+.service.paint h3{ font-size:calc(var(--fluid-2) - 2px); margin:.2rem 0 .4rem; color:var(--ink); }
+
+/* ---------- Grid yardımcıları ---------- */
+.service.paint .grid{ display:grid; gap:clamp(12px,2vw,18px); }
+.service.paint .grid--cols-2{ grid-template-columns:1fr; }
+@media (min-width: 900px){ .service.paint .grid--cols-2{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+.service.paint .grid--cards-3{ grid-template-columns:1fr; }
+@media (min-width: 900px){ .service.paint .grid--cards-3{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
+.service.paint .grid--cards-4{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+@media (min-width: 980px){ .service.paint .grid--cards-4{ grid-template-columns:repeat(4,minmax(0,1fr)); } }
+.service.paint .grid--icon-4{ grid-template-columns:1fr; }
+@media (min-width:1024px){ .service.paint .grid--icon-4{ grid-template-columns:repeat(4,minmax(0,1fr)); } }
+
+/* ---------- Breadcrumb + HERO ---------- */
+.service.paint .svc-hero{
+  position:relative; isolation:isolate;
+  padding: clamp(28px, 5.4vw, 68px) 0;
+  background:
+    radial-gradient(1200px 420px at 85% -10%, color-mix(in oklab,var(--accent) 12%, transparent) 0%, transparent 60%),
+    linear-gradient(180deg,#fff 0%, #fcfdff 50%, var(--veil) 100%),
+    repeating-linear-gradient(180deg, color-mix(in oklab,var(--accent) 7%, transparent) 0 1px, transparent 1px 7px);
+  border-bottom:1px solid var(--line);
+}
+.service.paint .crumbs{ margin-bottom:clamp(8px,1.2vw,14px); font-size:.94rem; color:#6b7280; }
+.service.paint .crumbs a{ color:inherit; text-decoration:none; border-bottom:1px dashed rgba(107,114,128,.35); }
+.service.paint .crumbs a:hover{ color:var(--accent-2); border-bottom-color:currentColor; }
+
+.service.paint .hero__media{ margin-top:clamp(16px,2.6vw,28px); }
+.service.paint .hero__media picture,
+.service.paint .hero__media img{
+  display:block; width:100%; height: 70%; border-radius:var(--radius-lg); box-shadow:var(--shadow-lg);
+}
+.service.paint .hero__media img{
+  /* üstte soft vinyet */
+  mask-image: radial-gradient(140% 120% at 50% 6%, #000 65%, transparent 100%);
+}
+
+/* ---------- Öne Çıkanlar (Features) ---------- */
+.service.paint .svc-features{
+  padding:clamp(30px,5vw,76px) 0;
+  background: linear-gradient(180deg,#fff 0%, #fff 40%, #f5f7ff 100%);
+  border-bottom:1px solid var(--line);
+}
+.service.paint .feature{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:clamp(14px,2.2vw,18px);
+  box-shadow:var(--shadow-sm);
+  position:relative; overflow:hidden; isolation:isolate;
+  transition: transform .06s ease, border-color .2s ease, box-shadow .25s ease;
+}
+.service.paint .feature::after{
+  content:""; position:absolute; inset:0; pointer-events:none; opacity:.18; border-radius:inherit;
+  background: radial-gradient(100% 60% at 95% 0%, color-mix(in oklab,var(--accent) 18%, transparent) 0%, transparent 60%);
+}
+.service.paint .feature:hover{ transform:translateY(-1px); border-color:var(--line-strong); box-shadow:var(--shadow-md); }
+.service.paint .feature__icon{
+  width:44px; height:44px; display:grid; place-items:center; border-radius:12px; margin-bottom:.55rem;
+  background: linear-gradient(180deg, color-mix(in oklab,var(--accent) 18%, #fff) 0%, #fff 100%);
+  box-shadow: inset 0 1px 0 #ffffffc9, 0 8px 24px rgba(54,81,255,.2);
+  font-size:1.15rem; color:#0f172a;
+}
+.service.paint .feature h3{ font-weight:800; letter-spacing:-.01em; }
+
+/* ---------- Boyama Sistemleri (Cards) ---------- */
+.service.paint .svc-systems{
+  padding:clamp(30px,5vw,76px) 0;
+  background:
+    radial-gradient(900px 380px at 95% -8%, color-mix(in oklab,var(--accent) 10%, transparent) 0%, transparent 60%),
+    linear-gradient(180deg,#fff 0%, #fafafa 100%);
+  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+}
+.service.paint .svc-systems .card{
+  border:1px solid var(--line); border-radius:var(--radius); background:#fff;
+  padding:clamp(14px,2.2vw,18px); box-shadow:var(--shadow-sm);
+  transition: transform .06s ease, border-color .2s ease, box-shadow .25s ease;
+  position:relative; overflow:hidden;
+}
+.service.paint .svc-systems .card::before{
+  content:""; position:absolute; inset:0 0 auto 0; height:4px;
+  background: linear-gradient(90deg, color-mix(in oklab,var(--accent) 90%, #000) 0%, color-mix(in oklab,var(--accent) 55%, #fff) 100%);
+}
+.service.paint .svc-systems .card:hover{ transform:translateY(-1px); border-color:var(--line-strong); box-shadow:var(--shadow-md); }
+.service.paint .card__title{ font-weight:900; letter-spacing:-.01em; }
+
+/* Tick list */
+.service.paint .list{ list-style:none; padding:0; margin:0; display:grid; gap:.55rem; }
+.service.paint .list li{
+  display:grid; grid-template-columns:18px 1fr; gap:.55rem; align-items:start; color:var(--text);
+}
+.service.paint .list li::before{
+  content:""; width:12px; height:12px; margin-top:.38rem; border-radius:3px;
+  background: color-mix(in oklab, var(--accent) 18%, #fff);
+  border:2px solid color-mix(in oklab, var(--accent) 65%, #0b1220);
+}
+
+/* ---------- Uygun Yüzeyler ---------- */
+.service.paint .svc-surfaces{
+  padding:clamp(30px,5vw,76px) 0;
+  background: linear-gradient(180deg,#fff 0%, #fff 55%, #f3f6ff 100%);
+  border-bottom:1px solid var(--line);
+}
+.service.paint .svc-surfaces article{
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+  padding:clamp(14px,2.2vw,18px); box-shadow:var(--shadow-sm);
+}
+
+/* ---------- Teknik Özellikler (Definition Lists) ---------- */
+.service.paint .svc-tech{
+  padding:clamp(30px,5vw,76px) 0;
+  background:
+    radial-gradient(1000px 420px at 8% -10%, color-mix(in oklab,var(--accent) 10%, transparent) 0%, transparent 60%),
+    linear-gradient(180deg,#fff 0%, #fafafa 100%);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.service.paint .svc-tech .grid{ grid-template-columns:1fr; }
+@media (min-width:900px){ .service.paint .svc-tech .grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+.service.paint .deflist{
+  display:grid; gap:.65rem;
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+  padding:clamp(14px,2.2vw,18px); box-shadow:var(--shadow-sm);
+}
+.service.paint .deflist > div{
+  display:grid; grid-template-columns: 1fr auto; gap:.6rem; align-items:center;
+  border-bottom:1px dashed rgba(8,12,20,.08); padding-bottom:.55rem;
+}
+.service.paint .deflist > div:last-child{ border-bottom:none; padding-bottom:0; }
+.service.paint dt{ font-weight:800; color:var(--ink); letter-spacing:-.01em; }
+.service.paint dd{ margin:0; color:var(--text); }
+
+/* ---------- Süreç (Steps) ---------- */
+.service.paint .svc-process{ padding:clamp(30px,5vw,76px) 0; background:#fff; }
+.service.paint .steps{ list-style:none; margin:0; padding:0; display:grid; gap:clamp(12px,2vw,16px); grid-template-columns:1fr; }
+@media (min-width:900px){ .service.paint .steps{ grid-template-columns:repeat(4,minmax(0,1fr)); } }
+.service.paint .step{
+  position:relative; background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+  padding:clamp(14px,2.2vw,18px); box-shadow:var(--shadow-sm);
+  transition: transform .06s ease, border-color .2s ease, box-shadow .25s ease;
+}
+.service.paint .step:hover{ transform:translateY(-1px); border-color:var(--line-strong); box-shadow:var(--shadow-md); }
+.service.paint .step::before{
+  content: attr(data-step);
+  position:absolute; top:-12px; left:14px;
+  width:28px; height:28px; display:grid; place-items:center;
+  font-weight:900; font-size:.9rem; color:#0c111b;
+  background: linear-gradient(180deg, color-mix(in oklab,var(--accent) 26%, #fff) 0%, #fff 100%);
+  border:1px solid var(--line-strong); border-radius:10px; box-shadow: 0 6px 18px rgba(54,81,255,.24);
+}
+.service.paint .step__title{ font-weight:900; letter-spacing:-.01em; }
+
+/* Ordered list numaralarını gizle (native) */
+.service.paint ol{ list-style:none; padding-left:0; }
+
+/* ---------- Projeler (Gallery) + Lightbox ---------- */
+.service.paint .svc-projects{
+  padding:clamp(30px,5vw,76px) 0;
+  background: linear-gradient(180deg,#fff 0%, #fff 40%, #f5f7ff 100%);
+  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+}
+.service.paint .project{
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+  overflow:hidden; box-shadow:var(--shadow-sm);
+  transition: transform .08s ease, border-color .2s ease, box-shadow .25s ease;
+}
+.service.paint .project:hover{ transform:translateY(-1px); border-color:var(--line-strong); box-shadow:var(--shadow-md); }
+.service.paint .project img{ display:block; width:100%; height: 80%; aspect-ratio:16/9; object-fit:cover; }
+.service.paint .project figcaption{
+  padding:.7rem .9rem; font-size:.95rem; color:var(--text);
+  border-top:1px solid var(--line); background:#fff;
+}
+
+/* Lightbox */
+.service.paint .lightbox{
+  border:none; padding:0; width:min(92vw, 980px);
+  border-radius:18px; box-shadow:0 40px 120px rgba(0,0,0,.35);
+  background:#0b0f19; color:#e5e7eb;
+}
+.service.paint .lightbox__img{ display:block; width:100%; height:auto; border-radius:18px 18px 0 0; }
+.service.paint .lightbox__close{
+  position:absolute; top:10px; right:10px; width:38px; height:38px; border-radius:11px;
+  background:#ffffff12; color:#fff; border:1px solid #ffffff26; cursor:pointer;
+}
+.service.paint .lightbox__close:hover{ background:#ffffff22; }
+
+/* ---------- Fiyatı Ne Belirler? ---------- */
+.service.paint .svc-pricing-notes{ padding:clamp(30px,5vw,76px) 0; background:#fff; }
+.service.paint .svc-pricing-notes .grid{ grid-template-columns:1fr; }
+@media (min-width:900px){ .service.paint .svc-pricing-notes .grid{ grid-template-columns:1fr 1fr; align-items:start; } }
+.service.paint .svc-pricing-notes .list{
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+  padding:clamp(14px,2.2vw,18px); box-shadow:var(--shadow-sm);
+}
+.service.paint .svc-pricing-notes .note{
+  background:
+    linear-gradient(180deg,#fff 0%, #f6f8ff 100%),
+    radial-gradient(600px 240px at 8% -25%, color-mix(in oklab,var(--accent) 12%, transparent) 0%, transparent 70%);
+  border:1px solid var(--line); border-radius:var(--radius);
+  padding:clamp(14px,2.2vw,18px); box-shadow:var(--shadow-sm);
+}
+.service.paint .svc-pricing-notes strong{ color: color-mix(in oklab,var(--accent) 70%, #1f2937); }
+
+/* ---------- SSS (Accordion) ---------- */
+.service.paint .svc-faq{
+  padding:clamp(30px,5vw,76px) 0;
+  background: linear-gradient(180deg,#fff 0%, #eaf0ff 100%);
+  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+}
+.service.paint .accordion{ display:grid; gap:.65rem; }
+.service.paint .accordion__item{
+  border:1px solid var(--line); border-radius:var(--radius); background:#fff; overflow:hidden;
+  box-shadow:var(--shadow-sm);
+}
+.service.paint .accordion__item > summary{
+  cursor:pointer; list-style:none; padding:1rem 1.1rem; font-weight:800; color:var(--ink); letter-spacing:-.01em;
+}
+.service.paint .accordion__item > summary::-webkit-details-marker{ display:none; }
+.service.paint .accordion__item > summary::after{
+  content:"+"; float:right; color:#6b7280; transition:transform .25s ease;
+}
+.service.paint .accordion__item[open] > summary::after{ content:"–"; transform:rotate(180deg); }
+.service.paint .accordion__panel{ padding:0 1.1rem 1.05rem; color:var(--text); border-top:1px dashed rgba(8,12,20,.08); }
+
+/* ---------- İlgili Hizmetler / Bölgeler / CTA ---------- */
+.service.paint .svc-related,
+.service.paint .svc-areas,
+.service.paint .svc-cta{
+  padding:clamp(30px,5vw,76px) 0; background:#fff;
+}
+.service.paint .svc-related .card{
+  border:1px solid var(--line); border-radius:var(--radius); background:#fff;
+  overflow:hidden; box-shadow:var(--shadow-sm);
+  transition: transform .06s ease, border-color .2s ease, box-shadow .25s ease;
+}
+.service.paint .svc-related .card:hover{ transform:translateY(-1px); border-color:var(--line-strong); box-shadow:var(--shadow-md); }
+.service.paint .svc-related .card__media img{ display:block; width:100%; aspect-ratio:16/9; object-fit:cover; }
+.service.paint .svc-related .card__title{ padding:.8rem .95rem; }
+.service.paint .svc-related .card__title a{ color:var(--ink); text-decoration:none; border-bottom:1px solid transparent; }
+.service.paint .svc-related .card__title a:hover{ border-bottom-color:var(--accent-2); color:var(--accent-2); }
+
+.service.paint .chips{ display:flex; flex-wrap:wrap; gap:.5rem; padding:0; list-style:none; }
+.service.paint .chip{
+  display:inline-flex; align-items:center; gap:.4rem;
+  padding:.42rem .75rem; border-radius:999px; font-size:.92rem;
+  background: var(--accent-weak);
+  border:1px solid var(--line); color:var(--text); text-decoration:none;
+}
+.service.paint .chip:hover{ border-color:var(--line-strong); color:#0f172a; }
+
+.service.paint .svc-cta{
+  background:
+    radial-gradient(1000px 380px at 85% -10%, color-mix(in oklab,var(--accent) 16%, transparent) 0%, transparent 60%),
+    linear-gradient(180deg,#fff 0%, #f7f8ff 100%);
+  border-top:1px solid var(--line);
+}
+.service.paint .cta__inner{
+  display:grid; gap:clamp(12px,2vw,18px); grid-template-columns:1fr; align-items:center;
+  padding:clamp(16px,2.4vw,22px);
+  border:1px solid var(--line); border-radius:var(--radius-lg); background:#fff; box-shadow:var(--shadow-sm);
+}
+@media (min-width:920px){ .service.paint .cta__inner{ grid-template-columns:1fr auto; } }
+.service.paint .cta__actions{ display:flex; gap:.6rem; flex-wrap:wrap; }
+
+/* ---------- Buttons (accent) ---------- */
+.service.paint .btn{ border-radius:12px; font-weight:800; letter-spacing:-.01em; padding:.7rem 1rem; }
+.service.paint .btn.btn--primary{
+  background: linear-gradient(180deg, color-mix(in oklab,var(--accent) 88%, #fff) 0%, color-mix(in oklab,var(--accent) 98%, #c7d2fe) 100%);
+  color:#fff; border:1px solid color-mix(in oklab,var(--accent) 85%, #000);
+  box-shadow: 0 12px 30px rgba(54,81,255,.28);
+  transform: translateZ(0);
+}
+.service.paint .btn.btn--primary:hover{ filter:brightness(1.02); transform:translateY(-1px); }
+.service.paint .btn.btn--ghost{ background:#fff; color:var(--ink); border:1px solid var(--line); }
+.service.paint .btn.btn--ghost:hover{ border-color:var(--line-strong); }
+
+/* ---------- Erişilebilirlik ---------- */
+.service.paint a:focus-visible,
+.service.paint button:focus-visible,
+.service.paint .chip:focus-visible{
+  outline:none;
+  box-shadow:0 0 0 3px color-mix(in oklab, var(--accent) 28%, transparent);
+  border-color: color-mix(in oklab, var(--accent) 55%, var(--line-strong));
+  transition:box-shadow .05s ease;
+}
+.service .crumbs ol{
+  margin:0 0 .5rem; padding:.45rem .7rem; display:flex; flex-wrap:wrap; gap:.4rem .6rem; align-items:center;
+  border-radius:12px; background:rgba(255,255,255,.75); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  border:1px solid var(--ring); box-shadow:var(--shadow-sm);
+}
+.service .crumbs li{ list-style:none; display:flex; align-items:center; gap:.6rem; color:var(--muted-2); font-weight:700; }
+.service .crumbs li+li::before{ content:"›"; color:#9CA3AF; }
+.service .crumbs a{ color:inherit; text-decoration:none; }
+.service .crumbs a:hover{ text-decoration:underline; text-underline-offset:3px; }
+
+/* Boya — Hizmet teması (main.service.paint) */
+
+:root {
+  --svc-paint-hue: 180; /* ferah mavi-yeşil */
+  --svc-paint-bg: hsl(var(--svc-paint-hue) 40% 98%);
+  --svc-paint-ink: hsl(180 24% 16%);
+  --svc-paint-accent: hsl(180 72% 40%);
+  --svc-card: #fff;
+  --svc-radius: 14px;
+  --svc-gap: clamp(14px, 2vw, 22px);
+}
+
+main.service.paint { background: var(--svc-paint-bg); color: var(--svc-paint-ink); }
+
+/* Sistem kartları (4’lü) */
+main.service.paint .grid--cards-4 { display:grid; gap: var(--svc-gap); grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); }
+main.service.paint .card { background: var(--svc-card); border:1px solid hsl(180 22% 90%); border-radius: var(--svc-radius); }
+
+/* Teknik */
+main.service.paint .deflist dd { color:hsl(180 12% 38%); }
+
+/* Projeler */
+main.service.paint .project img { border-radius: 10px; }
+
+/* CTA */
+main.service.paint .btn--primary { background: var(--svc-paint-accent); border:none; }
+main.service.paint .btn--ghost { border-color: var(--svc-paint-accent); color: var(--svc-paint-accent); }

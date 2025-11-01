@@ -1,0 +1,395 @@
+/* =========================================================
+   Fethiye’nin Ustası — About (Light / Elegant / Universal)
+   Kapsam: main.about
+   Not: Header/Footer ve global .btn/.chips/.grid ile çakışmaz
+   Renk vurgusu: --brand-gold (#D4AF37) varsa otomatik kullanılır
+   ========================================================= */
+
+/* ---------- Temel Değişkenler ---------- */
+.about{
+  --about-bg: #ffffff;
+  --about-fg: #161616;
+  --about-muted:#606671;
+  --about-ring: rgba(0,0,0,.08);
+  --about-ring-strong: rgba(0,0,0,.14);
+  --about-shadow-sm: 0 1px 2px rgba(0,0,0,.06);
+  --about-shadow-md: 0 8px 26px rgba(0,0,0,.10);
+  --about-shadow-lg: 0 18px 46px rgba(0,0,0,.14);
+  --about-radius: 14px;
+  --about-radius-lg: 18px;
+  --about-gold: var(--brand-gold, #D4AF37);
+  --header-safe: var(--header-height, 68px);
+}
+.about .container{ container-type:inline-size; }
+.about :focus-visible{
+  outline: 2px solid color-mix(in oklab, var(--about-gold) 70%, white);
+  outline-offset: 2px; border-radius: 10px;
+}
+
+/* ---------- Bölüm aralığı ---------- */
+.about .sec{ padding-block: clamp(18px, 4vw, 36px); }
+
+/* =========================================================
+   1) BREADCRUMB (Topbar)
+   ========================================================= */
+/* breadcrumbs */
+.about .crumbs ol{
+  margin:0 0 .5rem; padding:.45rem .7rem; display:flex; flex-wrap:wrap; gap:.4rem .6rem; align-items:center;
+  border-radius:12px; background:rgba(255,255,255,.75); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  border:1px solid var(--ring); box-shadow:var(--shadow-sm);
+}
+.about .crumbs li{ list-style:none; display:flex; align-items:center; gap:.6rem; color:var(--muted-2); font-weight:700; }
+.about .crumbs li+li::before{ content:"›"; color:#9CA3AF; }
+.about .crumbs a{ color:inherit; text-decoration:none; }
+.about .crumbs a:hover{ text-decoration:underline; text-underline-offset:3px; }
+
+
+/* =========================================================
+   2) HERO (Başlık + Görsel)
+   ========================================================= */
+.about .hero--about{
+  position:relative;
+  background:
+    radial-gradient(900px 260px at 12% -4%,
+      color-mix(in oklab, var(--about-gold) 12%, transparent) 0%, transparent 70%)
+    ,linear-gradient(180deg, #fff 0%, #f8f8f9 100%);
+  border-bottom: 1px solid var(--about-ring);
+}
+.about .hero--about .hero__title{
+  font-weight: 900; letter-spacing: -0.012em; line-height:1.06;
+  font-size: clamp(1.9rem, 3.6vw, 3rem);
+  margin: 10px 0 8px;
+}
+.about .hero--about .hero__title b,
+.about .hero--about .hero__title strong{ color: var(--about-gold); }
+.about .hero--about .hero__lead{
+  color: var(--about-muted);
+  font-size: clamp(1rem, 1.6vw, 1.125rem);
+  max-width: 78ch; margin: 0;
+}
+.about .hero__media{
+  margin-top: clamp(12px,2.8vw,18px);
+  border-radius: var(--about-radius-lg);
+  overflow:hidden; box-shadow: var(--about-shadow-lg);
+  isolation:isolate;
+}
+.about .hero__media picture{ display:block; }
+.about .hero__media img{
+  display:block; width:100%; height:auto; aspect-ratio: 2.2/1; object-fit: cover;
+}
+.about .hero__media::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:
+    linear-gradient(to top, rgba(0,0,0,.08), transparent 35%),
+    radial-gradient(60% 60% at 10% 10%, color-mix(in oklab, var(--about-gold) 10%, transparent) 0%, transparent 60%);
+  mix-blend-mode:multiply;
+}
+
+/* Ortak bölüm başlıkları */
+.about .sec-title{
+  display:inline-block;
+  font-weight:900; letter-spacing:-.01em; line-height:1.12;
+  margin: 0 0 10px 0;
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  position:relative;
+}
+.about .sec-title::after{
+  content:""; display:block; width: 56px; height:3px; margin-top: 8px;
+  background: color-mix(in oklab, var(--about-gold) 86%, #fff);
+  border-radius: 999px;
+}
+
+/* =========================================================
+   3) SAYILARLA BİZ (Stats)
+   ========================================================= */
+.about .about-stats .stats{
+  align-items:stretch;
+}
+.about .stat{
+  background:#fff; border:1px solid var(--about-ring);
+  border-radius: var(--about-radius); box-shadow: var(--about-shadow-sm);
+  padding: clamp(12px, 2.2vw, 16px); position:relative; isolation:isolate;
+  transition: transform .08s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.about .stat:hover{
+  transform: translateY(-2px);
+  border-color: var(--about-ring-strong);
+  box-shadow: 0 18px 38px rgba(0,0,0,.14);
+}
+.about .stat dt{
+  color: var(--about-muted);
+  font-size:.95rem; margin-bottom:6px;
+}
+.about .stat dd{
+  font-weight: 900; letter-spacing: -0.01em;
+  font-size: clamp(1.4rem, 3vw, 2rem); margin:0;
+}
+.about .about-stats .muted{ color: var(--about-muted); margin-top:10px; }
+
+/* =========================================================
+   4) NEDEN BİZ? (Values)
+   ========================================================= */
+.about .about-values .card.value{
+  border:1px solid var(--about-ring); border-radius: var(--about-radius);
+  background:#fff; box-shadow: var(--about-shadow-sm);
+  padding: 14px 14px 16px; position:relative; isolation:isolate;
+  transition: transform .08s ease, box-shadow .2s, border-color .2s;
+}
+.about .about-values .card.value::after{
+  content:""; position:absolute; inset:-1px; border-radius: inherit; pointer-events:none;
+  background: linear-gradient(135deg,
+    color-mix(in oklab, var(--about-gold) 24%, transparent),
+    transparent 40% 60%,
+    color-mix(in oklab, var(--about-gold) 14%, transparent));
+  opacity: .12;
+}
+.about .about-values .card.value:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 38px rgba(0,0,0,.14);
+  border-color: var(--about-ring-strong);
+}
+.about .about-values h3{ margin:0 0 6px 0; font-size:1.05rem; }
+.about .about-values p{ margin:0; color: var(--about-muted); }
+
+/* =========================================================
+   5) SÜREÇ (Steps / Timeline)
+   ========================================================= */
+.about .about-process .steps{
+  counter-reset: step; list-style:none; padding:0; display:grid; gap:12px;
+}
+.about .about-process .steps > li{
+  position:relative; padding: 14px 14px 14px 64px;
+  border:1px solid var(--about-ring); border-radius: 14px; background:#fff;
+  box-shadow: var(--about-shadow-sm);
+}
+.about .about-process .steps > li::before{
+  counter-increment: step; content: counter(step);
+  position:absolute; left:14px; top:50%; transform: translateY(-50%);
+  width:36px; height:36px; display:grid; place-items:center;
+  border-radius: 999px; background: var(--about-gold); color:#fff; font-weight:800;
+  box-shadow: 0 8px 18px rgba(0,0,0,.12);
+}
+.about .about-process h3{ margin:0 0 6px 0; font-size:1.05rem; }
+.about .about-process p{ margin:0; color: var(--about-muted); }
+
+/* =========================================================
+   6) HİZMET KAPSAMI (Services)
+   ========================================================= */
+.about .about-services .svc{
+  border:1px solid var(--about-ring); border-radius: var(--about-radius);
+  background:#fff; box-shadow: var(--about-shadow-sm);
+  padding: 14px 14px 10px; transition: transform .08s ease, box-shadow .2s, border-color .2s;
+}
+.about .about-services .svc:hover{
+  transform: translateY(-2px); border-color: var(--about-ring-strong);
+  box-shadow: 0 18px 38px rgba(0,0,0,.14);
+}
+.about .about-services h3{ margin:0 0 8px 0; }
+.about .about-services h3 a{
+  text-decoration: none; color: inherit;
+  border-bottom: 2px solid color-mix(in oklab, var(--about-gold) 50%, #ddd);
+}
+.about .about-services .bullets{ padding-left: 1.1em; margin:0; }
+.about .about-services .bullets li{ margin: 6px 0; }
+.about .about-services .bullets a{
+  text-decoration: underline; text-underline-offset:2px;
+  text-decoration-color: color-mix(in oklab, var(--about-gold) 55%, #bbb);
+}
+
+/* =========================================================
+   7) HİZMET BÖLGELERİ (Chips)
+   ========================================================= */
+.about .about-areas .chips{ row-gap: 8px; }
+.about .about-areas .chips .chip{
+  background:#fff; border:1px solid var(--about-ring);
+  box-shadow: var(--about-shadow-sm); font-weight:700;
+  transition: transform .06s, box-shadow .2s, border-color .2s;
+}
+.about .about-areas .chips .chip:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 18px rgba(0,0,0,.10);
+}
+
+/* =========================================================
+   8) MARKALAR (Brand Logos)
+   ========================================================= */
+.about .grid--brand-logos{
+  display:grid; gap:12px; grid-template-columns: repeat(2, minmax(0,1fr));
+}
+@container (min-width: 840px){
+  .about .grid--brand-logos{ grid-template-columns: repeat(4, minmax(0,1fr)); }
+}
+.about .brand{
+  margin:0; padding: 12px; border:1px solid var(--about-ring);
+  border-radius: 14px; background:#fff; text-align:center;
+  box-shadow: var(--about-shadow-sm);
+  transition: transform .08s ease, box-shadow .2s ease, border-color .2s ease, filter .2s ease;
+}
+.about .brand img{ max-width: 100%; height:auto; filter: grayscale(35%); }
+.about .brand:hover{
+  transform: translateY(-2px);
+  border-color: var(--about-ring-strong);
+  box-shadow: 0 18px 38px rgba(0,0,0,.14);
+}
+.about .brand:hover img{ filter:none; }
+.about .brand figcaption{ margin-top:6px; color: var(--about-muted); font-size:.95rem; }
+
+/* =========================================================
+   9) BELGELER (Docs List)
+   ========================================================= */
+.about .docs-list{ list-style:none; padding:0; margin:0; display:grid; gap:8px; }
+.about .docs-list li{
+  border:1px solid var(--about-ring); border-radius: 12px; background:#fff; box-shadow: var(--about-shadow-sm);
+  padding: 10px 12px; display:flex; flex-wrap:wrap; align-items:center; gap:8px;
+}
+.about .docs-list a{
+  text-decoration:none; font-weight:700; color:#0f172a;
+  border-bottom: 2px solid color-mix(in oklab, var(--about-gold) 40%, #ddd);
+}
+.about .docs-list .muted{ color: var(--about-muted); }
+
+/* =========================================================
+   10) REFERANSLAR (Testimonials / Carousel)
+   ========================================================= */
+.about .about-testimonials .sec-head{
+  display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom: 8px;
+}
+.about .about-testimonials .carousel{
+  display:grid; grid-auto-flow: column; grid-auto-columns: min(88%, 420px);
+  gap:16px; overflow-x:auto; padding: 8px 2px 6px;
+  scroll-snap-type:x mandatory; scroll-padding-inline: 12px;
+  -webkit-overflow-scrolling: touch;
+}
+.about .about-testimonials .carousel > .testimonial{ scroll-snap-align: start; }
+.about .about-testimonials .testimonial{
+  border:1px solid var(--about-ring); border-radius: 16px; background:#fff;
+  box-shadow: var(--about-shadow-md); padding: 14px; position:relative;
+}
+.about .about-testimonials blockquote{ margin:0; font-size: 1.02rem; }
+.about .about-testimonials blockquote p{ margin:0; }
+.about .about-testimonials .who{ margin:8px 0 0; color: var(--about-muted); font-weight:700; }
+.about .about-testimonials .carousel__nav .btn.btn--ghost{
+  height:40px; padding:0 12px; border:1px solid var(--about-ring); border-radius:10px;
+  background:#fff; box-shadow: var(--about-shadow-sm);
+}
+@media (hover:hover){
+  .about .about-testimonials .carousel__nav .btn:hover{ transform: translateY(-1px); box-shadow: 0 10px 20px rgba(0,0,0,.10); }
+}
+
+/* =========================================================
+   11) SSS (FAQ / details)
+   ========================================================= */
+.about .about-faq details.faq{
+  border:1px solid var(--about-ring); border-radius: 12px; background:#fff; box-shadow: var(--about-shadow-sm);
+  padding: 0; overflow:hidden;
+}
+.about .about-faq details.faq + details.faq{ margin-top:8px; }
+.about .about-faq summary{ list-style:none; cursor:pointer; padding: 12px 14px; }
+.about .about-faq summary h3{ margin:0; font-size:1.05rem; }
+.about .about-faq summary::-webkit-details-marker{ display:none; }
+.about .about-faq .faq__body{ padding: 0 14px 12px; color: var(--about-muted); border-top:1px dashed #e5e7eb; }
+
+/* Açık/kapalı durumunda chevron (CSS only) */
+.about .about-faq summary{
+  position:relative; padding-right: 36px;
+}
+.about .about-faq summary::after{
+  content:""; position:absolute; right: 12px; top: 50%; transform: translateY(-50%) rotate(0deg);
+  width: 10px; height: 10px; border-right: 2px solid #4b5563; border-bottom: 2px solid #4b5563;
+  rotate: 45deg; transition: transform .2s ease;
+}
+.about .about-faq details[open] summary::after{ transform: translateY(-50%) rotate(225deg); }
+
+/* =========================================================
+   12) MİSYON & VİZYON
+   ========================================================= */
+.about .about-mission .grid--2col{
+  align-items:start; gap: 12px;
+}
+.about .about-mission article{
+  border:1px solid var(--about-ring); border-radius: 14px; background:#fff; box-shadow: var(--about-shadow-sm);
+  padding: 14px;
+}
+.about .about-mission h3{ margin:0 0 6px 0; font-size:1.05rem; }
+.about .about-mission p{ margin:0; color: var(--about-muted); }
+
+/* =========================================================
+   13) EKİP (Team)
+   ========================================================= */
+.about .about-team .member{
+  border:1px solid var(--about-ring); border-radius: 14px; background:#fff; box-shadow: var(--about-shadow-sm);
+  padding: 12px; text-align:center; transition: transform .08s ease, box-shadow .2s, border-color .2s;
+}
+.about .about-team .member:hover{
+  transform: translateY(-2px); border-color: var(--about-ring-strong);
+  box-shadow: 0 18px 38px rgba(0,0,0,.14);
+}
+.about .about-team .member img{
+  display:block; width:100%; height:auto; aspect-ratio: 1/1; object-fit: cover;
+  border-radius: 12px; box-shadow: 0 8px 18px rgba(0,0,0,.12);
+}
+.about .about-team .member h3{ margin: 8px 0 2px; }
+.about .about-team .member .muted{ color: var(--about-muted); }
+
+/* =========================================================
+   14) GALERİ (Thumbs / Light Hover)
+   ========================================================= */
+.about .about-gallery .grid--thumbs-4{ align-items:stretch; }
+.about .about-gallery .thumb{
+  display:block; border:1px solid var(--about-ring); border-radius: 12px;
+  background:#fff; overflow:hidden; box-shadow: var(--about-shadow-sm);
+  transition: transform .08s ease, box-shadow .2s ease, border-color .2s ease, filter .2s ease;
+}
+.about .about-gallery .thumb:hover{
+  transform: translateY(-2px); border-color: var(--about-ring-strong);
+  box-shadow: 0 18px 38px rgba(0,0,0,.14);
+}
+.about .about-gallery .thumb img{
+  display:block; width:100%; height:auto; aspect-ratio: 16/9; object-fit: cover;
+  filter: saturate(1) contrast(1);
+}
+.about .about-gallery .muted{ color: var(--about-muted); margin-top:10px; }
+
+/* =========================================================
+   15) CTA
+   ========================================================= */
+.about .about-cta .cta__inner{
+  border:1px solid var(--about-ring); border-radius: 18px; background:#fff;
+  padding: clamp(12px,2.2vw,20px); box-shadow: var(--about-shadow-md);
+  background-image:
+    radial-gradient(520px 180px at 10% -10%, color-mix(in oklab, var(--about-gold) 14%, transparent), transparent 70%);
+}
+.about .about-cta .muted{ color: var(--about-muted); }
+.about .about-cta .btn.btn--primary{
+  background: var(--about-gold); border-color: var(--about-gold); color:#fff;
+  box-shadow: 0 14px 34px rgba(0,0,0,.14);
+}
+.about .about-cta .btn.btn--primary:hover{ filter: brightness(1.03); transform: translateY(-1px); }
+
+/* =========================================================
+   16) Küçük Ekran Optimizasyonları
+   ========================================================= */
+@media (max-width: 600px){
+  .about .hero--about .hero__title{ font-size: clamp(1.7rem, 7vw, 2.1rem); }
+  .about .grid--brand-logos{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .about .about-testimonials .carousel{ grid-auto-columns: 90%; }
+}
+
+/* =========================================================
+   17) Hareket / A11y / Performans
+   ========================================================= */
+@keyframes aboutFadeIn{ from{ opacity:.0; transform: translateY(4px);} to{ opacity:1; transform: translateY(0);} }
+.about .stat, .about .value, .about .svc, .about .member, .about .brand, .about .thumb, .about .docs-list li{
+  animation: aboutFadeIn .28s ease-out both;
+}
+@media (prefers-reduced-motion: reduce){
+  .about *{ transition:none !important; animation:none !important; }
+}
+
+/* =========================================================
+   18) Print (sade çıktı)
+   ========================================================= */
+@media print{
+  .site-header, .topbar, .about-cta, .about-testimonials, .site-footer{ display:none !important; }
+  .about .brand, .about .svc, .about .member, .about .value{ box-shadow:none; border-color:#ddd; }
+}
