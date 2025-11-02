@@ -85,15 +85,15 @@ window.NAV_I18N = {
   ru: {
     hizmetler: "Услуги",
     portfoy: "Портфолио",
-    bolgeler: "Районы",
+    bolgeler: "Регионы",
     blog: "Блог",
     hakkimizda: "О нас",
     iletisim: "Контакты",
     cat: {
-      infra: "Инфраструктура и сети",
-      surfaces: "Поверхности и отделка",
-      interior: "Интерьер и столярные работы",
-      exterior: "Фасад и утепление"
+      infra: "Установка инфраструктуры",
+      surfaces: "Поверхности и покрытия",
+      interior: "Внутренняя архитектура и плотницкие",
+      exterior: "Внешняя изоляция"
     },
     svc: {
       electric: "Электрика",
@@ -161,7 +161,10 @@ window.NAV_SLUGS = {
     "svc.insulation":   "hizmetler/dis-cephe-yalitim/mantolama/",
     "svc.facadepaint":  "hizmetler/dis-cephe-yalitim/cephe-boyasi/",
     "svc.roofing":      "hizmetler/dis-cephe-yalitim/cati-kaplama-su-yalitimi/",
-    "svc.gutters":      "hizmetler/dis-cephe-yalitim/yagmur-oluklari/"
+    "svc.gutters":      "hizmetler/dis-cephe-yalitim/yagmur-oluklari/",
+    "footer.policies.kvkk": "kvkk.html",
+    "footer.policies.privacy": "gizlilik.html",
+    "footer.policies.terms": "kullanim.html"
   },
 
   en: {
@@ -195,41 +198,47 @@ window.NAV_SLUGS = {
     "svc.insulation":   "services/facade-insulation/external-insulation/",
     "svc.facadepaint":  "services/facade-insulation/facade-paint/",
     "svc.roofing":      "services/facade-insulation/roofing-waterproofing/",
-    "svc.gutters":      "services/facade-insulation/gutter-systems/"
+    "svc.gutters":      "services/facade-insulation/gutter-systems/",
+    "footer.policies.kvkk": "en/kvkk.html",
+    "footer.policies.privacy": "en/privacy.html",
+    "footer.policies.terms": "en/terms.html"  
   },
 
   ru: {
-    home: "ru/",
+    home: "",
     portfolio: "portfolio/",
     blog: "blog/",
-    about: "o-nas/",
-    contact: "kontakty",
-    "area.fethiye": "rayony/fethiye.html",
-    "area.calis":   "rayony/calis.html",
-    "area.ovacik":  "rayony/ovacik.html",
-    "area.gocek":   "rayony/gocek.html",
-    "cat.infra":    "uslugi/infrastruktura-kommunikacii/",
-    "cat.surfaces": "uslugi/poverhnosti-otdelka/",
-    "cat.interior": "uslugi/interer-stolyarnye-raboty/",
-    "cat.exterior": "uslugi/fasad-uteplenie/",
-    "svc.electric":     "uslugi/infrastruktura-kommunikacii/elektrika/",
-    "svc.plumbing":     "uslugi/infrastruktura-kommunikacii/voda-kanalizaciya/",
-    "svc.hvac":         "uslugi/infrastruktura-kommunikacii/otoplenie-ohlazhdenie/",
-    "svc.gas":          "uslugi/infrastruktura-kommunikacii/gaz-dymohody/",
-    "svc.silk":         "uslugi/poverhnosti-otdelka/shelkovaya-shtukaturka/",
-    "svc.paint":        "uslugi/poverhnosti-otdelka/okraska/",
-    "svc.plaster":      "uslugi/poverhnosti-otdelka/shtukaturka/",
-    "svc.tile":         "uslugi/poverhnosti-otdelka/plitka-keramika/",
-    "svc.epoxy":        "uslugi/poverhnosti-otdelka/epoksi-pol/",
-    "svc.wallpaper":    "uslugi/poverhnosti-otdelka/oboi/",
-    "svc.kitchenbath":  "uslugi/interer-stolyarnye-raboty/kuhnya-vannaya/",
-    "svc.wardrobes":    "uslugi/interer-stolyarnye-raboty/shkafy-vstroennye/",
-    "svc.doorswindows": "uslugi/interer-stolyarnye-raboty/dveri-okna/",
-    "svc.drywall":      "uslugi/interer-stolyarnye-raboty/gkl-podvesnye-potolki/",
-    "svc.insulation":   "uslugi/fasad-uteplenie/uteplenie/",
-    "svc.facadepaint":  "uslugi/fasad-uteplenie/pokraska-fasada/",
-    "svc.roofing":      "uslugi/fasad-uteplenie/krovlya-gidroizolyaciya/",
-    "svc.gutters":      "uslugi/fasad-uteplenie/vodostochnye-sistemy/"
+    about: "о-нас.html",
+    contact: "kontakt.html",
+    "area.fethiye": "регионы/fethiye.html",
+    "area.calis":   "регионы/calis.html",
+    "area.ovacik":  "регионы/ovacik.html",
+    "area.gocek":   "регионы/gocek.html",
+    "cat.infra":    "услуги/установка-инфраструктуры/",
+    "cat.surfaces": "услуги/поверхности-покрытия/",
+    "cat.interior": "услуги/внутренняя-архитектура-плотницкие/",
+    "cat.exterior": "услуги/внешняя-изоляция/",
+    "svc.electric":     "услуги/установка-инфраструктуры/электрический/",
+    "svc.plumbing":     "услуги/установка-инфраструктуры/вода-канализация/",
+    "svc.hvac":         "услуги/установка-инфраструктуры/обогрев/",
+    "svc.gas":          "услуги/установка-инфраструктуры/газ/",
+    "svc.silk":         "услуги/поверхности-покрытия/шелк-шива/",
+    "svc.paint":        "услуги/поверхности-покрытия/краска/",
+    "svc.plaster":      "услуги/поверхности-покрытия/каменная-штукатурка/",
+    "svc.tile":         "услуги/поверхности-покрытия/тканевые-обои/",
+    "svc.epoxy":        "услуги/поверхности-покрытия/",
+    "svc.wallpaper":    "услуги/поверхности-покрытия/тканевые-обои/",
+    "svc.kitchenbath":  "услуги/внутренняя-архитектура-плотницкие/кухонные-шкафы/",
+    "svc.wardrobes":    "услуги/внутренняя-архитектура-плотницкие/гардеробная-шкаф/",
+    "svc.doorswindows": "услуги/внутренняя-архитектура-плотницкие/межкомнатные-двери-столярные/",
+    "svc.drywall":      "услуги/внутренняя-архитектура-плотницкие/акустические-панели-ламбри/",
+    "svc.insulation":   "услуги/внешняя-изоляция/обшивка/",
+    "svc.facadepaint":  "услуги/внешняя-изоляция/фасадная-краска/",
+    "svc.roofing":      "услуги/внешняя-изоляция/",
+    "svc.gutters":      "услуги/внешняя-изоляция/",
+    "footer.policies.kvkk": "ru/kvkk.html",
+    "footer.policies.privacy": "ru/gizlilik.html",
+    "footer.policies.terms": "ru/kullanim.html"
   }
 };
 
@@ -401,14 +410,14 @@ window.I18N.ru = Object.assign({}, window.I18N.ru, {
       services: {
         title: "УСЛУГИ",
         items: {
-          infra:    "Инфраструктура и монтаж",
+          infra:    "Установка инфраструктуры",
           surfaces: "Поверхности и покрытия",
-          interior: "Дизайн интерьера и столярные работы",
-          exterior: "Фасад и утепление"
+          interior: "Внутренняя архитектура и плотницкие",
+          exterior: "Внешняя изоляция"
         }
       },
       areas: {
-        title: "РАЙОНЫ",
+        title: "РЕГИОНЫ",
         items: {
           fethiye: "Фетхие",
           calis:   "Чалыш",

@@ -695,11 +695,9 @@ function unlockBodyScroll() {
     "footer.cols.corp.items.portfolio": "portfolio",
     "footer.cols.corp.items.blog":      "blog",
     "footer.cols.corp.items.about":     "about",
-    "footer.cols.corp.items.contact":   "contact",
-    // POLİTİKALAR
-    "footer.policies.kvkk":    "policy.kvkk",
-    "footer.policies.privacy": "policy.privacy",
-    "footer.policies.terms":   "policy.terms"
+    "footer.cols.corp.items.contact":   "contact"
+    // POLİTİKALAR: HTML'de zaten doğru href'ler var, bu yüzden mapping'e gerek yok
+    // Policy linkleri wireFooterLinks() içinde .footer__policies kontrolü ile atlanıyor
   };
 
   function hrefFor(slugKey){
@@ -728,9 +726,14 @@ function unlockBodyScroll() {
     if (brand) brand.href = hrefFor("home");
 
     // Tel/Mail/WhatsApp harici tüm linkleri i18n anahtarından üret
+    // ANCAK: Policy linkleri (KVKK, Gizlilik, Terms) zaten HTML'de doğru href'lere sahip,
+    // bu yüzden onları atla
     root.querySelectorAll("a[href]").forEach(a => {
       const href = a.getAttribute("href") || "";
+      // Tel/Mail/WhatsApp ve policy linklerini atla
       if (/^(tel:|mailto:|https?:\/\/wa\.me)/i.test(href)) return;
+      // Policy linklerini atla (zaten doğru href'leri var)
+      if (a.closest(".footer__policies")) return;
 
       const i18nKey = resolveI18nKey(a);
       const slugKey = i18nKey && I18N_TO_SLUGKEY[i18nKey];
