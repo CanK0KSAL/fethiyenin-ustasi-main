@@ -277,9 +277,26 @@
     selectedFiles.forEach((f) => fd.append("files[]", f, f.name));
 
     try {
+      console.log("[contact] Sending to:", form.action);
       const res = await fetch(form.action, { method: "POST", body: fd, credentials: "same-origin" });
-      if (!res.ok) throw new Error("HTTP " + res.status);
+      
+      console.log("[contact] Response status:", res.status, res.statusText);
+      
+      if (!res.ok) {
+        const text = await res.text();
+        console.error("[contact] Response error:", text);
+        throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+      }
+      
+      const contentType = res.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        const text = await res.text();
+        console.error("[contact] Non-JSON response:", text.substring(0, 200));
+        throw new Error("Sunucu geçersiz yanıt döndü. Lütfen tekrar deneyin.");
+      }
+      
       const data = await res.json();
+      console.log("[contact] Response data:", data);
 
       if (data && data.ok) {
         markSent();
@@ -296,13 +313,20 @@
     } catch (err) {
       // Fallback: mailto
       const mailto = (form.getAttribute("data-fallback-mailto") || "").trim();
+      const errorMsg = err.message || "Bağlantı hatası";
+      console.error("[contact] Submit failed:", err);
+      console.error("[contact] Error details:", {
+        message: err.message,
+        stack: err.stack,
+        action: form.action
+      });
+      
       setText(
         statusEl,
         mailto
-          ? `Form gönderilemedi. Lütfen ${mailto} adresine e-posta atın veya tekrar deneyin.`
-          : "Form gönderilemedi. Lütfen daha sonra tekrar deneyin."
+          ? `Form gönderilemedi (${errorMsg}). Alternatif: ${mailto} adresine e-posta gönderebilirsiniz.`
+          : `Form gönderilemedi (${errorMsg}). Lütfen daha sonra tekrar deneyin.`
       );
-      console.warn("[contact] submit failed:", err);
       btnSubmit.disabled = false;
     }
   });

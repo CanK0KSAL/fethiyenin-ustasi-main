@@ -3,16 +3,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Мастер Фетхие</title>
-<!-- CSS: base → layout → page(Home)  -->
-<link rel="preload" as="style" href="/assets/css/base.css?v=2025.10.25">
-<link rel="stylesheet" href="/assets/css/base.css?v=2025.10.25">
+  
+  <!-- Performance: Resource Hints -->
+  <link rel="preconnect" href="https://fethiyeninustasi.com.tr" crossorigin>
+  <link rel="dns-prefetch" href="https://fethiyeninustasi.com.tr">
+  
+  <!-- Performance: Preload Critical Resources -->
+  <link rel="preload" href="/assets/js/runtime.js" as="script">
+  <link rel="preload" href="/assets/js/i18n/layout.i18n.js" as="script">
+  <link rel="preload" href="/assets/js/layout.js" as="script">
+  
+  <!-- Performance: Preload Hero Image -->
+  <link rel="preload" href="/assets/media/main-page/hero/home-1920.jpg" as="image" fetchpriority="high">
+  
+  <!-- Primary Meta Tags -->
+  <title>Комплексный Ремонт в Фетхие | Мастер Фетхие — Профессиональная Команда, Письменная Гарантия</title>
+  <meta name="title" content="Комплексный Ремонт в Фетхие | Мастер Фетхие — Профессиональная Команда, Письменная Гарантия">
+  <meta name="description" content="Профессиональные услуги по ремонту в Фетхие: электрика, сантехника, шелковая штукатурка, покраска, плитка, кухонные шкафы, утепление и многое другое. Бесплатный осмотр, письменная смета, застрахованная команда, гарантия 12-24 месяца.">
+  <meta name="keywords" content="ремонт фетхие, мастер фетхие, электрика фетхие, шелковая штукатурка фетхие, покраска фетхие, утепление фетхие, кухонные шкафы фетхие">
+  <link rel="canonical" href="https://fethiyeninustasi.com.tr/ru/">
 
-<link rel="preload" as="style" href="/assets/css/layout.css?v=2025.10.25">
-<link rel="stylesheet" href="/assets/css/layout.css?v=2025.10.25">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fethiyeninustasi.com.tr/ru/">
+  <meta property="og:title" content="Комплексный Ремонт в Фетхие | Мастер Фетхие">
+  <meta property="og:description" content="От электрики до сантехники, от шелковой штукатурки до покраски и плитки; от внутренней архитектуры до наружной отделки и изоляции — все услуги под одной крышей. Бесплатный осмотр, письменная смета, застрахованная команда.">
+  <meta property="og:image" content="https://fethiyeninustasi.com.tr/assets/media/main-page/hero/home-1920.jpg">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Мастер Фетхие">
 
-<link rel="preload" as="style" href="/assets/css/home.css?v=2025.10.25">
-<link rel="stylesheet" href="/assets/css/home.css?v=2025.10.25">
+  <!-- CSS: base → layout → page(Home) with performance optimization -->
+  <link rel="preload" as="style" href="/assets/css/base.css?v=2025.10.25" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/base.css?v=2025.10.25"></noscript>
+  
+  <link rel="preload" as="style" href="/assets/css/layout.css?v=2025.10.25" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/layout.css?v=2025.10.25"></noscript>
+  
+  <link rel="preload" as="style" href="/assets/css/home.css?v=2025.10.25" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/home.css?v=2025.10.25"></noscript>
+  
+  <!-- Critical inline CSS: Logo and header visibility -->
+  <style>
+    .brand-logo { opacity: 0; transition: opacity 0.3s; }
+    .brand-logo.loaded { opacity: 1; }
+    body { visibility: hidden; }
+    body.css-loaded { visibility: visible; }
+    
+    /* Font optimization: Prevent invisible text during font load */
+    @font-face {
+      font-family: 'system-font';
+      font-display: swap;
+    }
+  </style>
+  <script>
+    // CSS yükleme kontrolü
+    (function() {
+      const links = document.querySelectorAll('link[rel="preload"][as="style"]');
+      let loadedCount = 0;
+      const total = links.length;
+      
+      links.forEach(function(link) {
+        link.addEventListener('load', function() {
+          loadedCount++;
+          if (loadedCount === total) {
+            document.body.classList.add('css-loaded');
+          }
+        });
+        // Fallback: 3 saniye sonra zorla göster
+        setTimeout(function() {
+          document.body.classList.add('css-loaded');
+        }, 3000);
+      });
+      
+      // Logo yükleme kontrolü
+      const logo = document.getElementById('brand-logo');
+      if (logo) {
+        logo.addEventListener('load', function() {
+          logo.classList.add('loaded');
+        });
+        if (logo.complete) {
+          logo.classList.add('loaded');
+        }
+      }
+    })();
+  </script>
 
 
   <link rel="canonical" href="https://fethiyeninustasi.com.tr/ru/">
@@ -99,9 +173,18 @@
     <div class="container hero__inner">
       <div class="hero__media">
         <picture style="height: 80%;">
-          <img src="/assets/media/main-page/hero/home-1920.jpg">
+          <!-- Responsive image with modern formats -->
+          <source media="(min-width: 1024px)" srcset="/assets/media/main-page/hero/home-1920.jpg" type="image/jpeg">
+          <source media="(min-width: 768px)" srcset="/assets/media/main-page/hero/home-1920.jpg" type="image/jpeg">
+          <img 
+            src="/assets/media/main-page/hero/home-1920.jpg" 
+            alt="Услуги по ремонту и реконструкции в Фетхие"
+            width="1920" 
+            height="1560"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high">
         </picture>
-
       </div>
 
       <div class="hero__content">
@@ -874,6 +957,49 @@
     "logo":"https://fethiyeninustasi.com.tr/assets/brand/logo.png",
     "areaServed":["Фетхие","Чалыш","Оваджик","Гёджек"],
     "sameAs":[]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "@id":"https://fethiyeninustasi.com.tr/#localbusiness",
+    "name":"Мастер Фетхие",
+    "image":"https://fethiyeninustasi.com.tr/assets/media/logo/logo.png",
+    "url":"https://fethiyeninustasi.com.tr/",
+    "telephone":"+905060222900",
+    "email":"info@fethiyeninustasi.com",
+    "priceRange":"$$",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Фетхие",
+      "addressRegion":"Мугла",
+      "addressCountry":"TR"
+    },
+    "geo":{
+      "@type":"GeoCoordinates",
+      "latitude":36.6213,
+      "longitude":29.1162
+    },
+    "areaServed":[
+      {"@type":"City","name":"Фетхие"},
+      {"@type":"City","name":"Чалыш"},
+      {"@type":"City","name":"Оваджик"},
+      {"@type":"City","name":"Гёджек"}
+    ],
+    "serviceArea":{
+      "@type":"GeoCircle",
+      "geoMidpoint":{
+        "@type":"GeoCoordinates",
+        "latitude":36.6213,
+        "longitude":29.1162
+      },
+      "geoRadius":{
+        "@type":"Distance",
+        "name":"50 km"
+      }
+    }
   }
   </script>
 

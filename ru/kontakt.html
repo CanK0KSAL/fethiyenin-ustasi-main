@@ -129,7 +129,7 @@
       <h2 id="form-title" class="sec-title" data-i18n="form.title">Расскажите нам о вашем проекте</h2>
       <p class="sec-desc" data-i18n="form.subtitle">Заполните форму ниже; наш специалист свяжется с вами в ближайшее время.</p>
 
-      <form id="fu-contact-form" class="form" action="/contact.php" method="post" enctype="multipart/form-data" novalidate data-fallback-mailto="info@fethiyeninustasi.com.tr">
+      <form id="fu-contact-form" class="form" action="../../contact.php" method="post" enctype="multipart/form-data" novalidate data-fallback-mailto="info@fethiyeninustasi.com.tr">
         <fieldset class="form__grid">
           <!-- Ad Soyad -->
           <div class="form-group">
@@ -172,11 +172,38 @@
             <label for="c-service" class="label" data-i18n="form.labels.service">Услуга</label>
             <select id="c-service" name="service" class="select" required>
               <option value="" selected>Выберите</option>
-              <option value="electric">Электрика</option>
-              <option value="water-sewerage">Вода и канализация</option>
-              <option value="heating">Отопление</option>
-              <option value="silk-plaster">Шелковая штукатурка</option>
-              <option value="paint">Покраска</option>
+              <!-- Установка инфраструктуры -->
+              <optgroup label="Установка инфраструктуры">
+                <option value="electric">Электрика</option>
+                <option value="water-sewerage">Вода и канализация</option>
+                <option value="heating">Отопление</option>
+                <option value="gas">Газоснабжение</option>
+              </optgroup>
+              <!-- Поверхности и покрытия -->
+              <optgroup label="Поверхности и покрытия">
+                <option value="paint">Покраска</option>
+                <option value="silk-plaster">Шелковая штукатурка</option>
+                <option value="stone-plaster">Каменная штукатурка</option>
+                <option value="italian-plaster">Итальянская штукатурка (Венецианская)</option>
+                <option value="wall-fabric">Тканевые обои</option>
+              </optgroup>
+              <!-- Внутренняя архитектура и плотницкие -->
+              <optgroup label="Внутренняя архитектура и плотницкие">
+                <option value="kitchen-cabinets">Кухонные шкафы</option>
+                <option value="interior-door-joining">Межкомнатные двери</option>
+                <option value="wardrobe-dressing-room">Гардероб и гардеробная</option>
+                <option value="bathroom-cabinet">Ванная комната</option>
+                <option value="tv-unit-wall-panel">ТВ-юнит и настенная панель</option>
+                <option value="stair-cladding-storage">Обшивка лестницы и хранение</option>
+                <option value="acoustic-panel-lambri">Акустическая панель и вагонка</option>
+              </optgroup>
+              <!-- Внешняя изоляция -->
+              <optgroup label="Внешняя изоляция">
+                <option value="sheathing">Обшивка (Утепление)</option>
+                <option value="exterior-paint">Фасадная покраска</option>
+                <option value="stone-composite-coating">Каменное композитное покрытие</option>
+                <option value="silicone-acrylic-coating">Силиконово-акриловое покрытие</option>
+              </optgroup>
             </select>
             <div class="field-error" id="err-service" aria-live="polite"></div>
           </div>
@@ -368,6 +395,7 @@
 <script src="../assets/js/pages/home.js" defer></script>
 <script src="../assets/js/runtime.js" defer></script>
 <script src="../assets/js/gallery.js" defer></script>
+<script src="../assets/js/contact.js" defer></script>
 
 </body>
 </html>

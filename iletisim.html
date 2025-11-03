@@ -3,15 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Fethiye’nin Ustası</title>
+  
+  <!-- Primary Meta Tags -->
+  <title>İletişim | FethiyeninUstası — Ücretsiz Keşif Randevusu</title>
+  <meta name="title" content="İletişim | FethiyeninUstası — Ücretsiz Keşif Randevusu">
+  <meta name="description" content="Fethiye'de tadilat ve renovasyon hizmetleri için bize ulaşın. Ücretsiz keşif randevusu alın, aynı gün yazılı teklif alın. Telefon: +90 506 022 29 00 | WhatsApp iletişim.">
+  <meta name="keywords" content="iletişim fethiye, keşif randevusu, tadilat teklifi fethiye">
+  <link rel="canonical" href="https://fethiyeninustasi.com.tr/iletisim.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fethiyeninustasi.com.tr/iletisim.html">
+  <meta property="og:title" content="İletişim | FethiyeninUstası — Ücretsiz Keşif Randevusu">
+  <meta property="og:description" content="Ücretsiz keşif randevusu alın, aynı gün yazılı teklif alın. Telefon: +90 506 022 29 00">
+  <meta property="og:image" content="https://fethiyeninustasi.com.tr/assets/media/main-page/hero/home-1920.jpg">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:site_name" content="FethiyeninUstası">
+
   <link rel="stylesheet" href="../assets/css/layout.css" />
   <link rel="stylesheet" href="../assets/css/contact.css" />
   <link rel="stylesheet" href="../assets/css/base.css" />
   <link rel="shortcut icon" href="/assets/media/logo/logo.png" type="image/x-icon">
 
     <link rel="alternate" hreflang="tr" href="https://fethiyeninustasi.com.tr/iletisim.html"/>
-    <link rel="alternate" hreflang="en" href="https://fethiyeninustasi.com.tr/en/contact"/>
-    <link rel="alternate" hreflang="ru" href="https://fethiyeninustasi.com.tr/ru/контакт"/>
+    <link rel="alternate" hreflang="en" href="https://fethiyeninustasi.com.tr/en/contact.html"/>
+    <link rel="alternate" hreflang="ru" href="https://fethiyeninustasi.com.tr/ru/kontakt.html"/>
     <link rel="alternate" hreflang="x-default" href="https://fethiyeninustasi.com.tr/iletisim.html"/>
 
 
@@ -171,11 +187,38 @@
             <label for="c-service" class="label" data-i18n="form.labels.service">Hizmet</label>
             <select id="c-service" name="service" class="select" required>
               <option value="" selected>Seçiniz</option>
-              <option value="elektrik">Elektrik</option>
-              <option value="su-kanalizasyon">Su &amp; Kanalizasyon</option>
-              <option value="isitma">Isıtma</option>
-              <option value="ipek-siva">İpek Sıva</option>
-              <option value="boya">Boya</option>
+              <!-- Altyapı & Tesisat -->
+              <optgroup label="Altyapı & Tesisat">
+                <option value="elektrik">Elektrik Tesisatı</option>
+                <option value="su-kanalizasyon">Su & Kanalizasyon</option>
+                <option value="isitma">Isıtma Sistemleri</option>
+                <option value="dogalgaz">Doğalgaz Tesisatı</option>
+              </optgroup>
+              <!-- Yüzeyler & Kaplamalar -->
+              <optgroup label="Yüzeyler & Kaplamalar">
+                <option value="boya">Boya İşleri</option>
+                <option value="ipek-siva">İpek Sıva</option>
+                <option value="tas-siva">Taş Sıva</option>
+                <option value="italyan-siva">İtalyan Sıva (Venetian Plaster)</option>
+                <option value="duvar-kumasi">Duvar Kumaşı</option>
+              </optgroup>
+              <!-- İç Mimari & Marangozluk -->
+              <optgroup label="İç Mimari & Marangozluk">
+                <option value="mutfak-dolaplari">Mutfak Dolapları</option>
+                <option value="ic-kapi-dograma">İç Kapı Doğrama</option>
+                <option value="giyinme-odasi-gardrop">Giyinme Odası & Gardrop</option>
+                <option value="banyo-dolabi">Banyo Dolabı</option>
+                <option value="tv-unitesi-duvar-paneli">TV Ünitesi & Duvar Paneli</option>
+                <option value="merdiven-kaplama-depolama">Merdiven Kaplama & Depolama</option>
+                <option value="akustik-panel-lambri">Akustik Panel & Lambri</option>
+              </optgroup>
+              <!-- Dış Cephe & Yalıtım -->
+              <optgroup label="Dış Cephe & Yalıtım">
+                <option value="mantolama">Mantolama</option>
+                <option value="dis-cephe-boya">Dış Cephe Boya</option>
+                <option value="tas-kompozit-kaplama">Taş Kompozit Kaplama</option>
+                <option value="silikon-akrilik-kaplama">Silikon Akrilik Kaplama</option>
+              </optgroup>
             </select>
             <div class="field-error" id="err-service" aria-live="polite"></div>
           </div>
@@ -368,6 +411,7 @@
 <script src="../assets/js/pages/home.js" defer></script>
 <script src="../assets/js/runtime.js" defer></script>
 <script src="../assets/js/gallery.js" defer></script>
+<script src="../assets/js/contact.js" defer></script>
 
 </body>
 </html>

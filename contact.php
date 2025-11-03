@@ -1,5 +1,14 @@
 <?php
+// Error reporting (development only - disable in production)
+error_reporting(E_ALL);
+ini_set('display_errors', 0);
+ini_set('log_errors', 1);
+
 header('Content-Type: application/json; charset=UTF-8');
+// Allow CORS if needed
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Headers: Content-Type');
 
 function respond($code, $arr) {
   http_response_code($code);
@@ -16,9 +25,19 @@ function ext($name) {
   $p = strrpos($name, '.'); return $p === false ? '' : strtolower(substr($name, $p + 1));
 }
 
-// ---- Method
+// ---- Method (POST ve OPTIONS preflight desteği)
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+  // CORS preflight request
+  header('Access-Control-Allow-Origin: *');
+  header('Access-Control-Allow-Methods: POST, OPTIONS');
+  header('Access-Control-Allow-Headers: Content-Type');
+  header('Access-Control-Max-Age: 86400');
+  http_response_code(200);
+  exit;
+}
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-  respond(405, ['ok' => false, 'error' => 'Method Not Allowed']);
+  respond(405, ['ok' => false, 'error' => 'Method Not Allowed. Only POST method is supported.']);
 }
 
 // ---- Rate limit (IP başına 30sn)
@@ -189,8 +208,49 @@ if (!empty($filesInfo)) {
   $body = $textBody;
 }
 
-// Send
-$ok = @mail($to, $subject, $body, implode("\r\n", $headers));
+// Send mail
+$ok = false;
+$mailError = '';
 
-if ($ok) respond(200, ['ok' => true]);
-respond(500, ['ok' => false, 'error' => 'Mail failed']);
+try {
+  $ok = @mail($to, $subject, $body, implode("\r\n", $headers));
+  
+  if (!$ok) {
+    $mailError = error_get_last()['message'] ?? 'mail() function returned false';
+    error_log("[contact.php] Mail send failed: " . $mailError);
+  }
+} catch (Exception $e) {
+  $mailError = $e->getMessage();
+  error_log("[contact.php] Mail exception: " . $mailError);
+}
+
+if ($ok) {
+  // Log success (optional)
+  error_log("[contact.php] Mail sent successfully to: " . $to);
+  respond(200, ['ok' => true, 'message' => 'Mail sent successfully']);
+}
+
+// If mail failed, try to save to file as backup
+$backupFile = __DIR__ . '/contact_backups/' . date('Y-m-d_His') . '_' . uniqid() . '.txt';
+$backupDir = dirname($backupFile);
+if (!is_dir($backupDir)) {
+  @mkdir($backupDir, 0755, true);
+}
+if (is_dir($backupDir)) {
+  $backupContent = "=== Contact Form Submission ===\n";
+  $backupContent .= "Date: " . date('Y-m-d H:i:s') . "\n";
+  $backupContent .= "IP: $ip\n";
+  $backupContent .= "Name: $name\n";
+  $backupContent .= "Email: $email\n";
+  $backupContent .= "Phone: $phone\n";
+  $backupContent .= "Area: $area\n";
+  $backupContent .= "Service: $service\n";
+  $backupContent .= "Message:\n$message\n";
+  @file_put_contents($backupFile, $backupContent);
+}
+
+respond(500, [
+  'ok' => false, 
+  'error' => 'Mail gönderilemedi. Sistem yöneticisine bildirildi.',
+  'debug' => $mailError ? 'Mail error: ' . $mailError : 'Unknown error'
+]);

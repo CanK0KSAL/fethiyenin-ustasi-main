@@ -2,6 +2,7 @@
 # FethiyeninUstası.com.tr — Advanced SEO Robots.txt
 # Multi-language support (TR/EN/RU)
 # Last updated: 2025-01-25
+# Updated: 2025-01-25 — RU pages now enabled for all search engines
 # ============================================================
 
 # ===== GOOGLE BOT (Primary Search Engine) =====
@@ -13,9 +14,13 @@ Allow: /hizmetler/
 Allow: /en/
 Allow: /en/services/
 Allow: /en/blog/
+Allow: /en/areas/
+Allow: /ru/
+Allow: /ru/услуги/
+Allow: /ru/blog/
+Allow: /ru/регионы/
 Allow: /blog/
 Allow: /bolgeler/
-Allow: /en/areas/
 Allow: /assets/media/
 Disallow: /assets/css/
 Disallow: /assets/js/
@@ -25,7 +30,6 @@ Disallow: /tools/
 Disallow: /*.php$
 Disallow: /*.json$
 Disallow: /*?*
-Disallow: /ru/
 Crawl-delay: 0
 
 # ===== BING BOT =====
@@ -36,9 +40,13 @@ Allow: /hizmetler/
 Allow: /en/
 Allow: /en/services/
 Allow: /en/blog/
+Allow: /en/areas/
+Allow: /ru/
+Allow: /ru/услуги/
+Allow: /ru/blog/
+Allow: /ru/регионы/
 Allow: /blog/
 Allow: /bolgeler/
-Allow: /en/areas/
 Allow: /assets/media/
 Disallow: /assets/css/
 Disallow: /assets/js/
@@ -48,7 +56,6 @@ Disallow: /tools/
 Disallow: /*.php$
 Disallow: /*.json$
 Disallow: /*?*
-Disallow: /ru/
 Crawl-delay: 0
 
 # ===== YANDEX BOT (Rusça içerik için) =====
@@ -58,7 +65,13 @@ User-agent: YandexImages
 Allow: /
 Allow: /hizmetler/
 Allow: /en/
+Allow: /en/services/
+Allow: /en/blog/
+Allow: /en/areas/
 Allow: /ru/
+Allow: /ru/услуги/
+Allow: /ru/blog/
+Allow: /ru/регионы/
 Allow: /blog/
 Allow: /bolgeler/
 Allow: /assets/media/
@@ -79,9 +92,13 @@ Allow: /hizmetler/
 Allow: /en/
 Allow: /en/services/
 Allow: /en/blog/
+Allow: /en/areas/
+Allow: /ru/
+Allow: /ru/услуги/
+Allow: /ru/blog/
+Allow: /ru/регионы/
 Allow: /blog/
 Allow: /bolgeler/
-Allow: /en/areas/
 Allow: /assets/media/
 Disallow: /assets/css/
 Disallow: /assets/js/
@@ -91,7 +108,6 @@ Disallow: /tools/
 Disallow: /*.php$
 Disallow: /*.json$
 Disallow: /*?*
-Disallow: /ru/
 Crawl-delay: 1
 
 # ===== BLOCKED USER AGENTS (Spam/Scrapers) =====
@@ -111,10 +127,10 @@ Disallow: /
 Sitemap: https://fethiyeninustasi.com.tr/sitemap.xml
 
 # ===== IMPORTANT NOTES =====
-# - All HTML pages are crawlable (TR, EN)
+# - All HTML pages are crawlable (TR, EN, RU)
 # - Media files (images) are crawlable for rich snippets
 # - CSS/JS files blocked to reduce crawl budget waste
 # - Query parameters blocked to prevent duplicate content
-# - RU pages blocked from most bots (except Yandex) until fully translated
+# - RU pages now fully crawlable by all major search engines
 # - Contact form (PHP) blocked from indexing
 # - Documentation and tools directories blocked
