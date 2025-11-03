@@ -148,14 +148,14 @@ if ($isMultipart && isset($_FILES['files'])) {
 }
 
 // ---- Mail Configuration
-// NOT: Sunucu PHP ayarlarında mail() fonksiyonu çalışmıyorsa SMTP kullanın
-// open_basedir kısıtlaması veya mail.force_extra_parameters sorunu varsa SMTP daha güvenilirdir
-$useSMTP = false; // SMTP kullanmak için true yapın
-$smtpHost = 'smtp.example.com'; // SMTP sunucu adresi (örn: smtp.fethiyeninustasi.com.tr)
-$smtpPort = 587; // SMTP portu (587 TLS, 465 SSL)
-$smtpUser = ''; // SMTP kullanıcı adı (genellikle e-posta adresiniz)
-$smtpPass = ''; // SMTP şifresi
-$smtpSecure = 'tls'; // 'tls' veya 'ssl'
+// ÖNEMLİ: mail() fonksiyonu bu sunucuda çalışmıyor görünüyor
+// Çözüm: SMTP kullanın veya hosting sağlayıcınızdan mail yapılandırmasını isteyin
+$useSMTP = false; // SMTP şifresini ekleyince true yapın
+$smtpHost = 'smtp.fethiyeninustasi.com.tr'; // Hosting panelinden SMTP bilgilerini alın
+$smtpPort = 587; // Genellikle 587 (TLS) veya 465 (SSL)
+$smtpUser = 'info@fethiyeninustasi.com.tr'; // E-posta adresiniz
+$smtpPass = ''; // E-posta şifreniz (hosting panelinden alın - BURAYA ŞİFREYİ EKLEYİN)
+$smtpSecure = 'tls'; // 'tls' (port 587) veya 'ssl' (port 465)
 
 $to = 'info@fethiyeninustasi.com.tr'; // Alıcı e-posta adresi
 $subject = 'Yeni İletişim Talebi — FethiyeninUstası';
@@ -296,16 +296,29 @@ function sendSMTP($host, $port, $user, $pass, $secure, $from, $to, $subject, $bo
 }
 
 try {
-  if ($useSMTP && $smtpHost && $smtpUser && $smtpPass) {
+  // İlk olarak mail() çalışıyor mu kontrol et
+  // Eğer mail() çalışmıyorsa ve SMTP ayarları varsa, direkt SMTP'ye geç
+  $mailWorking = false;
+  
+  // SMTP sadece şifre varsa dene
+  if ($useSMTP && $smtpHost && $smtpUser && !empty($smtpPass)) {
     // SMTP kullan
     $result = sendSMTP($smtpHost, $smtpPort, $smtpUser, $smtpPass, $smtpSecure, $from, $to, $subject, $body, $headers);
     if ($result === true) {
       $ok = true;
+      $mailWorking = true;
     } else {
       $mailError = is_string($result) ? $result : 'SMTP error';
       error_log("[contact.php] SMTP send failed: " . $mailError);
     }
-  } else {
+  } elseif ($useSMTP && empty($smtpPass)) {
+    // SMTP şifresi yok, mail() deneyeceğiz
+    $mailError = 'SMTP şifresi yapılandırılmamış';
+    error_log("[contact.php] SMTP password not configured");
+  }
+  
+  // SMTP çalışmadıysa veya ayarlanmadıysa mail() dene
+  if (!$mailWorking) {
     // mail() fonksiyonunu kullan
     // PHP ayarlarından mail.force_extra_parameters kontrolü
     $mailParams = ini_get('mail.force_extra_parameters');
@@ -368,27 +381,62 @@ if ($ok) {
   respond(200, ['ok' => true, 'message' => 'Mail sent successfully']);
 }
 
-// If mail failed, try to save to file as backup
-$backupFile = __DIR__ . '/contact_backups/' . date('Y-m-d_His') . '_' . uniqid() . '.txt';
-$backupDir = dirname($backupFile);
+// If mail failed, save to file as backup (her zaman kaydet)
+$backupDir = __DIR__ . '/contact_backups';
 if (!is_dir($backupDir)) {
   @mkdir($backupDir, 0755, true);
 }
-if (is_dir($backupDir)) {
-  $backupContent = "=== Contact Form Submission ===\n";
-  $backupContent .= "Date: " . date('Y-m-d H:i:s') . "\n";
-  $backupContent .= "IP: $ip\n";
-  $backupContent .= "Name: $name\n";
-  $backupContent .= "Email: $email\n";
-  $backupContent .= "Phone: $phone\n";
-  $backupContent .= "Area: $area\n";
-  $backupContent .= "Service: $service\n";
-  $backupContent .= "Message:\n$message\n";
-  @file_put_contents($backupFile, $backupContent);
+
+$backupFile = $backupDir . '/' . date('Y-m-d_His') . '_' . uniqid() . '.txt';
+$backupContent = "=== Contact Form Submission ===\n";
+$backupContent .= "Date: " . date('Y-m-d H:i:s') . "\n";
+$backupContent .= "IP: $ip\n";
+$backupContent .= "Name: $name\n";
+$backupContent .= "Email: $email\n";
+$backupContent .= "Phone: $phone\n";
+$backupContent .= "Area: $area\n";
+$backupContent .= "Service: $service\n";
+$backupContent .= "Page: $page\n";
+$backupContent .= "Message:\n$message\n";
+$backupContent .= "\n--- Error Info ---\n";
+$backupContent .= "Error: " . ($mailError ?: 'Unknown error') . "\n";
+
+$backupSaved = false;
+if (is_dir($backupDir) && is_writable($backupDir)) {
+  $backupSaved = @file_put_contents($backupFile, $backupContent) !== false;
+  if ($backupSaved) {
+    error_log("[contact.php] Form data saved to: " . $backupFile);
+  }
 }
 
-respond(500, [
-  'ok' => false, 
-  'error' => 'Mail gönderilemedi. Sistem yöneticisine bildirildi.',
-  'debug' => $mailError ? 'Mail error: ' . $mailError : 'Unknown error'
-]);
+// Veriler kaydedildiyse bu bir başarı durumu (kısmi başarı)
+// Kullanıcıya başarı mesajı göster, mail gönderilemese bile
+if ($backupSaved) {
+  // Veriler kaydedildi, kullanıcıya başarı mesajı göster
+  if ($ok) {
+    // Mail gönderildi
+    $userMessage = 'Teşekkürler! Talebiniz alındı, kısa süre içinde dönüş yapacağız.';
+  } else {
+    // Mail gönderilemedi ama veriler kaydedildi
+    $userMessage = 'Mesajınız kaydedildi ancak e-posta gönderilemedi. Sistem yöneticisine bildirildi, en kısa sürede size dönüş yapılacak.';
+    error_log("[contact.php] Mail not sent but data saved successfully to: " . $backupFile);
+  }
+  
+  // 200 döndür çünkü veriler kaydedildi (kısmi başarı)
+  respond(200, [
+    'ok' => true, 
+    'message' => $userMessage,
+    'mailSent' => $ok,
+    'saved' => $backupSaved,
+    'debug' => isset($_GET['debug']) && $mailError ? 'Mail error: ' . $mailError : null
+  ]);
+} else {
+  // Veriler bile kaydedilemedi, bu gerçek bir hata
+  $userMessage = 'Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin veya doğrudan e-posta gönderin.';
+  
+  respond(500, [
+    'ok' => false, 
+    'error' => $userMessage,
+    'debug' => isset($_GET['debug']) && $mailError ? 'Mail error: ' . $mailError : null
+  ]);
+}
