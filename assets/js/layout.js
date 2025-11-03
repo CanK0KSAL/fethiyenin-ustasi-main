@@ -106,21 +106,35 @@ const CONTACT_PAGE_TRANSLATIONS = {
 function translatePathToTargetLang(path, fromLang, toLang){
   if(fromLang === toLang) return path;
   
-  // Contact sayfaları için özel işleme
-  if(path === "iletisim.html" || path === "contact.html" || path === "kontakt.html" || 
-     path.endsWith("/iletisim.html") || path.endsWith("/contact.html") || path.endsWith("/kontakt.html")){
-    if(path === "iletisim.html" || path.endsWith("/iletisim.html")){
+  // Contact sayfaları için özel işleme - önce bu kontrol edilmeli
+  // Path'in son segmentini kontrol et
+  const segments = path.split("/").filter(Boolean);
+  const lastSegment = segments.length > 0 ? segments[segments.length - 1] : "";
+  
+  if(lastSegment === "iletisim.html" || lastSegment === "contact.html" || lastSegment === "kontakt.html"){
+    // Contact sayfası için direkt dosya adını değiştir
+    if(lastSegment === "iletisim.html"){
       if(toLang === "en") return "contact.html";
       if(toLang === "ru") return "kontakt.html";
     }
-    if(path === "contact.html" || path.endsWith("/contact.html")){
+    if(lastSegment === "contact.html"){
       if(toLang === "tr") return "iletisim.html";
       if(toLang === "ru") return "kontakt.html";
     }
-    if(path === "kontakt.html" || path.endsWith("/kontakt.html")){
+    if(lastSegment === "kontakt.html"){
       if(toLang === "tr") return "iletisim.html";
       if(toLang === "en") return "contact.html";
     }
+    // Eğer yukarıdaki return'lar çalışmadıysa (aynı dil gibi), path'i segment'lerle güncelle
+    const newSegments = [...segments];
+    if(lastSegment === "iletisim.html"){
+      newSegments[newSegments.length - 1] = (toLang === "en") ? "contact.html" : "kontakt.html";
+    } else if(lastSegment === "contact.html"){
+      newSegments[newSegments.length - 1] = (toLang === "tr") ? "iletisim.html" : "kontakt.html";
+    } else if(lastSegment === "kontakt.html"){
+      newSegments[newSegments.length - 1] = (toLang === "tr") ? "iletisim.html" : "contact.html";
+    }
+    return newSegments.join("/") + (path.endsWith("/") ? "/" : "");
   }
   
   // Blog path'leri için özel işleme
@@ -147,25 +161,6 @@ function translatePathToTargetLang(path, fromLang, toLang){
     return translated + (path.endsWith("/") ? "/" : "");
   }
   
-  // Rusça'dan diğer dillere (veya tersi)
-  if((fromLang === "ru" && (toLang === "tr" || toLang === "en")) || 
-     ((fromLang === "tr" || fromLang === "en") && toLang === "ru")){
-    // Contact sayfaları için
-    const segments = path.split("/").filter(Boolean);
-    const lastSegment = segments[segments.length - 1];
-    
-    if(lastSegment === "iletisim.html" || lastSegment === "contact.html" || lastSegment === "kontakt.html"){
-      const newSegments = [...segments];
-      if(lastSegment === "iletisim.html"){
-        newSegments[newSegments.length - 1] = (toLang === "en") ? "contact.html" : "kontakt.html";
-      } else if(lastSegment === "contact.html"){
-        newSegments[newSegments.length - 1] = (toLang === "tr") ? "iletisim.html" : "kontakt.html";
-      } else if(lastSegment === "kontakt.html"){
-        newSegments[newSegments.length - 1] = (toLang === "tr") ? "iletisim.html" : "contact.html";
-      }
-      return newSegments.join("/") + (path.endsWith("/") ? "/" : "");
-    }
-  }
   
   return null;
 }
@@ -275,6 +270,17 @@ function findKeyByPath(lang, path){
 function translateCurrentUrl(targetLang){
   const curLang = getLangFromPath();
   const rest = currentRestPath();
+  
+  // Contact sayfaları için özel kontrol - önce bu
+  const restSegments = rest.split("/").filter(Boolean);
+  const lastRestSegment = restSegments.length > 0 ? restSegments[restSegments.length - 1] : "";
+  if(lastRestSegment === "iletisim.html" || lastRestSegment === "contact.html" || lastRestSegment === "kontakt.html"){
+    const contactKey = "contact";
+    const targetRest = (window.NAV_SLUGS[targetLang] || {})[contactKey] || "";
+    if(targetRest){
+      return buildUrl(targetLang, targetRest);
+    }
+  }
   
   // Önce beklenen path'i hesapla
   const expectedPath = translatePathToTargetLang(rest, curLang, targetLang);
