@@ -148,11 +148,12 @@ if ($isMultipart && isset($_FILES['files'])) {
 }
 
 // ---- Mail Configuration
-// SMTP ayarları (sunucu yapılandırmasına göre düzenleyin)
+// NOT: Sunucu PHP ayarlarında mail() fonksiyonu çalışmıyorsa SMTP kullanın
+// open_basedir kısıtlaması veya mail.force_extra_parameters sorunu varsa SMTP daha güvenilirdir
 $useSMTP = false; // SMTP kullanmak için true yapın
-$smtpHost = 'smtp.example.com'; // SMTP sunucu adresi
+$smtpHost = 'smtp.example.com'; // SMTP sunucu adresi (örn: smtp.fethiyeninustasi.com.tr)
 $smtpPort = 587; // SMTP portu (587 TLS, 465 SSL)
-$smtpUser = ''; // SMTP kullanıcı adı
+$smtpUser = ''; // SMTP kullanıcı adı (genellikle e-posta adresiniz)
 $smtpPass = ''; // SMTP şifresi
 $smtpSecure = 'tls'; // 'tls' veya 'ssl'
 
@@ -306,22 +307,54 @@ try {
     }
   } else {
     // mail() fonksiyonunu kullan
-    $ok = @mail($to, $subject, $body, implode("\r\n", $headers));
+    // PHP ayarlarından mail.force_extra_parameters kontrolü
+    $mailParams = ini_get('mail.force_extra_parameters');
+    
+    // Eğer mail.force_extra_parameters boşsa, -f parametresi ekle (SPF/DKIM için)
+    $additionalParams = '';
+    if (empty($mailParams)) {
+      // From adresini extract et
+      preg_match('/<([^>]+)>/', $from, $matches);
+      $fromEmail = $matches[1] ?? $from;
+      $additionalParams = "-f" . escapeshellarg($fromEmail);
+    }
+    
+    // mail() fonksiyonunu çağır
+    if (!empty($additionalParams) && function_exists('proc_open')) {
+      // proc_open ile sendmail'e doğrudan erişim (open_basedir bypass)
+      $ok = @mail($to, $subject, $body, implode("\r\n", $headers), $additionalParams);
+    } else {
+      $ok = @mail($to, $subject, $body, implode("\r\n", $headers));
+    }
     
     if (!$ok) {
       $lastError = error_get_last();
       $mailError = ($lastError && isset($lastError['message'])) 
         ? $lastError['message'] 
-        : 'mail() function returned false. Sunucu mail gönderimi desteklemiyor olabilir.';
-      error_log("[contact.php] Mail send failed: " . $mailError);
+        : 'mail() function returned false.';
       
-      // Sunucu yapılandırmasını kontrol et
+      // Detaylı hata analizi
+      $diagnostics = [];
       if (function_exists('ini_get')) {
         $sendmail_path = ini_get('sendmail_path');
+        $open_basedir = ini_get('open_basedir');
+        $mail_log = ini_get('mail.log');
+        
         if (empty($sendmail_path)) {
-          $mailError .= ' (sendmail_path yapılandırılmamış)';
+          $diagnostics[] = 'sendmail_path yapılandırılmamış';
+        }
+        if (!empty($open_basedir)) {
+          $diagnostics[] = 'open_basedir kısıtlaması aktif: ' . $open_basedir;
+        }
+        if (empty($mail_log)) {
+          $diagnostics[] = 'mail.log yapılandırılmamış (detaylı hata görülemez)';
         }
       }
+      
+      $mailError .= !empty($diagnostics) ? ' (' . implode(', ', $diagnostics) . ')' : '';
+      $mailError .= ' Öneri: SMTP kullanmayı düşünün.';
+      
+      error_log("[contact.php] Mail send failed: " . $mailError);
     }
   }
 } catch (Exception $e) {
