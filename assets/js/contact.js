@@ -277,39 +277,65 @@
     selectedFiles.forEach((f) => fd.append("files[]", f, f.name));
 
     try {
-      console.log("[contact] Sending to:", form.action);
-      const res = await fetch(form.action, { method: "POST", body: fd, credentials: "same-origin" });
+      console.log("[contact] Sending to Formspree:", form.action);
+      
+      // Formspree için ek header (spam koruması için)
+      fd.append("_subject", "Yeni İletişim Talebi — FethiyeninUstası");
+      fd.append("_format", "plain");
+      fd.append("_captcha", "false");
+      
+      const res = await fetch(form.action, { 
+        method: "POST", 
+        body: fd,
+        headers: {
+          "Accept": "application/json"
+        }
+      });
       
       console.log("[contact] Response status:", res.status, res.statusText);
       
-      if (!res.ok) {
-        const text = await res.text();
-        console.error("[contact] Response error:", text);
-        throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+      // Formspree başarılı gönderimde 200 döner
+      if (res.ok) {
+        const contentType = res.headers.get("content-type") || "";
+        
+        // Formspree JSON dönebilir veya HTML redirect yapabilir
+        if (contentType.includes("application/json")) {
+          const data = await res.json();
+          console.log("[contact] Formspree response:", data);
+          
+          // Formspree başarılı yanıtları: { next: "..." } veya { ok: true } şeklinde
+          if (data.next || data.ok || res.status === 200) {
+            markSent();
+            form.reset();
+            selectedFiles = [];
+            renderFileList();
+            validate();
+            setText(statusEl, "Teşekkürler! Talebiniz alındı, kısa süre içinde dönüş yapacağız.");
+            btnSubmit.disabled = true;
+            return;
+          }
+          
+          // Hata varsa
+          if (data.error) {
+            throw new Error(data.error);
+          }
+        } else {
+          // HTML redirect durumu - başarılı sayılır
+          markSent();
+          form.reset();
+          selectedFiles = [];
+          renderFileList();
+          validate();
+          setText(statusEl, "Teşekkürler! Talebiniz alındı, kısa süre içinde dönüş yapacağız.");
+          btnSubmit.disabled = true;
+          return;
+        }
       }
       
-      const contentType = res.headers.get("content-type");
-      if (!contentType || !contentType.includes("application/json")) {
-        const text = await res.text();
-        console.error("[contact] Non-JSON response:", text.substring(0, 200));
-        throw new Error("Sunucu geçersiz yanıt döndü. Lütfen tekrar deneyin.");
-      }
-      
-      const data = await res.json();
-      console.log("[contact] Response data:", data);
-
-      if (data && data.ok) {
-        markSent();
-        // reset UI
-        form.reset();
-        selectedFiles = [];
-        renderFileList();
-        validate();
-        setText(statusEl, "Teşekkürler! Talebiniz alındı, kısa süre içinde dönüş yapacağız.");
-        btnSubmit.disabled = true;
-        return;
-      }
-      throw new Error(data && data.error ? data.error : "Bilinmeyen hata");
+      // Başarısız yanıt
+      const errorText = await res.text();
+      console.error("[contact] Formspree error:", errorText);
+      throw new Error(`Form gönderilemedi (HTTP ${res.status})`);
     } catch (err) {
       // Fallback: mailto
       const mailto = (form.getAttribute("data-fallback-mailto") || "").trim();
