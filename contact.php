@@ -147,8 +147,16 @@ if ($isMultipart && isset($_FILES['files'])) {
   }
 }
 
-// ---- Mail compose
-$to = 'info@fethiyeninustasi.com.tr'; // TODO: ihtiyaca göre değiştirin
+// ---- Mail Configuration
+// SMTP ayarları (sunucu yapılandırmasına göre düzenleyin)
+$useSMTP = false; // SMTP kullanmak için true yapın
+$smtpHost = 'smtp.example.com'; // SMTP sunucu adresi
+$smtpPort = 587; // SMTP portu (587 TLS, 465 SSL)
+$smtpUser = ''; // SMTP kullanıcı adı
+$smtpPass = ''; // SMTP şifresi
+$smtpSecure = 'tls'; // 'tls' veya 'ssl'
+
+$to = 'info@fethiyeninustasi.com.tr'; // Alıcı e-posta adresi
 $subject = 'Yeni İletişim Talebi — FethiyeninUstası';
 $subject = safeHeader($subject);
 $from    = 'no-reply@fethiyeninustasi.com.tr';
@@ -208,16 +216,113 @@ if (!empty($filesInfo)) {
   $body = $textBody;
 }
 
-// Send mail
+// Send mail via SMTP (if configured) or mail()
 $ok = false;
 $mailError = '';
 
-try {
-  $ok = @mail($to, $subject, $body, implode("\r\n", $headers));
+// Basit SMTP fonksiyonu
+function sendSMTP($host, $port, $user, $pass, $secure, $from, $to, $subject, $body, $headers) {
+  $errno = 0;
+  $errstr = '';
   
-  if (!$ok) {
-    $mailError = error_get_last()['message'] ?? 'mail() function returned false';
-    error_log("[contact.php] Mail send failed: " . $mailError);
+  $smtp = fsockopen(
+    ($secure === 'ssl' ? 'ssl://' : '') . $host,
+    $port,
+    $errno,
+    $errstr,
+    30
+  );
+  
+  if (!$smtp) {
+    return "Connection failed: $errstr ($errno)";
+  }
+  
+  $response = fgets($smtp, 515);
+  if (substr($response, 0, 3) !== '220') {
+    fclose($smtp);
+    return "SMTP greeting failed: $response";
+  }
+  
+  fputs($smtp, "EHLO " . $host . "\r\n");
+  $response = fgets($smtp, 515);
+  
+  if ($secure === 'tls' && strpos($response, '250') !== false) {
+    fputs($smtp, "STARTTLS\r\n");
+    $response = fgets($smtp, 515);
+    stream_socket_enable_crypto($smtp, true, STREAM_CRYPTO_METHOD_TLS_CLIENT);
+    fputs($smtp, "EHLO " . $host . "\r\n");
+    fgets($smtp, 515);
+  }
+  
+  if ($user && $pass) {
+    fputs($smtp, "AUTH LOGIN\r\n");
+    fgets($smtp, 515);
+    fputs($smtp, base64_encode($user) . "\r\n");
+    fgets($smtp, 515);
+    fputs($smtp, base64_encode($pass) . "\r\n");
+    $response = fgets($smtp, 515);
+    if (substr($response, 0, 3) !== '235') {
+      fclose($smtp);
+      return "SMTP auth failed: $response";
+    }
+  }
+  
+  fputs($smtp, "MAIL FROM: <$from>\r\n");
+  fgets($smtp, 515);
+  fputs($smtp, "RCPT TO: <$to>\r\n");
+  fgets($smtp, 515);
+  fputs($smtp, "DATA\r\n");
+  fgets($smtp, 515);
+  
+  // Headers ekle
+  fputs($smtp, "From: <$from>\r\n");
+  fputs($smtp, "To: <$to>\r\n");
+  fputs($smtp, "Subject: $subject\r\n");
+  foreach ($headers as $h) {
+    // Subject zaten eklendi, tekrar ekleme
+    if (stripos($h, 'Subject:') === false) {
+      fputs($smtp, "$h\r\n");
+    }
+  }
+  fputs($smtp, "\r\n$body\r\n");
+  fputs($smtp, ".\r\n");
+  $response = fgets($smtp, 515);
+  
+  fputs($smtp, "QUIT\r\n");
+  fclose($smtp);
+  
+  return substr($response, 0, 3) === '250' ? true : "SMTP send failed: $response";
+}
+
+try {
+  if ($useSMTP && $smtpHost && $smtpUser && $smtpPass) {
+    // SMTP kullan
+    $result = sendSMTP($smtpHost, $smtpPort, $smtpUser, $smtpPass, $smtpSecure, $from, $to, $subject, $body, $headers);
+    if ($result === true) {
+      $ok = true;
+    } else {
+      $mailError = is_string($result) ? $result : 'SMTP error';
+      error_log("[contact.php] SMTP send failed: " . $mailError);
+    }
+  } else {
+    // mail() fonksiyonunu kullan
+    $ok = @mail($to, $subject, $body, implode("\r\n", $headers));
+    
+    if (!$ok) {
+      $lastError = error_get_last();
+      $mailError = ($lastError && isset($lastError['message'])) 
+        ? $lastError['message'] 
+        : 'mail() function returned false. Sunucu mail gönderimi desteklemiyor olabilir.';
+      error_log("[contact.php] Mail send failed: " . $mailError);
+      
+      // Sunucu yapılandırmasını kontrol et
+      if (function_exists('ini_get')) {
+        $sendmail_path = ini_get('sendmail_path');
+        if (empty($sendmail_path)) {
+          $mailError .= ' (sendmail_path yapılandırılmamış)';
+        }
+      }
+    }
   }
 } catch (Exception $e) {
   $mailError = $e->getMessage();
