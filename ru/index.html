@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Performance: Resource Hints -->
+  <link rel="preconnect" href="https://fethiyeninustasi.com.tr" crossorigin>
+  <link rel="dns-prefetch" href="https://fethiyeninustasi.com.tr">
+  
+  <!-- Performance: Preload Critical Resources -->
+  <link rel="preload" href="/assets/js/runtime.js" as="script">
+  <link rel="preload" href="/assets/js/i18n/layout.i18n.js?v=2" as="script">
+  <link rel="preload" href="/assets/js/layout.js?v=2" as="script">
+  
+  <!-- Performance: Preload Hero Image -->
+  <link rel="preload" href="../assets/media/main-page/hero/home-1920.webp" as="image" fetchpriority="high">
+  
+  <!-- Primary Meta Tags -->
+  <title>Комплексный Ремонт в Фетхие | Мастер Фетхие — Профессиональная Команда, Письменная Гарантия</title>
+  <meta name="title" content="Комплексный Ремонт в Фетхие | Мастер Фетхие — Профессиональная Команда, Письменная Гарантия">
+  <meta name="description" content="Профессиональные услуги по ремонту в Фетхие: электрика, сантехника, шелковая штукатурка, покраска, плитка, кухонные шкафы, утепление и многое другое. Бесплатный осмотр, письменная смета, застрахованная команда, гарантия 12-24 месяца.">
+  <meta name="keywords" content="ремонт фетхие, мастер фетхие, электрика фетхие, шелковая штукатурка фетхие, покраска фетхие, утепление фетхие, кухонные шкафы фетхие">
+  <link rel="canonical" href="https://fethiyeninustasi.com.tr/ru/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fethiyeninustasi.com.tr/ru/">
+  <meta property="og:title" content="Комплексный Ремонт в Фетхие | Мастер Фетхие">
+  <meta property="og:description" content="От электрики до сантехники, от шелковой штукатурки до покраски и плитки; от внутренней архитектуры до наружной отделки и изоляции — все услуги под одной крышей. Бесплатный осмотр, письменная смета, застрахованная команда.">
+  <meta property="og:image" content="https://fethiyeninustasi.com.tr/assets/media/main-page/hero/home-1920.webp">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Мастер Фетхие">
+
+  <!-- CSS: base → layout → page(Home) with performance optimization -->
+  <link rel="preload" as="style" href="/assets/css/base.css?v=2025.10.25" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/base.css?v=2025.10.25"></noscript>
+  
+  <link rel="preload" as="style" href="/assets/css/layout.css?v=2025.10.25" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/layout.css?v=2025.10.25"></noscript>
+  
+  <link rel="preload" as="style" href="/assets/css/home.css?v=2025.10.25" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/home.css?v=2025.10.25"></noscript>
+  
+  <!-- Critical inline CSS -->
+  <style>
+    /* Font optimization: Prevent invisible text during font load */
+    @font-face {
+      font-family: 'system-font';
+      font-display: swap;
+    }
+  </style>
+  <script>
+    // CSS yükleme kontrolü
+    (function() {
+      const links = document.querySelectorAll('link[rel="preload"][as="style"]');
+      let loadedCount = 0;
+      const total = links.length;
+      
+      links.forEach(function(link) {
+        link.addEventListener('load', function() {
+          loadedCount++;
+          if (loadedCount === total) {
+            document.body.classList.add('css-loaded');
+          }
+        });
+        // Fallback: 3 saniye sonra zorla göster
+        setTimeout(function() {
+          document.body.classList.add('css-loaded');
+        }, 3000);
+      });
+      
+      // Logo yükleme kontrolü
+      const logo = document.getElementById('brand-logo');
+      if (logo) {
+        logo.addEventListener('load', function() {
+          logo.classList.add('loaded');
+        });
+        if (logo.complete) {
+          logo.classList.add('loaded');
+        }
+      }
+    })();
+  </script>
+
+
+  <link rel="canonical" href="https://fethiyeninustasi.com.tr/ru/">
+  <link rel="alternate" hreflang="tr" href="https://fethiyeninustasi.com.tr/"/>
+  <link rel="alternate" hreflang="en" href="https://fethiyeninustasi.com.tr/en/"/>
+  <link rel="alternate" hreflang="ru" href="https://fethiyeninustasi.com.tr/ru/"/>
+  <link rel="alternate" hreflang="x-default" href="https://fethiyeninustasi.com.tr/"/>
+
+  <link rel="shortcut icon" href="../assets/media/logo/logo.webp" type="image/x-icon">
+
+  <link rel="shortcut icon" href="../assets/media/logo/logo.webp" type="image/x-icon">
+
+</head>
+<body>
+  <!-- Header -->
+  <header id="site-header" class="site-header" aria-label="Основной">
+    <!-- Golden hairline -->
+    <div class="gold-hairline" aria-hidden="true"></div>
+
+    <div class="header-inner">
+      <!-- Logo + brand -->
+      <a href="/ru/" class="brand" aria-label="Мастер Фетхие">
+        <img id="brand-logo" class="brand-logo" src="../assets/media/logo/logo.webp" alt="Мастер Фетхие" />
+        <div id="brand-fallback" class="brand-fallback" aria-hidden="true"></div>
+        <span class="brand-text">Мастер <span class="brand-gold">Фетхие</span></span>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="nav-desktop" aria-label="Главное меню">
+        <ul id="nav-root" class="nav-row" role="menubar"></ul>
+      </nav>
+
+      <!-- Language selector (desktop) -->
+      <div class="lang-desktop">
+        <div class="lang-pill" role="group" aria-label="Выберите язык">
+          <button data-lang="tr" class="lang-btn">TR</button>
+          <button data-lang="en" class="lang-btn">EN</button>
+          <button data-lang="ru" class="lang-btn" aria-pressed="true">RU</button>
+        </div>
+      </div>
+
+      <!-- Burger (mobile) -->
+      <button id="burger" class="burger" aria-label="Меню" aria-expanded="false">
+        <span class="burger-ring" aria-hidden="true"></span>
+        <span class="burger-lines">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+    </div>
+
+    <!-- Mobile overlay + sheet -->
+    <div id="mobile-layer" class="mobile-layer" hidden>
+      <div id="mobile-dim" class="mobile-dim" tabindex="-1"></div>
+      <div class="mobile-sheet" role="dialog" aria-modal="true" aria-label="Меню">
+        <div class="mobile-sheet-top">
+          <span class="mobile-title">Меню</span>
+          <button id="burger-close" class="burger burger-small" aria-label="Закрыть">
+            <span class="burger-ring" aria-hidden="true"></span>
+            <span class="burger-lines open">
+              <span></span><span></span><span></span>
+            </span>
+          </button>
+        </div>
+
+        <nav class="mobile-nav" aria-label="Главное меню (мобильное)">
+          <div id="mobile-nav-root" class="mobile-nav-grid"></div>
+        </nav>
+
+        <div class="mobile-lang">
+          <div class="lang-pill full">
+            <button data-lang="tr" class="lang-btn flex">TR</button>
+            <button data-lang="en" class="lang-btn flex">EN</button>
+            <button data-lang="ru" class="lang-btn flex">RU</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+<main id="main-content" data-i18n-scope="home" class="home">
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container hero__inner">
+      <div class="hero__media">
+        <picture style="height: 80%;">
+          <!-- Responsive image with modern formats -->
+          <source media="(min-width: 1024px)" srcset="../assets/media/main-page/hero/home-1920.webp" type="image/webp">
+          <source media="(min-width: 768px)" srcset="../assets/media/main-page/hero/home-1920.webp" type="image/webp">
+          <img 
+            src="../assets/media/main-page/hero/home-1920.webp" 
+            alt="Услуги по ремонту и реконструкции в Фетхие"
+            width="1920" 
+            height="1560"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high">
+        </picture>
+      </div>
+
+      <div class="hero__content">
+        <h1 id="hero-title" class="hero__title" data-i18n="home.hero.title">
+          Полный ремонт и реконструкция в Фетхие — безопасно с мастерами
+        </h1>
+        <p class="hero__subtitle" data-i18n="home.hero.subtitle">
+          От электрики до сантехники, от шелковой штукатурки до покраски и плитки; от дизайна интерьера до фасада и утепления —
+          все услуги под одной крышей. Бесплатный осмотр, письменная смета, застрахованная команда.
+        </p>
+
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="/ru/kontakt.html" data-i18n="home.hero.ctaPrimary">Бесплатный осмотр</a>
+        </div>
+
+        <ul class="hero__badges" role="list">
+          <li class="badge" data-i18n="home.hero.badges.0">Ответ в тот же день</li>
+          <li class="badge" data-i18n="home.hero.badges.1">Письменная гарантия</li>
+          <li class="badge" data-i18n="home.hero.badges.2">Застрахованная и авторизованная команда</li>
+          <li class="badge" data-i18n="home.hero.badges.3">Прозрачные цены</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIZLI HİZMET BULUCU (Progressive Enhancement: JS ile gelişir) -->
+<section class="explorer" id="service-explorer" aria-labelledby="explorer-title" data-component="tabs" data-i18n-scope="home.explorer">
+  <div class="container">
+    <header class="section-head">
+      <h2 id="explorer-title" class="section-title" data-i18n="title">Исследовать услуги</h2>
+      <p class="section-desc" data-i18n="desc">Выберите категорию, соответствующую вашим потребностям, ознакомьтесь с подуслугами и реальными примерами.</p>
+    </header>
+
+    <!-- Tab başlıkları -->
+    <div class="tabs" role="tablist" aria-label="Service categories">
+      <button id="tabbtn-infra" class="tabs__btn" role="tab" aria-selected="true" aria-controls="tab-infra" data-i18n="tabs.infrastructure.tab">Инфраструктура и монтаж</button>
+      <button id="tabbtn-surfaces" class="tabs__btn" role="tab" aria-selected="false" aria-controls="tab-surfaces" data-i18n="tabs.surfaces.tab">Поверхности и покрытия</button>
+      <button id="tabbtn-interior" class="tabs__btn" role="tab" aria-selected="false" aria-controls="tab-interior" data-i18n="tabs.interior.tab">Внутренняя архитектура и плотницкие</button>
+      <button id="tabbtn-exterior" class="tabs__btn" role="tab" aria-selected="false" aria-controls="tab-exterior" data-i18n="tabs.exterior.tab">Внешняя изоляция</button>
+    </div>
+
+    <!-- Paneller (JS olmasa da botlar tüm içeriği görür) -->
+    <div class="tabs__panels">
+
+      <!-- INFRA -->
+      <section id="tab-infra" class="tabs__panel" role="tabpanel" aria-labelledby="tabbtn-infra" data-panel="infrastructure">
+        <header class="panel__intro">
+          <h3 class="panel__title" data-i18n="tabs.infrastructure.title">Инфраструктура и монтаж</h3>
+          <p class="panel__desc" data-i18n="tabs.infrastructure.desc">Авторизованная установка и обслуживание электрических, водопроводных и канализационных, а также систем отопления.</p>
+        </header>
+
+        <div class="grid panel__services">
+          <article class="svcmini">
+            <h4 class="svcmini__title"><a href="услуги/установка-инфраструктуры/электрический/" data-i18n="tabs.infrastructure.items.elektrik.title">Электрика</a></h4>
+            <p class="svcmini__text" data-i18n="tabs.infrastructure.items.elektrik.snip">Электропроводка, разводка щита, защита от утечки тока и соответствие нормам.</p>
+          </article>
+
+          <article class="svcmini">
+            <h4 class="svcmini__title"><a href="услуги/установка-инфраструктуры/вода-канализация/" data-i18n="tabs.infrastructure.items.su.title">Вода и канализация</a></h4>
+            <p class="svcmini__text" data-i18n="tabs.infrastructure.items.su.snip">Обнаружение утечек, обновление сантехники и подключение приборов.</p>
+          </article>
+
+          <article class="svcmini">
+            <h4 class="svcmini__title"><a href="услуги/установка-инфраструктуры/обогрев/" data-i18n="tabs.infrastructure.items.isitma.title">Отопление</a></h4>
+            <p class="svcmini__text" data-i18n="tabs.infrastructure.items.isitma.snip">Очистка котла и радиаторов, энергоэффективная установка.</p>
+          </article>
+        </div>
+
+        <div class="panel__cases grid grid--cases-2">
+          <article class="case">
+            <a href="услуги/установка-инфраструктуры/газ/">
+              <h5 class="case__title" data-i18n="tabs.infrastructure.cases.c2.title">Установка природного газа и герметизация</h5>
+            </a>
+            <p class="case__text" data-i18n="tabs.infrastructure.cases.c2.snip">
+              Установка трубопровода из ПЭ/стали, монтаж клапана-регулятора, опрессовка и готовность к подключению газа.
+            </p>
+          </article>
+
+          <!-- <article class="case">
+            <h5 class="case__title" data-i18n="tabs.infrastructure.cases.c2.title">Sızıntı Çözümü &amp; Temiz Tesisat</h5>
+            <p class="case__text" data-i18n="tabs.infrastructure.cases.c2.snip">Duvar kırmadan noktasal tespit ve kalıcı tamir.</p>
+            <a class="case__link" href="/hizmetler/altyapi-tesisat/su-kanalizasyon/" data-i18n="tabs.infrastructure.cases.cta">Detay</a>
+          </article> -->
+        </div>
+
+        <div class="panel__links">
+          <a class="btn btn--ghost" href="услуги/установка-инфраструктуры/" data-i18n="tabs.infrastructure.all">Просмотр категории</a>
+          <a class="btn btn--primary" style="background-color: #D4AF37" href="kontakt.html" data-i18n="tabs.cta">Записаться на осмотр</a>
+        </div>
+      </section>
+
+      <!-- SURFACES -->
+      <section id="tab-surfaces" class="tabs__panel" role="tabpanel" aria-labelledby="tabbtn-surfaces" data-panel="surfaces">
+        <header class="panel__intro">
+          <h3 class="panel__title" data-i18n="tabs.surfaces.title">Поверхности и покрытия</h3>
+          <p class="panel__desc" data-i18n="tabs.surfaces.desc">Гладкие, прочные поверхности с шелковой штукатуркой, краской, плиткой и решениями для пола.</p>
+        </header>
+
+        <div class="grid panel__services">
+          <article class="svcmini">
+            <h4 class="svcmini__title"><a href="услуги/поверхности-покрытия/шелк-шива/" data-i18n="tabs.surfaces.items.ipek.title">Шелковая штукатурка</a></h4>
+            <p class="svcmini__text" data-i18n="tabs.surfaces.items.ipek.snip">Премиальная текстура на основе хлопка, дышащая, без запаха.</p>
+          </article>
+
+          <article class="svcmini">
+            <h4 class="svcmini__title"><a href="услуги/поверхности-покрытия/краска/" data-i18n="tabs.surfaces.items.boya.title">Покраска (интерьер/экстерьер)</a></h4>
+            <p class="svcmini__text" data-i18n="tabs.surfaces.items.boya.snip">Включая решения для влажности и ремонт полов.</p>
+          </article>
+
+          <article class="svcmini">
+            <h4 class="svcmini__title"><a href="услуги/поверхности-покрытия/каменная-штукатурка/" data-i18n="tabs.surfaces.items.fayans.title">Каменная штукатурка</a></h4>
+            <p class="svcmini__text" data-i18n="tabs.surfaces.items.fayans.snip">Высокая долговечность на наружных фасадах, естественная текстура во внутренних помещениях.</p>
+          </article>
+        </div>
+        <div class="panel__cases grid grid--cases-2">
+  <article class="case">
+    <h5 class="case__title" data-i18n="tabs.surfaces.cases.c1.title">Итальянская штукатурка</h5>
+    <p class="case__text" data-i18n="tabs.surfaces.cases.c1.snip">
+      Эффект Венeziano/Мarmorino; каменная глянцевая/матовая отделка с микромраморной пудрой + известковой смесью.
+    </p>
+    <a class="case__link" href="услуги/поверхности-покрытия/итальянская-штукатурка/" data-i18n="tabs.surfaces.cases.cta">Подробности</a>
+  </article>
+
+  <article class="case">
+    <h5 class="case__title" data-i18n="tabs.surfaces.cases.c2.title">Тканевые обои</h5>
+    <p class="case__text" data-i18n="tabs.surfaces.cases.c2.snip">
+      Прочное, мостикообразующее, дышащее текстурированное покрытие; можно перекрашивать без удаления.
+    </p>
+    <a class="case__link" href="услуги/поверхности-покрытия/тканевые-обои/" data-i18n="tabs.surfaces.cases.cta">Подробности</a>
+  </article>
+</div>
+
+
+        <div class="panel__links">
+          <a class="btn btn--ghost" href="услуги/поверхности-покрытия/" data-i18n="tabs.surfaces.all">Просмотр категории</a>
+          <a class="btn btn--primary" style="background-color: #D4AF37" href="kontakt.html" data-i18n="tabs.cta">Записаться на осмотр</a>
+        </div>
+      </section>
+
+      <!-- INTERIOR -->
+      <section id="tab-interior" class="tabs__panel" role="tabpanel" aria-labelledby="tabbtn-interior" data-panel="interior">
+        <header class="panel__intro">
+          <h3 class="panel__title" data-i18n="tabs.interior.title">Внутренняя архитектура и плотницкие</h3>
+          <p class="panel__desc" data-i18n="tabs.interior.desc">Дизайн–измерение–производство–установка; решения для кухни, ванной и хранения.</p>
+        </header>
+
+        <div class="grid panel__services">
+          <article class="svcmini">
+            <h4 class="svcmini__title"><a href="услуги/внутренняя-архитектура-плотницкие/кухонные-шкафы/" data-i18n="tabs.interior.items.mutfak.title">Кухонные шкафы</a></h4>
+            <p class="svcmini__text" data-i18n="tabs.interior.items.mutfak.snip">Модульный дизайн, совместимость столешницы и аксессуаров.</p>
+          </article>
+          <article class="svcmini">
+            <h4 class="svcmini__title"><a href="услуги/внутренняя-архитектура-плотницкие/тумба-для-ванной/" data-i18n="tabs.interior.items.banyo.title">Шкафы для ванной</a></h4>
+            <p class="svcmini__text" data-i18n="tabs.interior.items.banyo.snip">Планировка влажных зон, шкафы и освещение.</p>
+          </article>
+          <article class="svcmini">
+            <h4 class="svcmini__title"><a href="услуги/внутренняя-архитектура-плотницкие/тв-тумба-стеновая-панель/" data-i18n="tabs.interior.items.tv-unitesi.title">ТВ-тумба и стеновая панель</a></h4>
+            <p class="svcmini__text" data-i18n="tabs.interior.items.tv-unitesi.snip">Индивидуальное изготовление тумбы, шкафа и панели.</p>
+          </article>
+        </div>
+
+        <div class="panel__cases grid grid--cases-2">
+          <article class="case">
+            <a href="услуги/внутренняя-архитектура-плотницкие/межкомнатные-двери-столярные/" data-i18n="tabs.interior.cases.cta">                <h5 class="case__title" data-i18n="tabs.interior.cases.c1.title">Межкомнатные двери</h5></a>
+            <p class="case__text" data-i18n="tabs.interior.cases.c1.snip">
+              Изготовление и установка массивных/композитных дверей; тихое и плотное закрывание с уплотнением, замком и регулировкой петель.
+            </p>
+          </article>
+        
+          <article class="case">
+            <a href="услуги/внутренняя-архитектура-плотницкие/облицовка-лестницы-хранение/" data-i18n="tabs.interior.cases.cta">               <h5 class="case__title" data-i18n="tabs.interior.cases.c2.title">Облицовка лестницы и хранение</h5>
+            <p class="case__text" data-i18n="tabs.interior.cases.c2.snip">
+              Облицовка ступеней из дерева/ламината + профиль носика; умное пространство с шкафом/ящиком под лестницей.
+            </p></a>
+          </article>
+        </div>
+
+
+        <div class="panel__links">
+          <a class="btn btn--ghost"  href="услуги/внутренняя-архитектура-плотницкие/" data-i18n="tabs.interior.all">Просмотр категории</a>
+          <a class="btn btn--primary"style="background-color: #D4AF37" href="kontakt.html" data-i18n="tabs.cta">Записаться на осмотр</a>
+        </div>
+      </section>
+
+      <!-- EXTERIOR -->
+      <section id="tab-exterior" class="tabs__panel" role="tabpanel" aria-labelledby="tabbtn-exterior" data-panel="exterior">
+        <header class="panel__intro">
+          <h3 class="panel__title" data-i18n="tabs.exterior.title">Внешняя изоляция</h3>
+          <p class="panel__desc" data-i18n="tabs.exterior.desc">Энергосбережение и долговечность с утеплением, кровлей и фасадной краской.</p>
+        </header>
+
+        <div class="grid panel__services">
+          <article class="svcmini">
+            <h4 class="svcmini__title"><a href="услуги/внешняя-изоляция/обшивка/" data-i18n="tabs.exterior.items.mantolama.title">Внешняя изоляция</a></h4>
+            <p class="svcmini__text" data-i18n="tabs.exterior.items.mantolama.snip">Правильные слои, уменьшающие мостики холода.</p>
+          </article>
+          <article class="svcmini">
+            <h4 class="svcmini__title"><a href="услуги/внешняя-изоляция/фасадная-краска/" data-i18n="tabs.exterior.items.disboya.title">Фасадная краска</a></h4>
+            <p class="svcmini__text" data-i18n="tabs.exterior.items.disboya.snip">Высокая устойчивость к УФ-излучению, долговечные краски.</p>
+          </article>
+          <article class="svcmini">
+            <h4 class="svcmini__title"><a href="услуги/внешняя-изоляция/силикон-акриловая-штукатурка/" data-i18n="tabs.exterior.cases.c1.title">Силикон/акриловое покрытие</a></h4>
+            <p class="svcmini__text" data-i18n="tabs.exterior.cases.c1.snip">Эластичная, мостикообразующая, УФ-устойчивая декоративная штукатурка; дышащая, низкое удержание грязи.</p>
+          </article>
+        </div>
+
+<div class="panel__cases grid grid--cases-2">
+  <!-- 2) Taş Kompozit Kaplama -->
+  <article class="case">
+    <h5 class="case__title" data-i18n="tabs.exterior.cases.c2.title">Каменная композитная облицовка</h5>
+    <p class="case__text" data-i18n="tabs.exterior.cases.c2.snip">
+      Эффект натурального камня с легкими панелями; совместимо с теплоизоляцией, быстрая установка и долговечная поверхность.
+    </p>
+    <a class="case__link" href="услуги/внешняя-изоляция/каменная-композитная-облицовка/" data-i18n="tabs.exterior.cases.cta">Подробности</a>
+  </article>
+
+  <!-- 3) Dış Boya -->
+  <!-- <article class="case">
+    <h5 class="case__title" data-i18n="tabs.exterior.cases.c3.title">Exterior Paint</h5>
+    <p class="case__text" data-i18n="tabs.exterior.cases.c3.snip">
+      Primer + two coats of silicone acrylic; resistant to rain–sun cycles, keeps color vibrant for a long time.
+    </p>
+    <a class="case__link" href="/hizmetler/dis-cephe-yalitim/dis-boya/" data-i18n="tabs.exterior.cases.cta">Details</a>
+  </article> -->
+</div>
+
+
+        <div class="panel__links">
+          <a class="btn btn--ghost" href="услуги/внешняя-изоляция/" data-i18n="tabs.exterior.all">Просмотр категории</a>
+          <a class="btn btn--primary" style="background-color: #D4AF37" href="kontakt.html" data-i18n="tabs.cta">Записаться на осмотр</a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- JSON-LD: Service Explorer ItemList -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "name":"Исследователь услуг",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"item":{"@type":"Service","name":"Электрика","url":"https://fethiyeninustasi.com.tr/ru/услуги/установка-инфраструктуры/электрический/"}},
+      {"@type":"ListItem","position":2,"item":{"@type":"Service","name":"Вода и канализация","url":"https://fethiyeninustasi.com.tr/ru/услуги/установка-инфраструктуры/вода-канализация/"}},
+      {"@type":"ListItem","position":3,"item":{"@type":"Service","name":"Отопление","url":"https://fethiyeninustasi.com.tr/ru/услуги/установка-инфраструктуры/обогрев/"}},
+      {"@type":"ListItem","position":4,"item":{"@type":"Service","name":"Шелковая штукатурка","url":"https://fethiyeninustasi.com.tr/ru/услуги/поверхности-покрытия/шелк-шива/"}},
+      {"@type":"ListItem","position":5,"item":{"@type":"Service","name":"Покраска","url":"https://fethiyeninustasi.com.tr/ru/услуги/поверхности-покрытия/краска/"}},
+      {"@type":"ListItem","position":6,"item":{"@type":"Service","name":"Плитка","url":"https://fethiyeninustasi.com.tr/ru/услуги/поверхности-покрытия/"}},
+      {"@type":"ListItem","position":7,"item":{"@type":"Service","name":"Кухня","url":"https://fethiyeninustasi.com.tr/ru/услуги/внутренняя-архитектура-плотницкие/кухонные-шкафы/"}},
+      {"@type":"ListItem","position":8,"item":{"@type":"Service","name":"Ванная","url":"https://fethiyeninustasi.com.tr/ru/услуги/внутренняя-архитектура-плотницкие/тумба-для-ванной/"}},
+      {"@type":"ListItem","position":9,"item":{"@type":"Service","name":"Столярные работы","url":"https://fethiyeninustasi.com.tr/ru/услуги/внутренняя-архитектура-плотницкие/"}},
+      {"@type":"ListItem","position":10,"item":{"@type":"Service","name":"Внешняя изоляция","url":"https://fethiyeninustasi.com.tr/ru/услуги/внешняя-изоляция/обшивка/"}},
+      {"@type":"ListItem","position":11,"item":{"@type":"Service","name":"Фасадная краска","url":"https://fethiyeninustasi.com.tr/ru/услуги/внешняя-изоляция/фасадная-краска/"}},
+      {"@type":"ListItem","position":12,"item":{"@type":"Service","name":"Кровля","url":"https://fethiyeninustasi.com.tr/ru/услуги/внешняя-изоляция/"}}
+    ]
+  }
+  </script>
+</section>
+
+
+
+<!-- HİZMET KATEGORİLERİ (yeniden) -->
+<section class="categories" id="categories" aria-labelledby="categories-title" data-i18n-scope="home.categories">
+  <div class="container">
+    <h2 id="categories-title" class="section-title" data-i18n="title">Категории услуг</h2>
+    <p class="section-desc" data-i18n="desc">Четыре основные категории, составленные в соответствии с вашими потребностями.</p>
+
+    <div class="grid grid--cards-4">
+      <!-- Altyapı & Tesisat -->
+      <article class="card cat" data-i18n-scope="home.categories.infrastructure">
+        <a class="card__link" href="услуги/установка-инфраструктуры/">
+          <div class="card__media">
+            <img src="../assets/media/service/Infrastructure & Plumbing/INFRASTRUCTURE-PLUMBING-hero.webp" alt="Услуги по инфраструктуре и монтажу" width="800" height="560" loading="lazy" decoding="async">
+          </div>
+        </a>
+      </article>
+
+      <!-- Yüzeyler & Kaplamalar -->
+      <article class="card cat" data-i18n-scope="home.categories.surfaces">
+        <a class="card__link" href="услуги/поверхности-покрытия/">
+          <div class="card__media">
+            <img src="../assets/media/service/Surfaces & Coatings/wall-covering-and-paint-applications-hero.webp" alt="Услуги по поверхностям и покрытиям" width="800" height="560" loading="lazy" decoding="async">
+          </div>
+        </a>
+      </article>
+
+      <!-- İç Mimari & Marangozluk -->
+      <article class="card cat" data-i18n-scope="home.categories.interior">
+        <a class="card__link" href="услуги/внутренняя-архитектура-плотницкие/">
+          <div class="card__media">
+            <img src="../assets/media/service/Interior Architecture & Carpentry/interior-architecture-hero.webp" alt="Услуги по внутренней архитектуре и столярным работам" width="800" height="560" loading="lazy" decoding="async">
+          </div>
+
+        </a>
+      </article>
+
+      <!-- Dış Cephe & Yalıtım -->
+      <article class="card cat" data-i18n-scope="home.categories.exterior">
+        <a class="card__link" href="услуги/внешняя-изоляция/">
+          <div class="card__media">
+            <img src="../assets/media/service/Exterior & Insulation/Exterior-Insulation-hero.webp" alt="Услуги по фасаду и утеплению" width="800" height="560" loading="lazy" decoding="async">
+          </div>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+  <!-- POPÜLER HİZMETLER (SEO içeren açıklamalar) -->
+  <section class="services" aria-labelledby="services-title">
+    <div class="container">
+      <h2 id="services-title" data-i18n="home.services.title">Популярные услуги</h2>
+      <div class="grid grid--cards-3">
+        <article class="card svc">
+          <a class="card__link" href="услуги/установка-инфраструктуры/электрический/">
+            <div class="card__media ratio-16x9">
+              <img src="../assets/media/service/Infrastructure & Plumbing/Altyapı-tesisat.webp" alt="Электромонтажные работы и разводка щита" width="800" height="450" loading="lazy" decoding="async">
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Электрика</h3>
+              <p class="card__text">
+                Проектирование, новая проводка, разводка щита и ремонт неисправностей. Защита от утечки тока, заземление и соответствие нормам.
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <article class="card svc">
+          <a class="card__link" href="услуги/поверхности-покрытия/шелк-шива/">
+            <div class="card__media ratio-16x9">
+              <img src="../assets/media/service/Surfaces & Coatings/ipek-sıva.webp" alt="Применение шелковой штукатурки" width="800" height="450" loading="lazy" decoding="async">
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Шелковая штукатурка</h3>
+              <p class="card__text">
+                Без запаха, высокая устойчивость к трещинам, декоративное покрытие с улучшением тепло- и звукоизоляции. Осмотр с образцами цветов/текстур.
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <article class="card svc">
+          <a class="card__link" href="услуги/установка-инфраструктуры/газ/">
+            <div class="card__media ratio-16x9">
+              <img src="../assets/media/service/Infrastructure & Plumbing/doğalgaz.webp"
+                   alt="Установка природного газа — проект, установка и проверка на утечки"
+                   width="800" height="450" loading="lazy" decoding="async">
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Природный газ</h3>
+              <p class="card__text">
+                Проектные и подключенческие процессы, план маршрута линии, подключение счетчика к прибору (котел/плита);
+                безопасная установка с проверкой и тестированием на утечки.
+              </p>
+            </div>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+<section class="proof" id="proof-stack" aria-labelledby="proof-title" data-i18n-scope="home.proof">
+  <div class="container">
+    <header class="section-head">
+      <h2 id="proof-title" class="section-title" data-i18n="title">Почему Мастер Фетхие?</h2>
+    </header>
+
+    <!-- Ölçülebilir metrikler (count-up için data-target) -->
+    <div class="proof__metrics" aria-label="Показатели услуг" data-component="countup">
+      <div class="metric">
+        <div class="metric__num" data-target="250" aria-label="Завершенные проекты">250+</div>
+        <div class="metric__label" data-i18n="metrics.projects">Завершенные проекты</div>
+      </div>
+      <div class="metric">
+        <div class="metric__num" data-target="98" aria-label="Процент своевременных прибытий">98<span>%</span></div>
+        <div class="metric__label" data-i18n="metrics.ontime">Своевременное прибытие на прием</div>
+      </div>
+      <div class="metric">
+        <div class="metric__num" data-target="4.8" aria-label="Средняя удовлетворенность">4.8<span>★</span></div>
+        <div class="metric__label" data-i18n="metrics.rating">Средняя удовлетворенность</div>
+      </div>
+      <div class="metric">
+        <div class="metric__num" data-target="2" aria-label="Процент переделок">&lt;2<span>%</span></div>
+        <div class="metric__label" data-i18n="metrics.rework">Процент переделок</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- PROCESS (Yeni) -->
+<section class="process" id="process" aria-label="Процесс" data-process-context="global">
+  <div class="process__inner">
+
+    <div>
+      <h2 class="process__title" data-i18n="process.title">Процесс</h2>
+      <p class="process__subtitle" data-i18n="process.subtitle">
+        Мы действуем прозрачно, планово и без пыли от первого звонка до сдачи.
+      </p>
+    </div>
+
+    <div class="process__layout">
+      <!-- Sol: Zaman Çizgisi -->
+      <ol class="process__timeline">
+
+        <!-- 1 -->
+        <li class="process__step">
+          <div class="process__dot" aria-hidden="true">1</div>
+          <div class="process__card">
+            <div class="process__card-head">
+              <h3 class="process__step-title" data-i18n="process.steps.s1.title">Определение потребностей и целей</h3>
+              <span class="process__badge" data-i18n="process.badges.free">Бесплатно</span>
+            </div>
+            <p class="process__step-desc" data-i18n="process.steps.s1.desc">
+              В ходе короткого разговора по телефону/WhatsApp мы уточняем объем, приоритеты, диапазон бюджета и целевую дату.
+            </p>
+            <details class="process__details">
+              <summary class="process__summary" data-i18n="process.more">Подробности</summary>
+              <ul class="process__list" data-i18n-list="process.steps.s1.bullets">
+                <li>Цель использования и ожидания (долговечность, эстетика, обслуживание)</li>
+                <li>Предварительные измерения, обмен существующими планами/фотографиями</li>
+                <li>Диапазон бюджета и порядок приоритетов (срочные/необязательные позиции)</li>
+                <li>Целевой срок, часы доступа и ограничения жилого пространства</li>
+                <li>Прогнозирование рисков/препятствий (влажность, электрические/газовые линии, акустика и т.д.)</li>
+              </ul>
+            </details>
+          </div>
+        </li>
+
+        <!-- 2 -->
+        <li class="process__step">
+          <div class="process__dot" aria-hidden="true">2</div>
+          <div class="process__card">
+            <h3 class="process__step-title" data-i18n="process.steps.s2.title">Осмотр на месте и измерение</h3>
+            <p class="process__step-desc" data-i18n="process.steps.s2.desc">
+              Мы производим измерения по адресу/из планов; планируем проверки текущего состояния, рисков и соответствия (электрика, вода, отопление, акустика и т.д.).
+            </p>
+            <details class="process__details">
+              <summary class="process__summary" data-i18n="process.more">Подробности</summary>
+              <ul class="process__list" data-i18n-list="process.steps.s2.bullets">
+                <li>Точные измерения лазерным дальномером, определение маршрутов линий и сантехники</li>
+                <li>Целостность поверхности/пола, проверка ровности и плоскостности</li>
+                <li>Состояние влажности/тепла/акустики (измерение при необходимости)</li>
+                <li>Пригодность инфраструктуры: электричество, вода, природный газ, дренаж, дымоход</li>
+                <li>Предварительный обзор требований нормативов/соответствия (TS/EN, газовые проекты и т.д.)</li>
+                <li>Фотографии + краткий отчет об осмотре</li>
+              </ul>
+            </details>
+          </div>
+        </li>
+
+        <!-- 3 -->
+        <li class="process__step">
+          <div class="process__dot" aria-hidden="true">3</div>
+          <div class="process__card">
+            <h3 class="process__step-title" data-i18n="process.steps.s3.title">Проектирование решения и образец</h3>
+            <p class="process__step-desc" data-i18n="process.steps.s3.desc">
+              В зависимости от характера работ (сантехника/покрытие/столярные работы/утепление) мы рекомендуем материалы и системы; предоставляем образцы/демо и технические чертежи при необходимости.
+            </p>
+            <details class="process__details">
+              <summary class="process__summary" data-i18n="process.more">Подробности</summary>
+              <ul class="process__list" data-i18n-list="process.steps.s3.bullets">
+                <li>Выбор системы и материалов; технические листы данных</li>
+                <li>Декомпозиция работ (позиция/м²/штука) и применяемый метод</li>
+                <li>Каталог цветов/текстур; опция образца на месте или мини-демо</li>
+                <li>Детали стыков, углов, расширения и герметизации</li>
+                <li>Чертежи/3D эскиз или сечение при необходимости</li>
+                <li>Риски и план Б (погода, поставки, доступ и т.д.)</li>
+              </ul>
+            </details>
+          </div>
+        </li>
+
+        <!-- 4 -->
+        <li class="process__step">
+          <div class="process__dot" aria-hidden="true">4</div>
+          <div class="process__card">
+            <h3 class="process__step-title" data-i18n="process.steps.s4.title">Четкая смета и график</h3>
+            <p class="process__step-desc" data-i18n="process.steps.s4.desc">
+              Мы предоставляем прозрачные сметы на основе позиции/м²/штуки; вместе определяем договор, условия гарантии и график работ.
+            </p>
+            <details class="process__details">
+              <summary class="process__summary" data-i18n="process.more">Подробности</summary>
+              <ul class="process__list" data-i18n-list="process.steps.s4.bullets">
+                <li>Ценообразование по позициям; разделение материала и труда</li>
+                <li>Список включено/исключено (леса, транспорт, отходы, ночные работы и т.д.)</li>
+                <li>План оплаты, условия договора и условия гарантии</li>
+                <li>Дата начала, срок и еженедельный график работ</li>
+                <li>Утверждение цвета/материала и время заказа</li>
+              </ul>
+            </details>
+          </div>
+        </li>
+
+        <!-- 5 -->
+        <li class="process__step">
+          <div class="process__dot" aria-hidden="true">5</div>
+          <div class="process__card">
+            <h3 class="process__step-title" data-i18n="process.steps.s5.title">Подготовка и применение</h3>
+            <p class="process__step-desc" data-i18n="process.steps.s5.desc">
+              Мы работаем без ущерба для зоны с безпылевой защитой и мерами безопасности на рабочем месте; выполняем профессиональное применение согласно утвержденным методам.
+            </p>
+            <details class="process__details">
+              <summary class="process__summary" data-i18n="process.more">Подробности</summary>
+              <ul class="process__list" data-i18n-list="process.steps.s5.bullets">
+                <li>Безпылевая защита: покрытия пола/стен, скотч, zip-двери</li>
+                <li>Безопасность на рабочем месте: электрическая/газовая безопасность, требования блокировки-маркировки (LOTO)</li>
+                <li>Подготовка поверхности/пола: зачистка, ремонт, грунтовка и соответствующая система</li>
+                <li>План прерывания (вода/газ/электричество) и временные решения</li>
+                <li>Применение профессиональным оборудованием и техниками</li>
+                <li>Ежедневный отчет о прогрессе и обмен фотографиями</li>
+              </ul>
+            </details>
+          </div>
+        </li>
+
+        <!-- 6 -->
+        <li class="process__step">
+          <div class="process__dot" aria-hidden="true">6</div>
+          <div class="process__card">
+            <h3 class="process__step-title" data-i18n="process.steps.s6.title">Проверка, сдача и документы</h3>
+            <p class="process__step-desc" data-i18n="process.steps.s6.desc">
+              Мы сдаем с чек-листом; делимся руководством по обслуживанию, гарантийным документом и отчетами о соответствии/испытаниях при необходимости.
+            </p>
+            <details class="process__details">
+              <summary class="process__summary" data-i18n="process.more">Подробности</summary>
+              <ul class="process__list" data-i18n-list="process.steps.s6.bullets">
+                <li>Обход по чек-листу с работодателем и акт приемки</li>
+                <li>Закрытие списка дефектов (недостатки/корректировки)</li>
+                <li>Уборка и лицензированная утилизация отходов</li>
+                <li>Обмен руководством по обслуживанию и использованию</li>
+                <li>Гарантийный документ и счет-фактура</li>
+                <li>Отчеты об испытаниях/соответствии при необходимости (давление, утечки, термические и т.д.)</li>
+              </ul>
+            </details>
+          </div>
+        </li>
+      </ol>
+
+      <!-- Sağ: Güven Unsurları -->
+      <aside class="process__proof">
+        <h3 class="process__proof-title" data-i18n="process.proof.title">Почему мы?</h3>
+        <ul class="process__proof-list" data-i18n-list="process.proof.items">
+          <li>Прозрачные сметы по позициям и договорная работа</li>
+          <li>Применение, соответствующее стандартам TS/EN</li>
+          <li>Авторизованные, застрахованные команды мастеров</li>
+          <li>Своевременное начало и плановый график работ</li>
+          <li>Безпылевая защита и чистая сдача</li>
+          <li>Гарантия на работу и гарантия производителя на материалы</li>
+          <li>Портфолио рекомендаций и возможность демо на месте</li>
+          <li>Единая точка контакта и ежедневные отчеты WhatsApp</li>
+        </ul>
+
+        <div class="process__metrics">
+          <div class="process__metric">
+            <div class="process__metric-num">24<span>ч</span></div>
+            <div class="process__metric-label" data-i18n="process.metrics.m1">Смета</div>
+          </div>
+          <div class="process__metric">
+            <div class="process__metric-num">7–14<span>д</span></div>
+            <div class="process__metric-label" data-i18n="process.metrics.m2">Типичный срок*</div>
+          </div>
+          <div class="process__metric">
+            <div class="process__metric-num">TS/EN</div>
+            <div class="process__metric-label" data-i18n="process.metrics.m3">Соответствие стандартам</div>
+          </div>
+        </div>
+
+        <p class="process__note" data-i18n="process.note">*Срок может варьироваться в зависимости от объема работ, измерений и сезона.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <!-- HİZMET VERDİĞİMİZ BÖLGELER -->
+  <section class="areas" aria-labelledby="areas-title" data-component="areas">
+    <div class="container">
+      <h2 id="areas-title" data-i18n="home.areas.title">Зоны обслуживания</h2>
+      <p class="section-desc" data-i18n="home.areas.desc">Быстрый осмотр и обслуживание в центре Фетхие и окрестностях.</p>
+
+      <ul class="chips" role="list">
+        <li><a class="chip" href="регионы/fethiye.html">Фетхие</a></li>
+        <li><a class="chip" href="регионы/calis.html">Чалыш</a></li>
+        <li><a class="chip" href="регионы/ovacik.html">Оваджик</a></li>
+        <li><a class="chip" href="регионы/gocek.html">Гёджек</a></li>
+      </ul>
+
+      <div class="kpis" data-component="countup" aria-label="Показатели услуг">
+        <div class="kpi">
+          <div class="kpi__num" data-target="250" aria-label="Завершенные проекты">250+</div>
+          <div class="kpi__label" data-i18n="home.kpis.projects">Завершенные проекты</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi__num" data-target="4.8" aria-label="Удовлетворенность клиентов">4.8★</div>
+          <div class="kpi__label" data-i18n="home.kpis.rating">Средняя удовлетворенность</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi__num" data-target="48" aria-label="Время реагирования на аварийные ситуации">48ч</div>
+          <div class="kpi__label" data-i18n="home.kpis.sla">SLA аварийного реагирования</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SSS (FAQ) -->
+  <section class="faq" aria-labelledby="faq-title" data-component="accordion">
+    <div class="container">
+      <h2 id="faq-title" data-i18n="home.faq.title">Часто задаваемые вопросы</h2>
+      <div class="accordion">
+        <details class="accordion__item">
+          <summary data-i18n="home.faq.q1">Предоставляете ли вы бесплатный осмотр?</summary>
+          <div class="accordion__panel" data-i18n="home.faq.a1">Да. В Фетхие и близлежащих районах мы определяем точные измерения и объем с помощью бесплатного осмотра.</div>
+        </details>
+        <details class="accordion__item">
+          <summary data-i18n="home.faq.q2">Каковы ваши условия гарантии?</summary>
+          <div class="accordion__panel" data-i18n="home.faq.a2">Гарантия на работу 12–24 месяца в зависимости от типа применения; материалы подлежат гарантии производителя.</div>
+        </details>
+        <details class="accordion__item">
+          <summary data-i18n="home.faq.q3">Что включено в смету?</summary>
+          <div class="accordion__panel" data-i18n="home.faq.a3">Декомпозиция работ по позициям, единичные цены, временной план, график платежей и условия гарантии.</div>
+        </details>
+        <details class="accordion__item">
+          <summary data-i18n="home.faq.q4">Предоставляете ли вы услуги для срочных работ?</summary>
+          <div class="accordion__panel" data-i18n="home.faq.a4">Да. Мы делаем приоритетное планирование с опцией "Срочно (48 часов)".</div>
+        </details>
+        <details class="accordion__item">
+          <summary data-i18n="home.faq.q5">Вы покупаете материалы?</summary>
+          <div class="accordion__panel" data-i18n="home.faq.a5">В зависимости от предпочтений; мы можем поставить или применить материалы, которые вы предоставите.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- GÜÇLÜ CTA -->
+  <section class="cta" aria-labelledby="cta-title">
+    <div class="container cta__inner">
+      <div class="cta__content">
+        <h2 id="cta-title" data-i18n="home.cta.title">Давайте спланируем ваш проект сегодня</h2>
+        <p class="cta__text" data-i18n="home.cta.text">
+          После короткого разговора по телефону/WhatsApp давайте назначим бесплатный осмотр и предоставим письменную смету в тот же день.
+        </p>
+      </div>
+      <div class="cta__actions">
+        <a class="btn btn--primary" style="background-color: #D4AF37" href="kontakt.html" data-i18n="home.cta.primary">Бесплатный осмотр</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- === JSON-LD ŞEMALAR === -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "FethiyeninUstası",
+    "url": "https://fethiyeninustasi.com.tr/",
+    "inLanguage": "ru",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://fethiyeninustasi.com.tr/hizmetler?kategori={category}&hizmet={service}&bolge={area}",
+      "query-input": [
+        "required name=category",
+        "optional name=service",
+        "required name=area"
+      ]
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"FethiyeninUstası",
+    "url":"https://fethiyeninustasi.com.tr/",
+    "logo":"https://fethiyeninustasi.com.tr/assets/brand/logo.png",
+    "areaServed":["Фетхие","Чалыш","Оваджик","Гёджек"],
+    "sameAs":[]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "@id":"https://fethiyeninustasi.com.tr/#localbusiness",
+    "name":"Мастер Фетхие",
+    "image":"https://fethiyeninustasi.com.tr/assets/media/logo/logo.png",
+    "url":"https://fethiyeninustasi.com.tr/",
+    "telephone":"+905060222900",
+    "email":"info@fethiyeninustasi.com",
+    "priceRange":"$$",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Фетхие",
+      "addressRegion":"Мугла",
+      "addressCountry":"TR"
+    },
+    "geo":{
+      "@type":"GeoCoordinates",
+      "latitude":36.6213,
+      "longitude":29.1162
+    },
+    "areaServed":[
+      {"@type":"City","name":"Фетхие"},
+      {"@type":"City","name":"Чалыш"},
+      {"@type":"City","name":"Оваджик"},
+      {"@type":"City","name":"Гёджек"}
+    ],
+    "serviceArea":{
+      "@type":"GeoCircle",
+      "geoMidpoint":{
+        "@type":"GeoCoordinates",
+        "latitude":36.6213,
+        "longitude":29.1162
+      },
+      "geoRadius":{
+        "@type":"Distance",
+        "name":"50 km"
+      }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "name":"Категории услуг",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Установка инфраструктуры","url":"https://fethiyeninustasi.com.tr/ru/услуги/установка-инфраструктуры/"},
+      {"@type":"ListItem","position":2,"name":"Поверхности и покрытия","url":"https://fethiyeninustasi.com.tr/ru/услуги/поверхности-покрытия/"},
+      {"@type":"ListItem","position":3,"name":"Внутренняя архитектура и плотницкие","url":"https://fethiyeninustasi.com.tr/ru/услуги/внутренняя-архитектура-плотницкие/"},
+      {"@type":"ListItem","position":4,"name":"Внешняя изоляция","url":"https://fethiyeninustasi.com.tr/ru/услуги/внешняя-изоляция/"}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Предоставляете ли вы бесплатный осмотр?","acceptedAnswer":{"@type":"Answer","text":"Да. В Фетхие и близлежащих районах мы определяем точные измерения и объем с помощью бесплатного осмотра."}},
+      {"@type":"Question","name":"Каковы ваши условия гарантии?","acceptedAnswer":{"@type":"Answer","text":"Гарантия на работу 12–24 месяца в зависимости от типа применения; материалы подлежат гарантии производителя."}},
+      {"@type":"Question","name":"Что включено в смету?","acceptedAnswer":{"@type":"Answer","text":"Декомпозиция работ по позициям, единичные цены, временной план, график платежей и условия гарантии."}},
+      {"@type":"Question","name":"Предоставляете ли вы услуги для срочных работ?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы делаем приоритетное планирование с опцией \"Срочно (48 часов)\"."}},
+      {"@type":"Question","name":"Вы покупаете материалы?","acceptedAnswer":{"@type":"Answer","text":"В зависимости от предпочтений; мы можем поставить или применить материалы, которые вы предоставите."}}
+    ]
+  }
+  </script>
+
+  <!-- (Opsiyonel) HowTo şeması için süreç -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"HowTo",
+    "name":"Процесс ремонта",
+    "step":[
+      {"@type":"HowToStep","name":"Осмотр и анализ потребностей"},
+      {"@type":"HowToStep","name":"Смета и договор"},
+      {"@type":"HowToStep","name":"Применение и отчетность"},
+      {"@type":"HowToStep","name":"Сдача и гарантия"}
+    ]
+  }
+  </script>
+</main>
+
+
+
+
+
+
+
+
+<footer class="site-footer" id="footer">
+  <div class="footer__inner">
+
+    <!-- Brand satırı -->
+    <div class="footer__brandrow">
+      <a href="/ru/" class="footer__brand">
+        <img class="footer__logo"
+             src="../assets/media/logo/logo.webp"
+             alt="Логотип"
+             width="56" height="56" decoding="async"
+             data-i18n-attr="alt:footer.brand.alt">
+        <div class="footer__brandtext">
+          <div class="footer__name" data-i18n-html="footer.brand.name">
+            Мастер <span class="footer__gold">Фетхие</span>
+          </div>
+          <div class="footer__tag" data-i18n="footer.brand.tag">
+            Премиальные фактуры и аккуратное выполнение работ.
+          </div>
+        </div>
+      </a>
+
+      <!-- WhatsApp kısayolu -->
+      <a class="footer__wa"
+         href="https://wa.me/905060222900"
+         target="_blank" rel="noopener"
+         aria-label="WhatsApp"
+         data-i18n-attr="aria-label:footer.social.whatsapp">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2C6.48 2 2 6.26 2 11.66c0 2.02.67 3.89 1.8 5.41L2 22l5.08-1.6c1.46.8 3.13 1.25 4.92 1.25 5.52 0 10-4.26 10-9.66S17.52 2 12 2zm0 17.3c-1.55 0-2.98-.44-4.2-1.2l-.3-.18-3 .94.97-2.83-.2-.29a7.28 7.28 0 0 1-1.35-4.08c0-4 3.35-7.24 7.48-7.24 4.12 0 7.48 3.24 7.48 7.24 0 4-3.36 7.24-7.48 7.24z"/>
+          <path d="M16.62 13.82c-.25-.12-1.47-.72-1.7-.8-.23-.08-.4-.12-.57.12-.17.25-.66.8-.8.97-.15.16-.3.18-.56.06-.25-.12-1.07-.39-2.04-1.25-.75-.65-1.26-1.46-1.41-1.71-.15-.25-.02-.38.1-.5.1-.1.25-.27.37-.41.12-.14.15-.25.23-.41.08-.16.4-.3-.02-.42-.06-.12-.57-1.36-.78-1.86-.2-.48-.4-.42-.57-.43l-.48-.01c-.16 0-.41.06-.63.3-.22.25-.84.82-.84 2 0 1.17.86 2.3.98 2.46.12.16 1.7 2.7 4.12 3.78.58.25 1.03.4 1.38.51.58.18 1.1.15 1.52.09.46-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.16-.47-.28z"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="footer__hair"></div>
+
+    <!-- Grid -->
+    <div class="footer__grid">
+
+      <!-- Услуги -->
+      <nav class="footer__col" aria-label="Услуги">
+        <h3 class="footer__h" data-i18n="footer.cols.services.title">УСЛУГИ</h3>
+        <ul class="footer__list">
+          <li><a href="/ru/услуги/установка-инфраструктуры/" class="footer__link" data-i18n="footer.cols.services.items.infra">Установка инфраструктуры</a></li>          
+          <li><a href="/ru/услуги/поверхности-покрытия/" class="footer__link" data-i18n="footer.cols.services.items.surfaces">Поверхности и покрытия</a></li>
+          <li><a href="/ru/услуги/внутренняя-архитектура-плотницкие/" class="footer__link" data-i18n="footer.cols.services.items.interior">Внутренняя архитектура и плотницкие</a></li>
+          <li><a href="/ru/услуги/внешняя-изоляция/" class="footer__link" data-i18n="footer.cols.services.items.exterior">Внешняя изоляция</a></li>          
+
+          
+
+        </ul>
+      </nav>
+
+      <!-- Районы -->
+      <nav class="footer__col" aria-label="Районы">
+        <h3 class="footer__h" data-i18n="footer.cols.areas.title">РАЙОНЫ</h3>
+        <ul class="footer__list">
+          <li><a href="/ru/регионы/fethiye.html" class="footer__link" data-i18n="footer.cols.areas.items.fethiye">Фетхие</a></li>
+          <li><a href="/ru/регионы/calis.html" class="footer__link" data-i18n="footer.cols.areas.items.calis">Чалыш</a></li>
+          <li><a href="/ru/регионы/ovacik.html" class="footer__link" data-i18n="footer.cols.areas.items.ovacik">Оваджик</a></li>
+          <li><a href="/ru/регионы/gocek.html" class="footer__link" data-i18n="footer.cols.areas.items.gocek">Гёджек</a></li>
+        </ul>
+      </nav>
+
+      <!-- О компании -->
+      <nav class="footer__col" aria-label="О компании">
+        <h3 class="footer__h" data-i18n="footer.cols.corp.title">О КОМПАНИИ</h3>
+        <ul class="footer__list">
+          <li><a href="/ru/" class="footer__link" data-i18n="footer.cols.corp.items.main-page">Главная</a></li>
+          <li><a href="/ru/blog/" class="footer__link" data-i18n="footer.cols.corp.items.blog">Блог</a></li>
+          <li><a href="/ru/о-нас.html" class="footer__link" data-i18n="footer.cols.corp.items.about">О нас</a></li>
+          <li><a href="/ru/kontakt.html" class="footer__link" data-i18n="footer.cols.corp.items.contact">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <!-- İletişim -->
+      <section class="footer__col" aria-label="Контакты">
+        <h3 class="footer__h" data-i18n="footer.cols.contact.title">КОНТАКТЫ</h3>
+        <address class="footer__address">
+          <div class="footer__label" data-i18n="footer.cols.contact.phone">Телефон</div>
+          <a class="footer__link" href="tel:+905060222900" data-i18n="footer.cols.contact.phoneNumber">+90 506 022 29 00</a>
+
+          <div class="footer__label" data-i18n="footer.cols.contact.mail">Электронная почта</div>
+          <a class="footer__link" href="mailto:info@fethiyeninustasi.com" data-i18n="footer.cols.contact.emailAddress">info@fethiyeninustasi.com</a>
+        </address>
+      </section>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer__bottom">
+      <div class="footer__copy">
+        © <span id="footer-year"></span>
+        <span data-i18n-html="footer.brand.name">Мастер <span class="footer__gold">Фетхие</span></span> —
+        <span data-i18n="footer.rights">Все права защищены.</span>
+      </div>
+      <nav class="footer__policies" aria-label="Правовая информация">
+        <a href="/ru/kvkk.html" class="footer__plink" data-i18n="footer.policies.kvkk">KVKK</a>
+        <a href="/ru/gizlilik.html" class="footer__plink" data-i18n="footer.policies.privacy">Конфиденциальность</a>
+        <a href="/ru/kullanim.html" class="footer__plink" data-i18n="footer.policies.terms">Условия использования</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/i18n/layout.i18n.js?v=2" defer></script>
+<script src="../assets/js/layout.js?v=2" defer></script>
+<script src="../assets/js/pages/home.js" defer></script>
+<script src="../assets/js/runtime.js" defer></script>
+<script src="../assets/js/gallery.js" defer></script>
+
+</body>
+</html>

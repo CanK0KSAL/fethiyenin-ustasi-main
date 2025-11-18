@@ -1,0 +1,350 @@
+/* =======================================================================
+   CATEGORY • Surfaces (premium light + gold)
+   Scope: .category.surfaces
+   ======================================================================= */
+
+/* Surfaces (Yüzeyler & Kaplamalar) — Kategori Landing
+   Kapsam: Sadece /tr/hizmetler/yuzeyler-kaplamalar/ (main.category.surfaces)
+   Not: Base/Layout/Service CSS üstüne tematik dokunuşlar. Header'a dokunmayın. */
+
+:root {
+  /* Tema tokenları (landing) */
+  --surfaces-hue: 210;
+  --surfaces-bg: hsl(var(--surfaces-hue) 40% 98%);
+  --surfaces-ink: hsl(var(--surfaces-hue) 20% 18%);
+  --surfaces-accent: hsl(20 85% 52%);
+  --surfaces-muted: hsl(var(--surfaces-hue) 10% 45%);
+  --surfaces-card: #fff;
+  --surfaces-radius: 16px;
+  --surfaces-gap: clamp(16px, 2vw, 24px);
+}
+
+main.category.surfaces {
+  background: var(--surfaces-bg);
+  color: var(--surfaces-ink);
+}
+
+/* Bölüm başlıkları */
+main.category.surfaces .sec-title {
+  letter-spacing: .2px;
+  line-height: 1.2;
+  margin-block: 20px 12px;
+}
+
+/* Kategori kartları */
+main.category.surfaces .grid--cards-4,
+main.category.surfaces .grid--cards-3 {
+  --gap: var(--surfaces-gap);
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+}
+
+main.category.surfaces .card {
+  background: var(--surfaces-card);
+  border-radius: var(--surfaces-radius);
+  box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 6px 20px rgba(0,0,0,.06);
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+main.category.surfaces .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,.08);
+}
+
+main.category.surfaces .card__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+main.category.surfaces .card__title {
+  font-size: clamp(16px, 1.4vw, 18px);
+  margin: 12px 16px 4px;
+}
+main.category.surfaces .card__title a { color: inherit; text-decoration: none; }
+main.category.surfaces .card__title a:hover { text-decoration: underline; }
+
+/* Bilgi bölümleri */
+main.category.surfaces .note {
+  background: #fff;
+  border-left: 4px solid var(--surfaces-accent);
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: var(--surfaces-muted);
+}
+
+/* Chips (bölgeler vb.) */
+main.category.surfaces .chips { display:flex; flex-wrap:wrap; gap:10px; }
+main.category.surfaces .chip {
+  display:inline-block; padding:8px 12px; border-radius:999px;
+  background: hsl(var(--surfaces-hue) 40% 96%); color: var(--surfaces-ink);
+  border: 1px solid hsl(var(--surfaces-hue) 30% 90%);
+  text-decoration:none; font-size:14px;
+}
+main.category.surfaces .chip:hover { background:#fff; }
+
+/* Responsive küçük dokunuşlar */
+@media (min-width: 1024px) {
+  main.category.surfaces .sec-title { font-size: clamp(20px, 2.2vw, 28px); }
+}
+
+
+/* grids */
+.category.surfaces .grid{ display:grid; gap: clamp(12px,2vw,18px); }
+.category.surfaces .grid--cards-2{ grid-template-columns:1fr; }
+@media (min-width:860px){ .category.surfaces .grid--cards-2{ grid-template-columns:repeat(2,1fr); } }
+.category.surfaces .grid--cards-3{ grid-template-columns:1fr; }
+@media (min-width:720px){ .category.surfaces .grid--cards-3{ grid-template-columns:repeat(2,1fr);} }
+@media (min-width:1024px){ .category.surfaces .grid--cards-3{ grid-template-columns:repeat(3,1fr);} }
+.category.surfaces .grid--cols-2{ grid-template-columns:1fr; }
+@media (min-width:960px){ .category.surfaces .grid--cols-2{ grid-template-columns:repeat(2,1fr);} }
+
+/* ratio */
+.category.surfaces .ratio-16x9{ position:relative; }
+.category.surfaces .ratio-16x9::before{ content:""; display:block; padding-top:56.25%; }
+.category.surfaces .ratio-16x9>*{ position:absolute; inset:0; }
+
+/* sr-only (caption) */
+.category.surfaces .sr-only{ position:absolute !important; width:1px; height:1px; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); }
+
+/* =======================================================================
+   HERO
+   ======================================================================= */
+.category.surfaces .cat-hero{
+  background:
+    radial-gradient(1100px 420px at 12% -6%, color-mix(in oklab, var(--gold) 12%, transparent) 0%, transparent 62%),
+    linear-gradient(180deg, #fff 0%, #fafafa 100%);
+  border-bottom:1px solid var(--ring);
+  padding: clamp(70px,9vw,110px) 0 clamp(28px,6vw,44px);
+}
+.category.surfaces .cat-hero .hero__title{ font-size: clamp(28px,4.2vw,46px); line-height:1.06; margin:.2rem 0 .35rem; }
+.category.surfaces .cat-hero .hero__media{
+  margin-top: clamp(12px,3vw,18px);
+  border-radius: var(--radius-l); overflow:hidden; box-shadow: var(--shadow-lg);
+}
+.category.surfaces .cat-hero .hero__media img{ width:100%; height:100%; object-fit:cover; aspect-ratio:16/8; display:block; }
+.category.surfaces .cat-hero::after{
+  content:""; position:absolute; inset:auto 0 0 0; height:2px; opacity:.8;
+  background: linear-gradient(90deg,transparent,color-mix(in oklab,var(--gold) 65%,transparent),transparent);
+}
+
+/* =======================================================================
+   ALT HİZMETLER (5 kart)
+   ======================================================================= */
+.category.surfaces .cat-services{
+  background:
+    radial-gradient(820px 320px at 10% 0%, color-mix(in oklab,var(--gold) 10%, transparent) 0%, transparent 62%),
+    linear-gradient(180deg,#fff 0%, #fafafa 100%);
+  border-top:1px solid var(--ring); border-bottom:1px solid var(--ring);
+}
+.category.surfaces .sec-head{ display:grid; gap:.3rem; margin-bottom: clamp(10px,2.4vw,16px); }
+
+/* card */
+.category.surfaces .card--service{
+  position:relative; border:1px solid var(--ring); border-radius:18px; overflow:hidden;
+  background:#fff; box-shadow:var(--shadow-sm);
+  transition:border-color .2s ease, box-shadow .2s ease, transform .06s ease;
+}
+.category.surfaces .card--service:hover{ transform:translateY(-1px); border-color:var(--ring-strong); box-shadow:var(--shadow-lg); }
+
+/* media */
+.category.surfaces .card--service .card__media{ display:block; overflow:hidden; background:#f3f4f6; }
+.category.surfaces .card--service .card__media img{ width:100%; height:auto; display:block; transition:transform .55s ease; }
+.category.surfaces .card--service:hover .card__media img{ transform:scale(1.04); }
+
+/* body (glass chip) */
+.category.surfaces .card--service .card__body{
+  position:relative; display:grid; gap:.45rem; padding:12px 14px 16px;
+}
+.category.surfaces .card--service .card__title{ margin:0; font-size:1.06rem; letter-spacing:-.01em; }
+.category.surfaces .card--service .card__title a{ color:inherit; text-decoration:none; }
+.category.surfaces .card--service .card__title a:hover{ text-decoration:underline; text-underline-offset:3px; }
+.category.surfaces .card--service .card__text{ color:var(--muted); margin:0; }
+
+/* list ticks */
+.category.surfaces .list{ margin:.1rem 0 0; padding-left:1.1rem; color:#374151; }
+.category.surfaces .list--tick{ list-style:none; padding:0; display:grid; gap:.35rem; }
+.category.surfaces .list--tick li{
+  display:grid; grid-template-columns:16px 1fr; gap:.55rem;
+}
+.category.surfaces .list--tick li::before{
+  content:""; width:12px; height:12px; margin-top:.35rem; border-radius:3px;
+  border:2px solid color-mix(in oklab,var(--gold) 65%, #111);
+}
+
+/* cta inside card */
+.category.surfaces .card__cta{ margin:.2rem 0 0; }
+
+/* =======================================================================
+   KARŞILAŞTIRMA TABLOSU
+   ======================================================================= */
+.category.surfaces .cat-compare{ background: linear-gradient(180deg,#fff 0%,#fafafa 100%); }
+.category.surfaces .table-wrap{
+  overflow:auto; border:1px solid var(--ring); border-radius:16px; background:#fff; box-shadow:var(--shadow-sm);
+}
+.category.surfaces .table{ width:100%; border-collapse:separate; border-spacing:0; min-width:760px; }
+.category.surfaces .table thead th{
+  position:sticky; top:0; background:linear-gradient(180deg,#fff,#f9fafb);
+  border-bottom:1px solid var(--ring); padding:.8rem .9rem; text-align:left; font-weight:900;
+}
+.category.surfaces .table tbody td,.category.surfaces .table tbody th{ padding:.7rem .9rem; border-bottom:1px dashed var(--ring); }
+.category.surfaces .table tbody tr:nth-child(even){ background:#fcfcfc; }
+.category.surfaces .table th[scope="row"]{ background:#fff; position:sticky; left:0; z-index:1; }
+
+/* =======================================================================
+   SÜREÇ (Timeline)
+   ======================================================================= */
+.category.surfaces .cat-process{
+  background:
+    radial-gradient(860px 340px at 90% 0%, color-mix(in oklab,var(--gold) 10%, transparent) 0%, transparent 62%),
+    linear-gradient(180deg,#fff 0%,#fafafa 100%);
+  border-top:1px solid var(--ring); border-bottom:1px solid var(--ring);
+}
+.category.surfaces .steps{ counter-reset: step; display:grid; gap:14px; max-width:900px; margin-inline:auto; }
+.category.surfaces .step{
+  position:relative; background:#fff; border:1px solid var(--ring); border-radius:16px;
+  padding:14px 14px 14px 64px; box-shadow:var(--shadow-sm);
+  transition:border-color .2s ease, box-shadow .25s ease, transform .06s ease;
+}
+.category.surfaces .step:hover{ transform:translateY(-1px); border-color:var(--ring-strong); box-shadow:var(--shadow-md); }
+.category.surfaces .step::before{
+  content:attr(data-step); position:absolute; left:14px; top:14px; width:36px; height:36px; border-radius:12px;
+  display:grid; place-items:center; font-weight:900; color:#111; background:#fff;
+  border:2px solid color-mix(in oklab,var(--gold) 60%, #fff);
+  box-shadow:0 6px 16px rgba(0,0,0,.08), inset 0 -6px 12px rgba(0,0,0,.03);
+}
+.category.surfaces .step__title{ margin:.1rem 0 .1rem; font-weight:900; }
+.category.surfaces .step__text{ color:var(--muted); }
+
+/* varsayılan ol numaralarını gizle */
+.category.surfaces .steps{ list-style:none; margin:0; padding-left:0; }
+.category.surfaces .steps>.step::marker{ content:""; }
+
+/* =======================================================================
+   SATIN ALMA REHBERİ
+   ======================================================================= */
+.category.surfaces .cat-guide{ background: linear-gradient(180deg,#fff 0%,#fafafa 100%); }
+.category.surfaces .guide-block{
+  background:#fff; border:1px solid var(--ring); border-radius:16px; padding:14px;
+  box-shadow:var(--shadow-sm); transition:border-color .2s ease, box-shadow .2s ease, transform .06s ease;
+}
+.category.surfaces .guide-block:hover{ transform:translateY(-1px); border-color:var(--ring-strong); box-shadow:var(--shadow-md); }
+.category.surfaces .guide-block h3{ margin:.1rem 0 .35rem; font-size:1.02rem; }
+.category.surfaces .guide-block .list{ color:#374151; }
+
+/* =======================================================================
+   PROJELER + FİLTRE + LIGHTBOX
+   ======================================================================= */
+.category.surfaces .cat-projects{ background: linear-gradient(180deg,#fff 0%,#fafafa 100%); }
+.category.surfaces .projects__filter{
+  display:flex; gap:.5rem; flex-wrap:wrap; margin: .2rem 0 .8rem;
+}
+.category.surfaces .projects__filter .chip[aria-pressed="true"]{
+  background: color-mix(in oklab,var(--gold) 18%, #fff);
+  border-color: color-mix(in oklab,var(--gold) 45%, #fff);
+}
+
+/* project card */
+.category.surfaces .project{
+  margin:0; background:#fff; border:1px solid var(--ring); border-radius:16px; overflow:hidden;
+  box-shadow:var(--shadow-sm); display:grid; grid-template-rows:auto minmax(50px,auto);
+  transition:border-color .2s ease, box-shadow .2s ease, transform .06s ease;
+}
+.category.surfaces .project:hover{ transform:translateY(-1px); border-color:var(--ring-strong); box-shadow:var(--shadow-md); }
+.category.surfaces .project a{ display:block; position:relative; overflow:hidden; }
+.category.surfaces .project img{ width:100%; height:auto; display:block; transition:transform .5s ease; }
+.category.surfaces .project a:hover img{ transform:scale(1.04); }
+.category.surfaces .project a::after{
+  content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent,rgba(0,0,0,.18));
+  opacity:0; transition:opacity .3s ease;
+}
+.category.surfaces .project a:hover::after{ opacity:1; }
+.category.surfaces .project figcaption{ padding:10px 12px 14px; color:#374151; background:#fff; border-top:1px solid var(--ring); }
+
+/* lightbox (fallback) */
+.category.surfaces .lightbox{ width:min(96vw,1060px); border:none; padding:0; border-radius:16px; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,.35); background:#000; }
+.category.surfaces .lightbox::backdrop{ background:rgba(0,0,0,.5); }
+.category.surfaces .lightbox__img{ display:block; width:100%; height:auto; }
+.category.surfaces .lightbox__close{
+  position:absolute; top:8px; right:8px; width:38px; height:38px; border:none; border-radius:999px;
+  background:rgba(255,255,255,.96); color:#111; font-size:20px; line-height:1; display:grid; place-items:center; cursor:pointer;
+}
+.category.surfaces .lightbox__caption{ color:#f3f4f6; padding:10px 12px 14px; }
+
+/* =======================================================================
+   FAQ
+   ======================================================================= */
+.category.surfaces .cat-faq{ background: linear-gradient(180deg,#fff 0%,#fafafa 100%); }
+.category.surfaces .accordion{ display:grid; gap:.75rem; }
+.category.surfaces .accordion__item{
+  background:#fff; border:1px solid var(--ring); border-radius:16px; padding:.6rem .8rem; box-shadow:var(--shadow-sm);
+  transition:border-color .2s ease, box-shadow .2s ease, transform .06s ease;
+}
+.category.surfaces .accordion__item:hover{ border-color:var(--ring-strong); box-shadow:var(--shadow-md); transform: translateY(-1px); }
+.category.surfaces .accordion__item > summary{
+  list-style:none; cursor:pointer; font-weight:900; position:relative; padding-right:40px;
+}
+.category.surfaces .accordion__item > summary::-webkit-details-marker{ display:none; }
+.category.surfaces .accordion__item > summary::after{
+  content:""; position:absolute; right:8px; top:50%; width:12px; height:12px; transform:translateY(-50%) rotate(45deg);
+  border-right:2px solid #111; border-bottom:2px solid #111; opacity:.8; transition: transform .2s ease;
+}
+.category.surfaces .accordion__item[open] > summary::after{ transform: translateY(-50%) rotate(225deg); }
+.category.surfaces .accordion__panel{ color:var(--muted); padding-top:.45rem; border-top:1px dashed var(--ring); }
+
+/* =======================================================================
+   AREAS
+   ======================================================================= */
+.category.surfaces .cat-areas{ background: linear-gradient(180deg,#fff 0%,#fafafa 100%); border-top:1px solid var(--ring); }
+
+/* =======================================================================
+   CTA
+   ======================================================================= */
+.category.surfaces .cat-cta{
+  padding: clamp(28px,6vw,56px) 0 clamp(40px,7vw,70px);
+  background:
+    radial-gradient(900px 360px at 90% 0%, color-mix(in oklab,var(--gold) 12%, transparent) 0%, transparent 60%),
+    linear-gradient(180deg,#fff 0%,#fafafa 100%);
+  border-top:1px solid var(--ring);
+}
+.category.surfaces .cat-cta .cta__inner{
+  display:grid; gap: clamp(12px,2.6vw,18px);
+  background: linear-gradient(180deg,#fff 0%,#f9fafb 100%);
+  border:1px solid var(--ring); border-radius:20px; padding: clamp(14px,3vw,22px); box-shadow:var(--shadow-md);
+}
+@media (min-width:900px){ .category.surfaces .cat-cta .cta__inner{ grid-template-columns:1fr auto; align-items:center; } }
+.category.surfaces .cat-cta .cta__text{ color:var(--muted); max-width:68ch; }
+
+/* =======================================================================
+   A11y & Motion
+   ======================================================================= */
+.category.surfaces .card--service:focus-within,
+.category.surfaces .project:focus-within,
+.category.surfaces .accordion__item:focus-within{
+  border-color: color-mix(in oklab,var(--gold) 60%, #fff);
+  box-shadow: 0 0 0 3px color-mix(in oklab,var(--gold) 20%, transparent);
+}
+@media (prefers-reduced-motion: reduce){
+  .category.surfaces *{ transition:none !important; animation:none !important; }
+}
+
+/* =======================================================================
+   Print
+   ======================================================================= */
+@media print{
+  .category.surfaces section{ padding:18px 0 !important; }
+  .category.surfaces .cat-hero,.category.surfaces .cat-services,.category.surfaces .cat-process{ background:#fff !important; border:0; }
+  .category.surfaces .lightbox,.category.surfaces .lightbox::backdrop{ display:none !important; }
+}
+[hidden]{display:none !important;}
+
+/* HERO: yan boşlukları kaldır (container padding'ini sıfırla) */
+.category.surfaces .cat-hero .hero__media.container{
+  padding-left: 0;
+  padding-right: 0;
+}
+.category.surfaces .cat-hero .hero__media picture,
+.category.surfaces .cat-hero .hero__media img{
+  display:block; width:100%; height:auto;
+}

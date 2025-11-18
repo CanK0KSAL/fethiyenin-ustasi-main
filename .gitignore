@@ -1,0 +1,68 @@
+# ============================================================
+# FethiyeninUstası — .gitignore
+# ============================================================
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build files
+dist/
+build/
+*.min.js
+*.min.css
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+
+# ZIP files
+*.zip
+*.rar
+*.7z
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# PHP
+vendor/
+composer.lock
+*.phps
+
+# Cache
+.cache/
+.parcel-cache/
+
+# Documentation (opsiyonel - eğer docs klasörünü commit etmek istiyorsanız silin)
+# docs/
+

@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Performance: Resource Hints -->
+  <link rel="preconnect" href="https://fethiyeninustasi.com.tr" crossorigin>
+  <link rel="dns-prefetch" href="https://fethiyeninustasi.com.tr">
+  
+  <!-- Performance: Preload Critical Resources -->
+  <link rel="preload" href="/assets/js/runtime.js" as="script">
+  <link rel="preload" href="/assets/js/i18n/layout.i18n.js?v=2" as="script">
+  <link rel="preload" href="/assets/js/layout.js?v=2" as="script">
+  
+  <!-- Performance: Preload Hero Image -->
+  <link rel="preload" href="../assets/media/main-page/hero/home-1920.webp" as="image" fetchpriority="high">
+  
+  <!-- Primary Meta Tags -->
+  <title>Complete Renovation & Remodeling in Fethiye | FethiyeninUstası — Expert Team, Written Guarantee</title>
+  <meta name="title" content="Complete Renovation & Remodeling in Fethiye | FethiyeninUstası — Expert Team, Written Guarantee">
+  <meta name="description" content="Professional renovation services in Fethiye: electrical, plumbing, silk plaster, painting, tiles, kitchen cabinets, insulation & more. Free consultation, written quote, insured team, 12-24 month warranty.">
+  <meta name="keywords" content="fethiye renovation, fethiye contractor, electrical installation fethiye, silk plaster fethiye, painting fethiye, insulation fethiye, kitchen cabinets fethiye">
+  <link rel="canonical" href="https://fethiyeninustasi.com.tr/en/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fethiyeninustasi.com.tr/en/">
+  <meta property="og:title" content="Complete Renovation & Remodeling in Fethiye | FethiyeninUstası">
+  <meta property="og:description" content="From electrical to plumbing, silk plaster to paint & tiles; interior architecture to exterior & insulation — all services under one roof. Free consultation, written quote, insured team.">
+  <meta property="og:image" content="https://fethiyeninustasi.com.tr/assets/media/main-page/hero/home-1920.webp">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="FethiyeninUstası">
+
+  <!-- CSS: base → layout → page(Home) with performance optimization -->
+  <link rel="preload" as="style" href="/assets/css/base.css?v=2025.10.25" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/base.css?v=2025.10.25"></noscript>
+  
+  <link rel="preload" as="style" href="/assets/css/layout.css?v=2025.10.25" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/layout.css?v=2025.10.25"></noscript>
+  
+  <link rel="preload" as="style" href="/assets/css/home.css?v=2025.10.25" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/home.css?v=2025.10.25"></noscript>
+  
+  <!-- Critical inline CSS: Logo and header visibility -->
+  <style>
+   
+    /* Font optimization: Prevent invisible text during font load */
+    @font-face {
+      font-family: 'system-font';
+      font-display: swap;
+    }
+  </style>
+  <script>
+    // CSS yükleme kontrolü
+    (function() {
+      const links = document.querySelectorAll('link[rel="preload"][as="style"]');
+      let loadedCount = 0;
+      const total = links.length;
+      
+      links.forEach(function(link) {
+        link.addEventListener('load', function() {
+          loadedCount++;
+          if (loadedCount === total) {
+            document.body.classList.add('css-loaded');
+          }
+        });
+        // Fallback: 3 saniye sonra zorla göster
+        setTimeout(function() {
+          document.body.classList.add('css-loaded');
+        }, 3000);
+      });
+      
+      // Logo yükleme kontrolü
+      const logo = document.getElementById('brand-logo');
+      if (logo) {
+        logo.addEventListener('load', function() {
+          logo.classList.add('loaded');
+        });
+        if (logo.complete) {
+          logo.classList.add('loaded');
+        }
+      }
+    })();
+  </script>
+
+
+  <link rel="alternate" hreflang="tr" href="https://fethiyeninustasi.com.tr/"/>
+  <link rel="alternate" hreflang="en" href="https://fethiyeninustasi.com.tr/en/"/>
+  <link rel="alternate" hreflang="ru" href="https://fethiyeninustasi.com.tr/ru/"/>
+  <link rel="alternate" hreflang="x-default" href="https://fethiyeninustasi.com.tr/"/>
+
+  <link rel="shortcut icon" href="../assets/media/logo/logo.webp" type="image/x-icon">
+
+  <link rel="shortcut icon" href="../assets/media/logo/logo.webp" type="image/x-icon">
+
+</head>
+<body>
+  <!-- Header -->
+  <header id="site-header" class="site-header" aria-label="Primary">
+    <!-- Golden hairline -->
+    <div class="gold-hairline" aria-hidden="true"></div>
+
+    <div class="header-inner">
+      <!-- Logo + brand -->
+      <a href="/en/" class="brand" aria-label="Fethiye's Master">
+        <img id="brand-logo" class="brand-logo" src="../assets/media/logo/logo.webp" alt="Fethiye's Master" />
+        <div id="brand-fallback" class="brand-fallback" aria-hidden="true"></div>
+        <span class="brand-text">Fethiye’nin <span class="brand-gold">Ustası</span></span>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="nav-desktop" aria-label="Main menu">
+        <ul id="nav-root" class="nav-row" role="menubar"></ul>
+      </nav>
+
+      <!-- Language selector (desktop) -->
+      <div class="lang-desktop">
+        <div class="lang-pill" role="group" aria-label="Select language">
+          <button data-lang="tr" class="lang-btn" aria-pressed="true">TR</button>
+          <button data-lang="en" class="lang-btn">EN</button>
+          <button data-lang="ru" class="lang-btn">RU</button>
+        </div>
+      </div>
+
+      <!-- Burger (mobile) -->
+      <button id="burger" class="burger" aria-label="Menu" aria-expanded="false">
+        <span class="burger-ring" aria-hidden="true"></span>
+        <span class="burger-lines">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+    </div>
+
+    <!-- Mobile overlay + sheet -->
+    <div id="mobile-layer" class="mobile-layer" hidden>
+      <div id="mobile-dim" class="mobile-dim" tabindex="-1"></div>
+      <div class="mobile-sheet" role="dialog" aria-modal="true" aria-label="Menu">
+        <div class="mobile-sheet-top">
+          <span class="mobile-title">Menu</span>
+          <button id="burger-close" class="burger burger-small" aria-label="Close">
+            <span class="burger-ring" aria-hidden="true"></span>
+            <span class="burger-lines open">
+              <span></span><span></span><span></span>
+            </span>
+          </button>
+        </div>
+
+        <nav class="mobile-nav" aria-label="Main menu (mobile)">
+          <div id="mobile-nav-root" class="mobile-nav-grid"></div>
+        </nav>
+
+        <div class="mobile-lang">
+          <div class="lang-pill full">
+            <button data-lang="tr" class="lang-btn flex">TR</button>
+            <button data-lang="en" class="lang-btn flex">EN</button>
+            <button data-lang="ru" class="lang-btn flex">RU</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+<main id="main-content" data-i18n-scope="home" class="home">
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container hero__inner">
+      <div class="hero__media">
+        <picture style="height: 80%;">
+          <!-- Responsive image with modern formats -->
+          <source media="(min-width: 1024px)" srcset="../assets/media/main-page/hero/home-1920.webp" type="image/webp">
+          <source media="(min-width: 768px)" srcset="../assets/media/main-page/hero/home-1920.webp" type="image/webp">
+          <img 
+            src="../assets/media/main-page/hero/home-1920.webp" 
+            alt="Renovation and remodeling services in Fethiye"
+            width="1920" 
+            height="1560"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high">
+        </picture>
+      </div>
+
+      <div class="hero__content">
+        <h1 id="hero-title" class="hero__title" data-i18n="home.hero.title">
+          Complete Renovation &amp; Remodeling in Fethiye — Safe with Masters
+        </h1>
+        <p class="hero__subtitle" data-i18n="home.hero.subtitle">
+          From electrical to plumbing, from silk plaster to paint &amp; tiles; from interior architecture to exterior facade &amp; insulation,
+          all services under one roof. Free inspection, written quote, insured team.
+        </p>
+
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="/en/contact.html" data-i18n="home.hero.ctaPrimary">Request Free Inspection</a>
+        </div>
+
+        <ul class="hero__badges" role="list">
+          <li class="badge" data-i18n="home.hero.badges.0">Same Day Response</li>
+          <li class="badge" data-i18n="home.hero.badges.1">Written Warranty</li>
+          <li class="badge" data-i18n="home.hero.badges.2">Insured &amp; Authorized Team</li>
+          <li class="badge" data-i18n="home.hero.badges.3">Transparent Pricing</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIZLI HİZMET BULUCU (Progressive Enhancement: JS ile gelişir) -->
+<section class="explorer" id="service-explorer" aria-labelledby="explorer-title" data-component="tabs" data-i18n-scope="home.explorer">
+  <div class="container">
+    <header class="section-head">
+      <h2 id="explorer-title" class="section-title" data-i18n="title">Explore Services</h2>
+      <p class="section-desc" data-i18n="desc">Select the category that fits your needs, review sub-services and real examples.</p>
+    </header>
+
+    <!-- Tab başlıkları -->
+    <div class="tabs" role="tablist" aria-label="Service categories">
+      <button id="tabbtn-infra" class="tabs__btn" role="tab" aria-selected="true" aria-controls="tab-infra" data-i18n="tabs.infrastructure.tab">Infrastructure &amp; Plumbing</button>
+      <button id="tabbtn-surfaces" class="tabs__btn" role="tab" aria-selected="false" aria-controls="tab-surfaces" data-i18n="tabs.surfaces.tab">Surfaces &amp; Coatings</button>
+      <button id="tabbtn-interior" class="tabs__btn" role="tab" aria-selected="false" aria-controls="tab-interior" data-i18n="tabs.interior.tab">Interior Architecture &amp; Carpentry</button>
+      <button id="tabbtn-exterior" class="tabs__btn" role="tab" aria-selected="false" aria-controls="tab-exterior" data-i18n="tabs.exterior.tab">Exterior Facade &amp; Insulation</button>
+    </div>
+
+    <!-- Paneller (JS olmasa da botlar tüm içeriği görür) -->
+    <div class="tabs__panels">
+
+      <!-- INFRA -->
+      <section id="tab-infra" class="tabs__panel" role="tabpanel" aria-labelledby="tabbtn-infra" data-panel="infrastructure">
+        <header class="panel__intro">
+          <h3 class="panel__title" data-i18n="tabs.infrastructure.title">Infrastructure &amp; Plumbing</h3>
+          <p class="panel__desc" data-i18n="tabs.infrastructure.desc">Authorized installation and maintenance for electrical, water &amp; sewage, and heating systems.</p>
+        </header>
+
+        <div class="grid panel__services">
+          <article class="svcmini">
+            <h4 class="svcmini__title"><a href="services/infrastructure-installation/electric/" data-i18n="tabs.infrastructure.items.elektrik.title">Electrical</a></h4>
+            <p class="svcmini__text" data-i18n="tabs.infrastructure.items.elektrik.snip">Wiring, panel layout, leakage current protection and regulation compliance.</p>
+          </article>
+
+          <article class="svcmini">
+            <h4 class="svcmini__title"><a href="services/infrastructure-installation/water-sewage/" data-i18n="tabs.infrastructure.items.su.title">Water &amp; Sewage</a></h4>
+            <p class="svcmini__text" data-i18n="tabs.infrastructure.items.su.snip">Leak detection, plumbing renewal and appliance connections.</p>
+          </article>
+
+          <article class="svcmini">
+            <h4 class="svcmini__title"><a href="services/infrastructure-installation/heating/" data-i18n="tabs.infrastructure.items.isitma.title">Heating</a></h4>
+            <p class="svcmini__text" data-i18n="tabs.infrastructure.items.isitma.snip">Boiler, radiator cleaning and energy efficient installation.</p>
+          </article>
+        </div>
+
+        <div class="panel__cases grid grid--cases-2">
+          <article class="case">
+            <a href="services/infrastructure-installation/gas/">
+              <h5 class="case__title" data-i18n="tabs.infrastructure.cases.c2.title">Natural Gas Installation & Sealing</h5>
+            </a>
+            <p class="case__text" data-i18n="tabs.infrastructure.cases.c2.snip">
+              PE/steel pipe line installation, valve-regulator mounting, pressure test and delivery ready for gas connection.
+            </p>
+          </article>
+
+          <!-- <article class="case">
+            <h5 class="case__title" data-i18n="tabs.infrastructure.cases.c2.title">Sızıntı Çözümü &amp; Temiz Tesisat</h5>
+            <p class="case__text" data-i18n="tabs.infrastructure.cases.c2.snip">Duvar kırmadan noktasal tespit ve kalıcı tamir.</p>
+            <a class="case__link" href="/hizmetler/altyapi-tesisat/su-kanalizasyon/" data-i18n="tabs.infrastructure.cases.cta">Detay</a>
+          </article> -->
+        </div>
+
+        <div class="panel__links">
+          <a class="btn btn--ghost" href="services/infrastructure-installation/" data-i18n="tabs.infrastructure.all">View Category</a>
+          <a class="btn btn--primary" style="background-color: #D4AF37" href="contact.html" data-i18n="tabs.cta">Schedule Inspection</a>
+        </div>
+      </section>
+
+      <!-- SURFACES -->
+      <section id="tab-surfaces" class="tabs__panel" role="tabpanel" aria-labelledby="tabbtn-surfaces" data-panel="surfaces">
+        <header class="panel__intro">
+          <h3 class="panel__title" data-i18n="tabs.surfaces.title">Surfaces &amp; Coatings</h3>
+          <p class="panel__desc" data-i18n="tabs.surfaces.desc">Smooth, durable surfaces with silk plaster, paint, tiles and flooring solutions.</p>
+        </header>
+
+        <div class="grid panel__services">
+          <article class="svcmini">
+            <h4 class="svcmini__title"><a href="services/surfaces-coatings/silk-plaster/" data-i18n="tabs.surfaces.items.ipek.title">Silk Plaster</a></h4>
+            <p class="svcmini__text" data-i18n="tabs.surfaces.items.ipek.snip">Cotton-based, breathable, odorless premium texture.</p>
+          </article>
+
+          <article class="svcmini">
+            <h4 class="svcmini__title"><a href="services/surfaces-coatings/paint/" data-i18n="tabs.surfaces.items.boya.title">Paint (interior/exterior)</a></h4>
+            <p class="svcmini__text" data-i18n="tabs.surfaces.items.boya.snip">Including moisture solutions and floor repairs.</p>
+          </article>
+
+          <article class="svcmini">
+            <h4 class="svcmini__title"><a href="services/surfaces-coatings/stone-plaster/" data-i18n="tabs.surfaces.items.fayans.title">Stone Plaster</a></h4>
+            <p class="svcmini__text" data-i18n="tabs.surfaces.items.fayans.snip">High durability on exterior facades, natural texture in interior spaces.</p>
+          </article>
+        </div>
+        <div class="panel__cases grid grid--cases-2">
+  <article class="case">
+    <h5 class="case__title" data-i18n="tabs.surfaces.cases.c1.title">Italian Plaster</h5>
+    <p class="case__text" data-i18n="tabs.surfaces.cases.c1.snip">
+      Veneziano/Marmorino effect; stone-like glossy/matte finish with micro marble powder + lime-based mixture.
+    </p>
+    <a class="case__link" href="services/surfaces-coatings/italian-plaster/" data-i18n="tabs.surfaces.cases.cta">Details</a>
+  </article>
+
+  <article class="case">
+    <h5 class="case__title" data-i18n="tabs.surfaces.cases.c2.title">Wall Fabric</h5>
+    <p class="case__text" data-i18n="tabs.surfaces.cases.c2.snip">
+      Durable, crack-bridging, breathable textured coating; can be repainted without removal.
+    </p>
+    <a class="case__link" href="services/surfaces-coatings/wall-fabric/" data-i18n="tabs.surfaces.cases.cta">Details</a>
+  </article>
+</div>
+
+
+        <div class="panel__links">
+          <a class="btn btn--ghost" href="services/surfaces-coatings/" data-i18n="tabs.surfaces.all">View Category</a>
+          <a class="btn btn--primary" style="background-color: #D4AF37" href="contact.html" data-i18n="tabs.cta">Schedule Inspection</a>
+        </div>
+      </section>
+
+      <!-- INTERIOR -->
+      <section id="tab-interior" class="tabs__panel" role="tabpanel" aria-labelledby="tabbtn-interior" data-panel="interior">
+        <header class="panel__intro">
+          <h3 class="panel__title" data-i18n="tabs.interior.title">Interior Architecture &amp; Carpentry</h3>
+          <p class="panel__desc" data-i18n="tabs.interior.desc">Design–measurement–production–installation; kitchen, bathroom and storage solutions.</p>
+        </header>
+
+        <div class="grid panel__services">
+          <article class="svcmini">
+            <h4 class="svcmini__title"><a href="services/interior-architecture/kitchen-cabinets/" data-i18n="tabs.interior.items.mutfak.title">Kitchen Cabinets</a></h4>
+            <p class="svcmini__text" data-i18n="tabs.interior.items.mutfak.snip">Module design, countertop and accessory compatibility.</p>
+          </article>
+          <article class="svcmini">
+            <h4 class="svcmini__title"><a href="services/interior-architecture/bathroom-vanity-cabinet/" data-i18n="tabs.interior.items.banyo.title">Bathroom Cabinets</a></h4>
+            <p class="svcmini__text" data-i18n="tabs.interior.items.banyo.snip">Wet space planning, cabinets and lighting.</p>
+          </article>
+          <article class="svcmini">
+            <h4 class="svcmini__title"><a href="services/interior-architecture/tv-unit-wall-panel/" data-i18n="tabs.interior.items.tv-unitesi.title">TV Unit Wall Panel</a></h4>
+            <p class="svcmini__text" data-i18n="tabs.interior.items.tv-unitesi.snip">Custom unit, cabinet and panel craftsmanship.</p>
+          </article>
+        </div>
+
+        <div class="panel__cases grid grid--cases-2">
+          <article class="case">
+            <a href="services/interior-architecture/interior-doors-joinery/" data-i18n="tabs.interior.cases.cta">                <h5 class="case__title" data-i18n="tabs.interior.cases.c1.title">Interior Door Frame</h5></a>
+            <p class="case__text" data-i18n="tabs.interior.cases.c1.snip">
+              Solid/composite door manufacturing–installation; quiet–tight closure with seal, lock and hinge adjustment.
+            </p>
+          </article>
+        
+          <article class="case">
+            <a href="services/interior-architecture/staircase-cladding-storage/" data-i18n="tabs.interior.cases.cta">               <h5 class="case__title" data-i18n="tabs.interior.cases.c2.title">Stair Cladding & Storage</h5>
+            <p class="case__text" data-i18n="tabs.interior.cases.c2.snip">
+              Wood/laminate step cladding + nosing profile; smart space with under-stair cabinet/drawer.
+            </p></a>
+          </article>
+        </div>
+
+
+        <div class="panel__links">
+          <a class="btn btn--ghost"  href="services/interior-architecture/" data-i18n="tabs.interior.all">View Category</a>
+          <a class="btn btn--primary"style="background-color: #D4AF37" href="contact.html" data-i18n="tabs.cta">Schedule Inspection</a>
+        </div>
+      </section>
+
+      <!-- EXTERIOR -->
+      <section id="tab-exterior" class="tabs__panel" role="tabpanel" aria-labelledby="tabbtn-exterior" data-panel="exterior">
+        <header class="panel__intro">
+          <h3 class="panel__title" data-i18n="tabs.exterior.title">Exterior Facade &amp; Insulation</h3>
+          <p class="panel__desc" data-i18n="tabs.exterior.desc">Energy savings and durability with insulation, roof and exterior paint.</p>
+        </header>
+
+        <div class="grid panel__services">
+          <article class="svcmini">
+            <h4 class="svcmini__title"><a href="services/exterior-insulation/sheathing/" data-i18n="tabs.exterior.items.mantolama.title">External Insulation</a></h4>
+            <p class="svcmini__text" data-i18n="tabs.exterior.items.mantolama.snip">Proper layers that reduce thermal bridges.</p>
+          </article>
+          <article class="svcmini">
+            <h4 class="svcmini__title"><a href="services/exterior-insulation/exterior-paint/" data-i18n="tabs.exterior.items.disboya.title">Exterior Facade Paint</a></h4>
+            <p class="svcmini__text" data-i18n="tabs.exterior.items.disboya.snip">High UV resistance, long-lasting paints.</p>
+          </article>
+          <article class="svcmini">
+            <h4 class="svcmini__title"><a href="services/exterior-insulation/silicone-acrylic/" data-i18n="tabs.exterior.cases.c1.title">Silicone / Acrylic Coating</a></h4>
+            <p class="svcmini__text" data-i18n="tabs.exterior.cases.c1.snip">Elastic, crack-bridging, UV-resistant decorative plaster; breathable, low dirt retention.</p>
+          </article>
+        </div>
+
+<div class="panel__cases grid grid--cases-2">
+  <!-- 2) Taş Kompozit Kaplama -->
+  <article class="case">
+    <h5 class="case__title" data-i18n="tabs.exterior.cases.c2.title">Stone Composite Cladding</h5>
+    <p class="case__text" data-i18n="tabs.exterior.cases.c2.snip">
+      Natural stone effect with lightweight panels; compatible with thermal insulation, fast installation and long-lasting surface.
+    </p>
+    <a class="case__link" href="services/exterior-insulation/stone-composite/" data-i18n="tabs.exterior.cases.cta">Details</a>
+  </article>
+
+  <!-- 3) Dış Boya -->
+  <!-- <article class="case">
+    <h5 class="case__title" data-i18n="tabs.exterior.cases.c3.title">Exterior Paint</h5>
+    <p class="case__text" data-i18n="tabs.exterior.cases.c3.snip">
+      Primer + two coats of silicone acrylic; resistant to rain–sun cycles, keeps color vibrant for a long time.
+    </p>
+    <a class="case__link" href="/hizmetler/dis-cephe-yalitim/dis-boya/" data-i18n="tabs.exterior.cases.cta">Details</a>
+  </article> -->
+</div>
+
+
+        <div class="panel__links">
+          <a class="btn btn--ghost" href="services/exterior-insulation/" data-i18n="tabs.exterior.all">View Category</a>
+          <a class="btn btn--primary" style="background-color: #D4AF37" href="/iletisim.html" data-i18n="tabs.cta">Schedule Inspection</a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- JSON-LD: Service Explorer ItemList -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "name":"Service Explorer",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"item":{"@type":"Service","name":"Electrical","url":"https://fethiyeninustasi.com.tr/hizmetler/elektrik/"}},
+      {"@type":"ListItem","position":2,"item":{"@type":"Service","name":"Water & Sewage","url":"https://fethiyeninustasi.com.tr/hizmetler/su-kanalizasyon/"}},
+      {"@type":"ListItem","position":3,"item":{"@type":"Service","name":"Heating","url":"https://fethiyeninustasi.com.tr/hizmetler/isitma/"}},
+      {"@type":"ListItem","position":4,"item":{"@type":"Service","name":"Silk Plaster","url":"https://fethiyeninustasi.com.tr/hizmetler/ipek-siva/"}},
+      {"@type":"ListItem","position":5,"item":{"@type":"Service","name":"Paint","url":"https://fethiyeninustasi.com.tr/hizmetler/boya/"}},
+      {"@type":"ListItem","position":6,"item":{"@type":"Service","name":"Tiles","url":"https://fethiyeninustasi.com.tr/hizmetler/fayans/"}},
+      {"@type":"ListItem","position":7,"item":{"@type":"Service","name":"Kitchen","url":"https://fethiyeninustasi.com.tr/hizmetler/mutfak/"}},
+      {"@type":"ListItem","position":8,"item":{"@type":"Service","name":"Bathroom","url":"https://fethiyeninustasi.com.tr/hizmetler/banyo/"}},
+      {"@type":"ListItem","position":9,"item":{"@type":"Service","name":"Carpentry","url":"https://fethiyeninustasi.com.tr/hizmetler/marangozluk/"}},
+      {"@type":"ListItem","position":10,"item":{"@type":"Service","name":"External Insulation","url":"https://fethiyeninustasi.com.tr/hizmetler/mantolama/"}},
+      {"@type":"ListItem","position":11,"item":{"@type":"Service","name":"Exterior Paint","url":"https://fethiyeninustasi.com.tr/hizmetler/dis-boya/"}},
+      {"@type":"ListItem","position":12,"item":{"@type":"Service","name":"Roof","url":"https://fethiyeninustasi.com.tr/hizmetler/cati/"}}
+    ]
+  }
+  </script>
+</section>
+
+
+
+<!-- HİZMET KATEGORİLERİ (yeniden) -->
+<section class="categories" id="categories" aria-labelledby="categories-title" data-i18n-scope="home.categories">
+  <div class="container">
+    <h2 id="categories-title" class="section-title" data-i18n="title">Service Categories</h2>
+    <p class="section-desc" data-i18n="desc">Four main categories compiled according to your needs.</p>
+
+    <div class="grid grid--cards-4">
+      <!-- Altyapı & Tesisat -->
+      <article class="card cat" data-i18n-scope="home.categories.infrastructure">
+        <a class="card__link" href="services/infrastructure-installation/">
+          <div class="card__media">
+            <img src="../assets/media/service/Infrastructure & Plumbing/INFRASTRUCTURE-PLUMBING-hero.webp" alt="Infrastructure and plumbing services" width="800" height="560" loading="lazy" decoding="async">
+          </div>
+        </a>
+      </article>
+
+      <!-- Yüzeyler & Kaplamalar -->
+      <article class="card cat" data-i18n-scope="home.categories.surfaces">
+        <a class="card__link" href="services/surfaces-coatings/">
+          <div class="card__media">
+            <img src="../assets/media/service/Surfaces & Coatings/wall-covering-and-paint-applications-hero.webp" alt="Surfaces and coatings services" width="800" height="560" loading="lazy" decoding="async">
+          </div>
+        </a>
+      </article>
+
+      <!-- İç Mimari & Marangozluk -->
+      <article class="card cat" data-i18n-scope="home.categories.interior">
+        <a class="card__link" href="services/interior-architecture/">
+          <div class="card__media">
+            <img src="../assets/media/service/Interior Architecture & Carpentry/interior-architecture-hero.webp" alt="Interior architecture and carpentry services" width="800" height="560" loading="lazy" decoding="async">
+          </div>
+
+        </a>
+      </article>
+
+      <!-- Dış Cephe & Yalıtım -->
+      <article class="card cat" data-i18n-scope="home.categories.exterior">
+        <a class="card__link" href="services/exterior-insulation/">
+          <div class="card__media">
+            <img src="../assets/media/service/Exterior & Insulation/Exterior-Insulation-hero.webp" alt="Exterior facade and insulation services" width="800" height="560" loading="lazy" decoding="async">
+          </div>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+  <!-- POPÜLER HİZMETLER (SEO içeren açıklamalar) -->
+  <section class="services" aria-labelledby="services-title">
+    <div class="container">
+      <h2 id="services-title" data-i18n="home.services.title">Popular Services</h2>
+      <div class="grid grid--cards-3">
+        <article class="card svc">
+          <a class="card__link" href="services/infrastructure-installation/electric/">
+            <div class="card__media ratio-16x9">
+              <img src="../assets/media/service/Infrastructure & Plumbing/Altyapı-tesisat.webp" alt="Electrical installation and panel arrangement" width="800" height="450" loading="lazy" decoding="async">
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Electrical</h3>
+              <p class="card__text">
+                Project design, new wiring, panel arrangement and fault repair. Leakage current protection, grounding and regulation compliance.
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <article class="card svc">
+          <a class="card__link" href="services/surfaces-coatings/silk-plaster/">
+            <div class="card__media ratio-16x9">
+              <img src="../assets/media/service/Surfaces & Coatings/ipek-sıva.webp" alt="Silk plaster application" width="800" height="450" loading="lazy" decoding="async">
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Silk Plaster</h3>
+              <p class="card__text">
+                Odorless, high crack resistance, decorative coating with thermal &amp; acoustic improvement. Inspection with color/texture samples.
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <article class="card svc">
+          <a class="card__link" href="services/infrastructure-installation/gas/">
+            <div class="card__media ratio-16x9">
+              <img src="../assets/media/service/Infrastructure & Plumbing/doğalgaz.webp"
+                   alt="Natural gas installation — project, installation and leak test"
+                   width="800" height="450" loading="lazy" decoding="async">
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Natural Gas</h3>
+              <p class="card__text">
+                Project &amp; subscription processes, line route plan, meter–appliance (boiler/stove) connection;
+                safe installation with leak check and leak test.
+              </p>
+            </div>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+<section class="proof" id="proof-stack" aria-labelledby="proof-title" data-i18n-scope="home.proof">
+  <div class="container">
+    <header class="section-head">
+      <h2 id="proof-title" class="section-title" data-i18n="title">Why FethiyeninUstası?</h2>
+    </header>
+
+    <!-- Ölçülebilir metrikler (count-up için data-target) -->
+    <div class="proof__metrics" aria-label="Service metrics" data-component="countup">
+      <div class="metric">
+        <div class="metric__num" data-target="250" aria-label="Completed projects">250+</div>
+        <div class="metric__label" data-i18n="metrics.projects">Completed Projects</div>
+      </div>
+      <div class="metric">
+        <div class="metric__num" data-target="98" aria-label="On-time arrival percentage">98<span>%</span></div>
+        <div class="metric__label" data-i18n="metrics.ontime">On-Time Appointment Arrival</div>
+      </div>
+      <div class="metric">
+        <div class="metric__num" data-target="4.8" aria-label="Satisfaction average">4.8<span>★</span></div>
+        <div class="metric__label" data-i18n="metrics.rating">Satisfaction Average</div>
+      </div>
+      <div class="metric">
+        <div class="metric__num" data-target="2" aria-label="Rework rate">&lt;2<span>%</span></div>
+        <div class="metric__label" data-i18n="metrics.rework">Rework Rate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- PROCESS (Yeni) -->
+<section class="process" id="process" aria-label="Process" data-process-context="global">
+  <div class="process__inner">
+
+    <div>
+      <h2 class="process__title" data-i18n="process.title">Process</h2>
+      <p class="process__subtitle" data-i18n="process.subtitle">
+        We proceed transparently, planned and dust-free from the first call to delivery.
+      </p>
+    </div>
+
+    <div class="process__layout">
+      <!-- Sol: Zaman Çizgisi -->
+      <ol class="process__timeline">
+
+        <!-- 1 -->
+        <li class="process__step">
+          <div class="process__dot" aria-hidden="true">1</div>
+          <div class="process__card">
+            <div class="process__card-head">
+              <h3 class="process__step-title" data-i18n="process.steps.s1.title">Needs &amp; Goal Definition</h3>
+              <span class="process__badge" data-i18n="process.badges.free">Free</span>
+            </div>
+            <p class="process__step-desc" data-i18n="process.steps.s1.desc">
+              Through a short phone/WhatsApp conversation, we clarify scope, priorities, budget range and target date.
+            </p>
+            <details class="process__details">
+              <summary class="process__summary" data-i18n="process.more">Details</summary>
+              <ul class="process__list" data-i18n-list="process.steps.s1.bullets">
+                <li>Usage purpose and expectations (durability, aesthetics, maintenance)</li>
+                <li>Estimated measurements, sharing existing plans/photos</li>
+                <li>Budget range and priority order (urgent/optional items)</li>
+                <li>Time target, access hours and living space constraints</li>
+                <li>Risk/obstacle predictions (moisture, electrical/gas lines, acoustic, etc.)</li>
+              </ul>
+            </details>
+          </div>
+        </li>
+
+        <!-- 2 -->
+        <li class="process__step">
+          <div class="process__dot" aria-hidden="true">2</div>
+          <div class="process__card">
+            <h3 class="process__step-title" data-i18n="process.steps.s2.title">On-Site Inspection &amp; Measurement</h3>
+            <p class="process__step-desc" data-i18n="process.steps.s2.desc">
+              We take measurements at the address/from plans; we plan checks of current condition, risks and compliance (electrical, water, heating, acoustic, etc.).
+            </p>
+            <details class="process__details">
+              <summary class="process__summary" data-i18n="process.more">Details</summary>
+              <ul class="process__list" data-i18n-list="process.steps.s2.bullets">
+                <li>Precise measurements with laser meter, detection of line and plumbing routes</li>
+                <li>Surface/floor integrity, straightedge and flatness check</li>
+                <li>Moisture/heat/acoustic condition (measurement when needed)</li>
+                <li>Infrastructure suitability: electrical, water, natural gas, drainage, flue</li>
+                <li>Preliminary review of regulation/compliance requirements (TS/EN, gas projects, etc.)</li>
+                <li>Photos + short inspection report</li>
+              </ul>
+            </details>
+          </div>
+        </li>
+
+        <!-- 3 -->
+        <li class="process__step">
+          <div class="process__dot" aria-hidden="true">3</div>
+          <div class="process__card">
+            <h3 class="process__step-title" data-i18n="process.steps.s3.title">Solution Design &amp; Sample</h3>
+            <p class="process__step-desc" data-i18n="process.steps.s3.desc">
+              According to the nature of the work (plumbing/coating/carpentry/insulation), we recommend materials and systems; we provide samples/demo and technical drawings when needed.
+            </p>
+            <details class="process__details">
+              <summary class="process__summary" data-i18n="process.more">Details</summary>
+              <ul class="process__list" data-i18n-list="process.steps.s3.bullets">
+                <li>System and material selection; technical data sheets</li>
+                <li>Work breakdown (item/m²/piece) and method to be applied</li>
+                <li>Color/texture catalog; on-site sample or mini demo option</li>
+                <li>Joints, corners, expansion and sealing details</li>
+                <li>Drawings/3D sketch or section when needed</li>
+                <li>Risks and Plan B (weather, supply, access, etc.)</li>
+              </ul>
+            </details>
+          </div>
+        </li>
+
+        <!-- 4 -->
+        <li class="process__step">
+          <div class="process__dot" aria-hidden="true">4</div>
+          <div class="process__card">
+            <h3 class="process__step-title" data-i18n="process.steps.s4.title">Clear Quote &amp; Schedule</h3>
+            <p class="process__step-desc" data-i18n="process.steps.s4.desc">
+              We provide transparent quotes based on item/m²/piece; we determine contract, warranty terms and work schedule together.
+            </p>
+            <details class="process__details">
+              <summary class="process__summary" data-i18n="process.more">Details</summary>
+              <ul class="process__list" data-i18n-list="process.steps.s4.bullets">
+                <li>Item-based pricing; material + labor separation</li>
+                <li>Included/excluded list (scaffolding, transport, waste, night work, etc.)</li>
+                <li>Payment plan, contract terms and warranty conditions</li>
+                <li>Start date, deadline and weekly work schedule</li>
+                <li>Color/material approval and order timing</li>
+              </ul>
+            </details>
+          </div>
+        </li>
+
+        <!-- 5 -->
+        <li class="process__step">
+          <div class="process__dot" aria-hidden="true">5</div>
+          <div class="process__card">
+            <h3 class="process__step-title" data-i18n="process.steps.s5.title">Preparation &amp; Application</h3>
+            <p class="process__step-desc" data-i18n="process.steps.s5.desc">
+              We work without damaging the area with dust-free protection and workplace safety measures; we perform professional application according to approved methods.
+            </p>
+            <details class="process__details">
+              <summary class="process__summary" data-i18n="process.more">Details</summary>
+              <ul class="process__list" data-i18n-list="process.steps.s5.bullets">
+                <li>Dust-free protection: floor/wall coverings, tape, zip doors</li>
+                <li>Workplace safety: electrical/gas safety, lockout-tagout (LOTO) requirements</li>
+                <li>Surface/floor preparation: scraping, repair, primer and appropriate system</li>
+                <li>Interruption plan (water/gas/electrical) and temporary solutions</li>
+                <li>Application with professional equipment and techniques</li>
+                <li>Daily progress report and photo sharing</li>
+              </ul>
+            </details>
+          </div>
+        </li>
+
+        <!-- 6 -->
+        <li class="process__step">
+          <div class="process__dot" aria-hidden="true">6</div>
+          <div class="process__card">
+            <h3 class="process__step-title" data-i18n="process.steps.s6.title">Inspection, Delivery &amp; Documents</h3>
+            <p class="process__step-desc" data-i18n="process.steps.s6.desc">
+              We deliver with a checklist; we share maintenance guide, warranty document and compliance/test reports when needed.
+            </p>
+            <details class="process__details">
+              <summary class="process__summary" data-i18n="process.more">Details</summary>
+              <ul class="process__list" data-i18n-list="process.steps.s6.bullets">
+                <li>Checklist tour with employer and acceptance certificate</li>
+                <li>Closing punch list (deficiencies/adjustments)</li>
+                <li>Cleaning and licensed waste disposal</li>
+                <li>Sharing maintenance &amp; usage guide</li>
+                <li>Warranty document and invoice</li>
+                <li>Test/compliance reports when needed (pressure, leakage, thermal, etc.)</li>
+              </ul>
+            </details>
+          </div>
+        </li>
+      </ol>
+
+      <!-- Sağ: Güven Unsurları -->
+      <aside class="process__proof">
+        <h3 class="process__proof-title" data-i18n="process.proof.title">Why Us?</h3>
+        <ul class="process__proof-list" data-i18n-list="process.proof.items">
+          <li>Item-based transparent quotes and contractual work</li>
+          <li>Application compliant with TS/EN standards</li>
+          <li>Authorized, insured master teams</li>
+          <li>On-time start and planned work schedule</li>
+          <li>Dust-free protection and clean delivery</li>
+          <li>Workmanship warranty and manufacturer-backed material warranty</li>
+          <li>Reference portfolio and on-site demo opportunity</li>
+          <li>Single point of contact and daily WhatsApp reports</li>
+        </ul>
+
+        <div class="process__metrics">
+          <div class="process__metric">
+            <div class="process__metric-num">24<span>h</span></div>
+            <div class="process__metric-label" data-i18n="process.metrics.m1">Quote</div>
+          </div>
+          <div class="process__metric">
+            <div class="process__metric-num">7–14<span>d</span></div>
+            <div class="process__metric-label" data-i18n="process.metrics.m2">Typical deadline*</div>
+          </div>
+          <div class="process__metric">
+            <div class="process__metric-num">TS/EN</div>
+            <div class="process__metric-label" data-i18n="process.metrics.m3">Standard compliance</div>
+          </div>
+        </div>
+
+        <p class="process__note" data-i18n="process.note">*Deadline may vary according to work scope, measurements and season.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <!-- HİZMET VERDİĞİMİZ BÖLGELER -->
+  <section class="areas" aria-labelledby="areas-title" data-component="areas">
+    <div class="container">
+      <h2 id="areas-title" data-i18n="home.areas.title">Service Areas</h2>
+      <p class="section-desc" data-i18n="home.areas.desc">Fast inspection &amp; service in Fethiye center and surroundings.</p>
+
+      <ul class="chips" role="list">
+        <li><a class="chip" href="areas/fethiye.html">Fethiye</a></li>
+        <li><a class="chip" href="areas/calis.html">Çalış</a></li>
+        <li><a class="chip" href="areas/ovacik.html">Ovacık</a></li>
+        <li><a class="chip" href="areas/gocek.html">Göcek</a></li>
+      </ul>
+
+      <div class="kpis" data-component="countup" aria-label="Service metrics">
+        <div class="kpi">
+          <div class="kpi__num" data-target="250" aria-label="Completed projects">250+</div>
+          <div class="kpi__label" data-i18n="home.kpis.projects">Completed Projects</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi__num" data-target="4.8" aria-label="Customer satisfaction">4.8★</div>
+          <div class="kpi__label" data-i18n="home.kpis.rating">Satisfaction Average</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi__num" data-target="48" aria-label="Emergency response time">48h</div>
+          <div class="kpi__label" data-i18n="home.kpis.sla">Emergency Response SLA</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SSS (FAQ) -->
+  <section class="faq" aria-labelledby="faq-title" data-component="accordion">
+    <div class="container">
+      <h2 id="faq-title" data-i18n="home.faq.title">Frequently Asked Questions</h2>
+      <div class="accordion">
+        <details class="accordion__item">
+          <summary data-i18n="home.faq.q1">Do you provide free inspection?</summary>
+          <div class="accordion__panel" data-i18n="home.faq.a1">Yes. In Fethiye and nearby areas, we determine accurate measurements and scope with free inspection.</div>
+        </details>
+        <details class="accordion__item">
+          <summary data-i18n="home.faq.q2">What are your warranty terms?</summary>
+          <div class="accordion__panel" data-i18n="home.faq.a2">12–24 months workmanship warranty depending on application type; materials are subject to manufacturer warranty.</div>
+        </details>
+        <details class="accordion__item">
+          <summary data-i18n="home.faq.q3">What is included in the quote?</summary>
+          <div class="accordion__panel" data-i18n="home.faq.a3">Item-by-item work breakdown, unit prices, timeline, payment schedule and warranty terms.</div>
+        </details>
+        <details class="accordion__item">
+          <summary data-i18n="home.faq.q4">Do you provide service for urgent jobs?</summary>
+          <div class="accordion__panel" data-i18n="home.faq.a4">Yes. We do prioritized planning with the "Urgent (48 hours)" option.</div>
+        </details>
+        <details class="accordion__item">
+          <summary data-i18n="home.faq.q5">Do you purchase the materials?</summary>
+          <div class="accordion__panel" data-i18n="home.faq.a5">Depending on preference; we can supply or we apply materials you provide.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- GÜÇLÜ CTA -->
+  <section class="cta" aria-labelledby="cta-title">
+    <div class="container cta__inner">
+      <div class="cta__content">
+        <h2 id="cta-title" data-i18n="home.cta.title">Let's plan your project today</h2>
+        <p class="cta__text" data-i18n="home.cta.text">
+          After a short phone/WhatsApp conversation, let's schedule a free inspection and provide a written quote on the same day.
+        </p>
+      </div>
+      <div class="cta__actions">
+        <a class="btn btn--primary" style="background-color: #D4AF37" href="contact.html" data-i18n="home.cta.primary">Free Inspection</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- === JSON-LD ŞEMALAR === -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "FethiyeninUstası",
+    "url": "https://fethiyeninustasi.com.tr/",
+    "inLanguage": "en",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://fethiyeninustasi.com.tr/hizmetler?kategori={category}&hizmet={service}&bolge={area}",
+      "query-input": [
+        "required name=category",
+        "optional name=service",
+        "required name=area"
+      ]
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"FethiyeninUstası",
+    "url":"https://fethiyeninustasi.com.tr/",
+    "logo":"https://fethiyeninustasi.com.tr/assets/brand/logo.png",
+    "areaServed":["Fethiye","Çalış","Ovacık","Göcek"],
+    "sameAs":[]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "@id":"https://fethiyeninustasi.com.tr/#localbusiness",
+    "name":"FethiyeninUstası",
+    "image":"https://fethiyeninustasi.com.tr/assets/media/logo/logo.png",
+    "url":"https://fethiyeninustasi.com.tr/",
+    "telephone":"+905060222900",
+    "email":"info@fethiyeninustasi.com",
+    "priceRange":"$$",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Fethiye",
+      "addressRegion":"Muğla",
+      "addressCountry":"TR"
+    },
+    "geo":{
+      "@type":"GeoCoordinates",
+      "latitude":36.6213,
+      "longitude":29.1162
+    },
+    "areaServed":[
+      {"@type":"City","name":"Fethiye"},
+      {"@type":"City","name":"Çalış"},
+      {"@type":"City","name":"Ovacık"},
+      {"@type":"City","name":"Göcek"}
+    ],
+    "serviceArea":{
+      "@type":"GeoCircle",
+      "geoMidpoint":{
+        "@type":"GeoCoordinates",
+        "latitude":36.6213,
+        "longitude":29.1162
+      },
+      "geoRadius":{
+        "@type":"Distance",
+        "name":"50 km"
+      }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "name":"Service Categories",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Infrastructure & Plumbing","url":"https://fethiyeninustasi.com.tr/hizmetler/altyapi-tesisat/"},
+      {"@type":"ListItem","position":2,"name":"Surfaces & Coatings","url":"https://fethiyeninustasi.com.tr/hizmetler/yuzeyler-kaplamalar/"},
+      {"@type":"ListItem","position":3,"name":"Interior Architecture & Carpentry","url":"https://fethiyeninustasi.com.tr/hizmetler/ic-mimari-marangozluk/"},
+      {"@type":"ListItem","position":4,"name":"Exterior Facade & Insulation","url":"https://fethiyeninustasi.com.tr/hizmetler/dis-cephe-yalitim/"}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Do you provide free inspection?","acceptedAnswer":{"@type":"Answer","text":"Yes. In Fethiye and nearby areas, we determine accurate measurements and scope with free inspection."}},
+      {"@type":"Question","name":"What are your warranty terms?","acceptedAnswer":{"@type":"Answer","text":"12–24 months workmanship warranty depending on application type; materials are subject to manufacturer warranty."}},
+      {"@type":"Question","name":"What is included in the quote?","acceptedAnswer":{"@type":"Answer","text":"Item-by-item work breakdown, unit prices, timeline, payment schedule and warranty terms."}},
+      {"@type":"Question","name":"Do you provide service for urgent jobs?","acceptedAnswer":{"@type":"Answer","text":"Yes. We do prioritized planning with the \"Urgent (48 hours)\" option."}},
+      {"@type":"Question","name":"Do you purchase the materials?","acceptedAnswer":{"@type":"Answer","text":"Depending on preference; we can supply or we apply materials you provide."}}
+    ]
+  }
+  </script>
+
+  <!-- (Opsiyonel) HowTo şeması için süreç -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"HowTo",
+    "name":"Renovation Process",
+    "step":[
+      {"@type":"HowToStep","name":"Inspection & Needs Analysis"},
+      {"@type":"HowToStep","name":"Quote & Contract"},
+      {"@type":"HowToStep","name":"Application & Reporting"},
+      {"@type":"HowToStep","name":"Delivery & Warranty"}
+    ]
+  }
+  </script>
+</main>
+
+
+
+
+
+
+
+
+<footer class="site-footer" id="footer">
+  <div class="footer__inner">
+
+    <!-- Brand satırı -->
+    <div class="footer__brandrow">
+      <a href="/en/" class="footer__brand">
+        <img class="footer__logo"
+             src="../assets/media/logo/logo.webp"
+             alt="Logo"
+             width="56" height="56" decoding="async"
+             data-i18n-attr="alt:footer.brand.alt">
+        <div class="footer__brandtext">
+          <div class="footer__name" data-i18n-html="footer.brand.name">
+            Fethiye’nin <span class="footer__gold">Ustası</span>
+          </div>
+          <div class="footer__tag" data-i18n="footer.brand.tag">
+            Premium doku ve temiz uygulama standartları.
+          </div>
+        </div>
+      </a>
+
+      <!-- WhatsApp kısayolu -->
+      <a class="footer__wa"
+         href="https://wa.me/905060222900"
+         target="_blank" rel="noopener"
+         aria-label="WhatsApp"
+         data-i18n-attr="aria-label:footer.social.whatsapp">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2C6.48 2 2 6.26 2 11.66c0 2.02.67 3.89 1.8 5.41L2 22l5.08-1.6c1.46.8 3.13 1.25 4.92 1.25 5.52 0 10-4.26 10-9.66S17.52 2 12 2zm0 17.3c-1.55 0-2.98-.44-4.2-1.2l-.3-.18-3 .94.97-2.83-.2-.29a7.28 7.28 0 0 1-1.35-4.08c0-4 3.35-7.24 7.48-7.24 4.12 0 7.48 3.24 7.48 7.24 0 4-3.36 7.24-7.48 7.24z"/>
+          <path d="M16.62 13.82c-.25-.12-1.47-.72-1.7-.8-.23-.08-.4-.12-.57.12-.17.25-.66.8-.8.97-.15.16-.3.18-.56.06-.25-.12-1.07-.39-2.04-1.25-.75-.65-1.26-1.46-1.41-1.71-.15-.25-.02-.38.1-.5.1-.1.25-.27.37-.41.12-.14.15-.25.23-.41.08-.16.4-.3-.02-.42-.06-.12-.57-1.36-.78-1.86-.2-.48-.4-.42-.57-.43l-.48-.01c-.16 0-.41.06-.63.3-.22.25-.84.82-.84 2 0 1.17.86 2.3.98 2.46.12.16 1.7 2.7 4.12 3.78.58.25 1.03.4 1.38.51.58.18 1.1.15 1.52.09.46-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.16-.47-.28z"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="footer__hair"></div>
+
+    <!-- Grid -->
+    <div class="footer__grid">
+
+      <!-- Hizmetler -->
+      <nav class="footer__col" aria-label="Services">
+        <h3 class="footer__h" data-i18n="footer.cols.services.title">HİZMETLER</h3>
+        <ul class="footer__list">
+          <li><a href="/en/services/infrastructure-installation/" class="footer__link" data-i18n="footer.cols.services.items.infra">Altyapı & Tesisat</a></li>          
+          <li><a href="/en/services/surfaces-coatings/" class="footer__link" data-i18n="footer.cols.services.items.surfaces">Yüzeyler & Kaplamalar</a></li>
+          <li><a href="/en/services/interior-architecture/" class="footer__link" data-i18n="footer.cols.services.items.interior">İç Mimari & Marangozluk</a></li>
+          <li><a href="/en/services/exterior-insulation/" class="footer__link" data-i18n="footer.cols.services.items.exterior">Dış Cephe & Yalıtım</a></li>          
+
+          
+
+        </ul>
+      </nav>
+
+      <!-- Bölgeler -->
+      <nav class="footer__col" aria-label="Areas">
+        <h3 class="footer__h" data-i18n="footer.cols.areas.title">BÖLGELER</h3>
+        <ul class="footer__list">
+          <li><a href="/en/areas/fethiye.html" class="footer__link" data-i18n="footer.cols.areas.items.fethiye">Fethiye</a></li>
+          <li><a href="/en/areas/calis.html" class="footer__link" data-i18n="footer.cols.areas.items.calis">Çalış</a></li>
+          <li><a href="/en/areas/ovacik.html" class="footer__link" data-i18n="footer.cols.areas.items.ovacik">Ovacık</a></li>
+          <li><a href="/en/areas/gocek.html" class="footer__link" data-i18n="footer.cols.areas.items.gocek">Göcek</a></li>
+        </ul>
+      </nav>
+
+      <!-- Kurumsal -->
+      <nav class="footer__col" aria-label="Corporate">
+        <h3 class="footer__h" data-i18n="footer.cols.corp.title">KURUMSAL</h3>
+        <ul class="footer__list">
+          <li><a href="/en/" class="footer__link" data-i18n="footer.cols.corp.items.main-page">Ana Sayfa</a></li>
+          <li><a href="/en/blog/" class="footer__link" data-i18n="footer.cols.corp.items.blog">Blog</a></li>
+          <li><a href="/en/about.html" class="footer__link" data-i18n="footer.cols.corp.items.about">Hakkımızda</a></li>
+          <li><a href="/en/contact.html" class="footer__link" data-i18n="footer.cols.corp.items.contact">İletişim</a></li>
+        </ul>
+      </nav>
+
+      <!-- İletişim -->
+      <section class="footer__col" aria-label="Contact">
+        <h3 class="footer__h" data-i18n="footer.cols.contact.title">İLETİŞİM</h3>
+        <address class="footer__address">
+          <div class="footer__label" data-i18n="footer.cols.contact.phone">Telefon</div>
+          <a class="footer__link" href="tel:+905060222900" data-i18n="footer.cols.contact.phoneNumber">+90 506 022 29 00</a>
+
+          <div class="footer__label" data-i18n="footer.cols.contact.mail">E-posta</div>
+          <a class="footer__link" href="mailto:info@fethiyeninustasi.com" data-i18n="footer.cols.contact.emailAddress">info@fethiyeninustasi.com</a>
+        </address>
+      </section>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer__bottom">
+      <div class="footer__copy">
+        © <span id="footer-year"></span>
+        <span data-i18n-html="footer.brand.name">Fethiye’nin <span class="footer__gold">Ustası</span></span> —
+        <span data-i18n="footer.rights">Tüm hakları saklıdır.</span>
+      </div>
+      <nav class="footer__policies" aria-label="Legal">
+        <a href="/en/kvkk.html" class="footer__plink" data-i18n="footer.policies.kvkk">Privacy Notice</a>
+        <a href="/en/privacy.html" class="footer__plink" data-i18n="footer.policies.privacy">Privacy Policy</a>
+        <a href="/en/terms.html" class="footer__plink" data-i18n="footer.policies.terms">Terms of Use</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/i18n/layout.i18n.js?v=2" defer></script>
+<script src="../assets/js/layout.js?v=2" defer></script>
+<script src="../assets/js/pages/home.js" defer></script>
+<script src="../assets/js/runtime.js" defer></script>
+<script src="../assets/js/gallery.js" defer></script>
+
+</body>
+</html>

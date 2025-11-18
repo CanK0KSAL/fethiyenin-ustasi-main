@@ -1,0 +1,391 @@
+/* ==========================================================================
+   SERVICE • Silk Plaster (İpek Sıva)
+   Scope: .service.silk-plaster
+   Design: light + soft-gold, glass accents, elegant micro-interactions
+   ========================================================================== */
+
+.service.silk-plaster{
+  /* design tokens (base yoksa fallback) */
+  --gold: #D4AF37;
+  --text: #171717;
+  --muted: #4B5563;
+  --muted-2:#6B7280;
+  --bg: #FAFAFA;
+  --surface:#FFFFFF;
+
+  --ring: rgba(0,0,0,.08);
+  --ring-strong: rgba(0,0,0,.12);
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.06);
+  --shadow-md: 0 2px 10px rgba(0,0,0,.10);
+  --shadow-lg: 0 10px 26px rgba(0,0,0,.14);
+
+  --radius-s: 12px;
+  --radius-m: 16px;
+  --radius-l: 22px;
+
+  --max: 1200px;
+  --pad: clamp(16px,3vw,40px);
+}
+
+.service.silk-plaster .container{ max-width:min(var(--max),96vw); margin-inline:auto; padding-inline:var(--pad); }
+.service.silk-plaster section{ padding: clamp(32px,6vw,68px) 0; position:relative; }
+.service.silk-plaster h1,.service.silk-plaster h2,.service.silk-plaster h3{ font-weight:900; letter-spacing:-.01em; }
+.service.silk-plaster .sec-title{ margin:.2rem 0 .5rem; }
+.service.silk-plaster .hero__lead,.service.silk-plaster .sec-desc{ color:var(--muted); max-width:68ch; }
+
+/* buttons (fallback) ----------------------------------------------------- */
+.service.silk-plaster .btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+  padding:.9rem 1.15rem; border-radius:var(--radius-m);
+  font-weight:900; font-size:.98rem; border:1px solid transparent; cursor:pointer;
+  transition: transform .06s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+}
+.service.silk-plaster .btn:active{ transform: translateY(1px); }
+.service.silk-plaster .btn--primary{ background:var(--gold); color:#fff; border-color:var(--gold); box-shadow:0 16px 38px rgba(0,0,0,.14); }
+.service.silk-plaster .btn--primary:hover{ filter:brightness(1.05); box-shadow:0 22px 52px rgba(0,0,0,.16); }
+.service.silk-plaster .btn--ghost{ background:#fff; color:#111827; border-color:var(--ring); }
+.service.silk-plaster .btn--ghost:hover{ background:#f9fafb; border-color:var(--ring-strong); }
+
+/* chips (areas/filters) -------------------------------------------------- */
+.service.silk-plaster .chips{ display:flex; flex-wrap:wrap; gap:.5rem; padding:0; list-style:none; }
+.service.silk-plaster .chip{
+  display:inline-flex; align-items:center; gap:.4rem; padding:.42rem .75rem;
+  border-radius:999px; font-weight:800; font-size:.92rem; background:#fff; border:1px solid var(--ring);
+  transition: background .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.service.silk-plaster .chip:hover{ background:#f9fafb; border-color:var(--ring-strong); box-shadow:var(--shadow-sm); }
+
+/* grid utils ------------------------------------------------------------- */
+.service.silk-plaster .grid{ display:grid; gap: clamp(12px,2vw,18px); }
+.service.silk-plaster .grid--cols-2{ grid-template-columns:1fr; }
+@media (min-width:960px){ .service.silk-plaster .grid--cols-2{ grid-template-columns:repeat(2,1fr);} }
+.service.silk-plaster .grid--cards-3{ grid-template-columns:1fr; }
+@media (min-width:720px){ .service.silk-plaster .grid--cards-3{ grid-template-columns:repeat(2,1fr);} }
+@media (min-width:1024px){ .service.silk-plaster .grid--cards-3{ grid-template-columns:repeat(3,1fr);} }
+
+/* sr-only */
+.service.silk-plaster .sr-only{ position:absolute !important; width:1px; height:1px; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); }
+
+/* ==========================================================================
+   HERO + Breadcrumbs
+   ========================================================================== */
+.service.silk-plaster .svc-hero{
+  background:
+    radial-gradient(1100px 420px at 12% -6%, color-mix(in oklab, var(--gold) 12%, transparent) 0%, transparent 62%),
+    linear-gradient(180deg, #fff 0%, #fafafa 100%);
+  border-bottom:1px solid var(--ring);
+  padding: clamp(70px,9vw,110px) 0 clamp(28px,6vw,44px);
+}
+.service.silk-plaster .hero__title{ font-size: clamp(28px,4.2vw,46px); line-height:1.06; margin:.2rem 0 .35rem; }
+
+/* breadcrumbs */
+.service.silk-plaster .crumbs ol{
+  margin:0 0 .5rem; padding:.45rem .7rem; display:flex; flex-wrap:wrap; gap:.4rem .6rem; align-items:center;
+  border-radius:12px; background:rgba(255,255,255,.75); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  border:1px solid var(--ring); box-shadow:var(--shadow-sm);
+}
+.service.silk-plaster .crumbs li{ list-style:none; display:flex; align-items:center; gap:.6rem; color:var(--muted-2); font-weight:700; }
+.service.silk-plaster .crumbs li+li::before{ content:"›"; color:#9CA3AF; }
+.service.silk-plaster .crumbs a{ color:inherit; text-decoration:none; }
+.service.silk-plaster .crumbs a:hover{ text-decoration:underline; text-underline-offset:3px; }
+
+/* hero media */
+.service.silk-plaster .svc-hero .hero__media{
+  margin-top: clamp(12px,3vw,18px);
+  border-radius: var(--radius-l); overflow:hidden; box-shadow: var(--shadow-lg);
+}
+.service.silk-plaster .svc-hero .hero__media img{ width:100%; height:100%; object-fit:cover; aspect-ratio:16/8; display:block; }
+.service.silk-plaster .svc-hero::after{
+  content:""; position:absolute; inset:auto 0 0 0; height:2px; opacity:.8;
+  background: linear-gradient(90deg,transparent,color-mix(in oklab,var(--gold) 65%,transparent),transparent);
+}
+
+/* ==========================================================================
+   FEATURES (4 icon cards)
+   ========================================================================== */
+.service.silk-plaster .svc-features{
+  background:
+    radial-gradient(900px 360px at 90% 0%, color-mix(in oklab, var(--gold) 10%, transparent) 0%, transparent 60%),
+    linear-gradient(180deg, #fff 0%, #fafafa 100%);
+  border-top:1px solid var(--ring); border-bottom:1px solid var(--ring);
+}
+.service.silk-plaster .features{ list-style:none; margin:0; padding:0; display:grid; gap:clamp(12px,2vw,16px); grid-template-columns:1fr; }
+@media (min-width:900px){ .service.silk-plaster .features{ grid-template-columns:repeat(4,1fr);} }
+
+.service.silk-plaster .feature{
+  position:relative; display:grid; grid-template-columns:56px 1fr; gap:12px; align-items:flex-start;
+  background:linear-gradient(180deg,#fff 0%,#f9fafb 100%);
+  border:1px solid var(--ring); border-radius:18px; padding:14px; box-shadow:var(--shadow-sm);
+  transition:border-color .2s ease, box-shadow .25s ease, transform .06s ease;
+  overflow:hidden;
+}
+.service.silk-plaster .feature:hover{ transform:translateY(-1px); border-color:var(--ring-strong); box-shadow:var(--shadow-lg); }
+.service.silk-plaster .feature::before{
+  content:""; position:absolute; left:0; top:0; bottom:0; width:4px; opacity:.55;
+  background: linear-gradient(180deg, color-mix(in oklab, var(--gold) 55%, #fff), color-mix(in oklab, var(--gold) 25%, #fff));
+}
+
+.service.silk-plaster .feature__icon{
+  width:56px; height:56px; border-radius:14px; display:grid; place-items:center; font-size:24px;
+  background: color-mix(in oklab, var(--gold) 18%, #fff);
+  border: 1px solid color-mix(in oklab, var(--gold) 40%, #fff);
+  box-shadow: inset 0 -6px 12px rgba(0,0,0,.04);
+}
+.service.silk-plaster .feature h3{ margin:.1rem 0 .15rem; font-size:1.02rem; font-weight:900; letter-spacing:-.01em; }
+.service.silk-plaster .feature p{ grid-column:2/-1; margin:0; color:var(--muted); line-height:1.6; }
+
+/* ==========================================================================
+   SURFACES (lists)
+   ========================================================================== */
+.service.silk-plaster .svc-surfaces{ background: linear-gradient(180deg,#fff 0%,#fafafa 100%); }
+.service.silk-plaster .svc-surfaces h3{ margin:.1rem 0 .35rem; font-size:1.02rem; }
+.service.silk-plaster .list{ margin:.1rem 0 0; padding:0; list-style:none; display:grid; gap:.4rem; color:#374151; }
+.service.silk-plaster .list li{
+  display:grid; grid-template-columns:18px 1fr; gap:.55rem; align-items:start;
+}
+.service.silk-plaster .list li::before{
+  content:""; width:12px; height:12px; margin-top:.35rem; border-radius:3px;
+  border:2px solid color-mix(in oklab,var(--gold) 65%, #111);
+}
+
+/* ==========================================================================
+   SWATCHES (data-color destekli)
+   ========================================================================== */
+.service.silk-plaster .svc-swatches{
+  background:
+    radial-gradient(900px 360px at 10% 0%, color-mix(in oklab,var(--gold) 10%, transparent) 0%, transparent 62%),
+    linear-gradient(180deg,#fff 0%,#fafafa 100%);
+  border-top:1px solid var(--ring); border-bottom:1px solid var(--ring);
+}
+.service.silk-plaster .swatches{
+  list-style:none; margin:.2rem 0 0; padding:0;
+  display:grid; grid-template-columns:repeat(2,1fr); gap:12px;
+}
+@media (min-width:780px){ .service.silk-plaster .swatches{ grid-template-columns:repeat(6,1fr); } }
+
+.service.silk-plaster .swatch{
+  --c: #e5e5e5;                 /* fallback color */
+  position:relative; aspect-ratio:1/1; border-radius:16px; overflow:hidden; cursor:crosshair;
+  border:1px solid var(--ring); box-shadow:var(--shadow-sm); background:var(--c);
+  transition: transform .12s ease, box-shadow .25s ease, border-color .2s ease, filter .25s ease;
+}
+.service.silk-plaster .swatch::before{
+  content:""; position:absolute; inset:0;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.35), rgba(255,255,255,0) 40%),
+    radial-gradient(180% 80% at 10% 110%, rgba(0,0,0,.12), transparent 60%);
+  mix-blend-mode:soft-light; pointer-events:none;
+}
+.service.silk-plaster .swatch:hover{ transform:translateY(-2px) scale(1.01); border-color:var(--ring-strong); box-shadow:var(--shadow-lg); filter:saturate(1.05); }
+
+.service.silk-plaster .swatch .swatch__name{
+  position:absolute; left:10px; bottom:8px; background:rgba(255,255,255,.9);
+  border:1px solid var(--ring); border-radius:10px; padding:.18rem .45rem; font-weight:800; font-size:.86rem;
+}
+
+/* data-color mapping (mevcut altı örnek) */
+.service.silk-plaster .swatch[data-color="#D9C2A7"]{ --c:#D9C2A7; }
+.service.silk-plaster .swatch[data-color="#BFD2DF"]{ --c:#BFD2DF; }
+.service.silk-plaster .swatch[data-color="#E5E5E5"]{ --c:#E5E5E5; }
+.service.silk-plaster .swatch[data-color="#C0B283"]{ --c:#C0B283; }
+.service.silk-plaster .swatch[data-color="#A08D7C"]{ --c:#A08D7C; }
+.service.silk-plaster .swatch[data-color="#C8C5B9"]{ --c:#C8C5B9; }
+
+/* ton bazlı ince şerit */
+.service.silk-plaster .swatch[data-tone="accent"]{ outline:2px solid color-mix(in oklab,var(--gold) 45%, transparent); outline-offset: -2px; }
+.service.silk-plaster .swatch[data-tone="metallic"]::after{
+  content:""; position:absolute; inset:0; pointer-events:none; 
+  background:repeating-linear-gradient(135deg, rgba(255,255,255,.32) 0 2px, rgba(255,255,255,0) 2px 6px);
+  mix-blend-mode:overlay; opacity:.55;
+}
+
+/* ==========================================================================
+   TECH (Definition lists)
+   ========================================================================== */
+.service.silk-plaster .svc-tech{ background: linear-gradient(180deg,#fff 0%,#fafafa 100%); }
+.service.silk-plaster .deflist{
+  display:grid; gap:10px; margin:0; padding:0; background:#fff; border:1px solid var(--ring);
+  border-radius:16px; padding:12px; box-shadow:var(--shadow-sm);
+}
+.service.silk-plaster .deflist > div{ display:grid; grid-template-columns: minmax(160px, 1fr) 2fr; gap:.5rem; align-items:start; }
+.service.silk-plaster .deflist dt{ font-weight:900; }
+.service.silk-plaster .deflist dd{ margin:0; color:var(--muted); }
+
+/* ==========================================================================
+   PROCESS (timeline)
+   ========================================================================== */
+.service.silk-plaster .svc-process{
+  background:
+    radial-gradient(860px 340px at 90% 0%, color-mix(in oklab,var(--gold) 10%, transparent) 0%, transparent 62%),
+    linear-gradient(180deg,#fff 0%,#fafafa 100%);
+  border-top:1px solid var(--ring); border-bottom:1px solid var(--ring);
+}
+.service.silk-plaster .steps{ list-style:none; margin:0; padding-left:0; counter-reset: step; display:grid; gap:14px; max-width:900px; margin-inline:auto; }
+.service.silk-plaster .step{
+  position:relative; background:#fff; border:1px solid var(--ring); border-radius:16px;
+  padding:14px 14px 14px 64px; box-shadow:var(--shadow-sm);
+  transition:border-color .2s ease, box-shadow .25s ease, transform .06s ease;
+}
+.service.silk-plaster .step:hover{ transform:translateY(-1px); border-color:var(--ring-strong); box-shadow:var(--shadow-md); }
+.service.silk-plaster .step::before{
+  content:attr(data-step); position:absolute; left:14px; top:14px; width:36px; height:36px; border-radius:12px;
+  display:grid; place-items:center; font-weight:900; color:#111; background:#fff;
+  border:2px solid color-mix(in oklab,var(--gold) 60%, #fff);
+  box-shadow:0 6px 16px rgba(0,0,0,.08), inset 0 -6px 12px rgba(0,0,0,.03);
+}
+.service.silk-plaster .step__title{ margin:.1rem 0 .1rem; font-weight:900; }
+.service.silk-plaster .step__text{ color:var(--muted); }
+
+/* ==========================================================================
+   PROJECTS + LIGHTBOX
+   ========================================================================== */
+.service.silk-plaster .svc-projects{ background: linear-gradient(180deg,#fff 0%,#fafafa 100%); }
+.service.silk-plaster .project{
+  margin:0; background:#fff; border:1px solid var(--ring); border-radius:16px; overflow:hidden;
+  box-shadow:var(--shadow-sm); display:grid; grid-template-rows:auto minmax(50px,auto);
+  transition:border-color .2s ease, box-shadow .2s ease, transform .06s ease;
+}
+.service.silk-plaster .project:hover{ transform:translateY(-1px); border-color:var(--ring-strong); box-shadow:var(--shadow-md); }
+.service.silk-plaster .project a{ display:block; position:relative; overflow:hidden; }
+.service.silk-plaster .project img{ width:100%; height:auto; display:block; transition:transform .5s ease; }
+.service.silk-plaster .project a:hover img{ transform:scale(1.04); }
+.service.silk-plaster .project a::after{
+  content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent,rgba(0,0,0,.18));
+  opacity:0; transition:opacity .3s ease;
+}
+.service.silk-plaster .project a:hover::after{ opacity:1; }
+.service.silk-plaster .project figcaption{ padding:10px 12px 14px; color:#374151; background:#fff; border-top:1px solid var(--ring); }
+
+/* lightbox fallback */
+.service.silk-plaster .lightbox{ width:min(96vw,1060px); border:none; padding:0; border-radius:16px; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,.35); background:#000; }
+.service.silk-plaster .lightbox::backdrop{ background:rgba(0,0,0,.5); }
+.service.silk-plaster .lightbox__img{ display:block; width:100%; height:auto; }
+.service.silk-plaster .lightbox__close{
+  position:absolute; top:8px; right:8px; width:38px; height:38px; border:none; border-radius:999px;
+  background:rgba(255,255,255,.96); color:#111; font-size:20px; line-height:1; display:grid; place-items:center; cursor:pointer;
+}
+.service.silk-plaster .lightbox__caption{ color:#f3f4f6; padding:10px 12px 14px; }
+
+/* ==========================================================================
+   FAQ (accordion)
+   ========================================================================== */
+.service.silk-plaster .svc-faq{ background: linear-gradient(180deg,#fff 0%,#fafafa 100%); }
+.service.silk-plaster .accordion{ display:grid; gap:.75rem; }
+.service.silk-plaster .accordion__item{
+  background:#fff; border:1px solid var(--ring); border-radius:16px; padding:.6rem .8rem; box-shadow:var(--shadow-sm);
+  transition:border-color .2s ease, box-shadow .2s ease, transform .06s ease;
+}
+.service.silk-plaster .accordion__item:hover{ border-color:var(--ring-strong); box-shadow:var(--shadow-md); transform: translateY(-1px); }
+.service.silk-plaster .accordion__item > summary{
+  list-style:none; cursor:pointer; font-weight:900; position:relative; padding-right:40px;
+}
+.service.silk-plaster .accordion__item > summary::-webkit-details-marker{ display:none; }
+.service.silk-plaster .accordion__item > summary::after{
+  content:""; position:absolute; right:8px; top:50%; width:12px; height:12px; transform:translateY(-50%) rotate(45deg);
+  border-right:2px solid #111; border-bottom:2px solid #111; opacity:.8; transition: transform .2s ease;
+}
+.service.silk-plaster .accordion__item[open] > summary::after{ transform: translateY(-50%) rotate(225deg); }
+.service.silk-plaster .accordion__panel{ color:var(--muted); padding-top:.45rem; border-top:1px dashed var(--ring); }
+
+/* ==========================================================================
+   RELATED (simple cards)
+   ========================================================================== */
+.service.silk-plaster .svc-related .card{
+  background:#fff; border:1px solid var(--ring); border-radius:16px; overflow:hidden; box-shadow:var(--shadow-sm);
+  transition:border-color .2s ease, box-shadow .2s ease, transform .06s ease;
+}
+.service.silk-plaster .svc-related .card:hover{ transform:translateY(-1px); border-color:var(--ring-strong); box-shadow:var(--shadow-md); }
+.service.silk-plaster .svc-related .card__media{ display:block; overflow:hidden; }
+.service.silk-plaster .svc-related .card__media img{ width:100%; height:auto; display:block; transition:transform .55s ease; }
+.service.silk-plaster .svc-related .card:hover .card__media img{ transform:scale(1.04); }
+.service.silk-plaster .svc-related .card__title{ margin:10px 12px 14px; font-size:1.02rem; }
+
+/* ==========================================================================
+   AREAS
+   ========================================================================== */
+.service.silk-plaster .svc-areas{ background: linear-gradient(180deg,#fff 0%,#fafafa 100%); border-top:1px solid var(--ring); }
+
+/* ==========================================================================
+   CTA
+   ========================================================================== */
+.service.silk-plaster .svc-cta{
+  padding: clamp(28px,6vw,56px) 0 clamp(40px,7vw,70px);
+  background:
+    radial-gradient(900px 360px at 90% 0%, color-mix(in oklab,var(--gold) 12%, transparent) 0%, transparent 60%),
+    linear-gradient(180deg,#fff 0%,#fafafa 100%);
+  border-top:1px solid var(--ring);
+}
+.service.silk-plaster .svc-cta .cta__inner{
+  display:grid; gap: clamp(12px,2.6vw,18px);
+  background: linear-gradient(180deg,#fff 0%,#f9fafb 100%);
+  border:1px solid var(--ring); border-radius:20px; padding: clamp(14px,3vw,22px); box-shadow:var(--shadow-md);
+}
+@media (min-width:900px){ .service.silk-plaster .svc-cta .cta__inner{ grid-template-columns:1fr auto; align-items:center; } }
+.service.silk-plaster .svc-cta .cta__text{ color:var(--muted); max-width:68ch; }
+
+/* ==========================================================================
+   A11y + Motion
+   ========================================================================== */
+.service.silk-plaster .feature:focus-within,
+.service.silk-plaster .project:focus-within,
+.service.silk-plaster .accordion__item:focus-within,
+.service.silk-plaster .svc-related .card:focus-within{
+  border-color: color-mix(in oklab,var(--gold) 60%, #fff);
+  box-shadow: 0 0 0 3px color-mix(in oklab,var(--gold) 20%, transparent);
+}
+@media (prefers-reduced-motion: reduce){
+  .service.silk-plaster *{ transition:none !important; animation:none !important; }
+}
+
+/* ==========================================================================
+   Print
+   ========================================================================== */
+@media print{
+  .service.silk-plaster section{ padding:18px 0 !important; }
+  .service.silk-plaster .svc-hero,.service.silk-plaster .svc-features,.service.silk-plaster .svc-process{ background:#fff !important; border:0; }
+  .service.silk-plaster .lightbox,.service.silk-plaster .lightbox::backdrop{ display:none !important; }
+}
+/* İpek Sıva — Hizmet sayfası teması (main.service.silk-plaster) */
+
+:root {
+  --svc-ipek-hue: 25; /* sıcak bej */
+  --svc-ipek-bg: hsl(var(--svc-ipek-hue) 55% 98%);
+  --svc-ipek-ink: hsl(24 14% 16%);
+  --svc-ipek-accent: hsl(var(--svc-ipek-hue) 75% 46%);
+  --svc-ipek-card: #fff;
+  --svc-radius: 14px;
+  --svc-gap: clamp(14px, 2vw, 22px);
+}
+
+main.service.silk-plaster { background: var(--svc-ipek-bg); color: var(--svc-ipek-ink); }
+
+main.service.silk-plaster .sec-title { margin-block: 18px 10px; }
+
+/* USP kutuları */
+main.service.silk-plaster .features.grid { display:grid; gap: var(--svc-gap); grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); }
+main.service.silk-plaster .feature {
+  background: var(--svc-ipek-card);
+  border-radius: var(--svc-radius);
+  padding:16px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+}
+
+/* Bitiş kartları */
+main.service.silk-plaster .grid--cards-3 { display:grid; gap: var(--svc-gap); grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); }
+main.service.silk-plaster .card--finish {
+  border:1px solid hsl(var(--svc-ipek-hue) 35% 90%);
+  border-radius: var(--svc-radius);
+  background:#fff;
+}
+main.service.silk-plaster .card__head { padding:14px 16px; border-bottom:1px solid hsl(var(--svc-ipek-hue) 35% 92%); }
+main.service.silk-plaster .card__kicker { color:hsl(25 10% 40%); }
+
+/* Proje grid + lightbox görsel kenar boşlukları */
+main.service.silk-plaster .svc-projects .grid--cards-3 { --gap: var(--svc-gap); display:grid; gap:var(--gap); grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); }
+main.service.silk-plaster .project img { border-radius: 10px; }
+
+
+/* CTA */
+main.service.silk-plaster .svc-cta .btn--primary { background: var(--svc-ipek-accent); border:none; }
+main.service.silk-plaster .svc-cta .btn--ghost { border-color: var(--svc-ipek-accent); color: var(--svc-ipek-accent); }

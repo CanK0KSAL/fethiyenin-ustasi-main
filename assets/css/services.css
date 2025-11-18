@@ -1,0 +1,185 @@
+/* FethiyeninUstası — service.css (CRITICAL / SKELETON)
+   Amaç: Sayfa iskeleti + nötr düzen kuralları (renk/tema yok).
+   Tema ve sayfa-özgü stil: /assets/css/surfaces.css, /assets/css/infra.css, /assets/css/svc-*.css
+   Not: Header'a dokunmayın. Bu dosya erken yüklenir.
+*/
+
+/* === Root tokenlar (nötr) === */
+:root{
+  --container-max: 1200px;
+  --container-pad: 16px;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --gap: clamp(12px, 2vw, 20px);
+  --gap-lg: clamp(16px, 3vw, 28px);
+  --lead-max: 70ch;
+  --shadow-1: 0 1px 3px rgba(0,0,0,.05), 0 6px 20px rgba(0,0,0,.06);
+  --border: 1px solid rgba(0,0,0,.08);
+  --muted: rgba(0,0,0,.6); /* yalnız metin tonlaması için nötr */
+  --scroll-offset: 0px;    /* runtime.js CSS değişken fallback */
+}
+
+/* === Layout yardımcıları === */
+.container{
+  width: min(var(--container-max), 100% - var(--container-pad) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.grid{ display:grid; gap: var(--gap); }
+.grid--cols-2{ grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: var(--gap-lg); }
+.grid--cards-3{ grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: var(--gap); }
+.grid--cards-4{ grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: var(--gap); }
+.grid--icon-4{ grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: var(--gap); }
+
+/* === Tipografi iskeleti (renk/tema yok) === */
+.sec-title{
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  line-height: 1.2;
+  margin-block: 20px 12px;
+}
+.hero__title{
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  line-height: 1.15;
+  margin: 0 0 10px 0;
+}
+.hero__lead{
+  max-width: var(--lead-max);
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* === Breadcrumb (yalın) === */
+.crumbs{ font-size: .875rem; margin-block: 8px 12px; }
+.crumbs ol{ display:flex; flex-wrap:wrap; gap:6px; list-style:none; padding:0; margin:0; }
+.crumbs li{ opacity:.85; }
+.crumbs li+li::before{ content:"/"; margin-inline:6px; opacity:.4; }
+
+/* === HERO kabuğu === */
+.svc-hero{ padding-block: clamp(16px, 4vw, 32px); }
+.svc-hero .hero__media picture{ display:block; border-radius: var(--radius); overflow:hidden; }
+.svc-hero .hero__media img{ display:block; width:100%; height:auto; }
+
+/* === USP kartları (nötr kutu) === */
+.features .feature{
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.02);
+}
+.feature__icon{ font-size: 22px; line-height: 1; }
+
+/* === Kart iskeleti (temasız) === */
+.card{
+  border: var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+  overflow: hidden;
+}
+.card__head{ padding: 14px 16px; border-bottom: var(--border); }
+.card__title{ font-size: 1.05rem; margin: 0; }
+.card__kicker{ margin: 4px 0 0 0; font-size: .9rem; opacity:.8; }
+.card__media img{ display:block; width:100%; height:auto; }
+
+/* === Liste yardımcıları === */
+.list{ padding-left: 18px; margin: 8px 0; }
+.list--tick{ list-style: none; padding:0; }
+.list--tick li{ position:relative; padding-left: 20px; margin: 6px 0; }
+.list--tick li::before{
+  content:"✓";
+  position:absolute; left:0; top:0; line-height:1.2; opacity:.7;
+}
+
+/* === Definition listeleri === */
+.deflist{ display:grid; grid-template-columns: 1fr; gap: 8px; }
+.deflist dt{ font-weight: 600; }
+.deflist dd{ margin: 0; color: var(--muted); }
+
+/* === Steps (HowTo) === */
+.steps{ counter-reset: s; display:grid; gap: 12px; }
+.step{
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  background: #fff;
+}
+.step__title{ margin: 0 0 4px 0; font-weight: 600; }
+.step__title::before{ counter-increment: s; content: counter(s) ". "; opacity:.7; }
+.step__text{ margin: 0; color: var(--muted); }
+
+/* === Proje grid / lightbox diyalog === */
+.svc-projects .project img{ display:block; width:100%; height:auto; border-radius: 10px; }
+dialog.lightbox{
+  width: min(92vw, 1280px);
+  max-height: 90vh;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0;
+  background: #000; /* görsel arka plan kontrastı */
+}
+dialog.lightbox::backdrop{ background: rgba(0,0,0,.6); }
+.lightbox__img{ display:block; width: 100%; height: auto; }
+.lightbox__caption{ margin: 8px 12px 12px; font-size: .95rem; color: #fff; opacity:.85; }
+.lightbox__close{
+  position:absolute; top:8px; right:8px;
+  border:0; background: rgba(255,255,255,.9);
+  border-radius: 999px; width:32px; height:32px; cursor:pointer;
+}
+
+/* === Accordion (native <details>) === */
+.accordion__item{ border: var(--border); border-radius: var(--radius-sm); background:#fff; }
+.accordion__item + .accordion__item{ margin-top: 8px; }
+.accordion__item > summary{
+  padding: 12px 14px;
+  cursor: pointer;
+  list-style: none;
+}
+.accordion__item[open] > summary{ border-bottom: var(--border); }
+.accordion__panel{ padding: 12px 14px; color: var(--muted); }
+.accordion__item > summary::-webkit-details-marker{ display:none; }
+
+/* === Chips / Tags === */
+.chips{ display:flex; flex-wrap:wrap; gap:10px; padding:0; margin:0; list-style:none; }
+.chip{
+  display:inline-block;
+  padding:8px 12px;
+  border-radius: 999px;
+  border: var(--border);
+  background: #fff;
+  text-decoration: none;
+}
+
+/* === CTA temel düzeni === */
+.svc-cta .cta__inner{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap: var(--gap); }
+.svc-cta .cta__content{ flex:1 1 320px; }
+.svc-cta .cta__actions{ display:flex; gap:10px; }
+
+/* === Buton iskeleti (renksiz) === */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  height: 44px; padding: 0 16px; border-radius: 10px;
+  border: var(--border);
+  background: #fff; color: inherit; text-decoration:none; cursor:pointer;
+}
+
+.btn--ghost{ background: transparent; }
+
+/* === Misc === */
+.muted{ color: var(--muted); }
+.note{
+  background:#fff; border-left: 4px solid rgba(0,0,0,.12);
+  padding: 12px 16px; border-radius: 8px;
+}
+
+/* === Erişilebilirlik / yardımcı === */
+.visually-hidden{
+  position:absolute !important; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+
+/* === Daha geniş ekranlarda küçük yükseltmeler === */
+@media (min-width: 1024px){
+  .sec-title{ font-size: clamp(1.375rem, 2.2vw, 1.9rem); }
+  .svc-hero{ padding-block: clamp(20px, 5vw, 40px); }
+}

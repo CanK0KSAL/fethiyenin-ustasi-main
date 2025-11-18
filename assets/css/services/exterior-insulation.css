@@ -1,0 +1,513 @@
+/* ======================================================================
+   SVC — EXTERIOR / FAÇADE INSULATION (page-scope)
+   Scope: main.service.exterior.facade-insulation
+   Relies on tokens + skeleton: base.css, layout.css, services.css
+   ====================================================================== */
+
+.service.exterior.facade-insulation{
+  /* Sayfa-özel tonlar (brand’dan türev) */
+  --svc-gold: var(--brand-gold, #D4AF37);
+  --svc-surface: #ffffff;
+  --svc-bg: #fafafa;
+  --svc-ink: #111827;
+  --svc-muted: #4B5563;
+  --svc-ring: var(--ring, rgba(0,0,0,.08));
+  --svc-ring-strong: var(--ring-strong, rgba(0,0,0,.12));
+    margin-top: 3%;
+  /* Anchor offset: sticky header + TOC */
+  --anchor-offset: 96px;
+}
+
+/* ------------------------------------------------------
+   Global page breathing + anchor scroll correction
+   ------------------------------------------------------ */
+.service.exterior.facade-insulation :where(section[id]){
+  scroll-margin-top: var(--anchor-offset);
+}
+
+.service.exterior.facade-insulation .sec{
+  position: relative;
+  padding-block: clamp(32px, 5.8vw, 68px);
+  background: linear-gradient(180deg, #fff 0%, #fafafa 100%);
+}
+
+.service.exterior.facade-insulation .sec-title{
+  display:inline-block;
+  margin: 0 0 .85rem;
+  font-weight: 900;
+  letter-spacing:-.012em;
+  position: relative;
+}
+.service.exterior.facade-insulation .sec-title::after{
+  content:"";
+  display:block; width:110px; height:4px; margin-top:.6rem;
+  border-radius:999px;
+  background: linear-gradient(90deg, var(--svc-gold), color-mix(in oklab, var(--svc-gold) 25%, #fff));
+}
+
+/* ======================================================
+   HERO — görsel güçlü, kopya net
+   ====================================================== */
+.service.exterior.facade-insulation .svc-hero{
+  padding-block: clamp(22px, 4.5vw, 40px);
+  background:
+    radial-gradient(1000px 360px at 12% 0%,
+      color-mix(in oklab, var(--svc-gold) 12%, transparent) 0%,
+      transparent 55%),
+    linear-gradient(180deg, #fff 0%, #fafafa 100%);
+}
+.service.exterior.facade-insulation .svc-hero .hero__title{
+  font-weight: 900; letter-spacing:-.012em;
+}
+.service.exterior.facade-insulation .svc-hero .hero__lead{
+  color: var(--svc-muted); max-width: 72ch;
+}
+.service.exterior.facade-insulation .svc-hero .hero__media picture{
+  display:block; border-radius: 18px; overflow:hidden;
+  box-shadow: var(--shadow-lg, 0 8px 24px rgba(0,0,0,.12));
+}
+.service.exterior.facade-insulation .svc-hero .hero__media img{
+  display:block; width:100%; height:auto;
+}
+
+/* ======================================================
+   TOC (Hızlı Menü) — sticky chip bar
+   ====================================================== */
+
+.service.exterior.facade-insulation .toc .chips{
+  gap: .45rem;
+}
+.service.exterior.facade-insulation .toc .chip{
+  background:#fff;
+  border:1px solid var(--svc-ring);
+  font-weight:800; font-size:.92rem;
+  padding:.46rem .8rem;
+  transition: background .2s ease, border-color .2s ease, box-shadow .2s ease, color .2s ease;
+}
+.service.exterior.facade-insulation .toc .chip:hover{
+  background:#f9fafb; border-color: var(--svc-ring-strong);
+  box-shadow: var(--shadow-sm);
+}
+.service.exterior.facade-insulation .toc .chip[aria-current="true"]{
+  background: var(--svc-gold);
+  color:#fff; border-color: var(--svc-gold);
+  box-shadow: inset 0 0 0 2px #fff, var(--shadow-sm);
+}
+
+/* ======================================================
+   USP — icon’lu özellik kartları
+   ====================================================== */
+.service.exterior.facade-insulation .features{
+  --gap: clamp(12px, 2vw, 18px);
+  display:grid; gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+}
+.service.exterior.facade-insulation .feature{
+  background:#fff;
+  border:1px solid var(--svc-ring);
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow-sm);
+  transition: transform .08s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.service.exterior.facade-insulation .feature:hover{
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--svc-ring-strong);
+}
+.service.exterior.facade-insulation .feature__icon{
+  width:36px; height:36px; border-radius:999px;
+  display:grid; place-items:center; font-size:18px; line-height:1;
+  color: var(--svc-gold);
+  background: color-mix(in oklab, var(--svc-gold) 16%, #fff);
+  border:1px solid color-mix(in oklab, var(--svc-gold) 35%, #fff);
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.65);
+  margin-bottom:.4rem;
+}
+.service.exterior.facade-insulation .feature h3{ margin:.25rem 0 .35rem; font-weight:900; letter-spacing:-.005em; }
+.service.exterior.facade-insulation .feature p{ color:#3f3f46; margin:0; }
+
+/* ======================================================
+   SİSTEMLER — 4 kart, başlık + kicker + tik listesi
+   Skeleton: .card, .list--tick (services.css)
+   ====================================================== */
+.service.exterior.facade-insulation #systems .card{
+  background:#fff;
+  border:1px solid var(--svc-ring); border-radius: 16px; overflow:hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform .08s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.service.exterior.facade-insulation #systems .card:hover{
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--svc-ring-strong);
+}
+.service.exterior.facade-insulation #systems .card__head{
+  display:flex; align-items:flex-start; justify-content:space-between; gap:.6rem;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--svc-ring);
+  background: linear-gradient(180deg, #fff, #fafafa);
+}
+.service.exterior.facade-insulation #systems .card__title{
+  margin:0; font-weight:900; letter-spacing:-.01em; font-size:1.06rem;
+}
+.service.exterior.facade-insulation #systems .card__title a{
+  text-decoration:none; color:inherit;
+}
+.service.exterior.facade-insulation #systems .card__title a:hover{
+  color:#0f172a;
+}
+.service.exterior.facade-insulation #systems .card__kicker{
+  margin:.2rem 0 0; font-size:.82rem; font-weight:800; color: var(--svc-gold);
+  background: color-mix(in oklab, var(--svc-gold) 20%, #fff);
+  border:1px solid color-mix(in oklab, var(--svc-gold) 30%, #fff);
+  border-radius:999px; padding:.12rem .5rem;
+}
+.service.exterior.facade-insulation #systems .list--tick{ padding:10px 14px 14px; }
+.service.exterior.facade-insulation #systems .list--tick li{
+  position:relative; padding-left: 22px; margin: 8px 0; color:#374151; line-height:1.55;
+}
+.service.exterior.facade-insulation #systems .list--tick li::before{
+  content:""; position:absolute; left:2px; top:.45em; width:12px; height:12px; border-radius:3px;
+  background:
+    linear-gradient(180deg, var(--svc-gold), color-mix(in oklab, var(--svc-gold) 30%, #b8892d));
+  -webkit-mask:
+    radial-gradient(6px 6px at 50% 50%, #000 98%, transparent) padding-box,
+    linear-gradient(#000,#000) border-box;
+  box-shadow: 0 0 0 2px rgba(212,175,55,.18);
+  /* ✓ işareti */
+  mask: none;
+}
+.service.exterior.facade-insulation #systems .list--tick li{
+  /* ✓ karakteri yerine kutu + altın geçiş; metin temiz akışta */
+}
+
+/* ======================================================
+   KATMAN & DETAYLAR — sıralı/işaretli listeler
+   ====================================================== */
+
+/* UL.list — altın noktalı, tek akışta (line-break sorunsuz) */
+.service.exterior.facade-insulation article ul.list{
+  list-style:none; padding:0; margin:.35rem 0 .2rem;
+  display:grid; gap:.45rem;
+}
+.service.exterior.facade-insulation article ul.list > li{
+  display:flex; gap:.6rem; align-items:flex-start;
+  color:#374151; line-height:1.6;
+}
+.service.exterior.facade-insulation article ul.list > li::before{
+  content:""; flex:0 0 10px; height:10px; margin-top:.55em; border-radius:999px;
+  background:
+    radial-gradient(100% 100% at 30% 30%, #fff, #fff 40%, transparent 41%) padding-box,
+    linear-gradient(180deg, var(--svc-gold), color-mix(in oklab, var(--svc-gold) 30%, #b8892d)) border-box;
+  border: 1px solid color-mix(in oklab, var(--svc-gold) 50%, #b8892d);
+  box-shadow: 0 0 0 2px rgba(212,175,55,.10);
+}
+
+/* OL.list — numerik adımlar (counter) */
+.service.exterior.facade-insulation article ol.list{
+  counter-reset: li; list-style:none; padding:0; margin:.35rem 0 .2rem;
+  display:grid; gap:.5rem;
+}
+.service.exterior.facade-insulation article ol.list > li{
+  counter-increment: li;
+  display:grid; grid-template-columns: 28px 1fr; align-items:start; gap:.6rem;
+  line-height:1.6; color:#374151;
+}
+.service.exterior.facade-insulation article ol.list > li::before{
+  content: counter(li);
+  display:grid; place-items:center;
+  width:28px; height:28px; border-radius:999px; margin-top:.15rem;
+  font-weight:900; font-size:.9rem; color:#111827;
+  background: linear-gradient(180deg, #fff, #f3f4f6);
+  border: 1px solid var(--svc-ring);
+  box-shadow: 0 1px 2px rgba(0,0,0,.06);
+}
+
+/* H3 içi bölüm çizgileri */
+.service.exterior.facade-insulation article h3{
+  font-weight:900; letter-spacing:-.005em; margin:.35rem 0 .4rem; position:relative; padding-left:12px;
+}
+.service.exterior.facade-insulation article h3::before{
+  content:""; position:absolute; left:0; top:.25em; bottom:.25em; width:4px; border-radius:6px;
+  background: linear-gradient(180deg, var(--svc-gold), color-mix(in oklab, var(--svc-gold) 30%, #fff));
+  opacity:.95;
+}
+
+/* ======================================================
+   HAVA & UYGULAMA — iki sütun minik kart düzeni
+   ====================================================== */
+.service.exterior.facade-insulation #weather .grid--cols-2 > article{
+  background:#fff; border:1px solid var(--svc-ring); border-radius:14px;
+  padding: 14px 16px; box-shadow: var(--shadow-sm);
+  transition: box-shadow .2s ease, transform .08s ease, border-color .2s ease;
+}
+.service.exterior.facade-insulation #weather .grid--cols-2 > article:hover{
+  transform: translateY(-1px);
+  border-color: var(--svc-ring-strong);
+  box-shadow: var(--shadow-md);
+}
+
+/* ======================================================
+   SÜREÇ — HowTo adımlarını rozetli göster
+   ====================================================== */
+.service.exterior.facade-insulation .steps{
+  display:grid; gap:12px;
+}
+.service.exterior.facade-insulation .step{
+  display:grid; grid-template-columns: 40px 1fr; align-items:start; gap:.8rem;
+  background:#fff; border:1px solid var(--svc-ring); border-radius:16px; padding: 12px 14px;
+  box-shadow: var(--shadow-sm);
+}
+.service.exterior.facade-insulation .step::before{
+  content: attr(data-step);
+  display:grid; place-items:center;
+  width:40px; height:40px; border-radius:999px; font-weight:900; color:#111827;
+  background: color-mix(in oklab, var(--svc-gold) 16%, #fff);
+  border:1px solid color-mix(in oklab, var(--svc-gold) 32%, #fff);
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.8), 0 1px 2px rgba(0,0,0,.06);
+  margin-top:.2rem;
+}
+.service.exterior.facade-insulation .step__title{
+  margin:0 0 .2rem; font-weight:900; letter-spacing:-.005em;
+}
+.service.exterior.facade-insulation .step__text{
+  color:#3f3f46; margin:0;
+}
+
+/* ======================================================
+   PROJELER — hover overlay + caption
+   ====================================================== */
+.service.exterior.facade-insulation .svc-projects .grid--cards-3{
+  align-items:stretch;
+}
+.service.exterior.facade-insulation figure.project{
+  position:relative; border-radius:14px; overflow:hidden;
+  margin:0; background:#f3f4f6; box-shadow: var(--shadow-sm);
+  border:1px solid var(--svc-ring);
+  transition: transform .08s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.service.exterior.facade-insulation figure.project:hover{
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--svc-ring-strong);
+}
+.service.exterior.facade-insulation figure.project img{
+  width:100%; height:auto; display:block; object-fit:cover;
+}
+.service.exterior.facade-insulation figure.project a::after{
+  content:""; position:absolute; inset:0;
+  background: linear-gradient(to top, rgba(0,0,0,.35), rgba(0,0,0,0) 65%);
+  opacity:0; transition: opacity .2s ease; pointer-events:none;
+}
+.service.exterior.facade-insulation figure.project:hover a::after{ opacity:1; }
+.service.exterior.facade-insulation figure.project figcaption{
+  position:absolute; left:10px; bottom:10px; margin:0;
+  color:#fff; font-weight:800; letter-spacing:-.01em;
+  text-shadow: 0 1px 2px rgba(0,0,0,.45);
+}
+
+/* Lightbox butonu */
+.service.exterior.facade-insulation .lightbox__close{
+  width:38px; height:38px; border-radius:999px;
+}
+
+/* ======================================================
+   PRICING — liste + not kutusu
+   ====================================================== */
+.service.exterior.facade-insulation #pricing .grid--cols-2{
+  align-items:start;
+}
+.service.exterior.facade-insulation #pricing .list{
+  margin:0;
+}
+.service.exterior.facade-insulation #pricing .note{
+  background:#fff;
+  border:1px solid var(--svc-ring);
+  border-left:4px solid var(--svc-gold);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+}
+.service.exterior.facade-insulation #pricing .note .muted{
+  color:#374151;
+}
+
+/* ======================================================
+   FAQ — details/summary geliştirme
+   ====================================================== */
+.service.exterior.facade-insulation #faq .accordion{
+  display:grid; gap:.7rem;
+}
+.service.exterior.facade-insulation #faq .accordion__item{
+  background:#fff; border:1px solid var(--svc-ring);
+  border-radius: 14px; box-shadow: var(--shadow-sm);
+  overflow:hidden;
+  transition: box-shadow .2s ease, border-color .2s ease;
+}
+.service.exterior.facade-insulation #faq .accordion__item[open]{
+  box-shadow: var(--shadow-md);
+  border-color: var(--svc-ring-strong);
+}
+.service.exterior.facade-insulation #faq .accordion__item > summary{
+  list-style:none; cursor:pointer; font-weight:900; letter-spacing:-.005em;
+  padding: 12px 14px 12px 40px; position:relative;
+}
+.service.exterior.facade-insulation #faq .accordion__item > summary::-webkit-details-marker{ display:none; }
+.service.exterior.facade-insulation #faq .accordion__item > summary::before{
+  content:""; position:absolute; left:12px; top:50%; transform: translateY(-50%);
+  width:16px; height:16px; border-radius:4px;
+  background: linear-gradient(180deg, var(--svc-gold), color-mix(in oklab, var(--svc-gold) 30%, #b8892d));
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.7);
+}
+.service.exterior.facade-insulation #faq .accordion__item > summary::after{
+  content:""; position:absolute; right:12px; top:50%; width:10px; height:10px;
+  border-right:2px solid #111; border-bottom:2px solid #111; transform: translateY(-50%) rotate(45deg); opacity:.7;
+  transition: transform .2s ease;
+}
+.service.exterior.facade-insulation #faq .accordion__item[open] > summary::after{
+  transform: translateY(-50%) rotate(225deg);
+}
+.service.exterior.facade-insulation #faq .accordion__panel{
+  padding: 12px 14px; color:#3f3f46; background: linear-gradient(180deg, #fff, #fafafa);
+}
+
+/* ======================================================
+   RELATED / AREAS — chip’ler
+   ====================================================== */
+.service.exterior.facade-insulation :where(#related, #areas) .chip{
+  background:#fff; border:1px solid var(--svc-ring); font-weight:800;
+}
+.service.exterior.facade-insulation :where(#related, #areas) .chip:hover{
+  background:#f9fafb; border-color: var(--svc-ring-strong);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ======================================================
+   CTA — altın parıltılı slab
+   ====================================================== */
+.service.exterior.facade-insulation .svc-cta{
+  background:
+    radial-gradient(1200px 420px at 10% -10%,
+      color-mix(in oklab, var(--svc-gold) 14%, transparent) 0%, transparent 65%),
+    linear-gradient(180deg, #fff, #fafafa);
+  border-top:1px solid var(--svc-ring);
+}
+.service.exterior.facade-insulation .svc-cta .cta__inner{
+  background:#fff; border:1px solid var(--svc-ring);
+  border-radius:18px; padding: clamp(14px, 2.2vw, 18px);
+  box-shadow: var(--shadow-md);
+}
+.service.exterior.facade-insulation .svc-cta .sec-title{ margin-bottom:.35rem; }
+.service.exterior.facade-insulation .svc-cta .muted{ color:#374151; }
+.service.exterior.facade-insulation .svc-cta .btn--primary{
+  background: var(--svc-gold); border-color: var(--svc-gold); color:#fff;
+}
+.service.exterior.facade-insulation .svc-cta .btn--ghost{
+  background:#fff; border-color: var(--svc-ring); color:#111827;
+}
+.service.exterior.facade-insulation .svc-cta .btn--ghost:hover{
+  background:#f9fafb;
+}
+
+/* ======================================================
+   A11y / Focus ring tutarlılığı (sayfa içi)
+   ====================================================== */
+.service.exterior.facade-insulation :where(a, button):focus-visible{
+  outline:3px solid color-mix(in oklab, var(--svc-gold) 35%, #fff);
+  outline-offset:2px; border-radius:12px;
+}
+
+/* ======================================================
+   Motion reduce — animasyonları yumuşat/kap
+   ====================================================== */
+@media (prefers-reduced-motion: reduce){
+  .service.exterior.facade-insulation *{
+    transition:none !important;
+    animation:none !important;
+  }
+}
+
+/* ======================================================
+   Küçük iyileştirmeler (mobil)
+   ====================================================== */
+@media (max-width:420px){
+  .service.exterior.facade-insulation .toc .chips{ gap:.4rem; }
+  .service.exterior.facade-insulation .toc .chip{ padding:.42rem .7rem; font-size:.9rem; }
+  .service.exterior.facade-insulation figure.project figcaption{ left:8px; bottom:8px; font-size:.92rem; }
+  .service.exterior.facade-insulation article ol.list > li{
+    grid-template-columns: 26px 1fr;
+  }
+}
+
+/* ======================================================
+   PRINT (özet: görsel sil, metni oku)
+   ====================================================== */
+@media print{
+  .service.exterior.facade-insulation .svc-hero .hero__media,
+  .service.exterior.facade-insulation .toc,
+  .service.exterior.facade-insulation .svc-projects,
+  .service.exterior.facade-insulation .svc-cta{ display:none !important; }
+  .service.exterior.facade-insulation .sec{ padding-block: 16px; background:#fff; }
+  .service.exterior.facade-insulation .sec-title::after{ display:none; }
+}
+/* ============================
+   SVC/Process — Marker Nuke
+   ============================ */
+
+/* 1) Varsayılan numaralandırmayı her ihtimale karşı tamamen kapat */
+main.service.exterior.facade-insulation #process ol.steps,
+main.service.exterior.facade-insulation #process .steps{
+  list-style: none !important;
+  list-style-type: none !important;
+  list-style-position: outside !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+main.service.exterior.facade-insulation #process .steps > li,
+main.service.exterior.facade-insulation #process ol.steps > li{
+  list-style: none !important;
+}
+main.service.exterior.facade-insulation #process .steps > li::marker{
+  content: "" !important;        /* bazı tarayıcılarda güvence */
+  font-size: 0 !important;
+}
+
+/* 2) Başlık/numara önekleri başka bir yerde üretiliyorsa (counter vs.) hepsini sustur */
+main.service.exterior.facade-insulation #process .step__title::before,
+main.service.exterior.facade-insulation #process .step__title::after{
+  content: none !important;
+  counter-increment: none !important;
+}
+main.service.exterior.facade-insulation #process .step{
+  counter-increment: none !important;
+}
+
+/* 3) Düzeni kilitle: solda sadece rozet, sağda tüm içerik */
+main.service.exterior.facade-insulation #process .step{
+  display: grid !important;
+  grid-template-columns: 40px 1fr !important;
+  align-items: start !important;
+  gap: .8rem !important;
+}
+main.service.exterior.facade-insulation #process .step::before{
+  grid-column: 1 !important;
+  grid-row: 1 / -1 !important;
+  content: attr(data-step) !important;   /* sadece altın rozet çalışsın */
+}
+main.service.exterior.facade-insulation #process .step > *{
+  grid-column: 2 !important;
+}
+
+/* 4) Metin akışını düzelt (satır kesilmeleri, daralma vs.) */
+main.service.exterior.facade-insulation #process .step__text{
+  margin: 0 !important;
+  line-height: 1.6 !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+  text-wrap: pretty;
+}
+
+/* (İsteğe bağlı) Rozeti de tamamen gizlemek istersen:
+main.service.exterior.facade-insulation #process .step::before{ display:none !important; }
+main.service.exterior.facade-insulation #process .step{ grid-template-columns: 1fr !important; }
+*/

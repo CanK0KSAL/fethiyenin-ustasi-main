@@ -1,0 +1,132 @@
+# ============================================================
+# FethiyeninUstası.com.tr — Advanced SEO Robots.txt
+# Multi-language support (TR/EN/RU)
+# Last updated: 2025-01-25
+# Updated: 2025-01-25 — RU pages now enabled for all search engines
+# ============================================================
+
+# ===== GOOGLE BOT (Primary Search Engine) =====
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Googlebot-Mobile
+Allow: /
+Allow: /hizmetler/
+Allow: /en/
+Allow: /en/services/
+Allow: /en/blog/
+Allow: /en/areas/
+Allow: /ru/
+Allow: /ru/услуги/
+Allow: /ru/blog/
+Allow: /ru/регионы/
+Allow: /blog/
+Allow: /bolgeler/
+Allow: /assets/media/
+Disallow: /assets/css/
+Disallow: /assets/js/
+Disallow: /docs/
+Disallow: /tools/
+Disallow: /*.php$
+Disallow: /*.json$
+Disallow: /*?*
+Crawl-delay: 0
+
+# ===== BING BOT =====
+User-agent: Bingbot
+User-agent: msnbot
+Allow: /
+Allow: /hizmetler/
+Allow: /en/
+Allow: /en/services/
+Allow: /en/blog/
+Allow: /en/areas/
+Allow: /ru/
+Allow: /ru/услуги/
+Allow: /ru/blog/
+Allow: /ru/регионы/
+Allow: /blog/
+Allow: /bolgeler/
+Allow: /assets/media/
+Disallow: /assets/css/
+Disallow: /assets/js/
+Disallow: /docs/
+Disallow: /tools/
+Disallow: /*.php$
+Disallow: /*.json$
+Disallow: /*?*
+Crawl-delay: 0
+
+# ===== YANDEX BOT (Rusça içerik için) =====
+User-agent: Yandex
+User-agent: YandexBot
+User-agent: YandexImages
+Allow: /
+Allow: /hizmetler/
+Allow: /en/
+Allow: /en/services/
+Allow: /en/blog/
+Allow: /en/areas/
+Allow: /ru/
+Allow: /ru/услуги/
+Allow: /ru/blog/
+Allow: /ru/регионы/
+Allow: /blog/
+Allow: /bolgeler/
+Allow: /assets/media/
+Disallow: /assets/css/
+Disallow: /assets/js/
+Disallow: /docs/
+Disallow: /tools/
+Disallow: /*.php$
+Disallow: /*.json$
+Disallow: /*?*
+Crawl-delay: 1
+
+# ===== OTHER SEARCH ENGINES =====
+User-agent: *
+Allow: /
+Allow: /hizmetler/
+Allow: /en/
+Allow: /en/services/
+Allow: /en/blog/
+Allow: /en/areas/
+Allow: /ru/
+Allow: /ru/услуги/
+Allow: /ru/blog/
+Allow: /ru/регионы/
+Allow: /blog/
+Allow: /bolgeler/
+Allow: /assets/media/
+Disallow: /assets/css/
+Disallow: /assets/js/
+Disallow: /docs/
+Disallow: /tools/
+Disallow: /*.php$
+Disallow: /*.json$
+Disallow: /*?*
+Crawl-delay: 1
+
+# ===== BLOCKED USER AGENTS (Spam/Scrapers) =====
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: DotBot
+User-agent: MJ12bot
+User-agent: BLEXBot
+User-agent: Sogou
+User-agent: YisouSpider
+User-agent: Exabot
+User-agent: Baiduspider
+Disallow: /
+
+# ===== SITEMAP REFERENCES =====
+# Ana sitemap (tüm dilleri içerir)
+Sitemap: https://fethiyeninustasi.com.tr/sitemap.xml
+
+# ===== IMPORTANT NOTES =====
+# - All HTML pages are crawlable (TR, EN, RU)
+# - Media files (images) are crawlable for rich snippets
+# - CSS/JS files blocked to reduce crawl budget waste
+# - Query parameters blocked to prevent duplicate content
+# - RU pages now fully crawlable by all major search engines
+# - Forms handled by Formspree
+# - Documentation and tools directories blocked

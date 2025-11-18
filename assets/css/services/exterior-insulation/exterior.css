@@ -1,0 +1,572 @@
+/* =====================================================================
+   FETHİYE’NİN USTASI — ETICS (Mantolama) Sayfa Teması
+   Hedef: <main class="service exterior etics"> içindeki tüm bölümler
+   Not: Bu dosyayı base.css ve services.css'ten SONRA çağır.
+   ===================================================================== */
+
+/* -------------------- TOKENS / LOCAL THEME -------------------- */
+.service.exterior.etics{
+  /* Renkler (fallback’li) */
+  --gold: var(--brand-gold, #D4AF37);
+  --gold-weak: color-mix(in oklab, var(--gold) 18%, #ffffff);
+  --gold-strong: color-mix(in oklab, var(--gold) 35%, #b8892d);
+  --ink: var(--text, #111827);
+  --ink-2: var(--muted, #4b5563);
+  --ink-3: #6b7280;
+  --ring: var(--ring, #e5e7eb);
+  --ring-strong: color-mix(in oklab, var(--ring) 40%, #000);
+  --surface: #ffffff;
+  --surface-2: #fafafa;
+  --surface-3: #f3f4f6;
+  --shadow-s: var(--shadow-sm, 0 1px 3px rgba(0,0,0,.08));
+  --shadow-m: var(--shadow, 0 10px 20px rgba(0,0,0,.08));
+  --shadow-l: var(--shadow-lg, 0 18px 40px rgba(0,0,0,.12));
+  --radius: var(--radius, 14px);
+  --radius-l: var(--radius-l, 18px);
+
+  /* Ölçüler */
+  --sec-pad: clamp(36px, 6vw, 72px);
+  --gutter: clamp(14px, 2.4vw, 22px);
+
+  /* Tipografi */
+  --h-weight: 900;
+  --chip-w: 800;
+}
+
+/* -------------------- SECTION FRAME -------------------- */
+.service.exterior.etics .sec{
+  position: relative;
+  padding-block: var(--sec-pad);
+  background: linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 100%);
+  isolation: isolate;
+}
+.service.exterior.etics .sec + .sec{ margin-top: clamp(8px, 2vw, 12px); }
+
+/* hafif “altın parıltı” */
+.service.exterior.etics .sec::before{
+  content:"";
+  position:absolute; inset:0;
+  background: radial-gradient(720px 280px at 8% 0%,
+    color-mix(in oklab, var(--gold) 12%, transparent) 0%,
+    transparent 60%);
+  opacity:.35; pointer-events:none;
+}
+
+/* Başlık şeridi */
+.service.exterior.etics .sec-title{
+  display:inline-block; position:relative; font-weight:var(--h-weight);
+  letter-spacing:-.012em; margin:0 0 .9rem;
+}
+.service.exterior.etics .sec-title::after{
+  content:""; display:block; width:120px; height:4px; margin-top:.55rem;
+  border-radius:999px;
+  background: linear-gradient(90deg, var(--gold), color-mix(in oklab, var(--gold) 25%, #fff));
+  box-shadow:0 1px 0 rgba(255,255,255,.6);
+}
+
+/* Anchor’lara kayarken başlık gizlenmesin */
+.service.exterior.etics :where(section[id]){ scroll-margin-top: 96px; }
+
+/* -------------------- HERO -------------------- */
+.service.exterior.etics .svc-hero .hero__title{
+  font-weight: var(--h-weight);
+  letter-spacing:-.012em;
+}
+.service.exterior.etics .svc-hero .hero__lead{
+  color: var(--ink-2);
+  max-width: 68ch;
+}
+.service.exterior.etics .svc-hero .hero__media picture,
+.service.exterior.etics .svc-hero .hero__media img{
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-l);
+  display:block; width:100%; height:auto;
+}
+
+/* -------------------- TOC (CHIPS) -------------------- */
+.service.exterior.etics .toc{ position:relative; z-index:1; }
+.service.exterior.etics .chips{
+  display:flex; flex-wrap:wrap; gap:.6rem; padding:0; list-style:none;
+}
+.service.exterior.etics .chip{
+  display:inline-flex; align-items:center; gap:.35rem;
+  padding:.48rem .78rem; border-radius:999px;
+  background: #fff; border:1px solid var(--ring);
+  font-weight: var(--chip-w); color: var(--ink);
+  text-decoration:none; line-height:1;
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease, transform .12s ease;
+  will-change: transform;
+}
+.service.exterior.etics .chip:hover{ transform: translateY(-1px); box-shadow: var(--shadow-s); }
+.service.exterior.etics .chip:focus-visible{ outline:3px solid color-mix(in oklab, var(--gold) 35%, #fff); outline-offset:2px; }
+
+/* aktif bölüm vurgusu (hash) */
+.service.exterior.etics .chip[aria-current="true"],
+.service.exterior.etics .chip.is-active{
+  border-color: color-mix(in oklab, var(--gold) 28%, var(--ring));
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--gold) 12%, transparent);
+}
+
+/* Sticky TOC (geniş ekran) */
+@media (min-width: 1100px){
+  .service.exterior.etics .toc .container{ position:sticky; top:74px; background:transparent; }
+}
+
+/* -------------------- GRID UTILS -------------------- */
+.service.exterior.etics .grid{ display:grid; gap: var(--gutter); }
+.service.exterior.etics .grid--cols-2{ grid-template-columns: 1fr; }
+.service.exterior.etics .grid--cards-3{ grid-template-columns: 1fr; }
+@media (min-width: 768px){
+  .service.exterior.etics .grid--cols-2{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (min-width: 980px){
+  .service.exterior.etics .grid--cards-3{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+
+/* -------------------- USP (features) -------------------- */
+.service.exterior.etics .features{
+  display:grid; gap: var(--gutter);
+  grid-template-columns: repeat(2, minmax(0,1fr));
+}
+@media (min-width: 980px){
+  .service.exterior.etics .features{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+.service.exterior.etics .feature{
+  background: var(--surface);
+  border:1px solid var(--ring);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-s);
+  padding: 14px 16px;
+  display:grid; grid-template-columns: 36px 1fr; align-items:start; gap:.8rem;
+  transition: transform .12s ease, box-shadow .25s ease, border-color .2s ease, background .2s ease;
+}
+.service.exterior.etics .feature:hover{
+  transform: translateY(-1px);
+  border-color: color-mix(in oklab, var(--gold) 14%, var(--ring));
+  box-shadow: var(--shadow-m);
+}
+.service.exterior.etics .feature__icon{
+  width:36px; height:36px; display:grid; place-items:center;
+  border-radius: 10px;
+  background: linear-gradient(180deg,#fff,#f8f8f8);
+  border:1px solid var(--ring);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.6);
+  font-size: 20px;
+}
+.service.exterior.etics .feature h3{ margin:.1rem 0 .25rem; font-weight: var(--h-weight); }
+.service.exterior.etics .feature p{ color: var(--ink-2); margin:0; }
+
+/* -------------------- CARD (Levha Seçimi) -------------------- */
+.service.exterior.etics #systems .card{
+  overflow:hidden; background: var(--surface);
+  border:1px solid var(--ring); border-radius: 16px; box-shadow: var(--shadow-s);
+  transition: transform .12s ease, box-shadow .25s ease, border-color .2s ease;
+}
+.service.exterior.etics #systems .card:hover{
+  transform: translateY(-2px); box-shadow: var(--shadow-l);
+  border-color: color-mix(in oklab, var(--gold) 16%, var(--ring));
+}
+.service.exterior.etics #systems .card__head{
+  display:flex; align-items:center; justify-content:space-between; gap:.6rem;
+  padding:14px 16px; border-bottom:1px solid var(--ring);
+  background: linear-gradient(180deg,#fff,#f8f8f8);
+}
+.service.exterior.etics #systems .card__title{ font-weight: var(--h-weight); letter-spacing:-.01em; }
+.service.exterior.etics #systems .card__kicker{ color: var(--ink-3); font-weight:700; }
+
+/* -------------------- LISTS -------------------- */
+/* genel liste akışı (merdiven sorunu yok) */
+.service.exterior.etics .list{ list-style:none; margin: 8px 0; padding:0; display:grid; gap:.55rem; }
+.service.exterior.etics .list > li{
+  display:flex; align-items:flex-start; gap:.6rem; line-height:1.65; color: var(--ink-2);
+  overflow-wrap:anywhere; text-wrap:pretty;
+}
+.service.exterior.etics .list > li::before{
+  content:""; flex:0 0 10px; width:10px; height:10px; margin-top:.55em; border-radius:999px;
+  background:
+    radial-gradient(100% 100% at 30% 30%, #fff, #fff 40%, transparent 41%) padding-box,
+    linear-gradient(180deg, var(--gold), color-mix(in oklab, var(--gold) 30%, #b8892d)) border-box;
+  border: 1px solid color-mix(in oklab, var(--gold) 50%, #b8892d);
+  box-shadow: 0 0 0 2px rgba(212,175,55,.10);
+}
+.service.exterior.etics .list li strong{
+  font-weight: var(--h-weight); color: var(--ink); letter-spacing:-.005em;
+  margin-right:.25rem; white-space:nowrap;
+}
+
+/* tik’li liste */
+.service.exterior.etics .list--tick > li::before{
+  content:"✓"; width:auto; height:auto; margin-top:.12rem;
+  font-weight:900; color: var(--gold);
+  border:none; box-shadow:none; background:none;
+}
+
+/* numaralı (ol.list) — sayaçlı */
+.service.exterior.etics ol.list{ counter-reset:item; }
+.service.exterior.etics ol.list > li{
+  counter-increment:item;
+  position:relative; padding-left: .25rem;
+}
+.service.exterior.etics ol.list > li::before{
+  content: counter(item) ".";
+  flex: 0 0 auto; width:auto; height:auto; margin-top:0;
+  color: var(--gold-strong); font-weight:900;
+  border:none; box-shadow:none; background:none;
+}
+
+/* -------------------- Katmanlar & Detay Kartları -------------------- */
+.service.exterior.etics #layers article,
+.service.exterior.etics #performance article,
+.service.exterior.etics #weather article{
+  background: var(--surface); border:1px solid var(--ring);
+  border-radius: 16px; padding: 14px 16px; box-shadow: var(--shadow-s);
+  transition: box-shadow .25s ease, border-color .2s ease, transform .12s ease;
+}
+.service.exterior.etics #layers article:hover,
+.service.exterior.etics #performance article:hover,
+.service.exterior.etics #weather article:hover{
+  transform: translateY(-1px);
+  border-color: color-mix(in oklab, var(--gold) 12%, var(--ring));
+  box-shadow: var(--shadow-m);
+}
+
+/* altın şeritli h3 */
+.service.exterior.etics #layers h3,
+.service.exterior.etics #performance h3,
+.service.exterior.etics #weather h3{
+  position:relative; font-weight: var(--h-weight);
+  padding-left:12px; margin:.2rem 0 .6rem; letter-spacing:-.005em;
+}
+.service.exterior.etics #layers h3::before,
+.service.exterior.etics #performance h3::before,
+.service.exterior.etics #weather h3::before{
+  content:""; position:absolute; left:0; top:.28em; bottom:.28em; width:4px; border-radius:6px;
+  background: linear-gradient(180deg, var(--gold), color-mix(in oklab, var(--gold) 30%, #fff));
+}
+
+/* küçük yatay ayraç */
+.service.exterior.etics #layers :is(.list + h3, p + h3){
+  margin-top: clamp(12px, 2vw, 18px);
+  padding-top: clamp(10px, 1.6vw, 14px);
+  border-top: 1px dashed color-mix(in oklab, var(--gold) 22%, var(--ring));
+}
+.service.exterior.etics #layers .muted{ color: var(--ink-3); }
+
+/* -------------------- HOWTO Steps -------------------- */
+.service.exterior.etics .steps{ counter-reset: step; display:grid; gap:var(--gutter); }
+.service.exterior.etics .step{
+  counter-increment: step;
+  position:relative;
+  background: var(--surface); border:1px solid var(--ring);
+  border-radius: 16px; padding: 16px 16px 16px 60px;
+  box-shadow: var(--shadow-s);
+  transition: transform .12s ease, box-shadow .25s ease, border-color .2s ease;
+}
+.service.exterior.etics .step:hover{
+  transform: translateY(-1px); box-shadow: var(--shadow-m);
+  border-color: color-mix(in oklab, var(--gold) 14%, var(--ring));
+}
+.service.exterior.etics .step::before{
+  content: counter(step);
+  position:absolute; left:16px; top:50%; transform: translateY(-50%);
+  width:36px; height:36px; border-radius:999px; display:grid; place-items:center;
+  background: var(--gold); color:#fff; font-weight:900; box-shadow: 0 2px 10px rgba(0,0,0,.12);
+}
+.service.exterior.etics .step__title{ font-weight: var(--h-weight); margin:0 0 .2rem; }
+.service.exterior.etics .step__text{ color: var(--ink-2); margin:0; }
+
+/* -------------------- GALERİ -------------------- */
+.service.exterior.etics .svc-projects .grid--cards-3 figure.project{
+  background: var(--surface); border:1px solid var(--ring); border-radius: 16px;
+  box-shadow: var(--shadow-s); overflow:hidden; transition:transform .12s ease, box-shadow .25s ease, border-color .2s ease;
+  margin:0;
+}
+.service.exterior.etics .svc-projects .project:hover{
+  transform: translateY(-2px); box-shadow: var(--shadow-l);
+  border-color: color-mix(in oklab, var(--gold) 16%, var(--ring));
+}
+.service.exterior.etics .svc-projects img{ display:block; width:100%; height:auto; aspect-ratio: 16/9; object-fit: cover; }
+.service.exterior.etics .svc-projects figcaption{
+  text-align:center; font-size:.95rem; color: var(--ink-3);
+  padding:10px 10px 12px; background: linear-gradient(180deg,#fff,#fafafa);
+}
+
+/* Lightbox <dialog> */
+.service.exterior.etics dialog.lightbox{
+  border:none; padding:0; border-radius: 16px; background: transparent;
+}
+.service.exterior.etics dialog.lightbox::backdrop{ background: rgba(15,15,18,.6); backdrop-filter: blur(2px); }
+.service.exterior.etics .lightbox__img{
+  display:block; max-width:min(92vw, 1280px); width:100%; height:auto; border-radius:16px; box-shadow: var(--shadow-l);
+  background: #000;
+}
+.service.exterior.etics .lightbox__caption{
+  text-align:center; color:#e5e7eb; margin-top:8px;
+}
+.service.exterior.etics .lightbox__close{
+  position:absolute; top:-14px; right:-14px; width:36px; height:36px;
+  border-radius:999px; border:1px solid rgba(255,255,255,.3);
+  background: rgba(0,0,0,.45); color:#fff; font-weight:900;
+  display:grid; place-items:center; cursor:pointer;
+}
+
+/* -------------------- PRICING / NOTE -------------------- */
+.service.exterior.etics #pricing .grid{ align-items:start; }
+.service.exterior.etics #pricing .note{
+  padding:14px 16px;
+  background: linear-gradient(180deg,#fff,#f9fafb);
+  border:1px solid var(--ring);
+  border-left: 6px solid color-mix(in oklab, var(--gold) 35%, rgba(0,0,0,.12));
+  border-radius: 12px;
+  box-shadow: var(--shadow-s);
+}
+.service.exterior.etics #pricing .note .muted{ color: var(--ink-2); }
+
+/* -------------------- FAQ (details/summary) -------------------- */
+.service.exterior.etics .accordion{ display:grid; gap: 10px; }
+.service.exterior.etics .accordion__item{
+  border:1px solid var(--ring); border-radius: 14px; background:#fff; overflow:hidden;
+  box-shadow: var(--shadow-s);
+}
+.service.exterior.etics .accordion__item summary{
+  list-style:none; cursor:pointer; user-select:none;
+  padding: 12px 14px; position:relative; font-weight:800;
+}
+.service.exterior.etics .accordion__item summary::-webkit-details-marker{ display:none; }
+.service.exterior.etics .accordion__item summary::after{
+  content:"+"; position:absolute; right:12px; top:50%; transform:translateY(-50%); font-weight:900; color: var(--gold-strong);
+}
+.service.exterior.etics .accordion__item[open] summary::after{ content:"–"; }
+.service.exterior.etics .accordion__panel{ padding: 0 14px 14px; color: var(--ink-2); }
+
+/* -------------------- CTA -------------------- */
+.service.exterior.etics .svc-cta .cta__inner{
+  background: linear-gradient(180deg, var(--surface), var(--surface-2));
+  border:1px solid var(--ring); border-radius: 18px; box-shadow: var(--shadow-l);
+  padding: clamp(14px, 2.6vw, 22px);
+  display:grid; gap: var(--gutter);
+  grid-template-columns: 1fr; align-items:center;
+}
+@media (min-width: 860px){
+  .service.exterior.etics .svc-cta .cta__inner{ grid-template-columns: 2fr auto; }
+}
+.service.exterior.etics .svc-cta .sec-title{ margin-bottom:.25rem; }
+.service.exterior.etics .svc-cta .muted{ color: var(--ink-2); }
+.service.exterior.etics .svc-cta .btn--primary{
+  background: var(--gold); border-color: var(--gold);
+}
+.service.exterior.etics .svc-cta .btn--ghost{
+  border-color: color-mix(in oklab, var(--gold) 30%, var(--ring));
+}
+
+/* -------------------- UTILITIES -------------------- */
+.service.exterior.etics .muted{ color: var(--ink-2); }
+.service.exterior.etics .note--warn{
+  border-left:6px solid #f59e0b; background: #fff8ec;
+}
+.service.exterior.etics .note--ok{
+  border-left:6px solid #10b981; background: #ecfff7;
+}
+
+/* -------------------- FOCUS & MOTION -------------------- */
+.service.exterior.etics :where(a, button):focus-visible{
+  outline:3px solid color-mix(in oklab, var(--gold) 35%, #fff);
+  outline-offset: 2px; border-radius: 10px;
+}
+@media (prefers-reduced-motion: reduce){
+  .service.exterior.etics *{ transition:none !important; animation:none !important; }
+}
+
+/* -------------------- DARK MODE (soft) -------------------- */
+@media (prefers-color-scheme: dark){
+  .service.exterior.etics{
+    --surface:#0f1115; --surface-2:#0c0e12; --surface-3:#141722;
+    --ink:#e9ecef; --ink-2:#c9ced6; --ink-3:#9aa3af;
+    --ring: #1f2430;
+  }
+  .service.exterior.etics .sec-title::after{ box-shadow:none; }
+  .service.exterior.etics .chip{ background: #0c0e12; }
+  .service.exterior.etics .feature__icon{ background: linear-gradient(180deg,#0f1115,#0b0d12); border-color: #1f2430; }
+  .service.exterior.etics .svc-projects figcaption{ background: linear-gradient(180deg,#0f1115,#0c0e12); color:#cbd5e1; }
+  .service.exterior.etics dialog.lightbox::backdrop{ background: rgba(0,0,0,.7); }
+  .service.exterior.etics .lightbox__caption{ color:#d1d5db; }
+}
+
+/* -------------------- PRINT (teklif çıktı almak isteyen olur) -------------------- */
+@media print{
+  .service.exterior.etics{
+    --surface:#fff; --surface-2:#fff; --ring:#d6d6d6; --ink:#111;
+  }
+  .service.exterior.etics .toc,
+  .service.exterior.etics .svc-projects dialog,
+  .service.exterior.etics .svc-cta .btn{ display:none !important; }
+  .service.exterior.etics .sec{ background:#fff !important; }
+  .service.exterior.etics .feature,
+  .service.exterior.etics #systems .card,
+  .service.exterior.etics #layers article,
+  .service.exterior.etics #performance article,
+  .service.exterior.etics #weather article,
+  .service.exterior.etics .step,
+  .service.exterior.etics .svc-projects .project{
+    box-shadow:none !important; -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+}
+
+/* -------------------- MICRO TWEAKS -------------------- */
+/* H1 altındaki boşluk biraz daha nefesli */
+.service.exterior.etics .svc-hero .container + .container{ margin-top: .8rem; }
+/* Görseller aşırı genişlemesin */
+.service.exterior.etics img{ max-width:100%; height:auto; }
+/* Çok dar ekranlarda chip yoğunluğu */
+@media (max-width: 380px){
+  .service.exterior.etics .chip{ padding:.42rem .64rem; font-size:.95rem; }
+}
+/* grid içindeki kartların eşit yükseklik davranışı */
+.service.exterior.etics :is(#systems .card, #layers article, #performance article, #weather article){ display:flex; flex-direction:column; }
+.service.exterior.etics :is(#systems .card) .list{ margin-top:.5rem; }
+
+/* -------------------- SAFETY: MERDİVEN METİN YOK -------------------- */
+.service.exterior.etics .list > li{ word-break: normal; }
+.service.exterior.etics .list > li strong{ white-space:nowrap; }
+/* ==========================================================
+   ETICS — LIGHT-LOCK PATCH (her koşulda açık tema)
+   Bunu exterior-insulation.css dosyasının EN SONUNA ekle
+   ========================================================== */
+
+/* 1) Tüm yerel değişkenleri açık palete sabitle */
+.service.exterior.etics{
+  --gold: var(--brand-gold, #D4AF37);
+  --ink: var(--text);             /* #171717 — base.css */ 
+  --ink-2: var(--muted);          /* #4B5563  */
+  --ink-3: var(--muted-2, #6B7280);
+  --bg: var(--bg);                /* #FAFAFA  */
+  --surface: var(--surface);      /* #FFFFFF  */
+  --surface-2: #FAFAFA;
+  --surface-3: #F4F4F5;
+  --ring: var(--ring);            /* rgba(0,0,0,.08) */
+}
+
+/* 2) Bölüm zeminleri tamamen açık kalsın (koyu layer yok) */
+.service.exterior.etics .sec{
+  background: linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 100%) !important;
+}
+.service.exterior.etics .sec::before{
+  /* altın ışıma çok hafif ve şeffaf */
+  background:
+    radial-gradient(720px 280px at 10% 0%,
+      color-mix(in oklab, var(--gold) 10%, transparent) 0%,
+      transparent 60%) !important;
+  opacity:.28 !important;
+}
+
+/* 3) Metin ve kart yüzeyleri açık tonda kalsın */
+.service.exterior.etics :where(h1,h2,h3,p,li){ color: var(--ink); }
+.service.exterior.etics :where(.feature,.card,#layers article,#performance article,#weather article,.step){
+  background:#fff !important;
+  border-color: var(--ring) !important;
+  box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,0,0,.06));
+}
+.service.exterior.etics .feature p,
+.service.exterior.etics .card__kicker,
+.service.exterior.etics .muted{ color: var(--ink-2); }
+
+/* 4) Chip, buton, figcaption… hepsi beyaz tabanlı */
+.service.exterior.etics :where(.chip,.btn--ghost){ background:#fff; border-color: var(--ring); }
+.service.exterior.etics .svc-projects figcaption{
+  background: linear-gradient(180deg, #fff, #fafafa);
+  color: var(--ink-3);
+}
+
+/* 5) HERO görsel ve blokları: beyaz cam efekti */
+.service.exterior.etics .svc-hero .hero__media picture,
+.service.exterior.etics .svc-hero .hero__media img{
+  border-radius: 18px; box-shadow: var(--shadow-lg, 0 8px 24px rgba(0,0,0,.12));
+  background:#fff;
+}
+.service.exterior.etics .svc-hero .hero__lead{ color: var(--ink-2); }
+
+/* 6) OS “dark mode” açıksa BİLE açık paleti koru */
+@media (prefers-color-scheme: dark){
+  .service.exterior.etics{
+    color-scheme: light; /* form/scrollbar için ipucu */
+    --ink:#171717; --ink-2:#4B5563; --ink-3:#6B7280;
+    --surface:#FFFFFF; --surface-2:#FAFAFA; --surface-3:#F4F4F5;
+    --ring: rgba(0,0,0,.08);
+    background: var(--bg);
+  }
+  .service.exterior.etics .chip{ background:#fff; border-color: var(--ring); }
+  .service.exterior.etics .svc-projects figcaption{
+    background: linear-gradient(180deg, #fff, #fafafa); color: var(--ink-3);
+  }
+}
+
+/* 7) Koyulaşmaya sebep olabilecek önceki kuralları nötralize et */
+.service.exterior.etics [class*="dark"],    /* olası .dark yardımcılarını etkisizleştir */
+.service.exterior.etics .sec.dark, 
+.service.exterior.etics .surface-dark{
+  background:#fff !important; color: var(--ink) !important;
+}
+/* ==========================================================
+   USP CARD TEXT PATCH — icon | (title + text)
+   (Yamayı exterior-insulation.css'in EN SONUNA ekle)
+   ========================================================== */
+.service.exterior.etics .features .feature{
+  display: grid;                 /* grid kullanmaya devam */
+  grid-template-columns: 40px 1fr;
+  grid-auto-flow: row;           /* satır satır doldur */
+  align-items: start;
+  gap: .8rem;
+  min-width: 0;
+}
+
+/* İkon solda ve iki satır boyu */
+.service.exterior.etics .features .feature > .feature__icon{
+  grid-column: 1;
+  grid-row: 1 / span 2;          /* title + text kadar uzat */
+  align-self: start;
+}
+
+/* Başlık ve paragraf her zaman 2. sütunda */
+.service.exterior.etics .features .feature > h3{
+  grid-column: 2 / -1;
+  margin: .1rem 0 .25rem;
+  text-wrap: balance;            /* destekleyenlerde başlık kırılımı güzel dursun */
+}
+.service.exterior.etics .features .feature > p{
+  grid-column: 2 / -1;
+  margin: 0;
+  color: var(--ink-2);
+  word-break: normal;
+  overflow-wrap: break-word;     /* aşırı uzun kelimeler taşarsa kır */
+  text-wrap: pretty;             /* (destek varsa) daha doğal satır kırımı */
+}
+
+/* ==========================================================
+   HOWTO — Varsayılan numara/işaretleri kaldır (yalnızca bu sayfada)
+   ========================================================== */
+.service.exterior.etics #process .steps{
+  list-style: none;           /* 1., 2., 3. görüntüsünü kapat */
+  padding-left: 0;            /* sol iç boşluğu sıfırla */
+  margin-left: 0;             /* tarayıcıya göre olası ekstra payı sil */
+  counter-reset: step;        /* sarı rozet için kendi sayaçımız kalsın */
+}
+.service.exterior.etics #process .steps > li{
+  list-style: none;           /* bazı tarayıcılarda ek güvence */
+}
+.service
+
+/* Modern tarayıcılar için marker’ı tamamen sustur */
+.service.exterior.etics #process .steps > li::marker{
+  content: "";
+}
+/* breadcrumbs */
+.service .crumbs ol{
+  margin:0 0 .5rem; padding:.45rem .7rem; display:flex; flex-wrap:wrap; gap:.4rem .6rem; align-items:center;
+  border-radius:12px; background:rgba(255,255,255,.75); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  border:1px solid var(--ring); box-shadow:var(--shadow-sm);
+}
+.service .crumbs li{ list-style:none; display:flex; align-items:center; gap:.6rem; color:var(--muted-2); font-weight:700; }
+.service .crumbs li+li::before{ content:"›"; color:#9CA3AF; }
+.service .crumbs a{ color:inherit; text-decoration:none; }
+.service .crumbs a:hover{ text-decoration:underline; text-underline-offset:3px; }
+

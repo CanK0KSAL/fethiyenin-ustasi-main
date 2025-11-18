@@ -1,0 +1,304 @@
+/* =======================================================================
+   AREAS — Evrensel Açık Tema (Fethiye, Çalış, Ovacık, Göcek…)
+   Kapsam: <main class="area ..."> içi
+   Not: base.css / layout.css / services.css'ten SONRA çağırın.
+   ======================================================================= */
+
+/* -------------------- Tasarım Token'ları -------------------- */
+.area{
+  /* Marka altın (fallback ile) */
+  --gold: var(--brand-gold, #D4AF37);
+  --gold-weak: color-mix(in oklab, var(--gold) 18%, #ffffff);
+  --gold-strong: color-mix(in oklab, var(--gold) 36%, #b8892d);
+
+  /* Metin */
+  --ink: var(--text, #111827);
+  --ink-2: var(--muted, #4B5563);
+  --ink-3: #6B7280;
+
+  /* Yüzeyler (açık palet) */
+  --surface: #ffffff;
+  --surface-2: #FAFAFA;
+  --ring: var(--ring, rgba(0,0,0,.08));
+
+  /* Gölge ve yarıçap */
+  --shadow-s: 0 1px 2px rgba(0,0,0,.06);
+  --shadow-m: 0 8px 20px rgba(0,0,0,.08);
+  --shadow-l: 0 18px 40px rgba(0,0,0,.12);
+  --radius: 14px; --radius-l: 18px;
+
+  /* Spacing */
+  --sec-pad: clamp(36px, 6vw, 72px);
+  --gutter: clamp(14px, 2.6vw, 24px);
+
+  background: var(--surface-2);
+  color: var(--ink);
+}
+
+/* Karanlık OS'ta bile açık palet */
+@media (prefers-color-scheme: dark){
+  .area{ color-scheme: light; background: var(--surface-2); }
+}
+
+/* -------------------- Genel Bölüm Çerçevesi -------------------- */
+.area .sec{
+  position: relative;
+  padding-block: var(--sec-pad);
+  background: linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 100%);
+  isolation: isolate;
+}
+.area .sec + .sec{ margin-top: clamp(8px,2vw,14px); }
+
+.area .sec::before{
+  /* Sol üstten çok hafif altın ışıma */
+  content:""; position:absolute; inset:0; pointer-events:none; opacity:.26;
+  background: radial-gradient(720px 260px at 8% 0%,
+     color-mix(in oklab, var(--gold) 10%, transparent) 0%, transparent 64%);
+}
+
+/* Başlık & alt çizgi */
+.area .sec-title{
+  display:inline-block; position:relative; margin:0 0 .9rem;
+  font-weight:900; letter-spacing:-.012em;
+}
+.area .sec-title::after{
+  content:""; display:block; width:120px; height:4px; margin-top:.55rem;
+  border-radius:999px;
+  background: linear-gradient(90deg, var(--gold), color-mix(in oklab, var(--gold) 25%, #fff));
+  box-shadow:0 1px 0 rgba(255,255,255,.6);
+}
+
+/* Anchor offset */
+.area :where(section[id]){ scroll-margin-top: 96px; }
+
+/* -------------------- Breadcrumb (Topbar) -------------------- */
+.area .topbar{ padding-block: clamp(10px, 2vw, 14px); }
+.area .crumbs ol{
+  margin:0; padding:.45rem .7rem; display:flex; flex-wrap:wrap; gap:.4rem .6rem; align-items:center;
+  border-radius:12px; background:rgba(255,255,255,.75);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  border:1px solid var(--ring); box-shadow: var(--shadow-s);
+}
+.area .crumbs li{ list-style:none; display:flex; align-items:center; gap:.6rem; color: var(--ink-3); font-weight:700; }
+.area .crumbs li+li::before{ content:"›"; color:#9CA3AF; }
+.area .crumbs a{ color:inherit; text-decoration:none; }
+.area .crumbs a:hover{ text-decoration:underline; text-underline-offset:3px; }
+
+/* -------------------- HERO -------------------- */
+.area .area-hero{ padding-top: clamp(66px, 7vw, 96px); }
+.area .area-hero .hero__title{ font-weight:900; letter-spacing:-.012em; }
+.area .area-hero .hero__lead{ color: var(--ink-2); max-width: 68ch; }
+.area .area-hero .hero__media :is(picture,img){
+  display:block; width:100%; height:auto; border-radius: var(--radius-l);
+  box-shadow: var(--shadow-l);
+}
+
+/* -------------------- TOC (Chip menü) -------------------- */
+.area .toc{ position:relative; z-index:1; }
+.area .chips{ display:flex; flex-wrap:wrap; gap:.6rem; padding:0; margin:0; list-style:none; }
+.area .chip{
+  display:inline-flex; align-items:center;
+  padding:.5rem .85rem; border-radius:999px; line-height:1;
+  background:#fff; border:1px solid var(--ring);
+  font-weight:800; color: var(--ink);
+  text-decoration:none;
+  transition: border-color .2s ease, box-shadow .25s ease, transform .12s ease, background .2s ease;
+}
+.area .chip:hover{
+  transform: translateY(-1px); box-shadow: var(--shadow-s);
+  border-color: color-mix(in oklab, var(--gold) 16%, var(--ring));
+}
+.area .chip:focus-visible{ outline:3px solid color-mix(in oklab, var(--gold) 35%, #fff); outline-offset:2px; }
+
+/* -------------------- Grid Yardımcıları -------------------- */
+.area .grid{ display:grid; gap: var(--gutter); }
+.area .grid--cols-2{ grid-template-columns: 1fr; }
+@media (min-width: 860px){ .area .grid--cols-2{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
+.area .grid--cards-3{ grid-template-columns: 1fr; }
+@media (min-width: 980px){ .area .grid--cards-3{ grid-template-columns: repeat(3, minmax(0,1fr)); } }
+
+/* -------------------- USP (features) -------------------- */
+.area .features{ display:grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: var(--gutter); }
+@media (min-width: 980px){ .area .features{ grid-template-columns: repeat(3,minmax(0,1fr)); } }
+
+.area .feature{
+  background:#fff; border:1px solid var(--ring); border-radius: var(--radius);
+  padding:14px 16px; box-shadow: var(--shadow-s);
+  display:grid; grid-template-columns: 40px 1fr; gap:.8rem; align-items:start; min-width:0;
+  transition: transform .12s ease, box-shadow .25s ease, border-color .2s ease, background .2s ease;
+}
+.area .feature:hover{
+  transform: translateY(-1px); box-shadow: var(--shadow-m);
+  border-color: color-mix(in oklab, var(--gold) 14%, var(--ring));
+}
+.area .feature__icon{
+  grid-column:1; grid-row:1 / span 2; align-self:start;
+  width:40px; height:40px; display:grid; place-items:center; border-radius:10px;
+  background: linear-gradient(180deg,#fff,#f7f7f7); border:1px solid var(--ring);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.6); font-size:20px;
+}
+.area .feature > h3{ grid-column:2 / -1; margin:.08rem 0 .24rem; font-weight:900; }
+.area .feature > p{ grid-column:2 / -1; margin:0; color: var(--ink-2); text-wrap: pretty; }
+
+/* -------------------- Kümeler (Top Services) -------------------- */
+.area .cluster{
+  background:#fff; border:1px solid var(--ring); border-radius:16px; box-shadow: var(--shadow-s);
+  padding:14px 16px; transition: transform .12s ease, box-shadow .25s ease, border-color .2s ease;
+}
+.area .cluster:hover{ transform:translateY(-1px); box-shadow:var(--shadow-m); border-color: color-mix(in oklab, var(--gold) 12%, var(--ring)); }
+.area .cluster__head h3{ margin:.2rem 0 .2rem; font-weight:900; letter-spacing:-.006em; }
+.area .cluster__head .muted{ color: var(--ink-2); margin:0; }
+
+/* -------------------- Listeler -------------------- */
+.area .list{ list-style:none; padding:0; margin:8px 0; display:grid; gap:.55rem; }
+.area .list > li{
+  display:flex; align-items:flex-start; gap:.6rem; line-height:1.65; color: var(--ink-2);
+  overflow-wrap: anywhere; text-wrap: pretty;
+}
+.area .list > li::before{
+  content:""; flex:0 0 10px; width:10px; height:10px; margin-top:.55em; border-radius:999px;
+  background:
+    radial-gradient(100% 100% at 30% 30%, #fff, #fff 40%, transparent 41%) padding-box,
+    linear-gradient(180deg, var(--gold), color-mix(in oklab, var(--gold) 30%, #b8892d)) border-box;
+  border:1px solid color-mix(in oklab, var(--gold) 50%, #b8892d);
+  box-shadow:0 0 0 2px rgba(212,175,55,.10);
+}
+.area .list li strong{ font-weight:900; color: var(--ink); letter-spacing:-.005em; margin-right:.25rem; white-space:nowrap; }
+
+/* -------------------- Local/Info kartları -------------------- */
+.area :is(#local article, #pricing .note){
+  background:#fff; border:1px solid var(--ring); border-radius:16px; padding:14px 16px; 
+  box-shadow: var(--shadow-s);
+  transition: transform .12s ease, box-shadow .25s ease, border-color .2s ease;
+}
+.area :is(#local article, #pricing .note):hover{
+  transform: translateY(-1px); box-shadow: var(--shadow-m);
+  border-color: color-mix(in oklab, var(--gold) 12%, var(--ring));
+}
+.area :is(#local h3){
+  position:relative; font-weight:900; padding-left:12px; margin:.2rem 0 .6rem; letter-spacing:-.005em;
+}
+.area :is(#local h3)::before{
+  content:""; position:absolute; left:0; top:.28em; bottom:.28em; width:4px; border-radius:6px;
+  background: linear-gradient(180deg, var(--gold), color-mix(in oklab, var(--gold) 30%, #fff));
+}
+
+/* -------------------- HOWTO (Steps) — Evrensel FIX -------------------- */
+/* Otomatik numaraları ve marker'ları kapat (UA/settings) */
+.area #process .steps{
+  list-style: none !important; padding: 0 !important; margin: 0 !important;
+  list-style-position: outside !important;
+}
+.area #process .steps > li{ list-style: none !important; }
+.area #process .steps > li::marker{ content: "" !important; }
+
+/* Başlıklara enjekte edilen counters(list-item) vb. numaraları sıfırla */
+.area #process .steps > li > :is(h1,h2,h3,h4,h5,h6,.step__title)::before,
+.area #process .steps > li > :is(h1,h2,h3,h4,h5,h6,.step__title)::after{ content: none !important; }
+
+/* Step kartı ve altın rozet (data-step kaynağı) */
+.area #process .steps{ display:grid; gap: var(--gutter); }
+.area #process .step{
+  position: relative;
+  padding: 14px 16px 14px 60px; /* rozet boşluğu */
+  background:#fff; border:1px solid var(--ring); border-radius:16px; box-shadow: var(--shadow-s);
+  transition: transform .12s ease, box-shadow .25s ease, border-color .2s ease;
+}
+.area #process .step:hover{ transform: translateY(-1px); box-shadow: var(--shadow-m); border-color: color-mix(in oklab, var(--gold) 14%, var(--ring)); }
+.area #process .step::after{
+  content: attr(data-step) !important;
+  position:absolute; left:16px; top:50%; transform: translateY(-50%);
+  width:36px; height:36px; border-radius:999px; display:grid; place-items:center;
+  background: var(--gold); color:#fff; font-weight:900; box-shadow: 0 2px 10px rgba(0,0,0,.12);
+}
+.area #process .step__title{ font-weight:900; margin:0 0 .2rem; }
+.area #process .step__text{ color: var(--ink-2); margin:0; }
+
+/* -------------------- Projeler / Lightbox -------------------- */
+.area .area-projects figure.project{
+  margin:0; background:#fff; border:1px solid var(--ring); border-radius:16px; overflow:hidden; 
+  box-shadow: var(--shadow-s); transition: transform .12s ease, box-shadow .25s ease, border-color .2s ease;
+}
+.area .area-projects figure.project:hover{
+  transform: translateY(-2px); box-shadow: var(--shadow-l);
+  border-color: color-mix(in oklab, var(--gold) 16%, var(--ring));
+}
+.area .area-projects img{ display:block; width:100%; height:auto; aspect-ratio: 16/9; object-fit: cover; }
+.area .area-projects figcaption{
+  text-align:center; font-size:.95rem; color: var(--ink-3);
+  padding:10px 10px 12px; background: linear-gradient(180deg,#fff,#fafafa);
+}
+
+/* Lightbox <dialog> (genel) */
+.area dialog.lightbox{ border:none; padding:0; border-radius:16px; background:transparent; }
+.area dialog.lightbox::backdrop{ background: rgba(15,15,18,.6); backdrop-filter: blur(2px); }
+.area .lightbox__img{
+  display:block; max-width:min(92vw, 1280px); width:100%; height:auto; border-radius:16px; box-shadow: var(--shadow-l);
+  background:#000;
+}
+.area .lightbox__caption{ text-align:center; color:#e5e7eb; margin-top:8px; }
+.area .lightbox__close{
+  position:absolute; top:-14px; right:-14px; width:36px; height:36px; border-radius:999px;
+  border:1px solid rgba(255,255,255,.3); background: rgba(0,0,0,.45); color:#fff; font-weight:900;
+  display:grid; place-items:center; cursor:pointer;
+}
+
+/* -------------------- Fiyat/Planlama Notu -------------------- */
+.area #pricing .grid{ align-items:start; }
+.area #pricing .note{
+  padding:14px 16px; border:1px solid var(--ring); border-radius:12px;
+  background: linear-gradient(180deg,#fff,#f9fafb);
+  border-left:6px solid color-mix(in oklab, var(--gold) 35%, rgba(0,0,0,.12));
+  box-shadow: var(--shadow-s);
+}
+.area #pricing .muted{ color: var(--ink-2); }
+
+/* -------------------- FAQ (Accordion) -------------------- */
+.area .accordion{ display:grid; gap:10px; }
+.area .accordion__item{
+  border:1px solid var(--ring); border-radius:14px; background:#fff; overflow:hidden; box-shadow: var(--shadow-s);
+}
+.area .accordion__item summary{
+  list-style:none; cursor:pointer; user-select:none; padding:12px 14px; position:relative; font-weight:800;
+}
+.area .accordion__item summary::-webkit-details-marker{ display:none; }
+.area .accordion__item summary::after{
+  content:"+"; position:absolute; right:12px; top:50%; transform:translateY(-50%); font-weight:900; color: var(--gold-strong);
+}
+.area .accordion__item[open] summary::after{ content:"–"; }
+.area .accordion__panel{ padding:0 14px 14px; color: var(--ink-2); }
+
+/* -------------------- CTA -------------------- */
+.area .area-cta .cta__inner{
+  background: linear-gradient(180deg, var(--surface), var(--surface-2));
+  border:1px solid var(--ring); border-radius:18px; box-shadow: var(--shadow-l);
+  padding: clamp(14px,2.6vw,22px);
+  display:grid; gap: var(--gutter); grid-template-columns: 1fr; align-items:center;
+}
+@media (min-width: 860px){ .area .area-cta .cta__inner{ grid-template-columns: 2fr auto; } }
+.area .area-cta .sec-title{ margin-bottom:.25rem; }
+.area .area-cta .muted{ color: var(--ink-2); }
+.area .area-cta .btn--primary{ background: var(--gold); border-color: var(--gold); }
+.area .area-cta .btn--ghost{ border-color: color-mix(in oklab, var(--gold) 30%, var(--ring)); }
+
+/* -------------------- Faydalılar -------------------- */
+.area .muted{ color: var(--ink-2); }
+.area img{ max-width:100%; height:auto; display:block; }
+.area :where(a,button):focus-visible{
+  outline:3px solid color-mix(in oklab, var(--gold) 35%, #fff); outline-offset:2px; border-radius:10px;
+}
+@media (prefers-reduced-motion: reduce){
+  .area *{ transition:none !important; animation:none !important; }
+}
+
+/* -------------------- Print -------------------- */
+@media print{
+  .area{
+    --surface:#fff; --surface-2:#fff; --ring:#d6d6d6; --ink:#111;
+  }
+  .area :is(.toc, dialog.lightbox, .btn){ display:none !important; }
+  .area .sec{ background:#fff !important; }
+  .area :is(.feature,.cluster,#local article,#pricing .note,.step,.project){
+    box-shadow:none !important; -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+}

@@ -1,0 +1,406 @@
+/* =====================================================================
+   FETHİYE’NİN USTASI — Render Coat (Silikon/Akrilik Kaplama) Tema
+   Hedef: <main class="service exterior render-coat"> içindeki tüm bölümler
+   Not: Bu dosya base.css ve services.css'ten SONRA çağrılmalı.
+   ===================================================================== */
+
+/* -------------------- Yerel Tokenlar -------------------- */
+.service.exterior.render-coat{
+  --gold: var(--brand-gold, #D4AF37);
+  --gold-weak: color-mix(in oklab, var(--gold) 16%, #ffffff);
+  --gold-strong: color-mix(in oklab, var(--gold) 36%, #b8892d);
+
+  --ink: var(--text, #111827);
+  --ink-2: var(--muted, #4B5563);
+  --ink-3: #6B7280;
+
+  --surface: #ffffff;
+  --surface-2: #FAFAFA;
+  --ring: var(--ring, rgba(0,0,0,.08));
+
+  --shadow-s: var(--shadow-sm, 0 1px 2px rgba(0,0,0,.06));
+  --shadow-m: 0 8px 20px rgba(0,0,0,.08);
+  --shadow-l: 0 18px 40px rgba(0,0,0,.12);
+
+  --radius: 14px;
+  --radius-l: 18px;
+
+  --sec-pad: clamp(36px, 6vw, 72px);
+  --gutter: clamp(14px, 2.4vw, 22px);
+}
+
+/* -------------------- Genel Bölüm Çerçevesi -------------------- */
+.service.exterior.render-coat .sec{
+  position: relative;
+  padding-block: var(--sec-pad);
+  background: linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 100%);
+  isolation: isolate;
+}
+.service.exterior.render-coat .sec + .sec{ margin-top: clamp(8px,2vw,12px); }
+
+.service.exterior.render-coat .sec::before{
+  content:"";
+  position:absolute; inset:0; pointer-events:none; opacity:.30;
+  background: radial-gradient(720px 260px at 8% 0%,
+     color-mix(in oklab, var(--gold) 10%, transparent) 0%, transparent 60%);
+}
+
+/* Başlık şeridi */
+.service.exterior.render-coat .sec-title{
+  display:inline-block; position:relative; font-weight:900; letter-spacing:-.012em;
+  margin:0 0 .9rem;
+}
+.service.exterior.render-coat .sec-title::after{
+  content:""; display:block; width:120px; height:4px; margin-top:.55rem;
+  border-radius:999px;
+  background: linear-gradient(90deg, var(--gold), color-mix(in oklab, var(--gold) 25%, #fff));
+  box-shadow:0 1px 0 rgba(255,255,255,.6);
+}
+
+/* Anchor scroll hizası */
+.service.exterior.render-coat :where(section[id]){ scroll-margin-top: 96px; }
+
+/* -------------------- HERO + Breadcrumb -------------------- */
+.service.exterior.render-coat .svc-hero{ padding-top: clamp(72px, 7vw, 96px); }
+.service.exterior.render-coat .svc-hero .hero__title{
+  font-weight:900; letter-spacing:-.012em;
+}
+.service.exterior.render-coat .svc-hero .hero__lead{
+  color: var(--ink-2); max-width: 68ch;
+}
+.service.exterior.render-coat .svc-hero .hero__media :is(picture,img){
+  display:block; width:100%; height:auto; border-radius: var(--radius-l);
+  box-shadow: var(--shadow-l);
+}
+
+/* -------------------- TOC (Chip menü) -------------------- */
+.service.exterior.render-coat .toc{ position:relative; z-index:1; }
+.service.exterior.render-coat .chips{
+  display:flex; flex-wrap:wrap; gap:.6rem; padding:0; list-style:none;
+}
+.service.exterior.render-coat .chip{
+  display:inline-flex; align-items:center;
+  padding:.48rem .78rem; border-radius:999px; line-height:1;
+  background:#fff; border:1px solid var(--ring);
+  font-weight:800; color: var(--ink);
+  text-decoration:none;
+  transition: border-color .2s ease, box-shadow .25s ease, transform .12s ease, background .2s ease;
+}
+.service.exterior.render-coat .chip:hover{
+  transform: translateY(-1px); box-shadow: var(--shadow-s);
+  border-color: color-mix(in oklab, var(--gold) 16%, var(--ring));
+}
+.service.exterior.render-coat .chip:focus-visible{ outline:3px solid color-mix(in oklab, var(--gold) 35%, #fff); outline-offset:2px; }
+
+/* -------------------- Grid Yardımcıları -------------------- */
+.service.exterior.render-coat .grid{ display:grid; gap: var(--gutter); }
+.service.exterior.render-coat .grid--cols-2{ grid-template-columns: 1fr; }
+@media (min-width: 820px){ .service.exterior.render-coat .grid--cols-2{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
+.service.exterior.render-coat .grid--cards-3{ grid-template-columns: 1fr; }
+.service.exterior.render-coat .grid--cards-4{ grid-template-columns: 1fr; }
+@media (min-width: 980px){ 
+  .service.exterior.render-coat .grid--cards-3{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .service.exterior.render-coat .grid--cards-4{ grid-template-columns: repeat(4, minmax(0,1fr)); }
+}
+
+/* -------------------- USP (features) -------------------- */
+.service.exterior.render-coat .features{ 
+  display:grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: var(--gutter);
+}
+@media (min-width: 980px){ .service.exterior.render-coat .features{ grid-template-columns: repeat(3,minmax(0,1fr)); } }
+
+.service.exterior.render-coat .feature{
+  background:#fff; border:1px solid var(--ring); border-radius: var(--radius);
+  padding:14px 16px; box-shadow: var(--shadow-s);
+  display:grid; grid-template-columns: 40px 1fr; gap:.8rem; align-items:start; min-width:0;
+  transition: transform .12s ease, box-shadow .25s ease, border-color .2s ease, background .2s ease;
+}
+.service.exterior.render-coat .feature:hover{
+  transform: translateY(-1px); box-shadow: var(--shadow-m);
+  border-color: color-mix(in oklab, var(--gold) 14%, var(--ring));
+}
+.service.exterior.render-coat .feature__icon{
+  grid-column:1; grid-row:1 / span 2; align-self:start;
+  width:40px; height:40px; display:grid; place-items:center; border-radius:10px;
+  background: linear-gradient(180deg,#fff,#f7f7f7); border:1px solid var(--ring);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.6); font-size:20px;
+}
+.service.exterior.render-coat .feature > h3{ grid-column:2 / -1; margin:.08rem 0 .24rem; font-weight:900; }
+.service.exterior.render-coat .feature > p{ grid-column:2 / -1; margin:0; color: var(--ink-2); text-wrap: pretty; }
+
+/* -------------------- Sistem & Doku Kartları -------------------- */
+.service.exterior.render-coat #systems .card{
+  overflow:hidden; background:#fff; border:1px solid var(--ring); border-radius:16px; box-shadow: var(--shadow-s);
+  display:flex; flex-direction:column; transition: transform .12s ease, box-shadow .25s ease, border-color .2s ease;
+}
+.service.exterior.render-coat #systems .card:hover{
+  transform: translateY(-2px); box-shadow: var(--shadow-l);
+  border-color: color-mix(in oklab, var(--gold) 16%, var(--ring));
+}
+.service.exterior.render-coat #systems .card__head{
+  display:flex; align-items:center; justify-content:space-between; gap:.6rem;
+  padding:14px 16px; border-bottom:1px solid var(--ring);
+  background: linear-gradient(180deg,#fff,#f8f8f8);
+}
+.service.exterior.render-coat #systems .card__title{ font-weight:900; letter-spacing:-.01em; }
+.service.exterior.render-coat #systems .card__kicker{ color: var(--ink-3); font-weight:700; }
+.service.exterior.render-coat #systems .card .list{ margin:10px 14px 14px; }
+
+/* -------------------- Listeler (altın bullet, merdiven yok) -------------------- */
+.service.exterior.render-coat .list{
+  list-style:none; padding:0; margin:8px 0; display:grid; gap:.55rem;
+}
+.service.exterior.render-coat .list > li{
+  display:flex; align-items:flex-start; gap:.6rem; line-height:1.65; color: var(--ink-2);
+  word-break: normal; overflow-wrap: anywhere; text-wrap: pretty;
+}
+.service.exterior.render-coat .list > li::before{
+  content:""; flex:0 0 10px; width:10px; height:10px; margin-top:.55em; border-radius:999px;
+  background:
+    radial-gradient(100% 100% at 30% 30%, #fff, #fff 40%, transparent 41%) padding-box,
+    linear-gradient(180deg, var(--gold), color-mix(in oklab, var(--gold) 30%, #b8892d)) border-box;
+  border:1px solid color-mix(in oklab, var(--gold) 50%, #b8892d);
+  box-shadow:0 0 0 2px rgba(212,175,55,.10);
+}
+.service.exterior.render-coat .list--tick > li::before{
+  content:"✓"; width:auto; height:auto; margin-top:.1rem; border:none; box-shadow:none; background:none;
+  font-weight:900; color: var(--gold);
+}
+.service.exterior.render-coat .list li strong{
+  font-weight:900; color: var(--ink); letter-spacing:-.005em;
+  margin-right:.25rem; white-space:nowrap;
+}
+
+/* -------------------- Kartlı bloklar (Layers / Performance / Weather) -------------------- */
+.service.exterior.render-coat #layers article,
+.service.exterior.render-coat #performance article,
+.service.exterior.render-coat #weather article{
+  background:#fff; border:1px solid var(--ring); border-radius:16px; padding:14px 16px; 
+  box-shadow: var(--shadow-s);
+  transition: transform .12s ease, box-shadow .25s ease, border-color .2s ease;
+}
+.service.exterior.render-coat #layers article:hover,
+.service.exterior.render-coat #performance article:hover,
+.service.exterior.render-coat #weather article:hover{
+  transform: translateY(-1px); box-shadow: var(--shadow-m);
+  border-color: color-mix(in oklab, var(--gold) 12%, var(--ring));
+}
+.service.exterior.render-coat :is(#layers h3,#performance h3,#weather h3){
+  position:relative; font-weight:900; padding-left:12px; margin:.2rem 0 .6rem; letter-spacing:-.005em;
+}
+.service.exterior.render-coat :is(#layers h3,#performance h3,#weather h3)::before{
+  content:""; position:absolute; left:0; top:.28em; bottom:.28em; width:4px; border-radius:6px;
+  background: linear-gradient(180deg, var(--gold), color-mix(in oklab, var(--gold) 30%, #fff));
+}
+.service.exterior.render-coat #layers :is(.list + h3, p + h3){
+  margin-top: clamp(12px, 2vw, 18px);
+  padding-top: clamp(10px, 1.6vw, 14px);
+  border-top: 1px dashed color-mix(in oklab, var(--gold) 22%, var(--ring));
+}
+
+/* -------------------- HOWTO Steps (sadece sarı rozet) -------------------- */
+.service.exterior.render-coat #process .steps{
+  list-style:none; padding-left:0; margin-left:0; counter-reset: step;
+  display:grid; gap: var(--gutter);
+}
+.service.exterior.render-coat #process .steps > li::marker{ content:""; }
+.service.exterior.render-coat .step{
+  counter-increment: step; position:relative;
+  background:#fff; border:1px solid var(--ring); border-radius:16px; box-shadow: var(--shadow-s);
+  padding:14px 16px 14px 60px;
+  transition: transform .12s ease, box-shadow .25s ease, border-color .2s ease;
+}
+.service.exterior.render-coat .step:hover{
+  transform: translateY(-1px); box-shadow: var(--shadow-m);
+  border-color: color-mix(in oklab, var(--gold) 14%, var(--ring));
+}
+.service.exterior.render-coat .step::before{
+  content: counter(step);
+  position:absolute; left:16px; top:50%; transform: translateY(-50%);
+  width:36px; height:36px; border-radius:999px; display:grid; place-items:center;
+  background: var(--gold); color:#fff; font-weight:900; box-shadow: 0 2px 10px rgba(0,0,0,.12);
+}
+.service.exterior.render-coat .step__title{ font-weight:900; margin:0 0 .2rem; }
+.service.exterior.render-coat .step__text{ color: var(--ink-2); margin:0; }
+
+/* -------------------- Galeri -------------------- */
+.service.exterior.render-coat .svc-projects figure.project{
+  margin:0; background:#fff; border:1px solid var(--ring); border-radius:16px; overflow:hidden; 
+  box-shadow: var(--shadow-s); transition: transform .12s ease, box-shadow .25s ease, border-color .2s ease;
+}
+.service.exterior.render-coat .svc-projects figure.project:hover{
+  transform: translateY(-2px); box-shadow: var(--shadow-l);
+  border-color: color-mix(in oklab, var(--gold) 16%, var(--ring));
+}
+.service.exterior.render-coat .svc-projects img{
+  display:block; width:100%; height:auto; aspect-ratio: 16/9; object-fit: cover;
+}
+.service.exterior.render-coat .svc-projects figcaption{
+  text-align:center; font-size:.95rem; color: var(--ink-3);
+  padding:10px 10px 12px; background: linear-gradient(180deg,#fff,#fafafa);
+}
+
+/* Lightbox <dialog> */
+.service.exterior.render-coat dialog.lightbox{ border:none; padding:0; border-radius:16px; background:transparent; }
+.service.exterior.render-coat dialog.lightbox::backdrop{ background: rgba(15,15,18,.6); backdrop-filter: blur(2px); }
+.service.exterior.render-coat .lightbox__img{
+  display:block; max-width:min(92vw, 1280px); width:100%; height:auto; border-radius:16px; box-shadow: var(--shadow-l);
+  background:#000;
+}
+.service.exterior.render-coat .lightbox__caption{ text-align:center; color:#e5e7eb; margin-top:8px; }
+.service.exterior.render-coat .lightbox__close{
+  position:absolute; top:-14px; right:-14px; width:36px; height:36px; border-radius:999px;
+  border:1px solid rgba(255,255,255,.3); background: rgba(0,0,0,.45); color:#fff; font-weight:900;
+  display:grid; place-items:center; cursor:pointer;
+}
+
+/* -------------------- Fiyat / Not -------------------- */
+.service.exterior.render-coat #pricing .grid{ align-items:start; }
+.service.exterior.render-coat #pricing .note{
+  padding:14px 16px; border:1px solid var(--ring); border-radius:12px;
+  background: linear-gradient(180deg,#fff,#f9fafb);
+  border-left:6px solid color-mix(in oklab, var(--gold) 35%, rgba(0,0,0,.12));
+  box-shadow: var(--shadow-s);
+}
+.service.exterior.render-coat #pricing .muted{ color: var(--ink-2); }
+
+/* -------------------- FAQ (details/summary) -------------------- */
+.service.exterior.render-coat .accordion{ display:grid; gap:10px; }
+.service.exterior.render-coat .accordion__item{
+  border:1px solid var(--ring); border-radius:14px; background:#fff; overflow:hidden; box-shadow: var(--shadow-s);
+}
+.service.exterior.render-coat .accordion__item summary{
+  list-style:none; cursor:pointer; user-select:none; padding:12px 14px; position:relative; font-weight:800;
+}
+.service.exterior.render-coat .accordion__item summary::-webkit-details-marker{ display:none; }
+.service.exterior.render-coat .accordion__item summary::after{
+  content:"+"; position:absolute; right:12px; top:50%; transform:translateY(-50%); font-weight:900; color: var(--gold-strong);
+}
+.service.exterior.render-coat .accordion__item[open] summary::after{ content:"–"; }
+.service.exterior.render-coat .accordion__panel{ padding:0 14px 14px; color: var(--ink-2); }
+
+/* -------------------- İlgili Hizmetler & Bölgeler (Chip list) -------------------- */
+.service.exterior.render-coat :is(#related .chips, #areas .chips){
+  display:flex; flex-wrap:wrap; gap:.6rem; padding:0; list-style:none;
+}
+.service.exterior.render-coat :is(#related .chip, #areas .chip){
+  display:inline-flex; align-items:center; padding:.5rem .8rem;
+  border-radius:999px; background:#fff; border:1px solid var(--ring);
+  text-decoration:none; font-weight:800; color: var(--ink);
+  transition: border-color .2s ease, box-shadow .25s ease, transform .12s ease;
+}
+.service.exterior.render-coat :is(#related .chip, #areas .chip):hover{
+  transform: translateY(-1px); box-shadow: var(--shadow-s);
+  border-color: color-mix(in oklab, var(--gold) 16%, var(--ring));
+}
+
+/* -------------------- CTA -------------------- */
+.service.exterior.render-coat .svc-cta .cta__inner{
+  background: linear-gradient(180deg, var(--surface), var(--surface-2));
+  border:1px solid var(--ring); border-radius:18px; box-shadow: var(--shadow-l);
+  padding: clamp(14px,2.6vw,22px);
+  display:grid; gap: var(--gutter); grid-template-columns: 1fr; align-items:center;
+}
+@media (min-width: 860px){ .service.exterior.render-coat .svc-cta .cta__inner{ grid-template-columns: 2fr auto; } }
+.service.exterior.render-coat .svc-cta .sec-title{ margin-bottom:.25rem; }
+.service.exterior.render-coat .svc-cta .muted{ color: var(--ink-2); }
+.service.exterior.render-coat .svc-cta .btn--primary{ background: var(--gold); border-color: var(--gold); }
+.service.exterior.render-coat .svc-cta .btn--ghost{ border-color: color-mix(in oklab, var(--gold) 30%, var(--ring)); }
+
+/* -------------------- Mikro Faydalılar -------------------- */
+.service.exterior.render-coat .muted{ color: var(--ink-2); }
+.service.exterior.render-coat img{ max-width:100%; height:auto; display:block; }
+.service.exterior.render-coat :where(a,button):focus-visible{
+  outline:3px solid color-mix(in oklab, var(--gold) 35%, #fff); outline-offset:2px; border-radius:10px;
+}
+@media (prefers-reduced-motion: reduce){
+  .service.exterior.render-coat *{ transition:none !important; animation:none !important; }
+}
+
+/* -------------------- Print (teklif çıktısı) -------------------- */
+@media print{
+  .service.exterior.render-coat{
+    --surface:#fff; --surface-2:#fff; --ring:#d6d6d6; --ink:#111;
+  }
+  .service.exterior.render-coat :is(.toc, dialog.lightbox, .btn){ display:none !important; }
+  .service.exterior.render-coat .sec{ background:#fff !important; }
+  .service.exterior.render-coat :is(.feature,#systems .card,#layers article,#performance article,#weather article,.step,.project){
+    box-shadow:none !important; -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+}
+
+/* -------------------- Light-Lock (her durumda açık tema) -------------------- */
+@media (prefers-color-scheme: dark){
+  .service.exterior.render-coat{
+    color-scheme: light;
+    --surface:#FFFFFF; --surface-2:#FAFAFA; --ring: rgba(0,0,0,.08);
+    --ink:#171717; --ink-2:#4B5563; --ink-3:#6B7280;
+    background: var(--surface-2);
+  }
+  .service.exterior.render-coat .chip{ background:#fff; border-color: var(--ring); }
+  .service.exterior.render-coat .svc-projects figcaption{ background: linear-gradient(180deg,#fff,#fafafa); color: var(--ink-3); }
+}
+/* ==========================================================
+   HOWTO — Attr tabanlı rozet: counter'ı bırak, marker'ı sustur
+   (yalnızca Render Coat sayfası)
+   ========================================================== */
+
+/* 0) Tüm otomatik numaraları kapat */
+.service.exterior.render-coat #process .steps{
+  list-style: none;              /* <ol> numarası yok */
+  padding: 0; margin: 0;
+  counter-reset: none;           /* varsa global reset'i devir dışı bırak */
+}
+.service.exterior.render-coat #process .steps > li{
+  list-style: none;
+  counter-increment: none;       /* olası global increment'leri iptal */
+}
+.service.exterior.render-coat #process .steps > li::marker{
+  content: "";                   /* Chrome/Firefox */
+}
+.service.exterior.render-coat #process .steps > li > :is(h1,h2,h3,h4,h5,h6)::before{
+  content: none !important;      /* settings.css'in counters(list-item) hilesini söndür */
+}
+
+/* 1) Kart gövdesi ve boşluklar */
+.service.exterior.render-coat #process .step{
+  position: relative;
+  padding: 14px 16px 14px 60px;  /* rozet için sol boşluk */
+  background: #fff; border:1px solid var(--ring); border-radius:16px; box-shadow: var(--shadow-s);
+  transition: transform .12s ease, box-shadow .25s ease, border-color .2s ease;
+}
+.service.exterior.render-coat #process .step:hover{
+  transform: translateY(-1px); box-shadow: var(--shadow-m);
+  border-color: color-mix(in oklab, var(--gold) 14%, var(--ring));
+}
+
+/* 2) ROZET — sayı HTML'deki data-step'ten gelir */
+.service.exterior.render-coat #process .step::before{
+  content: attr(data-step);      /* <-- kilit hareket */
+  position:absolute; left:16px; top:50%; transform: translateY(-50%);
+  width:36px; height:36px; border-radius:50%;
+  display:grid; place-items:center;
+  background: var(--gold); color:#fff; font-weight:900;
+  box-shadow: 0 2px 10px rgba(0,0,0,.12);
+}
+
+/* 3) Metin stilleri */
+.service.exterior.render-coat #process .step__title{ font-weight:900; margin:0 0 .2rem; }
+.service.exterior.render-coat #process .step__text{ color: var(--ink-2); margin:0; }
+
+/* 4) Grid ve marker güvenliği */
+.service.exterior.render-coat #process .steps{
+  display:grid; gap: var(--gutter);
+  list-style-position: outside;  /* bazı temalar inside yapıyor, düzeltelim */
+}
+
+/* breadcrumbs */
+.service .crumbs ol{
+  margin:0 0 .5rem; padding:.45rem .7rem; display:flex; flex-wrap:wrap; gap:.4rem .6rem; align-items:center;
+  border-radius:12px; background:rgba(255,255,255,.75); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  border:1px solid var(--ring); box-shadow:var(--shadow-sm);
+}
+.service .crumbs li{ list-style:none; display:flex; align-items:center; gap:.6rem; color:var(--muted-2); font-weight:700; }
+.service .crumbs li+li::before{ content:"›"; color:#9CA3AF; }
+.service .crumbs a{ color:inherit; text-decoration:none; }
+.service .crumbs a:hover{ text-decoration:underline; text-underline-offset:3px; }

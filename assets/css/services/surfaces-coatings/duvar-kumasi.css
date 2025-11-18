@@ -1,0 +1,406 @@
+/* ==========================================================================
+   DUVAR KUMAŞI (Textile Wallcovering) • Şık + Elit CSS
+   Scope: .service.textile-wallcovering  (sadece bu sayfayı etkiler)
+   Estetik: sıcak nötr palet, tekstil dokulu arka planlar, premium kartlar
+   ========================================================================== */
+
+/* ---------- Design Tokens ---------- */
+.service.textile-wallcovering{
+  --page: 1200px;
+
+  /* palette */
+  --ink: #0f172a;                  /* başlık metin */
+  --muted: #475569;                /* gövde metin */
+  --surface: #ffffff;              /* kart zemini */
+  --veil: #faf9f7;                 /* çok açık arka plan */
+  --ring: rgba(15,23,42,.10);      /* sınır */
+  --ring-strong: rgba(15,23,42,.18);
+
+  /* textile accents (keten/jüt esintisi) */
+  --accent: #9c8772;               /* sıcak taupe */
+  --accent-2: #7e6b5a;
+  --accent-weak: #efe8e1;
+
+  /* fx */
+  --radius: 16px;
+  --radius-lg: 22px;
+  --shadow-sm: 0 1px 2px rgba(10,10,20,.06);
+  --shadow-md: 0 10px 28px rgba(10,10,20,.12);
+  --shadow-lg: 0 24px 60px rgba(10,10,20,.16);
+  margin-top: 2%;
+}
+
+/* ---------- Layout & Type ---------- */
+.service.textile-wallcovering .container{ max-width:var(--page); margin-inline:auto; padding-inline:clamp(16px,3vw,24px); }
+.service.textile-wallcovering .sec-title,
+.service.textile-wallcovering .hero__title{
+  color:var(--ink); letter-spacing:-.02em; line-height:1.12; text-wrap:balance;
+}
+.service.textile-wallcovering .sec-title{ font-size:clamp(1.35rem, 1rem + 1.4vw, 2rem); }
+.service.textile-wallcovering .hero__title{ font-size:clamp(1.6rem, 1.1rem + 2.2vw, 2.4rem); }
+.service.textile-wallcovering .hero__lead,
+.service.textile-wallcovering .sec-desc,
+.service.textile-wallcovering .muted{ color:var(--muted); }
+
+/* Basit grid yardımcıları (sayfa içinde) */
+.service.textile-wallcovering .grid{ display:grid; gap:clamp(12px,2vw,18px); }
+.service.textile-wallcovering .grid--cols-2{ grid-template-columns:1fr; }
+@media (min-width: 900px){ .service.textile-wallcovering .grid--cols-2{ grid-template-columns:repeat(2, minmax(0,1fr)); } }
+.service.textile-wallcovering .grid--cards-3{ grid-template-columns:1fr; }
+@media (min-width: 900px){ .service.textile-wallcovering .grid--cards-3{ grid-template-columns:repeat(3, minmax(0,1fr)); } }
+.service.textile-wallcovering .grid--cards-4{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+@media (min-width: 980px){ .service.textile-wallcovering .grid--cards-4{ grid-template-columns:repeat(4,minmax(0,1fr)); } }
+.service.textile-wallcovering .grid--icon-4{ grid-template-columns:1fr; }
+@media (min-width:1024px){ .service.textile-wallcovering .grid--icon-4{ grid-template-columns:repeat(4,minmax(0,1fr)); } }
+
+/* ---------- HERO (dokulu tekstil efekti) ---------- */
+.service.textile-wallcovering .svc-hero{
+  position:relative; isolation:isolate;
+  padding: clamp(28px, 5vw, 56px) 0;
+  background:
+    /* yumuşak degrade */
+    linear-gradient(180deg,#fff 0%, #fdfcfb 60%, var(--veil) 100%),
+    /* tekstil – çok ince çapraz dokuma */
+    repeating-linear-gradient(135deg, color-mix(in oklab,var(--accent) 6%, transparent) 0 2px, transparent 2px 6px),
+    repeating-linear-gradient(45deg,  color-mix(in oklab,var(--accent) 4%, transparent) 0 2px, transparent 2px 6px);
+  background-blend-mode:normal, multiply, multiply;
+  border-bottom:1px solid var(--ring);
+}
+.service.textile-wallcovering .svc-hero .crumbs{
+  margin-bottom:clamp(10px,1.5vw,16px);
+  font-size:.92rem; color:#6b7280;
+}
+.service.textile-wallcovering .svc-hero .crumbs a{
+  color:inherit; text-decoration:none; border-bottom:1px dashed rgba(107,114,128,.35);
+}
+.service.textile-wallcovering .svc-hero .crumbs a:hover{ color:var(--accent-2); border-bottom-color: currentColor; }
+
+.service.textile-wallcovering .hero__media{ margin-top:clamp(16px,3vw,28px); }
+.service.textile-wallcovering .hero__media picture,
+.service.textile-wallcovering .hero__media img{
+  display:block; width:100%; height: 70%; border-radius:var(--radius-lg); box-shadow:var(--shadow-lg);
+}
+.service.textile-wallcovering .hero__media img{
+  /* üst kenarda yumuşak maske */
+  mask-image: radial-gradient(120% 120% at 50% 10%, #000 60%, transparent 100%);
+}
+
+/* ---------- USP / Öne Çıkanlar ---------- */
+.service.textile-wallcovering .svc-features{
+  padding:clamp(28px,4.8vw,72px) 0;
+  background: linear-gradient(180deg,#fff 0%, #fff 35%, #fbf8f4 100%);
+  border-bottom:1px solid var(--ring);
+}
+.service.textile-wallcovering .feature{
+  background: var(--surface);
+  border:1px solid var(--ring);
+  border-radius:var(--radius);
+  padding:clamp(14px,2.2vw,18px);
+  box-shadow:var(--shadow-sm);
+  transition: transform .06s ease, box-shadow .25s ease, border-color .2s ease;
+  position:relative; isolation:isolate;
+}
+.service.textile-wallcovering .feature::after{
+  /* kart içinde çok hafif tekstil doku */
+  content:""; position:absolute; inset:0; pointer-events:none; opacity:.25; border-radius:inherit;
+  background:
+    repeating-linear-gradient(90deg,  #0001 0 1px, #0000 1px 3px),
+    repeating-linear-gradient(0deg,   #0001 0 1px, #0000 1px 3px);
+  mix-blend-mode:multiply;
+}
+.service.textile-wallcovering .feature:hover{
+  transform:translateY(-1px);
+  border-color:var(--ring-strong);
+  box-shadow:var(--shadow-md);
+}
+.service.textile-wallcovering .feature__icon{
+  width:42px; height:42px; display:grid; place-items:center;
+  border-radius:12px;
+  background: linear-gradient(180deg, color-mix(in oklab,var(--accent) 14%, #fff) 0%, #fff 100%);
+  box-shadow: inset 0 1px 0 #fff9, 0 6px 20px rgba(156,135,114,.18);
+  margin-bottom:.6rem; font-size:1.15rem;
+}
+.service.textile-wallcovering .feature h3{
+  margin:.25rem 0 .35rem; font-size:1.03rem; font-weight:800; letter-spacing:-.01em; color:var(--ink);
+}
+.service.textile-wallcovering .feature p{ color:var(--muted); }
+
+/* ---------- Nerelerde Kullanılır? ---------- */
+.service.textile-wallcovering .svc-surfaces{
+  padding:clamp(28px,4.8vw,72px) 0;
+  background: linear-gradient(180deg,#fff 0%, #fff 55%, #f7f5f2 100%);
+  border-bottom:1px solid var(--ring);
+}
+.service.textile-wallcovering .svc-surfaces article{
+  background:#fff; border:1px solid var(--ring); border-radius:var(--radius);
+  padding:clamp(14px,2.2vw,18px); box-shadow:var(--shadow-sm);
+}
+.service.textile-wallcovering .svc-surfaces h3{
+  margin:.1rem 0 .4rem; font-size:1.04rem; font-weight:900; color:var(--ink); letter-spacing:-.01em;
+}
+.service.textile-wallcovering .svc-surfaces em{ font-style:normal; font-weight:800; color:color-mix(in oklab,var(--accent) 65%, #334155); }
+
+/* ---------- Malzeme Türleri (Cards) ---------- */
+.service.textile-wallcovering .svc-types{
+  padding:clamp(28px,4.8vw,72px) 0;
+  background:
+    radial-gradient(900px 380px at 95% -8%, color-mix(in oklab, var(--accent) 10%, transparent) 0%, transparent 60%),
+    linear-gradient(180deg,#fff 0%, #fafafa 100%);
+  border-top:1px solid var(--ring);
+  border-bottom:1px solid var(--ring);
+}
+.service.textile-wallcovering .svc-types .card{
+  border:1px solid var(--ring); border-radius:var(--radius); background:#fff;
+  padding:clamp(14px,2.2vw,18px); box-shadow:var(--shadow-sm);
+  transition: box-shadow .25s ease, border-color .2s ease, transform .06s ease;
+  position:relative; overflow:hidden;
+}
+.service.textile-wallcovering .svc-types .card::before{
+  content:""; position:absolute; inset:0 0 auto 0; height:4px;
+  background: linear-gradient(90deg, color-mix(in oklab,var(--accent) 85%, #000) 0%, color-mix(in oklab,var(--accent) 55%, #fff) 100%);
+}
+.service.textile-wallcovering .svc-types .card:hover{ transform:translateY(-1px); border-color:var(--ring-strong); box-shadow:var(--shadow-md); }
+.service.textile-wallcovering .card__title{ font-size:1.02rem; font-weight:900; letter-spacing:-.01em; color:var(--ink); margin:0 0 .25rem; }
+
+/* Tick list */
+.service.textile-wallcovering .list{ list-style:none; padding:0; margin:0; display:grid; gap:.55rem; }
+.service.textile-wallcovering .list li{
+  display:grid; grid-template-columns:18px 1fr; gap:.55rem; align-items:start; color:#374151;
+}
+.service.textile-wallcovering .list li::before{
+  content:""; width:12px; height:12px; margin-top:.38rem; border-radius:3px;
+  background: color-mix(in oklab, var(--accent) 18%, #fff);
+  border:2px solid color-mix(in oklab, var(--accent) 65%, #111);
+}
+
+/* ---------- Teknik Özellikler (Definition Lists) ---------- */
+.service.textile-wallcovering .svc-tech{
+  padding:clamp(28px,4.8vw,72px) 0;
+  background:
+    radial-gradient(1000px 420px at 8% -10%, color-mix(in oklab,var(--accent) 10%, transparent) 0%, transparent 60%),
+    linear-gradient(180deg,#fff 0%, #fafafa 100%);
+  border-top:1px solid var(--ring);
+  border-bottom:1px solid var(--ring);
+}
+.service.textile-wallcovering .svc-tech .grid{ grid-template-columns:1fr; }
+@media (min-width: 900px){ .service.textile-wallcovering .svc-tech .grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+.service.textile-wallcovering .deflist{
+  display:grid; gap:.65rem;
+  background:#fff; border:1px solid var(--ring); border-radius:var(--radius);
+  padding:clamp(14px,2.2vw,18px); box-shadow:var(--shadow-sm);
+}
+.service.textile-wallcovering .deflist > div{
+  display:grid; grid-template-columns: 1fr auto; gap:.6rem; align-items:center;
+  border-bottom:1px dashed rgba(15,23,42,.08); padding-bottom:.55rem;
+}
+.service.textile-wallcovering .deflist > div:last-child{ border-bottom:none; padding-bottom:0; }
+.service.textile-wallcovering dt{ font-weight:800; color:#111827; letter-spacing:-.01em; }
+.service.textile-wallcovering dd{ margin:0; color:#374151; }
+
+/* ---------- Süreç (Steps) ---------- */
+.service.textile-wallcovering .svc-process{ padding:clamp(28px,4.8vw,72px) 0; background:#fff; }
+.service.textile-wallcovering .steps{ list-style:none; margin:0; padding:0; display:grid; gap:clamp(12px,2vw,16px); grid-template-columns:1fr; }
+@media (min-width: 900px){ .service.textile-wallcovering .steps{ grid-template-columns:repeat(5,minmax(0,1fr)); } }
+.service.textile-wallcovering .step{
+  position:relative; background:#fff; border:1px solid var(--ring); border-radius:var(--radius);
+  padding:clamp(14px,2.2vw,18px); box-shadow:var(--shadow-sm);
+  transition: box-shadow .25s ease, transform .06s ease, border-color .2s ease;
+}
+.service.textile-wallcovering .step:hover{ transform:translateY(-1px); border-color:var(--ring-strong); box-shadow:var(--shadow-md); }
+.service.textile-wallcovering .step::before{
+  content: attr(data-step);
+  position:absolute; top:-12px; left:14px;
+  width:28px; height:28px; display:grid; place-items:center;
+  font-weight:900; font-size:.9rem; color:#111827;
+  background: linear-gradient(180deg, color-mix(in oklab,var(--accent) 26%, #fff) 0%, #fff 100%);
+  border:1px solid var(--ring-strong); border-radius:10px; box-shadow: 0 6px 18px rgba(156,135,114,.2);
+}
+.service.textile-wallcovering .step__title{
+  margin:.35rem 0 .35rem; font-size:1rem; font-weight:900; letter-spacing:-.01em; color:var(--ink);
+}
+.service.textile-wallcovering .step__text{ color:#374151; }
+
+/* ---------- Projeler (Gallery) + Lightbox ---------- */
+.service.textile-wallcovering .svc-projects{
+  padding:clamp(28px,4.8vw,72px) 0;
+  background: linear-gradient(180deg,#fff 0%, #fff 40%, #faf7f3 100%);
+  border-top:1px solid var(--ring); border-bottom:1px solid var(--ring);
+}
+.service.textile-wallcovering .project{
+  background:#fff; border:1px solid var(--ring); border-radius:var(--radius);
+  overflow:hidden; box-shadow:var(--shadow-sm);
+  transition: box-shadow .25s ease, transform .08s ease, border-color .2s ease;
+}
+.service.textile-wallcovering .project:hover{ transform:translateY(-1px); border-color:var(--ring-strong); box-shadow:var(--shadow-md); }
+.service.textile-wallcovering .project img{ display:block; width:100%; height: fit-content; aspect-ratio:16/9; object-fit:cover; }
+.service.textile-wallcovering .project a{ display:block; position:relative; }
+.service.textile-wallcovering .project a::after{
+  content:""; position:absolute; inset:0; opacity:0; transition:opacity .25s ease;
+  background: linear-gradient(180deg, #0000 0%, rgba(0,0,0,.06) 100%);
+}
+.service.textile-wallcovering .project:hover a::after{ opacity:1; }
+.service.textile-wallcovering .project figcaption{
+  padding:.7rem .9rem; font-size:.95rem; color:#374151;
+  border-top:1px solid var(--ring); background:#fff;
+}
+
+/* Lightbox (scope içinde) */
+.service.textile-wallcovering .lightbox{
+  border:none; padding:0; width:min(92vw, 980px);
+  border-radius:18px; box-shadow:0 40px 120px rgba(0,0,0,.35);
+  background:#0b0f19; color:#e5e7eb;
+}
+.service.textile-wallcovering .lightbox__img{ display:block; width:100%; height:auto; border-radius:18px 18px 0 0; }
+.service.textile-wallcovering .lightbox__close{
+  position:absolute; top:10px; right:10px; width:36px; height:36px; border-radius:10px;
+  background:#ffffff12; color:#fff; border:1px solid #ffffff26; cursor:pointer;
+}
+.service.textile-wallcovering .lightbox__close:hover{ background:#ffffff22; }
+
+/* ---------- Fiyatı Ne Belirler? ---------- */
+.service.textile-wallcovering .svc-pricing-notes{ padding:clamp(28px,4.8vw,72px) 0; background:#fff; }
+.service.textile-wallcovering .svc-pricing-notes .grid{ grid-template-columns:1fr; }
+@media (min-width: 900px){ .service.textile-wallcovering .svc-pricing-notes .grid{ grid-template-columns:1fr 1fr; align-items:start; } }
+.service.textile-wallcovering .svc-pricing-notes .list{
+  background:#fff; border:1px solid var(--ring); border-radius:var(--radius);
+  padding:clamp(14px,2.2vw,18px); box-shadow:var(--shadow-sm);
+}
+.service.textile-wallcovering .svc-pricing-notes .note{
+  background:
+    linear-gradient(180deg,#fff 0%, #faf8f5 100%),
+    radial-gradient(600px 240px at 8% -25%, color-mix(in oklab,var(--accent) 12%, transparent) 0%, transparent 70%);
+  border:1px solid var(--ring); border-radius:var(--radius);
+  padding:clamp(14px,2.2vw,18px); box-shadow:var(--shadow-sm);
+}
+.service.textile-wallcovering .svc-pricing-notes .muted{ color:var(--muted); }
+.service.textile-wallcovering .svc-pricing-notes strong{ color: color-mix(in oklab,var(--accent) 70%, #1f2937); }
+
+/* ---------- SSS (Accordion) ---------- */
+.service.textile-wallcovering .svc-faq{
+  padding:clamp(28px,4.8vw,72px) 0;
+  background: linear-gradient(180deg,#fff 0%, #f7f5f2 100%);
+  border-top:1px solid var(--ring); border-bottom:1px solid var(--ring);
+}
+.service.textile-wallcovering .accordion{ display:grid; gap:.65rem; }
+.service.textile-wallcovering .accordion__item{
+  border:1px solid var(--ring); border-radius:var(--radius); background:#fff; overflow:hidden;
+  box-shadow:var(--shadow-sm);
+}
+.service.textile-wallcovering .accordion__item > summary{
+  cursor:pointer; list-style:none; padding:.9rem 1rem; font-weight:800; color:#111827; letter-spacing:-.01em;
+}
+.service.textile-wallcovering .accordion__item > summary::-webkit-details-marker{ display:none; }
+.service.textile-wallcovering .accordion__item > summary::after{
+  content:"+"; float:right; color:#6b7280; transition:transform .25s ease;
+}
+.service.textile-wallcovering .accordion__item[open] > summary::after{ content:"–"; transform:rotate(180deg); }
+.service.textile-wallcovering .accordion__panel{ padding:0 1rem 1rem; color:#374151; border-top:1px dashed rgba(15,23,42,.08); }
+
+/* ---------- İlgili Hizmetler / Bölgeler / CTA ---------- */
+.service.textile-wallcovering .svc-related,
+.service.textile-wallcovering .svc-areas,
+.service.textile-wallcovering .svc-cta{
+  padding:clamp(28px,4.8vw,72px) 0; background:#fff;
+}
+.service.textile-wallcovering .svc-related .card{
+  border:1px solid var(--ring); border-radius:var(--radius); background:#fff;
+  overflow:hidden; box-shadow:var(--shadow-sm);
+  transition: transform .06s ease, box-shadow .25s ease, border-color .2s ease;
+}
+.service.textile-wallcovering .svc-related .card:hover{ transform:translateY(-1px); border-color:var(--ring-strong); box-shadow:var(--shadow-md); }
+.service.textile-wallcovering .svc-related .card__media img{ display:block; width:100%; aspect-ratio:16/9; object-fit:cover; }
+.service.textile-wallcovering .svc-related .card__title{ padding:.75rem .9rem; font-size:1rem; }
+.service.textile-wallcovering .svc-related .card__title a{ color:#111827; text-decoration:none; border-bottom:1px solid transparent; }
+.service.textile-wallcovering .svc-related .card__title a:hover{ border-bottom-color:var(--accent-2); color:var(--accent-2); }
+
+.service.textile-wallcovering .chips{ display:flex; flex-wrap:wrap; gap:.5rem; padding:0; list-style:none; }
+.service.textile-wallcovering .chip{
+  display:inline-flex; align-items:center; gap:.4rem;
+  padding:.4rem .7rem; border-radius:999px; font-size:.92rem;
+  background: color-mix(in oklab, var(--accent) 10%, #fff);
+  border:1px solid var(--ring); color:#374151; text-decoration:none;
+}
+.service.textile-wallcovering .chip:hover{ border-color:var(--ring-strong); color:#111827; }
+
+.service.textile-wallcovering .svc-cta{
+  background:
+    radial-gradient(1000px 380px at 85% -10%, color-mix(in oklab,var(--accent) 16%, transparent) 0%, transparent 60%),
+    linear-gradient(180deg,#fff 0%, #faf8f5 100%);
+  border-top:1px solid var(--ring);
+}
+.service.textile-wallcovering .cta__inner{
+  display:grid; gap:clamp(12px,2vw,18px); grid-template-columns:1fr; align-items:center;
+  padding:clamp(14px,2.2vw,18px);
+  border:1px solid var(--ring); border-radius:var(--radius-lg); background:#fff; box-shadow:var(--shadow-sm);
+}
+@media (min-width: 920px){ .service.textile-wallcovering .cta__inner{ grid-template-columns:1fr auto; } }
+.service.textile-wallcovering .cta__actions{ display:flex; gap:.6rem; flex-wrap:wrap; }
+
+/* ---------- Buttons (sayfaya özel accent) ---------- */
+.service.textile-wallcovering .btn{ border-radius:12px; font-weight:800; letter-spacing:-.01em; }
+.service.textile-wallcovering .btn.btn--primary{
+  background: linear-gradient(180deg, color-mix(in oklab,var(--accent) 72%, #fff) 0%, color-mix(in oklab,var(--accent) 86%, #ddd) 100%);
+  color:#fff; border:1px solid color-mix(in oklab,var(--accent) 80%, #000);
+  box-shadow: 0 10px 26px rgba(156,135,114,.28);
+}
+.service.textile-wallcovering .btn.btn--primary:hover{ filter:brightness(1.02); transform:translateY(-1px); }
+.service.textile-wallcovering .btn.btn--ghost{ background:#fff; color:#111827; border:1px solid var(--ring); }
+.service.textile-wallcovering .btn.btn--ghost:hover{ border-color:var(--ring-strong); }
+
+/* ---------- Erişilebilirlik & Durumlar ---------- */
+.service.textile-wallcovering a:focus-visible,
+.service.textile-wallcovering button:focus-visible,
+.service.textile-wallcovering .chip:focus-visible{
+  outline:none;
+  box-shadow:0 0 0 3px color-mix(in oklab, var(--accent) 28%, transparent);
+  border-color: color-mix(in oklab, var(--accent) 55%, var(--ring-strong));
+  transition:box-shadow .05s ease;
+}
+
+/* OL numaralarını gizle (timeline) */
+.service.textile-wallcovering ol{ list-style:none; padding-left:0; }
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .service.textile-wallcovering *{ transition:none !important; }
+}
+/* Duvar Kumaşı — Hizmet teması (main.service.textile-wallcovering) */
+
+:root {
+  --svc-tx-hue: 260; /* tekstil-mor esintisi */
+  --svc-tx-bg: hsl(var(--svc-tx-hue) 30% 98%);
+  --svc-tx-ink: hsl(255 14% 16%);
+  --svc-tx-accent: hsl(260 70% 52%);
+  --svc-card: #fff;
+  --svc-radius: 14px;
+  --svc-gap: clamp(14px, 2vw, 22px);
+}
+
+main.service.textile-wallcovering { background: var(--svc-tx-bg); color: var(--svc-tx-ink); }
+
+/* Kart ve gridler */
+main.service.textile-wallcovering .features.grid,
+main.service.textile-wallcovering .grid--cards-3 { display:grid; gap: var(--svc-gap); grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); }
+main.service.textile-wallcovering .feature,
+main.service.textile-wallcovering .card { background: var(--svc-card); border:1px solid hsl(260 20% 90%); border-radius: var(--svc-radius); }
+
+/* Projeler */
+main.service.textile-wallcovering .project img { border-radius: 10px; }
+
+/* Steps */
+main.service.textile-wallcovering .step__title { color: var(--svc-tx-ink); }
+main.service.textile-wallcovering .step { background:#fff; }
+
+/* CTA */
+main.service.textile-wallcovering .btn--primary { background: var(--svc-tx-accent); border:none; }
+main.service.textile-wallcovering .btn--ghost { border-color: var(--svc-tx-accent); color: var(--svc-tx-accent); }
+/* breadcrumbs (glass) */
+.service .crumbs ol{
+  margin:0 0 .6rem; padding:.48rem .72rem; display:flex; flex-wrap:wrap; gap:.45rem .7rem; align-items:center;
+  border-radius:12px; background:rgba(255,255,255,.78); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  border:1px solid var(--ring); box-shadow:var(--shadow-sm);
+}
+.service .crumbs li{ list-style:none; display:flex; align-items:center; gap:.6rem; color:var(--muted-2); font-weight:700; }
+.service .crumbs li+li::before{ content:"›"; color:#9CA3AF; }
+.service .crumbs a{ color:inherit; text-decoration:none; }
+.service .crumbs a:hover{ text-decoration:underline; text-underline-offset:3px; }
