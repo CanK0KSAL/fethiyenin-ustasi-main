@@ -63,6 +63,9 @@ composer.lock
 .cache/
 .parcel-cache/
 
+# Python scripts (development tools)
+*.py
+
 # Documentation (opsiyonel - eğer docs klasörünü commit etmek istiyorsanız silin)
 # docs/
 
